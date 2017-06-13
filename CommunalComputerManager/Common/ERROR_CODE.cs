@@ -1,5 +1,5 @@
 ﻿// ReSharper disable InconsistentNaming
-namespace CommunalComputerManager
+namespace CommunalComputerManager.Common
 {
     public enum ERROR_CODE : uint
     {

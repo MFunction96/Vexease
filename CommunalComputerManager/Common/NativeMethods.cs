@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using Microsoft.Win32;
 
-namespace CommunalComputerManager
+namespace CommunalComputerManager.Common
 {
     internal static class NativeMethods
     {

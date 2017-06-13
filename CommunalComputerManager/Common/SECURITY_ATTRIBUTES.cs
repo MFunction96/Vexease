@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 // ReSharper disable InconsistentNaming
 
-namespace CommunalComputerManager
+namespace CommunalComputerManager.Common
 {
     [StructLayout(LayoutKind.Sequential)]
     public struct SECURITY_ATTRIBUTES

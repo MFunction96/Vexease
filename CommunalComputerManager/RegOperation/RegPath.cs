@@ -4,7 +4,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Xml;
 
-namespace CommunalComputerManager
+namespace CommunalComputerManager.RegOperation
 {
     /// <summary>
     /// 

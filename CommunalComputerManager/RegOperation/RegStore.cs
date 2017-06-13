@@ -2,7 +2,7 @@
 using System.Xml;
 using Microsoft.Win32;
 
-namespace CommunalComputerManager
+namespace CommunalComputerManager.RegOperation
 {
     /// <summary>
     /// 
