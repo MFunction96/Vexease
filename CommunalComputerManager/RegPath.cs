@@ -19,15 +19,15 @@ namespace CommunalComputerManager
         /// <summary>
         /// 
         /// </summary>
-        public uint HKey { get; }
+        public uint HKey { get; protected set; }
         /// <summary>
         /// 
         /// </summary>
-        public string LpSubKey { get; }
+        public string LpSubKey { get; protected set; }
         /// <summary>
         /// 
         /// </summary>
-        public string LpValueName { get; }
+        public string LpValueName { get; protected set; }
         /// <summary>
         /// 
         /// </summary>
@@ -66,11 +66,10 @@ namespace CommunalComputerManager
         /// <param name="skey"></param>
         protected void MidExport(XmlTextWriter writer, string skey = "12345678")
         {
-            writer.WriteStartElement("RegPath", Guid.ToString());
+            writer.WriteStartElement(nameof(RegPath), Guid.ToString());
             writer.WriteAttributeString("hkey", CryptStr.Encrypt(HKey.ToString(), skey));
             writer.WriteAttributeString("lpsubkey", CryptStr.Encrypt(LpSubKey, skey));
             writer.WriteAttributeString("lpvaluename", CryptStr.Encrypt(LpValueName, skey));
-            writer.WriteEndElement();
         }
         /// <summary>
         /// 
@@ -82,13 +81,16 @@ namespace CommunalComputerManager
         {
             try
             {
-                var writer =
-                    new XmlTextWriter(xmlFile, Encoding.GetEncoding("utf-8")) {Formatting = Formatting.Indented};
+                var writer = new XmlTextWriter(xmlFile, Encoding.GetEncoding("utf-8"))
+                {
+                    Formatting = Formatting.Indented
+                };
                 if (!File.Exists(xmlFile))
                 {
                     writer.WriteStartDocument();
                     writer.WriteStartElement("Registry");
                     MidExport(writer, sKey);
+                    writer.WriteEndElement();
                     writer.WriteFullEndElement();
                     writer.Close();
                 }
