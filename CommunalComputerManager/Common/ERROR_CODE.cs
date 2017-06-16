@@ -9,6 +9,7 @@ namespace CommunalComputerManager.Common
         ERROR_ACCESS_DENIED = 0x5,
         ERROR_INVALID_HANDLE = 0x6,
         ERROR_INVALID_PARAMETER = 0x57,
-        ERROR_NOACCESS = 0x3E6
+        ERROR_NOACCESS = 0x3E6,
+        ERROR_MORE_DATA = 0xEA
     }
 }

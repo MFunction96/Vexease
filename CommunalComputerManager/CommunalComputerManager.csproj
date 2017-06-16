@@ -74,6 +74,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\KEY_SAM_FLAG.cs" />
+    <Compile Include="Common\REG_ROOT_KEY.cs" />
     <Compile Include="CryptStr.cs" />
     <Compile Include="Common\ERROR_CODE.cs" />
     <Compile Include="Common\KEY_ACCESS_TYPE.cs" />

@@ -18,7 +18,12 @@ namespace CommunalComputerManager.RegOperation
         /// <summary>
         /// 
         /// </summary>
+        public uint LpSize { get; protected set; }
+        /// <summary>
+        /// 
+        /// </summary>
         public RegKey() { }
+
         /// <summary>
         /// 
         /// </summary>
@@ -27,28 +32,34 @@ namespace CommunalComputerManager.RegOperation
         /// <param name="lpValueName"></param>
         /// <param name="lpKind"></param>
         /// <param name="lpValue"></param>
+        /// <param name="lpSize"></param>
         public RegKey(
             UIntPtr hKey, 
             string lpSubKey, 
             string lpValueName = "", 
             RegistryValueKind lpKind = RegistryValueKind.None, 
-            object lpValue = null) :
+            object lpValue = null,
+            uint lpSize = 0) :
             base(hKey,lpSubKey,lpValueName)
         {
             LpKind = lpKind;
             LpValue = lpValue;
+            LpSize = lpSize;
         }
+
         /// <summary>
         /// 
         /// </summary>
         /// <param name="regPath"></param>
         /// <param name="lpKind"></param>
         /// <param name="lpValue"></param>
-        public RegKey(RegPath regPath, RegistryValueKind lpKind, object lpValue) :
+        /// <param name="lpSize"></param>
+        public RegKey(RegPath regPath, RegistryValueKind lpKind = RegistryValueKind.None, object lpValue = null, uint lpSize = 0) :
             base(regPath)
         {
             LpKind = lpKind;
             LpValue = lpValue;
+            LpSize = lpSize;
         }
         /// <summary>
         /// 
@@ -59,6 +70,7 @@ namespace CommunalComputerManager.RegOperation
         {
             LpKind = regKey.LpKind;
             LpValue = regKey.LpValue;
+            LpSize = regKey.LpSize;
         }
         /// <summary>
         /// 
@@ -71,6 +83,7 @@ namespace CommunalComputerManager.RegOperation
             base.MidExport(writer, name, skey);
             writer.WriteAttributeString("lpkind", CryptStr.Encrypt(LpKind.ToString(), skey));
             writer.WriteAttributeString("lpvalue", CryptStr.Encrypt(LpValue.ToString(), skey));
+            writer.WriteAttributeString("lpsize", CryptStr.Encrypt(LpSize.ToString(), skey));
         }
     }
 }

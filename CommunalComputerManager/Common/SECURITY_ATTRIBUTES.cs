@@ -8,7 +8,7 @@ namespace CommunalComputerManager.Common
     public struct SECURITY_ATTRIBUTES
     {
         private readonly uint nLength;
-        private readonly IntPtr lpSecurityDescriptor;
+        private readonly UIntPtr lpSecurityDescriptor;
         private readonly int bInheritHandle;
     }
 }

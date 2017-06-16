@@ -17,6 +17,7 @@ namespace CommunalComputerManager.RegOperation
         /// 
         /// </summary>
         public RegStore() { }
+
         /// <summary>
         /// 
         /// </summary>
@@ -25,6 +26,7 @@ namespace CommunalComputerManager.RegOperation
         /// <param name="lpValueName"></param>
         /// <param name="lpKind"></param>
         /// <param name="lpValue"></param>
+        /// <param name="lpSize"></param>
         /// <param name="isNull"></param>
         public RegStore(
             UIntPtr hKey,
@@ -32,24 +34,28 @@ namespace CommunalComputerManager.RegOperation
             string lpValueName = "",
             RegistryValueKind lpKind = RegistryValueKind.None,
             object lpValue = null,
+            uint lpSize = 0,
             bool isNull = true) :
-            base(hKey, lpSubKey, lpValueName, lpKind, lpValue)
+            base(hKey, lpSubKey, lpValueName, lpKind, lpValue, lpSize)
         {
             IsNull = isNull;
         }
+
         /// <summary>
         /// 
         /// </summary>
         /// <param name="regPath"></param>
         /// <param name="lpKind"></param>
         /// <param name="lpValue"></param>
+        /// <param name="lpSize"></param>
         /// <param name="isNull"></param>
         public RegStore(
             RegPath regPath,
             RegistryValueKind lpKind = RegistryValueKind.None,
             object lpValue = null,
+            uint lpSize = 0,
             bool isNull = true) :
-            base(regPath, lpKind, lpValue)
+            base(regPath, lpKind, lpValue, lpSize)
         {
             IsNull = isNull;
         }
@@ -68,7 +74,7 @@ namespace CommunalComputerManager.RegOperation
         /// </summary>
         /// <param name="regStore"></param>
         public RegStore(RegStore regStore) :
-            base(regStore.HKey, regStore.LpSubKey, regStore.LpValueName, regStore.LpKind, regStore.LpValue)
+            base(regStore.HKey, regStore.LpSubKey, regStore.LpValueName, regStore.LpKind, regStore.LpValue, regStore.LpSize)
         {
             IsNull = regStore.IsNull;
         }
