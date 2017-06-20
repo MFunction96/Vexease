@@ -94,6 +94,7 @@
     <Compile Include="RegOperation\RegPath.cs" />
     <Compile Include="RegOperation\RegStore.cs" />
     <Compile Include="Common\SECURITY_ATTRIBUTES.cs" />
+    <Compile Include="StatusMonitor\RegStatus.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

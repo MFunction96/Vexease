@@ -23,7 +23,6 @@ namespace CommunalComputerManager.RegOperation
         /// 
         /// </summary>
         public RegKey() { }
-
         /// <summary>
         /// 
         /// </summary>
@@ -34,19 +33,18 @@ namespace CommunalComputerManager.RegOperation
         /// <param name="lpValue"></param>
         /// <param name="lpSize"></param>
         public RegKey(
-            UIntPtr hKey, 
-            string lpSubKey, 
-            string lpValueName = "", 
-            RegistryValueKind lpKind = RegistryValueKind.None, 
+            UIntPtr hKey,
+            string lpSubKey,
+            string lpValueName = "",
+            RegistryValueKind lpKind = RegistryValueKind.Unknown,
             object lpValue = null,
             uint lpSize = 0) :
-            base(hKey,lpSubKey,lpValueName)
+            base(hKey, lpSubKey, lpValueName)
         {
             LpKind = lpKind;
             LpValue = lpValue;
             LpSize = lpSize;
         }
-
         /// <summary>
         /// 
         /// </summary>
@@ -54,7 +52,7 @@ namespace CommunalComputerManager.RegOperation
         /// <param name="lpKind"></param>
         /// <param name="lpValue"></param>
         /// <param name="lpSize"></param>
-        public RegKey(RegPath regPath, RegistryValueKind lpKind = RegistryValueKind.None, object lpValue = null, uint lpSize = 0) :
+        public RegKey(RegPath regPath, RegistryValueKind lpKind = RegistryValueKind.Unknown, object lpValue = null, uint lpSize = 0) :
             base(regPath)
         {
             LpKind = lpKind;
@@ -84,6 +82,14 @@ namespace CommunalComputerManager.RegOperation
             writer.WriteAttributeString("lpkind", CryptStr.Encrypt(LpKind.ToString(), skey));
             writer.WriteAttributeString("lpvalue", CryptStr.Encrypt(LpValue.ToString(), skey));
             writer.WriteAttributeString("lpsize", CryptStr.Encrypt(LpSize.ToString(), skey));
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public RegPath GetRegPath()
+        {
+            return new RegPath(HKey, LpSubKey, LpValueName);
         }
     }
 }

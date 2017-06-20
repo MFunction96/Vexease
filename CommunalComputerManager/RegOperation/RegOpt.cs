@@ -16,7 +16,6 @@ namespace CommunalComputerManager.RegOperation
         /// </summary>
         // ReSharper disable once InconsistentNaming
         private const uint REG_OPENED_EXISTING_KEY = 0x2;
-
         /// <summary>
         /// 
         /// </summary>
@@ -33,15 +32,15 @@ namespace CommunalComputerManager.RegOperation
                 if (Environment.Is64BitOperatingSystem)
                 {
                     reggetvaluetemp = NativeMethods.RegOpenKeyEx(regPath.HKey, regPath.LpSubKey, 0,
-                        (uint) Common.RegOpt.KEY_SAM_FLAG.KEY_WOW64_64KEY |
-                        (uint) Common.RegOpt.KEY_ACCESS_TYPE.KEY_READ, out phkresult);
+                        (uint)Common.RegOpt.KEY_SAM_FLAG.KEY_WOW64_64KEY |
+                        (uint)Common.RegOpt.KEY_ACCESS_TYPE.KEY_READ, out phkresult);
                 }
                 else
                 {
                     reggetvaluetemp = NativeMethods.RegOpenKeyEx(regPath.HKey, regPath.LpSubKey, 0,
-                        (uint) Common.RegOpt.KEY_ACCESS_TYPE.KEY_READ, out phkresult);
+                        (uint)Common.RegOpt.KEY_ACCESS_TYPE.KEY_READ, out phkresult);
                 }
-                if (reggetvaluetemp != (uint) ERROR_CODE.ERROR_SUCCESS)
+                if (reggetvaluetemp != (uint)ERROR_CODE.ERROR_SUCCESS)
                 {
                     throw new Exception(@"注册表打开失败");
                 }
@@ -55,7 +54,7 @@ namespace CommunalComputerManager.RegOperation
                 var lpdata = Marshal.AllocHGlobal((int)lpcbdata);
                 reggetvaluetemp = NativeMethods.RegQueryValueEx(phkresult, regPath.LpValueName, UIntPtr.Zero, out lpkind, lpdata, ref lpcbdata);
                 NativeMethods.RegCloseKey(phkresult);
-                if (reggetvaluetemp != (uint) ERROR_CODE.ERROR_SUCCESS)
+                if (reggetvaluetemp != (uint)ERROR_CODE.ERROR_SUCCESS)
                 {
                     throw new Exception(@"注册表读取异常");
                 }
@@ -108,7 +107,7 @@ namespace CommunalComputerManager.RegOperation
                 else
                 {
                     regsetvaluetmp = NativeMethods.RegCreateKeyEx(regKey.HKey, regKey.LpSubKey, 0u, null,
-                        (uint)Common.RegOpt.OPERATE_OPTION.REG_OPTION_NON_VOLATILE, 
+                        (uint)Common.RegOpt.OPERATE_OPTION.REG_OPTION_NON_VOLATILE,
                         (uint)Common.RegOpt.KEY_ACCESS_TYPE.KEY_READ |
                         (uint)Common.RegOpt.KEY_ACCESS_TYPE.KEY_WRITE, ref sa, out phkResult, out exists);
                 }
@@ -120,7 +119,7 @@ namespace CommunalComputerManager.RegOperation
                 uint lpcbdata;
                 if (regKey.LpKind == RegistryValueKind.String)
                 {
-                    lpcbdata = (uint)((string) regKey.LpValue).Length + 1 << 1;
+                    lpcbdata = (uint)((string)regKey.LpValue).Length + 1 << 1;
                     lpdata = Marshal.StringToHGlobalUni((string)regKey.LpValue);
                 }
                 else if (regKey.LpKind == RegistryValueKind.DWord)
@@ -163,7 +162,7 @@ namespace CommunalComputerManager.RegOperation
             {
                 regdelkeytmp = NativeMethods.RegDeleteKeyEx(regPath.HKey, regPath.LpSubKey,
                     (uint)Common.RegOpt.KEY_SAM_FLAG.KEY_WOW64_64KEY | (uint)Common.RegOpt.KEY_ACCESS_TYPE.KEY_ALL_ACCESS, 0u);
-                if (regdelkeytmp != (uint) ERROR_CODE.ERROR_SUCCESS)
+                if (regdelkeytmp != (uint)ERROR_CODE.ERROR_SUCCESS)
                 {
                     MessageBox.Show(@"注册表删除失败");
                 }

@@ -17,7 +17,6 @@ namespace CommunalComputerManager.RegOperation
         /// 
         /// </summary>
         public RegStore() { }
-
         /// <summary>
         /// 
         /// </summary>
@@ -32,7 +31,7 @@ namespace CommunalComputerManager.RegOperation
             UIntPtr hKey,
             string lpSubKey,
             string lpValueName = "",
-            RegistryValueKind lpKind = RegistryValueKind.None,
+            RegistryValueKind lpKind = RegistryValueKind.Unknown,
             object lpValue = null,
             uint lpSize = 0,
             bool isNull = true) :
@@ -40,7 +39,6 @@ namespace CommunalComputerManager.RegOperation
         {
             IsNull = isNull;
         }
-
         /// <summary>
         /// 
         /// </summary>
@@ -51,7 +49,7 @@ namespace CommunalComputerManager.RegOperation
         /// <param name="isNull"></param>
         public RegStore(
             RegPath regPath,
-            RegistryValueKind lpKind = RegistryValueKind.None,
+            RegistryValueKind lpKind = RegistryValueKind.Unknown,
             object lpValue = null,
             uint lpSize = 0,
             bool isNull = true) :
@@ -88,6 +86,14 @@ namespace CommunalComputerManager.RegOperation
         {
             base.MidExport(writer, name, skey);
             writer.WriteAttributeString("isnull", CryptStr.Encrypt(IsNull.ToString(), skey));
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public RegKey GetRegKey()
+        {
+            return new RegKey(GetRegPath(), LpKind, LpValue, LpSize);
         }
     }
 }

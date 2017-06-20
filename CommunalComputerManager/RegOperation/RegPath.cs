@@ -59,7 +59,6 @@ namespace CommunalComputerManager.RegOperation
             LpSubKey = regPath.LpSubKey;
             LpValueName = regPath.LpValueName;
         }
-
         /// <summary>
         /// 
         /// </summary>
