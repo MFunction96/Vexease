@@ -13,9 +13,9 @@ using Microsoft.Win32;
 
 namespace CommunalComputerManager
 {
-    public partial class MainForm : Form
+    public partial class Adm : Form
     {
-        public MainForm()
+        public Adm()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace CommunalComputerManager
 {
-    partial class MainForm
+    partial class Adm
     {
         /// <summary>
         /// 必需的设计器变量。
