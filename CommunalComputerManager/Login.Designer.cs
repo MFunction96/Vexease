@@ -39,6 +39,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(63, 71);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 15);
@@ -49,6 +50,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Location = new System.Drawing.Point(66, 144);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 15);
@@ -71,28 +73,35 @@
             // 
             // Login_btn_login
             // 
+            this.Login_btn_login.BackColor = System.Drawing.Color.Transparent;
+            this.Login_btn_login.BackgroundImage = global::CommunalComputerManager.Properties.Resources.half2;
+            this.Login_btn_login.Image = global::CommunalComputerManager.Properties.Resources.half2;
             this.Login_btn_login.Location = new System.Drawing.Point(116, 198);
             this.Login_btn_login.Name = "Login_btn_login";
             this.Login_btn_login.Size = new System.Drawing.Size(75, 23);
             this.Login_btn_login.TabIndex = 4;
             this.Login_btn_login.Text = "登录";
-            this.Login_btn_login.UseVisualStyleBackColor = true;
+            this.Login_btn_login.UseVisualStyleBackColor = false;
             this.Login_btn_login.Click += new System.EventHandler(this.Login_btn_login_Click);
             // 
             // Login_btn_cancal
             // 
+            this.Login_btn_cancal.BackColor = System.Drawing.Color.Transparent;
+            this.Login_btn_cancal.BackgroundImage = global::CommunalComputerManager.Properties.Resources.half2;
+            this.Login_btn_cancal.Image = global::CommunalComputerManager.Properties.Resources.half2;
             this.Login_btn_cancal.Location = new System.Drawing.Point(270, 198);
             this.Login_btn_cancal.Name = "Login_btn_cancal";
             this.Login_btn_cancal.Size = new System.Drawing.Size(75, 23);
             this.Login_btn_cancal.TabIndex = 5;
             this.Login_btn_cancal.Text = "取消";
-            this.Login_btn_cancal.UseVisualStyleBackColor = true;
+            this.Login_btn_cancal.UseVisualStyleBackColor = false;
             this.Login_btn_cancal.Click += new System.EventHandler(this.Login_btn_cancal_Click);
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::CommunalComputerManager.Properties.Resources.背景;
             this.ClientSize = new System.Drawing.Size(480, 253);
             this.Controls.Add(this.Login_btn_cancal);
             this.Controls.Add(this.Login_btn_login);
@@ -100,6 +109,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Name = "Login";
             this.Text = "Login";
             this.ResumeLayout(false);

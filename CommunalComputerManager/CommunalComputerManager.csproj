@@ -74,6 +74,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BandWList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BandWList.Designer.cs">
+      <DependentUpon>BandWList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Common\KEY_SAM_FLAG.cs" />
     <Compile Include="Common\REG_ROOT_KEY.cs" />
     <Compile Include="CryptStr.cs" />
@@ -93,6 +99,12 @@
     </Compile>
     <Compile Include="Common\NativeMethods.cs" />
     <Compile Include="Common\OPERATE_OPTION.cs" />
+    <Compile Include="myButtonCheck.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="myButtonCheck.Designer.cs">
+      <DependentUpon>myButtonCheck.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegOperation\RegKey.cs" />
@@ -100,6 +112,12 @@
     <Compile Include="RegOperation\RegPath.cs" />
     <Compile Include="RegOperation\RegStore.cs" />
     <Compile Include="Common\SECURITY_ATTRIBUTES.cs" />
+    <Compile Include="RequestEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RequestEdit.Designer.cs">
+      <DependentUpon>RequestEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="StatusMonitor\RegStatus.cs" />
     <Compile Include="User.cs">
       <SubType>Form</SubType>
@@ -107,11 +125,17 @@
     <Compile Include="User.Designer.cs">
       <DependentUpon>User.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BandWList.resx">
+      <DependentUpon>BandWList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Adm.resx">
       <DependentUpon>Adm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="myButtonCheck.resx">
+      <DependentUpon>myButtonCheck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -123,6 +147,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RequestEdit.resx">
+      <DependentUpon>RequestEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="User.resx">
       <DependentUpon>User.cs</DependentUpon>
     </EmbeddedResource>
@@ -146,6 +173,14 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\black.png" />
+    <Content Include="Resources\btn1.png" />
+    <Content Include="Resources\btn2.png" />
+    <None Include="Resources\half2.png" />
+    <None Include="Resources\half.png" />
+    <None Include="Resources\背景.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
