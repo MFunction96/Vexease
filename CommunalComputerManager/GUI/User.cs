@@ -18,7 +18,7 @@ namespace CommunalComputerManager
 
         private void user_switchongmode_Click(object sender, EventArgs e)
         {
-            Adm adm = new CommunalComputerManager.Adm();
+            Adm adm = new Adm();
             adm.Show();
             this.Close();
         }

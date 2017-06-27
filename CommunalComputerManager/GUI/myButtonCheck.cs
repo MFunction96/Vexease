@@ -67,33 +67,33 @@ namespace CommunalComputerManager
 
             if (checkStyle == CheckStyle.style1)
             {
-                bitMapOn = global::CommunalComputerManager.Properties.Resources.btn1;
-                bitMapOff = global::CommunalComputerManager.Properties.Resources.btn2;                
+                bitMapOn = Properties.Resources.btn1;
+                bitMapOff = Properties.Resources.btn2;                
             }
             else if (checkStyle == CheckStyle.style2)
             {
-                bitMapOn = global::CommunalComputerManager.Properties.Resources.btn1;
-                bitMapOff = global::CommunalComputerManager.Properties.Resources.btn1;                
+                bitMapOn = Properties.Resources.btn1;
+                bitMapOff = Properties.Resources.btn1;                
             }
             else if (checkStyle == CheckStyle.style3)
             {
-                bitMapOn = global::CommunalComputerManager.Properties.Resources.btn1;
-                bitMapOff = global::CommunalComputerManager.Properties.Resources.btn1;                
+                bitMapOn = Properties.Resources.btn1;
+                bitMapOff = Properties.Resources.btn1;                
             }
             else if (checkStyle == CheckStyle.style4)
             {
-                bitMapOn = global::CommunalComputerManager.Properties.Resources.btn1;
-                bitMapOff = global::CommunalComputerManager.Properties.Resources.btn1;                
+                bitMapOn = Properties.Resources.btn1;
+                bitMapOff =Properties.Resources.btn1;                
             }
             else if (checkStyle == CheckStyle.style5)
             {
-                bitMapOn = global::CommunalComputerManager.Properties.Resources.btn1;
-                bitMapOff = global::CommunalComputerManager.Properties.Resources.btn1;                
+                bitMapOn = Properties.Resources.btn1;
+                bitMapOff = Properties.Resources.btn1;                
             }
             else if (checkStyle == CheckStyle.style6)
             {
-                bitMapOn = global::CommunalComputerManager.Properties.Resources.btn1;
-                bitMapOff = global::CommunalComputerManager.Properties.Resources.btncheckoff6;
+                bitMapOn = Properties.Resources.btn1;
+                bitMapOff = Properties.Resources.btn2;
             }
 
             Graphics g = e.Graphics;
