@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.adm_pnl_logo = new System.Windows.Forms.Panel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.adm_btn_mainpanel = new System.Windows.Forms.Button();
             this.adm_btn_setIP = new System.Windows.Forms.Button();
@@ -101,15 +99,15 @@
             this.adm_powershell_default_state = new System.Windows.Forms.Label();
             this.adm_powershell_default = new System.Windows.Forms.Label();
             this.adm_powershell_now = new System.Windows.Forms.Label();
-            this.adm_logo = new System.Windows.Forms.Label();
-            this.adm_admname = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.adm_pnl_logo = new System.Windows.Forms.Panel();
             this.adm_exit = new System.Windows.Forms.Button();
+            this.adm_admname = new System.Windows.Forms.Label();
+            this.adm_logo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.adm_pnl_logo.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.adm_pnl_setIP.SuspendLayout();
             this.adm_pnl_about.SuspendLayout();
@@ -123,6 +121,8 @@
             this.adm_taskmanagerPnl.SuspendLayout();
             this.adm_commendindicaterPnl.SuspendLayout();
             this.adm_powershellPnl.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.adm_pnl_logo.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -142,32 +142,6 @@
             this.splitContainer1.Size = new System.Drawing.Size(980, 568);
             this.splitContainer1.SplitterDistance = 177;
             this.splitContainer1.TabIndex = 1;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.adm_pnl_logo, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(983, 80);
-            this.tableLayoutPanel1.TabIndex = 2;
-            // 
-            // adm_pnl_logo
-            // 
-            this.adm_pnl_logo.BackColor = System.Drawing.Color.Transparent;
-            this.adm_pnl_logo.BackgroundImage = global::CommunalComputerManager.Properties.Resources.black;
-            this.adm_pnl_logo.Controls.Add(this.adm_exit);
-            this.adm_pnl_logo.Controls.Add(this.adm_admname);
-            this.adm_pnl_logo.Controls.Add(this.adm_logo);
-            this.adm_pnl_logo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.adm_pnl_logo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.adm_pnl_logo.Location = new System.Drawing.Point(3, 3);
-            this.adm_pnl_logo.Name = "adm_pnl_logo";
-            this.adm_pnl_logo.Size = new System.Drawing.Size(977, 74);
-            this.adm_pnl_logo.TabIndex = 0;
             // 
             // flowLayoutPanel2
             // 
@@ -933,23 +907,31 @@
             this.adm_powershell_now.TabIndex = 2;
             this.adm_powershell_now.Text = "当前状态：";
             // 
-            // adm_logo
+            // tableLayoutPanel1
             // 
-            this.adm_logo.Location = new System.Drawing.Point(3, 0);
-            this.adm_logo.Name = "adm_logo";
-            this.adm_logo.Size = new System.Drawing.Size(152, 77);
-            this.adm_logo.TabIndex = 0;
-            this.adm_logo.Text = "logo";
-            this.adm_logo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.adm_pnl_logo, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(983, 80);
+            this.tableLayoutPanel1.TabIndex = 2;
             // 
-            // adm_admname
+            // adm_pnl_logo
             // 
-            this.adm_admname.AutoSize = true;
-            this.adm_admname.Location = new System.Drawing.Point(863, 16);
-            this.adm_admname.Name = "adm_admname";
-            this.adm_admname.Size = new System.Drawing.Size(91, 15);
-            this.adm_admname.TabIndex = 1;
-            this.adm_admname.Text = "用户名：0.0";
+            this.adm_pnl_logo.BackColor = System.Drawing.Color.Transparent;
+            this.adm_pnl_logo.BackgroundImage = global::CommunalComputerManager.Properties.Resources.black;
+            this.adm_pnl_logo.Controls.Add(this.adm_exit);
+            this.adm_pnl_logo.Controls.Add(this.adm_admname);
+            this.adm_pnl_logo.Controls.Add(this.adm_logo);
+            this.adm_pnl_logo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.adm_pnl_logo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.adm_pnl_logo.Location = new System.Drawing.Point(3, 3);
+            this.adm_pnl_logo.Name = "adm_pnl_logo";
+            this.adm_pnl_logo.Size = new System.Drawing.Size(977, 74);
+            this.adm_pnl_logo.TabIndex = 0;
             // 
             // adm_exit
             // 
@@ -962,6 +944,24 @@
             this.adm_exit.Text = "退出";
             this.adm_exit.UseVisualStyleBackColor = true;
             this.adm_exit.Click += new System.EventHandler(this.adm_exit_Click);
+            // 
+            // adm_admname
+            // 
+            this.adm_admname.AutoSize = true;
+            this.adm_admname.Location = new System.Drawing.Point(863, 16);
+            this.adm_admname.Name = "adm_admname";
+            this.adm_admname.Size = new System.Drawing.Size(91, 15);
+            this.adm_admname.TabIndex = 1;
+            this.adm_admname.Text = "用户名：0.0";
+            // 
+            // adm_logo
+            // 
+            this.adm_logo.Location = new System.Drawing.Point(3, 0);
+            this.adm_logo.Name = "adm_logo";
+            this.adm_logo.Size = new System.Drawing.Size(152, 77);
+            this.adm_logo.TabIndex = 0;
+            this.adm_logo.Text = "logo";
+            this.adm_logo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Adm
             // 
@@ -978,9 +978,6 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.adm_pnl_logo.ResumeLayout(false);
-            this.adm_pnl_logo.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.adm_pnl_setIP.ResumeLayout(false);
             this.adm_pnl_setIP.PerformLayout();
@@ -1003,6 +1000,9 @@
             this.adm_commendindicaterPnl.PerformLayout();
             this.adm_powershellPnl.ResumeLayout(false);
             this.adm_powershellPnl.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.adm_pnl_logo.ResumeLayout(false);
+            this.adm_pnl_logo.PerformLayout();
             this.ResumeLayout(false);
 
         }

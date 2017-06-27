@@ -74,10 +74,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BandWList.cs">
+    <Compile Include="GUI\BandWList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BandWList.Designer.cs">
+    <Compile Include="GUI\BandWList.Designer.cs">
       <DependentUpon>BandWList.cs</DependentUpon>
     </Compile>
     <Compile Include="Common\KEY_SAM_FLAG.cs" />
@@ -85,24 +85,24 @@
     <Compile Include="CryptStr.cs" />
     <Compile Include="Common\ERROR_CODE.cs" />
     <Compile Include="Common\KEY_ACCESS_TYPE.cs" />
-    <Compile Include="Login.cs">
+    <Compile Include="GUI\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
+    <Compile Include="GUI\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Adm.cs">
+    <Compile Include="GUI\Adm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Adm.Designer.cs">
+    <Compile Include="GUI\Adm.Designer.cs">
       <DependentUpon>Adm.cs</DependentUpon>
     </Compile>
     <Compile Include="Common\NativeMethods.cs" />
     <Compile Include="Common\OPERATE_OPTION.cs" />
-    <Compile Include="myButtonCheck.cs">
+    <Compile Include="GUI\myButtonCheck.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="myButtonCheck.Designer.cs">
+    <Compile Include="GUI\myButtonCheck.Designer.cs">
       <DependentUpon>myButtonCheck.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -112,29 +112,29 @@
     <Compile Include="RegOperation\RegPath.cs" />
     <Compile Include="RegOperation\RegStore.cs" />
     <Compile Include="Common\SECURITY_ATTRIBUTES.cs" />
-    <Compile Include="RequestEdit.cs">
+    <Compile Include="GUI\RequestEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RequestEdit.Designer.cs">
+    <Compile Include="GUI\RequestEdit.Designer.cs">
       <DependentUpon>RequestEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="StatusMonitor\RegStatus.cs" />
-    <Compile Include="User.cs">
+    <Compile Include="GUI\User.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="User.Designer.cs">
+    <Compile Include="GUI\User.Designer.cs">
       <DependentUpon>User.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="BandWList.resx">
+    <EmbeddedResource Include="GUI\BandWList.resx">
       <DependentUpon>BandWList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
+    <EmbeddedResource Include="GUI\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Adm.resx">
+    <EmbeddedResource Include="GUI\Adm.resx">
       <DependentUpon>Adm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="myButtonCheck.resx">
+    <EmbeddedResource Include="GUI\myButtonCheck.resx">
       <DependentUpon>myButtonCheck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -147,10 +147,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="RequestEdit.resx">
+    <EmbeddedResource Include="GUI\RequestEdit.resx">
       <DependentUpon>RequestEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User.resx">
+    <EmbeddedResource Include="GUI\User.resx">
       <DependentUpon>User.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\app.manifest" />

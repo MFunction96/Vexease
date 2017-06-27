@@ -37,13 +37,13 @@ namespace CommunalComputerManager
 
         private void adm_btn_changedefaultfile_Click(object sender, EventArgs e)
         {
-            RequestEdit requestedit = new RequestEdit;
+            RequestEdit requestedit = new RequestEdit();
             requestedit.Show();
         }
 
         private void adm_btn_changeBandWlist_Click(object sender, EventArgs e)
         {
-            BandWList bandwlist = new BandWList;
+            BandWList bandwlist = new BandWList();
             bandwlist.Show();
         }
 
