@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace CommunalComputerManager
+namespace CommunalComputerManager.Gui
 {
     public partial class RequestEdit : Form
     {

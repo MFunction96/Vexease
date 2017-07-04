@@ -1,4 +1,4 @@
-﻿namespace CommunalComputerManager
+﻿namespace CommunalComputerManager.Gui
 {
     partial class BandWList
     {
