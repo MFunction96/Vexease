@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Xml;
 using Microsoft.Win32;
+using CommunalComputerManager.Common;
 
 namespace CommunalComputerManager.RegOperation
 {

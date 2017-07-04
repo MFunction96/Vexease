@@ -13,7 +13,15 @@ namespace CommunalComputerManager
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Initial();
             Application.Run(new Adm());
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        private static void Initial()
+        {
+            
         }
     }
 }

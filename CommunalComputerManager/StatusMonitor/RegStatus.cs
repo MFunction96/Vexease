@@ -33,7 +33,7 @@ namespace CommunalComputerManager.StatusMonitor
         /// <summary>
         /// 
         /// </summary>
-        public void CheckStatus()
+        public bool CheckStatus()
         {
             RegOn = true;
             foreach (var reg in OnRegStores)
@@ -43,9 +43,10 @@ namespace CommunalComputerManager.StatusMonitor
                     reg.LpValue != tmp.LpValue)
                 {
                     RegOn = false;
-                    return;
+                    break;
                 }
             }
+            return RegOn;
         }
         /// <summary>
         /// 

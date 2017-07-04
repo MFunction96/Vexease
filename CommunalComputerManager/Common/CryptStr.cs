@@ -4,7 +4,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Web.Security;
 
-namespace CommunalComputerManager
+namespace CommunalComputerManager.Common
 {
     /// <summary>
     /// 
