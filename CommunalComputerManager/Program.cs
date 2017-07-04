@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using CommunalComputerManager.Gui;
 
 namespace CommunalComputerManager
 {
@@ -13,15 +14,7 @@ namespace CommunalComputerManager
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Initial();
-            Application.Run(new Adm());
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        private static void Initial()
-        {
-            
+            Application.Run(new User());
         }
     }
 }

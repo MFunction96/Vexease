@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace CommunalComputerManager
+namespace CommunalComputerManager.Gui
 {
     public partial class Login : Form
     {
@@ -15,16 +15,12 @@ namespace CommunalComputerManager
         {
             InitializeComponent();
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void Login_btn_login_Click(object sender, EventArgs e)
         {
-            User user = new User();
-            user.Show();
+            Adm adm = new Adm();
+            adm.Show();
             this.Close();
 
         }

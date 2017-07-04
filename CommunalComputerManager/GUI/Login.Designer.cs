@@ -1,4 +1,4 @@
-﻿namespace CommunalComputerManager
+﻿namespace CommunalComputerManager.Gui
 {
     partial class Login
     {
@@ -45,7 +45,7 @@
             this.label1.Size = new System.Drawing.Size(67, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "用户名：";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+           
             // 
             // label2
             // 

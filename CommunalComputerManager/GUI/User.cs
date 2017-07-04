@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace CommunalComputerManager
+namespace CommunalComputerManager.Gui
 {
     public partial class User : Form
     {
@@ -18,9 +18,11 @@ namespace CommunalComputerManager
 
         private void user_switchongmode_Click(object sender, EventArgs e)
         {
-            Adm adm = new Adm();
-            adm.Show();
-            this.Close();
+            this.Hide();
+            Login login = new Login();
+            login.Show();
+            
+            
         }
     }
 }
