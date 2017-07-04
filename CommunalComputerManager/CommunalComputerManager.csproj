@@ -118,6 +118,7 @@
     <Compile Include="Gui\RequestEdit.Designer.cs">
       <DependentUpon>RequestEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Startup.cs" />
     <Compile Include="StatusMonitor\RegStatus.cs" />
     <Compile Include="Gui\User.cs">
       <SubType>Form</SubType>

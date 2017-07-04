@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Specialized;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Windows.Forms;
 using CommunalComputerManager.Common;
 using Microsoft.Win32;
@@ -27,23 +29,7 @@ namespace CommunalComputerManager.RegOperation
             RegKey regkey;
             try
             {
-                UIntPtr phkresult;
-                uint reggetvaluetemp;
-                if (Environment.Is64BitOperatingSystem)
-                {
-                    reggetvaluetemp = NativeMethods.RegOpenKeyEx(regPath.HKey, regPath.LpSubKey, 0,
-                        (uint)Common.RegOpt.KEY_SAM_FLAG.KEY_WOW64_64KEY |
-                        (uint)Common.RegOpt.KEY_ACCESS_TYPE.KEY_READ, out phkresult);
-                }
-                else
-                {
-                    reggetvaluetemp = NativeMethods.RegOpenKeyEx(regPath.HKey, regPath.LpSubKey, 0,
-                        (uint)Common.RegOpt.KEY_ACCESS_TYPE.KEY_READ, out phkresult);
-                }
-                if (reggetvaluetemp != (uint)ERROR_CODE.ERROR_SUCCESS)
-                {
-                    throw new Exception(@"注册表打开失败");
-                }
+                var phkresult = RegOpenKey(regPath);
                 uint lpcbdata = 0;
                 NativeMethods.RegQueryValueEx(phkresult, regPath.LpValueName, UIntPtr.Zero, out RegistryValueKind lpkind, IntPtr.Zero, ref lpcbdata);
                 if (lpcbdata == 0)
@@ -52,7 +38,7 @@ namespace CommunalComputerManager.RegOperation
                     throw new Exception(@"无法获取缓冲区大小");
                 }
                 var lpdata = Marshal.AllocHGlobal((int)lpcbdata);
-                reggetvaluetemp = NativeMethods.RegQueryValueEx(phkresult, regPath.LpValueName, UIntPtr.Zero, out lpkind, lpdata, ref lpcbdata);
+                var reggetvaluetemp = NativeMethods.RegQueryValueEx(phkresult, regPath.LpValueName, UIntPtr.Zero, out lpkind, lpdata, ref lpcbdata);
                 NativeMethods.RegCloseKey(phkresult);
                 if (reggetvaluetemp != (uint)ERROR_CODE.ERROR_SUCCESS)
                 {
@@ -184,6 +170,68 @@ namespace CommunalComputerManager.RegOperation
                 }
                 NativeMethods.RegCloseKey(phkresult);
             }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="regPath"></param>
+        /// <returns></returns>
+        public static RegPath[] RegEnumName(RegPath regPath)
+        {
+            RegPath[] regpath;
+            try
+            {
+                uint index = 0, size = 1023;
+                var phkresult = RegOpenKey(regPath);
+                var sc = new StringCollection();
+                var sb = new StringBuilder(1024);
+                while (NativeMethods.RegEnumKeyEx(phkresult, index, sb, ref size, IntPtr.Zero, IntPtr.Zero,
+                           IntPtr.Zero, IntPtr.Zero) == (int)ERROR_CODE.ERROR_SUCCESS)
+                {
+                    index++;
+                    sc.Add(sb.ToString());
+                }
+                regpath = new RegPath[sc.Count];
+                var str = new string[sc.Count];
+                sc.CopyTo(str, 0);
+                Array.Sort(str);
+                for (var i = 0; i < str.Length; i++)
+                {
+                    regpath[i] = new RegPath(regPath.HKey, regPath.LpSubKey, str[i]);
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message + '\n' + e.StackTrace);
+                regpath = new RegPath[0];
+            }
+            return regpath;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="regPath"></param>
+        /// <returns></returns>
+        private static UIntPtr RegOpenKey(RegPath regPath)
+        {
+            uint regopenkeytmp;
+            UIntPtr phkresult;
+            if (Environment.Is64BitOperatingSystem)
+            {
+                regopenkeytmp = NativeMethods.RegOpenKeyEx(regPath.HKey, regPath.LpSubKey, 0,
+                    (uint)Common.RegOpt.KEY_SAM_FLAG.KEY_WOW64_64KEY |
+                    (uint)Common.RegOpt.KEY_ACCESS_TYPE.KEY_READ, out phkresult);
+            }
+            else
+            {
+                regopenkeytmp = NativeMethods.RegOpenKeyEx(regPath.HKey, regPath.LpSubKey, 0,
+                    (uint)Common.RegOpt.KEY_ACCESS_TYPE.KEY_READ, out phkresult);
+            }
+            if (regopenkeytmp != (uint)ERROR_CODE.ERROR_SUCCESS)
+            {
+                throw new Exception(@"注册表打开失败");
+            }
+            return phkresult;
         }
     }
 }
