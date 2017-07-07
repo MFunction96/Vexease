@@ -1,6 +1,6 @@
 ﻿namespace CommunalComputerManager.Gui
 {
-    partial class myButtonCheck
+    sealed partial class MyButtonCheck
     {
         /// <summary> 
         /// 必需的设计器变量。
@@ -30,12 +30,12 @@
         {
             this.SuspendLayout();
             // 
-            // myButtonCheck
+            // MyButtonCheck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "myButtonCheck";
-            this.Load += new System.EventHandler(this.myButtonCheck_Load);
+            this.Name = "MyButtonCheck";
+            this.Load += new System.EventHandler(this.MyButtonCheck_Load);
             this.ResumeLayout(false);
 
         }
