@@ -85,6 +85,12 @@
     <Compile Include="Common\CryptStr.cs" />
     <Compile Include="Common\ERROR_CODE.cs" />
     <Compile Include="Common\KEY_ACCESS_TYPE.cs" />
+    <Compile Include="Gui\TestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\TestForm.Designer.cs">
+      <DependentUpon>TestForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gui\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,11 +105,11 @@
     </Compile>
     <Compile Include="Common\NativeMethods.cs" />
     <Compile Include="Common\OPERATE_OPTION.cs" />
-    <Compile Include="Gui\myButtonCheck.cs">
+    <Compile Include="Gui\MyButtonCheck.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Gui\myButtonCheck.Designer.cs">
-      <DependentUpon>myButtonCheck.cs</DependentUpon>
+    <Compile Include="Gui\MyButtonCheck.Designer.cs">
+      <DependentUpon>MyButtonCheck.cs</DependentUpon>
     </Compile>
     <Compile Include="Monitor\CaptureDism.cs" />
     <Compile Include="Program.cs" />
@@ -130,14 +136,17 @@
     <EmbeddedResource Include="Gui\BandWList.resx">
       <DependentUpon>BandWList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Gui\TestForm.resx">
+      <DependentUpon>TestForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gui\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\Adm.resx">
       <DependentUpon>Adm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gui\myButtonCheck.resx">
-      <DependentUpon>myButtonCheck.cs</DependentUpon>
+    <EmbeddedResource Include="Gui\MyButtonCheck.resx">
+      <DependentUpon>MyButtonCheck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

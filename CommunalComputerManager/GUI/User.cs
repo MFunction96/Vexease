@@ -24,5 +24,18 @@ namespace CommunalComputerManager.Gui
             
             
         }
+
+        private void User_Text_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            TestForm testform=new TestForm();
+            testform.Show();
+
+        }
+
+        private void User_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

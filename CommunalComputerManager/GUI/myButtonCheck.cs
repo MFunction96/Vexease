@@ -1,63 +1,61 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
+
 using System.Windows.Forms;
+using static System.Windows.Forms.ControlStyles;
 
 namespace CommunalComputerManager.Gui
 {
     public enum CheckStyle
     {
-        style1 = 0,
-        style2 = 1,
-        style3 = 2,
-        style4 = 3,
-        style5 = 4,
-        style6 = 5
+        Style1 = 0,
+        Style2 = 1,
+        Style3 = 2,
+        Style4 = 3,
+        Style5 = 4,
+        Style6 = 5
     };
 
-    public partial class myButtonCheck : UserControl
+    public sealed partial class MyButtonCheck : UserControl
     {
-        public myButtonCheck()
+        public MyButtonCheck()
         {
             InitializeComponent();
 
             //设置Style支持透明背景色并且双缓冲
-            this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
-            this.SetStyle(ControlStyles.DoubleBuffer, true);
-            this.SetStyle(ControlStyles.ResizeRedraw, true);
-            this.SetStyle(ControlStyles.Selectable, true);
-            this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
-            this.SetStyle(ControlStyles.UserPaint, true);
-            this.BackColor = Color.Transparent;
+            SetStyle(AllPaintingInWmPaint, value: true);
+            SetStyle(DoubleBuffer, true);
+            SetStyle(ControlStyles.ResizeRedraw, true);
+            SetStyle(Selectable, true);
+            SetStyle(SupportsTransparentBackColor, true);
+            SetStyle(UserPaint, true);
+            BackColor = Color.Transparent;
 
-            this.Cursor = Cursors.Hand;
-            this.Size = new Size(87, 27);
+            Cursor = Cursors.Hand;
+            Size = new Size(87, 27);
         }
 
-        bool isCheck = false;
+        private bool _isCheck;
 
         /// <summary>
         /// 是否选中
         /// </summary>
         public bool Checked
         {
-            set { isCheck = value; this.Invalidate(); }
-            get { return isCheck; }
+            set { _isCheck = value; Invalidate(); }
+            get => _isCheck;
         }
 
-        CheckStyle checkStyle = CheckStyle.style1;
+        private CheckStyle _checkStyle = CheckStyle.Style1;
 
         /// <summary>
         /// 样式
         /// </summary>
         public CheckStyle CheckStyleX
         {
-            set { checkStyle = value; this.Invalidate(); }
-            get { return checkStyle; }
+            set { _checkStyle = value; Invalidate(); }
+            get => _checkStyle;
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -65,57 +63,57 @@ namespace CommunalComputerManager.Gui
             Bitmap bitMapOn = null;
             Bitmap bitMapOff = null;
 
-            if (checkStyle == CheckStyle.style1)
-            {
-                bitMapOn = Properties.Resources.btn1;
-                bitMapOff = Properties.Resources.btn2;                
-            }
-            else if (checkStyle == CheckStyle.style2)
-            {
-                bitMapOn = Properties.Resources.btn1;
-                bitMapOff = Properties.Resources.btn1;                
-            }
-            else if (checkStyle == CheckStyle.style3)
-            {
-                bitMapOn = Properties.Resources.btn1;
-                bitMapOff = Properties.Resources.btn1;                
-            }
-            else if (checkStyle == CheckStyle.style4)
-            {
-                bitMapOn = Properties.Resources.btn1;
-                bitMapOff =Properties.Resources.btn1;                
-            }
-            else if (checkStyle == CheckStyle.style5)
-            {
-                bitMapOn = Properties.Resources.btn1;
-                bitMapOff = Properties.Resources.btn1;                
-            }
-            else if (checkStyle == CheckStyle.style6)
+            if (_checkStyle == CheckStyle.Style1)
             {
                 bitMapOn = Properties.Resources.btn1;
                 bitMapOff = Properties.Resources.btn2;
             }
+            else if (_checkStyle == CheckStyle.Style2)
+            {
+                bitMapOn = Properties.Resources.btn1;
+                bitMapOff = Properties.Resources.btn2;
+            }
+            else if (_checkStyle == CheckStyle.Style3)
+            {
+                bitMapOn = Properties.Resources.btn1;
+                bitMapOff = Properties.Resources.btn2;
+            }
+            else if (_checkStyle == CheckStyle.Style4)
+            {
+                bitMapOn = Properties.Resources.btn1;
+                bitMapOff = Properties.Resources.btn2;
+            }
+            else if (_checkStyle == CheckStyle.Style5)
+            {
+                bitMapOn = Properties.Resources.btn1;
+                bitMapOff = Properties.Resources.btn2;
+            }
+            else if (_checkStyle == CheckStyle.Style6)
+            {
+                bitMapOn = Properties.Resources.btn1;
+                bitMapOff = Properties.Resources.btn1;
+            }
 
             Graphics g = e.Graphics;
-            Rectangle rec = new Rectangle(0, 0, this.Size.Width, this.Size.Height);
+            Rectangle rec = new Rectangle(0, 0, Size.Width, Size.Height);
 
-            if (isCheck)
+            if (_isCheck)
             {
-                g.DrawImage(bitMapOn, rec);
+                if (bitMapOn != null) g.DrawImage(bitMapOn, rec);
             }
             else
             {
-                g.DrawImage(bitMapOff, rec);
+                if (bitMapOff != null) g.DrawImage(bitMapOff, rec);
             }
         }
 
-        private void myButtonCheck_Click(object sender, EventArgs e)
+        private void MyButtonCheck_Click(object sender, EventArgs e)
         {
-            isCheck = !isCheck;
-            this.Invalidate();
+            _isCheck = !_isCheck;
+            Invalidate();
         }
 
-        private void myButtonCheck_Load(object sender, EventArgs e)
+        private void MyButtonCheck_Load(object sender, EventArgs e)
         {
 
         }

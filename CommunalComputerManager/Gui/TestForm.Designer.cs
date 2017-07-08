@@ -1,6 +1,6 @@
 ﻿namespace CommunalComputerManager.Gui
 {
-    partial class User
+    partial class TestForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.user_switchongmode = new System.Windows.Forms.Label();
             this.adm_consolePnl = new System.Windows.Forms.Panel();
             this.adm_console_now_state = new System.Windows.Forms.Label();
             this.adm_console = new System.Windows.Forms.Label();
@@ -89,7 +88,19 @@
             this.adm_powershell_default_state = new System.Windows.Forms.Label();
             this.adm_powershell_default = new System.Windows.Forms.Label();
             this.adm_powershell_now = new System.Windows.Forms.Label();
-            this.User_Text = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
             this.adm_consolePnl.SuspendLayout();
             this.adm_registryPnl.SuspendLayout();
             this.adm_schedulerPnl.SuspendLayout();
@@ -103,31 +114,20 @@
             this.adm_powershellPnl.SuspendLayout();
             this.SuspendLayout();
             // 
-            // user_switchongmode
-            // 
-            this.user_switchongmode.AutoSize = true;
-            this.user_switchongmode.BackColor = System.Drawing.Color.Transparent;
-            this.user_switchongmode.Location = new System.Drawing.Point(843, 529);
-            this.user_switchongmode.Name = "user_switchongmode";
-            this.user_switchongmode.Size = new System.Drawing.Size(127, 15);
-            this.user_switchongmode.TabIndex = 8;
-            this.user_switchongmode.Text = "切换至管理员模式";
-            this.user_switchongmode.Click += new System.EventHandler(this.user_switchongmode_Click);
-            // 
             // adm_consolePnl
             // 
             this.adm_consolePnl.BackColor = System.Drawing.Color.Transparent;
-            this.adm_consolePnl.BackgroundImage = global::CommunalComputerManager.Properties.Resources.half;
+            this.adm_consolePnl.Controls.Add(this.button6);
             this.adm_consolePnl.Controls.Add(this.adm_console_now_state);
             this.adm_consolePnl.Controls.Add(this.adm_console);
             this.adm_consolePnl.Controls.Add(this.adm_console_default_state);
             this.adm_consolePnl.Controls.Add(this.adm_console_default);
             this.adm_consolePnl.Controls.Add(this.adm_console_now);
-            this.adm_consolePnl.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.adm_consolePnl.Location = new System.Drawing.Point(98, 73);
+            this.adm_consolePnl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.adm_consolePnl.Location = new System.Drawing.Point(12, 12);
             this.adm_consolePnl.Name = "adm_consolePnl";
-            this.adm_consolePnl.Size = new System.Drawing.Size(192, 200);
-            this.adm_consolePnl.TabIndex = 22;
+            this.adm_consolePnl.Size = new System.Drawing.Size(192, 180);
+            this.adm_consolePnl.TabIndex = 30;
             // 
             // adm_console_now_state
             // 
@@ -177,17 +177,17 @@
             // adm_registryPnl
             // 
             this.adm_registryPnl.BackColor = System.Drawing.Color.Transparent;
-            this.adm_registryPnl.BackgroundImage = global::CommunalComputerManager.Properties.Resources.half;
+            this.adm_registryPnl.Controls.Add(this.button7);
             this.adm_registryPnl.Controls.Add(this.adm_registry_now_state);
             this.adm_registryPnl.Controls.Add(this.adm_registry);
             this.adm_registryPnl.Controls.Add(this.adm_registry_default_state);
             this.adm_registryPnl.Controls.Add(this.user_registry_default);
             this.adm_registryPnl.Controls.Add(this.adm_registry_now);
-            this.adm_registryPnl.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.adm_registryPnl.Location = new System.Drawing.Point(296, 73);
+            this.adm_registryPnl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.adm_registryPnl.Location = new System.Drawing.Point(210, 12);
             this.adm_registryPnl.Name = "adm_registryPnl";
-            this.adm_registryPnl.Size = new System.Drawing.Size(192, 200);
-            this.adm_registryPnl.TabIndex = 23;
+            this.adm_registryPnl.Size = new System.Drawing.Size(192, 180);
+            this.adm_registryPnl.TabIndex = 31;
             // 
             // adm_registry_now_state
             // 
@@ -237,17 +237,17 @@
             // adm_schedulerPnl
             // 
             this.adm_schedulerPnl.BackColor = System.Drawing.Color.Transparent;
-            this.adm_schedulerPnl.BackgroundImage = global::CommunalComputerManager.Properties.Resources.half;
+            this.adm_schedulerPnl.Controls.Add(this.button8);
             this.adm_schedulerPnl.Controls.Add(this.adm_scheduler_now_state);
             this.adm_schedulerPnl.Controls.Add(this.adm_scheduler);
             this.adm_schedulerPnl.Controls.Add(this.adm_scheduler_default_state);
             this.adm_schedulerPnl.Controls.Add(this.adm_scheduler_default);
             this.adm_schedulerPnl.Controls.Add(this.adm_scheduler_now);
-            this.adm_schedulerPnl.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.adm_schedulerPnl.Location = new System.Drawing.Point(494, 73);
+            this.adm_schedulerPnl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.adm_schedulerPnl.Location = new System.Drawing.Point(408, 12);
             this.adm_schedulerPnl.Name = "adm_schedulerPnl";
-            this.adm_schedulerPnl.Size = new System.Drawing.Size(192, 200);
-            this.adm_schedulerPnl.TabIndex = 24;
+            this.adm_schedulerPnl.Size = new System.Drawing.Size(192, 180);
+            this.adm_schedulerPnl.TabIndex = 32;
             // 
             // adm_scheduler_now_state
             // 
@@ -297,22 +297,23 @@
             // adm_conctrlpannelPnl
             // 
             this.adm_conctrlpannelPnl.BackColor = System.Drawing.Color.Transparent;
-            this.adm_conctrlpannelPnl.BackgroundImage = global::CommunalComputerManager.Properties.Resources.half;
+            this.adm_conctrlpannelPnl.Controls.Add(this.button9);
             this.adm_conctrlpannelPnl.Controls.Add(this.adm_conctrlpannel_now_state);
             this.adm_conctrlpannelPnl.Controls.Add(this.adm_conctrlpannel);
             this.adm_conctrlpannelPnl.Controls.Add(this.adm_conctrlpannel_default_state);
             this.adm_conctrlpannelPnl.Controls.Add(this.adm_conctrlpannel_default);
             this.adm_conctrlpannelPnl.Controls.Add(this.adm_conctrlpannel_now);
-            this.adm_conctrlpannelPnl.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.adm_conctrlpannelPnl.Location = new System.Drawing.Point(692, 73);
+            this.adm_conctrlpannelPnl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.adm_conctrlpannelPnl.Location = new System.Drawing.Point(606, 12);
             this.adm_conctrlpannelPnl.Name = "adm_conctrlpannelPnl";
-            this.adm_conctrlpannelPnl.Size = new System.Drawing.Size(192, 200);
-            this.adm_conctrlpannelPnl.TabIndex = 26;
+            this.adm_conctrlpannelPnl.Size = new System.Drawing.Size(192, 180);
+            this.adm_conctrlpannelPnl.TabIndex = 34;
+            this.adm_conctrlpannelPnl.Paint += new System.Windows.Forms.PaintEventHandler(this.adm_conctrlpannelPnl_Paint);
             // 
             // adm_conctrlpannel_now_state
             // 
             this.adm_conctrlpannel_now_state.AutoSize = true;
-            this.adm_conctrlpannel_now_state.Location = new System.Drawing.Point(110, 123);
+            this.adm_conctrlpannel_now_state.Location = new System.Drawing.Point(132, 121);
             this.adm_conctrlpannel_now_state.Name = "adm_conctrlpannel_now_state";
             this.adm_conctrlpannel_now_state.Size = new System.Drawing.Size(37, 15);
             this.adm_conctrlpannel_now_state.TabIndex = 4;
@@ -321,7 +322,7 @@
             // adm_conctrlpannel
             // 
             this.adm_conctrlpannel.AutoSize = true;
-            this.adm_conctrlpannel.Location = new System.Drawing.Point(53, 43);
+            this.adm_conctrlpannel.Location = new System.Drawing.Point(58, 41);
             this.adm_conctrlpannel.Name = "adm_conctrlpannel";
             this.adm_conctrlpannel.Size = new System.Drawing.Size(97, 15);
             this.adm_conctrlpannel.TabIndex = 0;
@@ -330,7 +331,7 @@
             // adm_conctrlpannel_default_state
             // 
             this.adm_conctrlpannel_default_state.AutoSize = true;
-            this.adm_conctrlpannel_default_state.Location = new System.Drawing.Point(110, 83);
+            this.adm_conctrlpannel_default_state.Location = new System.Drawing.Point(132, 81);
             this.adm_conctrlpannel_default_state.Name = "adm_conctrlpannel_default_state";
             this.adm_conctrlpannel_default_state.Size = new System.Drawing.Size(37, 15);
             this.adm_conctrlpannel_default_state.TabIndex = 3;
@@ -339,7 +340,7 @@
             // adm_conctrlpannel_default
             // 
             this.adm_conctrlpannel_default.AutoSize = true;
-            this.adm_conctrlpannel_default.Location = new System.Drawing.Point(7, 83);
+            this.adm_conctrlpannel_default.Location = new System.Drawing.Point(29, 81);
             this.adm_conctrlpannel_default.Name = "adm_conctrlpannel_default";
             this.adm_conctrlpannel_default.Size = new System.Drawing.Size(82, 15);
             this.adm_conctrlpannel_default.TabIndex = 1;
@@ -348,7 +349,7 @@
             // adm_conctrlpannel_now
             // 
             this.adm_conctrlpannel_now.AutoSize = true;
-            this.adm_conctrlpannel_now.Location = new System.Drawing.Point(7, 123);
+            this.adm_conctrlpannel_now.Location = new System.Drawing.Point(29, 121);
             this.adm_conctrlpannel_now.Name = "adm_conctrlpannel_now";
             this.adm_conctrlpannel_now.Size = new System.Drawing.Size(82, 15);
             this.adm_conctrlpannel_now.TabIndex = 2;
@@ -357,18 +358,18 @@
             // adm_toolsPnl
             // 
             this.adm_toolsPnl.BackColor = System.Drawing.Color.Transparent;
-            this.adm_toolsPnl.BackgroundImage = global::CommunalComputerManager.Properties.Resources.half;
+            this.adm_toolsPnl.Controls.Add(this.button10);
             this.adm_toolsPnl.Controls.Add(this.adm_pnl_setIP);
             this.adm_toolsPnl.Controls.Add(this.adm_tools_now_state);
             this.adm_toolsPnl.Controls.Add(this.adm_tools);
             this.adm_toolsPnl.Controls.Add(this.adm_tools_default_state);
             this.adm_toolsPnl.Controls.Add(this.adm_tools_default);
             this.adm_toolsPnl.Controls.Add(this.adm_tools_now);
-            this.adm_toolsPnl.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.adm_toolsPnl.Location = new System.Drawing.Point(98, 279);
+            this.adm_toolsPnl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.adm_toolsPnl.Location = new System.Drawing.Point(12, 218);
             this.adm_toolsPnl.Name = "adm_toolsPnl";
-            this.adm_toolsPnl.Size = new System.Drawing.Size(192, 200);
-            this.adm_toolsPnl.TabIndex = 25;
+            this.adm_toolsPnl.Size = new System.Drawing.Size(192, 180);
+            this.adm_toolsPnl.TabIndex = 33;
             // 
             // adm_pnl_setIP
             // 
@@ -505,7 +506,7 @@
             // adm_tools_now_state
             // 
             this.adm_tools_now_state.AutoSize = true;
-            this.adm_tools_now_state.Location = new System.Drawing.Point(109, 120);
+            this.adm_tools_now_state.Location = new System.Drawing.Point(121, 111);
             this.adm_tools_now_state.Name = "adm_tools_now_state";
             this.adm_tools_now_state.Size = new System.Drawing.Size(37, 15);
             this.adm_tools_now_state.TabIndex = 4;
@@ -514,7 +515,7 @@
             // adm_tools
             // 
             this.adm_tools.AutoSize = true;
-            this.adm_tools.Location = new System.Drawing.Point(49, 41);
+            this.adm_tools.Location = new System.Drawing.Point(41, 32);
             this.adm_tools.Name = "adm_tools";
             this.adm_tools.Size = new System.Drawing.Size(97, 15);
             this.adm_tools.TabIndex = 0;
@@ -523,7 +524,7 @@
             // adm_tools_default_state
             // 
             this.adm_tools_default_state.AutoSize = true;
-            this.adm_tools_default_state.Location = new System.Drawing.Point(109, 80);
+            this.adm_tools_default_state.Location = new System.Drawing.Point(121, 71);
             this.adm_tools_default_state.Name = "adm_tools_default_state";
             this.adm_tools_default_state.Size = new System.Drawing.Size(37, 15);
             this.adm_tools_default_state.TabIndex = 3;
@@ -532,7 +533,7 @@
             // adm_tools_default
             // 
             this.adm_tools_default.AutoSize = true;
-            this.adm_tools_default.Location = new System.Drawing.Point(6, 80);
+            this.adm_tools_default.Location = new System.Drawing.Point(18, 71);
             this.adm_tools_default.Name = "adm_tools_default";
             this.adm_tools_default.Size = new System.Drawing.Size(82, 15);
             this.adm_tools_default.TabIndex = 1;
@@ -541,7 +542,7 @@
             // adm_tools_now
             // 
             this.adm_tools_now.AutoSize = true;
-            this.adm_tools_now.Location = new System.Drawing.Point(6, 120);
+            this.adm_tools_now.Location = new System.Drawing.Point(18, 111);
             this.adm_tools_now.Name = "adm_tools_now";
             this.adm_tools_now.Size = new System.Drawing.Size(82, 15);
             this.adm_tools_now.TabIndex = 2;
@@ -550,22 +551,22 @@
             // adm_taskmanagerPnl
             // 
             this.adm_taskmanagerPnl.BackColor = System.Drawing.Color.Transparent;
-            this.adm_taskmanagerPnl.BackgroundImage = global::CommunalComputerManager.Properties.Resources.half;
+            this.adm_taskmanagerPnl.Controls.Add(this.button11);
             this.adm_taskmanagerPnl.Controls.Add(this.adm_taskmanager_now_state);
             this.adm_taskmanagerPnl.Controls.Add(this.adm_taskmanager);
             this.adm_taskmanagerPnl.Controls.Add(this.adm_taskmanager_default_state);
             this.adm_taskmanagerPnl.Controls.Add(this.adm_taskmanager_default);
             this.adm_taskmanagerPnl.Controls.Add(this.adm_taskmanager_now);
-            this.adm_taskmanagerPnl.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.adm_taskmanagerPnl.Location = new System.Drawing.Point(296, 279);
+            this.adm_taskmanagerPnl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.adm_taskmanagerPnl.Location = new System.Drawing.Point(210, 218);
             this.adm_taskmanagerPnl.Name = "adm_taskmanagerPnl";
-            this.adm_taskmanagerPnl.Size = new System.Drawing.Size(192, 200);
-            this.adm_taskmanagerPnl.TabIndex = 27;
+            this.adm_taskmanagerPnl.Size = new System.Drawing.Size(192, 180);
+            this.adm_taskmanagerPnl.TabIndex = 35;
             // 
             // adm_taskmanager_now_state
             // 
             this.adm_taskmanager_now_state.AutoSize = true;
-            this.adm_taskmanager_now_state.Location = new System.Drawing.Point(121, 120);
+            this.adm_taskmanager_now_state.Location = new System.Drawing.Point(133, 111);
             this.adm_taskmanager_now_state.Name = "adm_taskmanager_now_state";
             this.adm_taskmanager_now_state.Size = new System.Drawing.Size(37, 15);
             this.adm_taskmanager_now_state.TabIndex = 4;
@@ -574,7 +575,7 @@
             // adm_taskmanager
             // 
             this.adm_taskmanager.AutoSize = true;
-            this.adm_taskmanager.Location = new System.Drawing.Point(55, 41);
+            this.adm_taskmanager.Location = new System.Drawing.Point(42, 32);
             this.adm_taskmanager.Name = "adm_taskmanager";
             this.adm_taskmanager.Size = new System.Drawing.Size(112, 15);
             this.adm_taskmanager.TabIndex = 0;
@@ -583,7 +584,7 @@
             // adm_taskmanager_default_state
             // 
             this.adm_taskmanager_default_state.AutoSize = true;
-            this.adm_taskmanager_default_state.Location = new System.Drawing.Point(121, 80);
+            this.adm_taskmanager_default_state.Location = new System.Drawing.Point(133, 71);
             this.adm_taskmanager_default_state.Name = "adm_taskmanager_default_state";
             this.adm_taskmanager_default_state.Size = new System.Drawing.Size(37, 15);
             this.adm_taskmanager_default_state.TabIndex = 3;
@@ -592,7 +593,7 @@
             // adm_taskmanager_default
             // 
             this.adm_taskmanager_default.AutoSize = true;
-            this.adm_taskmanager_default.Location = new System.Drawing.Point(18, 80);
+            this.adm_taskmanager_default.Location = new System.Drawing.Point(30, 71);
             this.adm_taskmanager_default.Name = "adm_taskmanager_default";
             this.adm_taskmanager_default.Size = new System.Drawing.Size(82, 15);
             this.adm_taskmanager_default.TabIndex = 1;
@@ -601,7 +602,7 @@
             // adm_taskmanager_now
             // 
             this.adm_taskmanager_now.AutoSize = true;
-            this.adm_taskmanager_now.Location = new System.Drawing.Point(18, 120);
+            this.adm_taskmanager_now.Location = new System.Drawing.Point(30, 111);
             this.adm_taskmanager_now.Name = "adm_taskmanager_now";
             this.adm_taskmanager_now.Size = new System.Drawing.Size(82, 15);
             this.adm_taskmanager_now.TabIndex = 2;
@@ -610,22 +611,22 @@
             // adm_commendindicaterPnl
             // 
             this.adm_commendindicaterPnl.BackColor = System.Drawing.Color.Transparent;
-            this.adm_commendindicaterPnl.BackgroundImage = global::CommunalComputerManager.Properties.Resources.half;
+            this.adm_commendindicaterPnl.Controls.Add(this.button12);
             this.adm_commendindicaterPnl.Controls.Add(this.adm_commendindicater_now_state);
             this.adm_commendindicaterPnl.Controls.Add(this.adm_commendindicater);
             this.adm_commendindicaterPnl.Controls.Add(this.adm_commendindicater_default_state);
             this.adm_commendindicaterPnl.Controls.Add(this.adm_commendindicater_default);
             this.adm_commendindicaterPnl.Controls.Add(this.adm_commendindicater_now);
-            this.adm_commendindicaterPnl.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.adm_commendindicaterPnl.Location = new System.Drawing.Point(494, 279);
+            this.adm_commendindicaterPnl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.adm_commendindicaterPnl.Location = new System.Drawing.Point(408, 218);
             this.adm_commendindicaterPnl.Name = "adm_commendindicaterPnl";
-            this.adm_commendindicaterPnl.Size = new System.Drawing.Size(192, 200);
-            this.adm_commendindicaterPnl.TabIndex = 28;
+            this.adm_commendindicaterPnl.Size = new System.Drawing.Size(192, 180);
+            this.adm_commendindicaterPnl.TabIndex = 36;
             // 
             // adm_commendindicater_now_state
             // 
             this.adm_commendindicater_now_state.AutoSize = true;
-            this.adm_commendindicater_now_state.Location = new System.Drawing.Point(115, 111);
+            this.adm_commendindicater_now_state.Location = new System.Drawing.Point(125, 111);
             this.adm_commendindicater_now_state.Name = "adm_commendindicater_now_state";
             this.adm_commendindicater_now_state.Size = new System.Drawing.Size(37, 15);
             this.adm_commendindicater_now_state.TabIndex = 4;
@@ -643,7 +644,7 @@
             // adm_commendindicater_default_state
             // 
             this.adm_commendindicater_default_state.AutoSize = true;
-            this.adm_commendindicater_default_state.Location = new System.Drawing.Point(115, 71);
+            this.adm_commendindicater_default_state.Location = new System.Drawing.Point(125, 71);
             this.adm_commendindicater_default_state.Name = "adm_commendindicater_default_state";
             this.adm_commendindicater_default_state.Size = new System.Drawing.Size(37, 15);
             this.adm_commendindicater_default_state.TabIndex = 3;
@@ -652,7 +653,7 @@
             // adm_commendindicater_default
             // 
             this.adm_commendindicater_default.AutoSize = true;
-            this.adm_commendindicater_default.Location = new System.Drawing.Point(12, 71);
+            this.adm_commendindicater_default.Location = new System.Drawing.Point(22, 71);
             this.adm_commendindicater_default.Name = "adm_commendindicater_default";
             this.adm_commendindicater_default.Size = new System.Drawing.Size(82, 15);
             this.adm_commendindicater_default.TabIndex = 1;
@@ -661,7 +662,7 @@
             // adm_commendindicater_now
             // 
             this.adm_commendindicater_now.AutoSize = true;
-            this.adm_commendindicater_now.Location = new System.Drawing.Point(12, 111);
+            this.adm_commendindicater_now.Location = new System.Drawing.Point(22, 111);
             this.adm_commendindicater_now.Name = "adm_commendindicater_now";
             this.adm_commendindicater_now.Size = new System.Drawing.Size(82, 15);
             this.adm_commendindicater_now.TabIndex = 2;
@@ -670,22 +671,22 @@
             // adm_powershellPnl
             // 
             this.adm_powershellPnl.BackColor = System.Drawing.Color.Transparent;
-            this.adm_powershellPnl.BackgroundImage = global::CommunalComputerManager.Properties.Resources.half;
+            this.adm_powershellPnl.Controls.Add(this.button13);
             this.adm_powershellPnl.Controls.Add(this.adm_powershell_now_state);
             this.adm_powershellPnl.Controls.Add(this.adm_powershell);
             this.adm_powershellPnl.Controls.Add(this.adm_powershell_default_state);
             this.adm_powershellPnl.Controls.Add(this.adm_powershell_default);
             this.adm_powershellPnl.Controls.Add(this.adm_powershell_now);
-            this.adm_powershellPnl.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.adm_powershellPnl.Location = new System.Drawing.Point(692, 279);
+            this.adm_powershellPnl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.adm_powershellPnl.Location = new System.Drawing.Point(606, 218);
             this.adm_powershellPnl.Name = "adm_powershellPnl";
-            this.adm_powershellPnl.Size = new System.Drawing.Size(192, 200);
-            this.adm_powershellPnl.TabIndex = 29;
+            this.adm_powershellPnl.Size = new System.Drawing.Size(192, 180);
+            this.adm_powershellPnl.TabIndex = 37;
             // 
             // adm_powershell_now_state
             // 
             this.adm_powershell_now_state.AutoSize = true;
-            this.adm_powershell_now_state.Location = new System.Drawing.Point(110, 111);
+            this.adm_powershell_now_state.Location = new System.Drawing.Point(132, 111);
             this.adm_powershell_now_state.Name = "adm_powershell_now_state";
             this.adm_powershell_now_state.Size = new System.Drawing.Size(37, 15);
             this.adm_powershell_now_state.TabIndex = 4;
@@ -703,7 +704,7 @@
             // adm_powershell_default_state
             // 
             this.adm_powershell_default_state.AutoSize = true;
-            this.adm_powershell_default_state.Location = new System.Drawing.Point(110, 71);
+            this.adm_powershell_default_state.Location = new System.Drawing.Point(132, 71);
             this.adm_powershell_default_state.Name = "adm_powershell_default_state";
             this.adm_powershell_default_state.Size = new System.Drawing.Size(37, 15);
             this.adm_powershell_default_state.TabIndex = 3;
@@ -712,7 +713,7 @@
             // adm_powershell_default
             // 
             this.adm_powershell_default.AutoSize = true;
-            this.adm_powershell_default.Location = new System.Drawing.Point(7, 71);
+            this.adm_powershell_default.Location = new System.Drawing.Point(29, 71);
             this.adm_powershell_default.Name = "adm_powershell_default";
             this.adm_powershell_default.Size = new System.Drawing.Size(82, 15);
             this.adm_powershell_default.TabIndex = 1;
@@ -721,32 +722,140 @@
             // adm_powershell_now
             // 
             this.adm_powershell_now.AutoSize = true;
-            this.adm_powershell_now.Location = new System.Drawing.Point(7, 111);
+            this.adm_powershell_now.Location = new System.Drawing.Point(29, 111);
             this.adm_powershell_now.Name = "adm_powershell_now";
             this.adm_powershell_now.Size = new System.Drawing.Size(82, 15);
             this.adm_powershell_now.TabIndex = 2;
             this.adm_powershell_now.Text = "当前状态：";
             // 
-            // User_Text
+            // button1
             // 
-            this.User_Text.AutoSize = true;
-            this.User_Text.BackColor = System.Drawing.Color.Transparent;
-            this.User_Text.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.User_Text.Location = new System.Drawing.Point(858, 496);
-            this.User_Text.Name = "User_Text";
-            this.User_Text.Size = new System.Drawing.Size(112, 15);
-            this.User_Text.TabIndex = 30;
-            this.User_Text.Text = "切换至测试模式";
-            this.User_Text.Click += new System.EventHandler(this.User_Text_Click);
+            this.button1.Location = new System.Drawing.Point(797, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(195, 90);
+            this.button1.TabIndex = 38;
+            this.button1.Text = "锁C盘";
+            this.button1.UseVisualStyleBackColor = true;
             // 
-            // User
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(797, 102);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(195, 90);
+            this.button2.TabIndex = 39;
+            this.button2.Text = "锁全部";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(797, 305);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(195, 90);
+            this.button3.TabIndex = 40;
+            this.button3.Text = "更改黑白表";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(797, 218);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(195, 90);
+            this.button4.TabIndex = 41;
+            this.button4.Text = "更改默认文件";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(797, 456);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(195, 90);
+            this.button5.TabIndex = 42;
+            this.button5.Text = "关闭";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(44, 147);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(104, 30);
+            this.button6.TabIndex = 5;
+            this.button6.Text = "禁用/启用";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(45, 147);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(104, 30);
+            this.button7.TabIndex = 6;
+            this.button7.Text = "禁用/启用";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(47, 147);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(104, 30);
+            this.button8.TabIndex = 7;
+            this.button8.Text = "禁用/启用";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(51, 147);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(104, 30);
+            this.button9.TabIndex = 8;
+            this.button9.Text = "禁用/启用";
+            this.button9.UseVisualStyleBackColor = true;
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(44, 147);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(104, 30);
+            this.button10.TabIndex = 9;
+            this.button10.Text = "禁用/启用";
+            this.button10.UseVisualStyleBackColor = true;
+            // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(42, 147);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(104, 30);
+            this.button11.TabIndex = 10;
+            this.button11.Text = "禁用/启用";
+            this.button11.UseVisualStyleBackColor = true;
+            // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(47, 147);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(104, 30);
+            this.button12.TabIndex = 11;
+            this.button12.Text = "禁用/启用";
+            this.button12.UseVisualStyleBackColor = true;
+            // 
+            // button13
+            // 
+            this.button13.Location = new System.Drawing.Point(51, 147);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(104, 30);
+            this.button13.TabIndex = 12;
+            this.button13.Text = "禁用/启用";
+            this.button13.UseVisualStyleBackColor = true;
+            // 
+            // TestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::CommunalComputerManager.Properties.Resources.背景;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(982, 553);
-            this.Controls.Add(this.User_Text);
+            this.ClientSize = new System.Drawing.Size(999, 556);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.adm_consolePnl);
             this.Controls.Add(this.adm_registryPnl);
             this.Controls.Add(this.adm_schedulerPnl);
@@ -755,11 +864,9 @@
             this.Controls.Add(this.adm_taskmanagerPnl);
             this.Controls.Add(this.adm_commendindicaterPnl);
             this.Controls.Add(this.adm_powershellPnl);
-            this.Controls.Add(this.user_switchongmode);
-            this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Name = "User";
-            this.Text = "User";
-            this.Load += new System.EventHandler(this.User_Load);
+            this.Name = "TestForm";
+            this.Text = "TestForm";
+            this.Load += new System.EventHandler(this.TestForm_Load);
             this.adm_consolePnl.ResumeLayout(false);
             this.adm_consolePnl.PerformLayout();
             this.adm_registryPnl.ResumeLayout(false);
@@ -781,12 +888,11 @@
             this.adm_powershellPnl.ResumeLayout(false);
             this.adm_powershellPnl.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label user_switchongmode;
+
         private System.Windows.Forms.Panel adm_consolePnl;
         private System.Windows.Forms.Label adm_console_now_state;
         private System.Windows.Forms.Label adm_console;
@@ -847,6 +953,18 @@
         private System.Windows.Forms.Label adm_powershell_default_state;
         private System.Windows.Forms.Label adm_powershell_default;
         private System.Windows.Forms.Label adm_powershell_now;
-        private System.Windows.Forms.Label User_Text;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button button13;
     }
 }
