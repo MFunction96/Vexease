@@ -6,29 +6,34 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using CommunalComputerManager.Data;
 
 namespace CommunalComputerManager.Gui
 {
     public partial class User : Form
     {
+
+        public Collections RegCol { get; }
+
         public User()
         {
             InitializeComponent();
+            RegCol = new Collections();
         }
 
         private void user_switchongmode_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Login login = new Login();
+            Hide();
+            var login = new Login();
             login.Show();
-            
-            
+
+
         }
 
         private void User_Text_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            TestForm testform=new TestForm();
+            Hide();
+            var testform = new TestForm { RegCollections = RegCol };
             testform.Show();
 
         }

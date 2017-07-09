@@ -1,10 +1,67 @@
 ﻿using System;
 using System.Windows.Forms;
+using CommunalComputerManager.Data;
+using CommunalComputerManager.RegOperation;
+using CommunalComputerManager.StatusMonitor;
 
 namespace CommunalComputerManager.Gui
 {
     public partial class TestForm : Form
     {
+        private class Status : RegStatus
+        {
+
+            private readonly Label _tipLabel;
+
+            private readonly Button _swapButton;
+
+            public Status(RegStore[] onRegStores, RegStore[] offRegStores, Label tipLabel, Button swapButton) :
+                base(onRegStores, offRegStores)
+            {
+                _tipLabel = tipLabel;
+                _swapButton = swapButton;
+            }
+
+            public Status(RegStatus regStatus, Label tipLabel, Button swapButton) :
+                base(regStatus.OnRegStores, regStatus.OffRegStores)
+            {
+                _tipLabel = tipLabel;
+                _swapButton = swapButton;
+            }
+
+            public new void CheckStatus()
+            {
+                if (base.CheckStatus())
+                {
+                    _tipLabel.Text = @"启用";
+                    _swapButton.Text = @"禁用";
+                }
+                else
+                {
+                    _tipLabel.Text = @"禁用";
+                    _swapButton.Text = @"启用";
+                }
+            }
+
+            public new void SwapStatus()
+            {
+                if (base.SwapStatus())
+                {
+                    _tipLabel.Text = @"启用";
+                    _swapButton.Text = @"禁用";
+                }
+                else
+                {
+                    _tipLabel.Text = @"禁用";
+                    _swapButton.Text = @"启用";
+                }
+            }
+
+        }
+        public Collections RegCollections { get; set; }
+        private Status Registry { get; set; }
+
+
         public TestForm()
         {
             InitializeComponent();
@@ -23,8 +80,9 @@ namespace CommunalComputerManager.Gui
 
         private void TestForm_Load(object sender, EventArgs e)
         {
+            Registry = new Status(RegCollections.Registry, adm_registry_now_state, button8);
+            Registry.CheckStatus();
 
-           
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -32,7 +90,12 @@ namespace CommunalComputerManager.Gui
             //杀掉程序啊程序
             Environment.Exit(Environment.ExitCode);
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Registry.SwapStatus();
+        }
     }
-   
+
 
 }

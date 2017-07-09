@@ -1,4 +1,5 @@
-﻿using CommunalComputerManager.RegOperation;
+﻿using System;
+using CommunalComputerManager.RegOperation;
 using Microsoft.Win32;
 
 namespace CommunalComputerManager.StatusMonitor
@@ -38,7 +39,22 @@ namespace CommunalComputerManager.StatusMonitor
             RegOn = true;
             foreach (var reg in OnRegStores)
             {
-                var tmp = RegOpt.RegGetValue(reg.GetRegPath());
+                RegKey tmp;
+                try
+                {
+                    tmp = RegOpt.RegGetValue(reg.GetRegPath());
+                }
+                catch (Exception e)
+                {
+                    if (e.GetType() == typeof(NullReferenceException))
+                    {
+                        tmp = new RegKey(reg.GetRegPath());
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
                 if (!reg.IsNull && tmp.LpKind == RegistryValueKind.Unknown ||
                     reg.LpValue != tmp.LpValue)
                 {
@@ -51,7 +67,7 @@ namespace CommunalComputerManager.StatusMonitor
         /// <summary>
         /// 
         /// </summary>
-        public void SwapStatus()
+        public bool SwapStatus()
         {
             var regStores = RegOn ? OffRegStores : OnRegStores;
             foreach (var reg in regStores)
@@ -65,7 +81,7 @@ namespace CommunalComputerManager.StatusMonitor
                     RegOpt.RegSetValue(reg.GetRegKey());
                 }
             }
-            RegOn = !RegOn;
+            return RegOn = !RegOn;
         }
     }
 }

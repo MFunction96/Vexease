@@ -29,30 +29,35 @@
         private void InitializeComponent()
         {
             this.adm_consolePnl = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
             this.adm_console_now_state = new System.Windows.Forms.Label();
             this.adm_console = new System.Windows.Forms.Label();
             this.adm_console_default_state = new System.Windows.Forms.Label();
             this.adm_console_default = new System.Windows.Forms.Label();
             this.adm_console_now = new System.Windows.Forms.Label();
             this.adm_registryPnl = new System.Windows.Forms.Panel();
+            this.button7 = new System.Windows.Forms.Button();
             this.adm_registry_now_state = new System.Windows.Forms.Label();
             this.adm_registry = new System.Windows.Forms.Label();
             this.adm_registry_default_state = new System.Windows.Forms.Label();
             this.user_registry_default = new System.Windows.Forms.Label();
             this.adm_registry_now = new System.Windows.Forms.Label();
             this.adm_schedulerPnl = new System.Windows.Forms.Panel();
+            this.button8 = new System.Windows.Forms.Button();
             this.adm_scheduler_now_state = new System.Windows.Forms.Label();
             this.adm_scheduler = new System.Windows.Forms.Label();
             this.adm_scheduler_default_state = new System.Windows.Forms.Label();
             this.adm_scheduler_default = new System.Windows.Forms.Label();
             this.adm_scheduler_now = new System.Windows.Forms.Label();
             this.adm_conctrlpannelPnl = new System.Windows.Forms.Panel();
+            this.button9 = new System.Windows.Forms.Button();
             this.adm_conctrlpannel_now_state = new System.Windows.Forms.Label();
             this.adm_conctrlpannel = new System.Windows.Forms.Label();
             this.adm_conctrlpannel_default_state = new System.Windows.Forms.Label();
             this.adm_conctrlpannel_default = new System.Windows.Forms.Label();
             this.adm_conctrlpannel_now = new System.Windows.Forms.Label();
             this.adm_toolsPnl = new System.Windows.Forms.Panel();
+            this.button10 = new System.Windows.Forms.Button();
             this.adm_pnl_setIP = new System.Windows.Forms.Panel();
             this.adm_pnl_about = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -71,18 +76,21 @@
             this.adm_tools_default = new System.Windows.Forms.Label();
             this.adm_tools_now = new System.Windows.Forms.Label();
             this.adm_taskmanagerPnl = new System.Windows.Forms.Panel();
+            this.button11 = new System.Windows.Forms.Button();
             this.adm_taskmanager_now_state = new System.Windows.Forms.Label();
             this.adm_taskmanager = new System.Windows.Forms.Label();
             this.adm_taskmanager_default_state = new System.Windows.Forms.Label();
             this.adm_taskmanager_default = new System.Windows.Forms.Label();
             this.adm_taskmanager_now = new System.Windows.Forms.Label();
             this.adm_commendindicaterPnl = new System.Windows.Forms.Panel();
+            this.button12 = new System.Windows.Forms.Button();
             this.adm_commendindicater_now_state = new System.Windows.Forms.Label();
             this.adm_commendindicater = new System.Windows.Forms.Label();
             this.adm_commendindicater_default_state = new System.Windows.Forms.Label();
             this.adm_commendindicater_default = new System.Windows.Forms.Label();
             this.adm_commendindicater_now = new System.Windows.Forms.Label();
             this.adm_powershellPnl = new System.Windows.Forms.Panel();
+            this.button13 = new System.Windows.Forms.Button();
             this.adm_powershell_now_state = new System.Windows.Forms.Label();
             this.adm_powershell = new System.Windows.Forms.Label();
             this.adm_powershell_default_state = new System.Windows.Forms.Label();
@@ -93,14 +101,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
             this.adm_consolePnl.SuspendLayout();
             this.adm_registryPnl.SuspendLayout();
             this.adm_schedulerPnl.SuspendLayout();
@@ -128,6 +128,15 @@
             this.adm_consolePnl.Name = "adm_consolePnl";
             this.adm_consolePnl.Size = new System.Drawing.Size(192, 180);
             this.adm_consolePnl.TabIndex = 30;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(44, 147);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(104, 30);
+            this.button6.TabIndex = 5;
+            this.button6.Text = "禁用/启用";
+            this.button6.UseVisualStyleBackColor = true;
             // 
             // adm_console_now_state
             // 
@@ -189,14 +198,24 @@
             this.adm_registryPnl.Size = new System.Drawing.Size(192, 180);
             this.adm_registryPnl.TabIndex = 31;
             // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(45, 147);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(104, 30);
+            this.button7.TabIndex = 6;
+            this.button7.Text = "禁用/启用";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // adm_registry_now_state
             // 
             this.adm_registry_now_state.AutoSize = true;
             this.adm_registry_now_state.Location = new System.Drawing.Point(121, 121);
             this.adm_registry_now_state.Name = "adm_registry_now_state";
-            this.adm_registry_now_state.Size = new System.Drawing.Size(37, 15);
+            this.adm_registry_now_state.Size = new System.Drawing.Size(31, 15);
             this.adm_registry_now_state.TabIndex = 4;
-            this.adm_registry_now_state.Text = "禁用";
+            this.adm_registry_now_state.Text = "...";
             // 
             // adm_registry
             // 
@@ -248,6 +267,15 @@
             this.adm_schedulerPnl.Name = "adm_schedulerPnl";
             this.adm_schedulerPnl.Size = new System.Drawing.Size(192, 180);
             this.adm_schedulerPnl.TabIndex = 32;
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(47, 147);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(104, 30);
+            this.button8.TabIndex = 7;
+            this.button8.Text = "禁用/启用";
+            this.button8.UseVisualStyleBackColor = true;
             // 
             // adm_scheduler_now_state
             // 
@@ -310,6 +338,15 @@
             this.adm_conctrlpannelPnl.TabIndex = 34;
             this.adm_conctrlpannelPnl.Paint += new System.Windows.Forms.PaintEventHandler(this.adm_conctrlpannelPnl_Paint);
             // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(51, 147);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(104, 30);
+            this.button9.TabIndex = 8;
+            this.button9.Text = "禁用/启用";
+            this.button9.UseVisualStyleBackColor = true;
+            // 
             // adm_conctrlpannel_now_state
             // 
             this.adm_conctrlpannel_now_state.AutoSize = true;
@@ -370,6 +407,15 @@
             this.adm_toolsPnl.Name = "adm_toolsPnl";
             this.adm_toolsPnl.Size = new System.Drawing.Size(192, 180);
             this.adm_toolsPnl.TabIndex = 33;
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(44, 147);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(104, 30);
+            this.button10.TabIndex = 9;
+            this.button10.Text = "禁用/启用";
+            this.button10.UseVisualStyleBackColor = true;
             // 
             // adm_pnl_setIP
             // 
@@ -563,6 +609,15 @@
             this.adm_taskmanagerPnl.Size = new System.Drawing.Size(192, 180);
             this.adm_taskmanagerPnl.TabIndex = 35;
             // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(42, 147);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(104, 30);
+            this.button11.TabIndex = 10;
+            this.button11.Text = "禁用/启用";
+            this.button11.UseVisualStyleBackColor = true;
+            // 
             // adm_taskmanager_now_state
             // 
             this.adm_taskmanager_now_state.AutoSize = true;
@@ -623,6 +678,15 @@
             this.adm_commendindicaterPnl.Size = new System.Drawing.Size(192, 180);
             this.adm_commendindicaterPnl.TabIndex = 36;
             // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(47, 147);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(104, 30);
+            this.button12.TabIndex = 11;
+            this.button12.Text = "禁用/启用";
+            this.button12.UseVisualStyleBackColor = true;
+            // 
             // adm_commendindicater_now_state
             // 
             this.adm_commendindicater_now_state.AutoSize = true;
@@ -682,6 +746,15 @@
             this.adm_powershellPnl.Name = "adm_powershellPnl";
             this.adm_powershellPnl.Size = new System.Drawing.Size(192, 180);
             this.adm_powershellPnl.TabIndex = 37;
+            // 
+            // button13
+            // 
+            this.button13.Location = new System.Drawing.Point(51, 147);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(104, 30);
+            this.button13.TabIndex = 12;
+            this.button13.Text = "禁用/启用";
+            this.button13.UseVisualStyleBackColor = true;
             // 
             // adm_powershell_now_state
             // 
@@ -773,78 +846,6 @@
             this.button5.Text = "关闭";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(44, 147);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(104, 30);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "禁用/启用";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(45, 147);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(104, 30);
-            this.button7.TabIndex = 6;
-            this.button7.Text = "禁用/启用";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(47, 147);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(104, 30);
-            this.button8.TabIndex = 7;
-            this.button8.Text = "禁用/启用";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(51, 147);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(104, 30);
-            this.button9.TabIndex = 8;
-            this.button9.Text = "禁用/启用";
-            this.button9.UseVisualStyleBackColor = true;
-            // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(44, 147);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(104, 30);
-            this.button10.TabIndex = 9;
-            this.button10.Text = "禁用/启用";
-            this.button10.UseVisualStyleBackColor = true;
-            // 
-            // button11
-            // 
-            this.button11.Location = new System.Drawing.Point(42, 147);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(104, 30);
-            this.button11.TabIndex = 10;
-            this.button11.Text = "禁用/启用";
-            this.button11.UseVisualStyleBackColor = true;
-            // 
-            // button12
-            // 
-            this.button12.Location = new System.Drawing.Point(47, 147);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(104, 30);
-            this.button12.TabIndex = 11;
-            this.button12.Text = "禁用/启用";
-            this.button12.UseVisualStyleBackColor = true;
-            // 
-            // button13
-            // 
-            this.button13.Location = new System.Drawing.Point(51, 147);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(104, 30);
-            this.button13.TabIndex = 12;
-            this.button13.Text = "禁用/启用";
-            this.button13.UseVisualStyleBackColor = true;
             // 
             // TestForm
             // 

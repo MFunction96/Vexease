@@ -35,14 +35,14 @@ namespace CommunalComputerManager.RegOperation
                 if (lpcbdata == 0)
                 {
                     NativeMethods.RegCloseKey(phkresult);
-                    throw new Exception(@"无法获取缓冲区大小");
+                    throw new Exception(@"注册表访问失败" + '\n' +@"无法获取缓冲区大小");
                 }
                 var lpdata = Marshal.AllocHGlobal((int)lpcbdata);
                 var reggetvaluetemp = NativeMethods.RegQueryValueEx(phkresult, regPath.LpValueName, UIntPtr.Zero, out lpkind, lpdata, ref lpcbdata);
                 NativeMethods.RegCloseKey(phkresult);
                 if (reggetvaluetemp != (uint)ERROR_CODE.ERROR_SUCCESS)
                 {
-                    throw new Exception(@"注册表读取异常");
+                    throw new Exception(@"注册表访问失败" + '\n' +reggetvaluetemp);
                 }
                 if (lpkind == RegistryValueKind.DWord)
                 {
@@ -62,12 +62,11 @@ namespace CommunalComputerManager.RegOperation
                 }
                 else
                 {
-                    throw new Exception(@"注册表数据类型异常");
+                    throw new Exception(@"注册表访问失败" + '\n' +@"注册表数据类型异常");
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                MessageBox.Show(e.Message + '\n' + e.StackTrace);
                 regkey = new RegKey(regPath);
             }
             return regkey;
@@ -78,63 +77,56 @@ namespace CommunalComputerManager.RegOperation
         /// <param name="regKey"></param>
         public static void RegSetValue(RegKey regKey)
         {
-            try
+            uint regsetvaluetmp, exists;
+            var sa = new SECURITY_ATTRIBUTES();
+            UIntPtr phkResult;
+            if (Environment.Is64BitOperatingSystem)
             {
-                uint regsetvaluetmp, exists;
-                var sa = new SECURITY_ATTRIBUTES();
-                UIntPtr phkResult;
-                if (Environment.Is64BitOperatingSystem)
-                {
-                    regsetvaluetmp = NativeMethods.RegCreateKeyEx(regKey.HKey, regKey.LpSubKey, 0u, null,
-                        (uint)Common.RegOpt.OPERATE_OPTION.REG_OPTION_NON_VOLATILE,
-                        (uint)Common.RegOpt.KEY_SAM_FLAG.KEY_WOW64_64KEY | (uint)Common.RegOpt.KEY_ACCESS_TYPE.KEY_READ |
-                        (uint)Common.RegOpt.KEY_ACCESS_TYPE.KEY_WRITE, ref sa, out phkResult, out exists);
-                }
-                else
-                {
-                    regsetvaluetmp = NativeMethods.RegCreateKeyEx(regKey.HKey, regKey.LpSubKey, 0u, null,
-                        (uint)Common.RegOpt.OPERATE_OPTION.REG_OPTION_NON_VOLATILE,
-                        (uint)Common.RegOpt.KEY_ACCESS_TYPE.KEY_READ |
-                        (uint)Common.RegOpt.KEY_ACCESS_TYPE.KEY_WRITE, ref sa, out phkResult, out exists);
-                }
-                if (regsetvaluetmp != (uint)ERROR_CODE.ERROR_SUCCESS && exists != REG_OPENED_EXISTING_KEY)
-                {
-                    throw new Exception(@"注册表访问异常");
-                }
-                IntPtr lpdata;
-                uint lpcbdata;
-                if (regKey.LpKind == RegistryValueKind.String)
-                {
-                    lpcbdata = (uint)((string)regKey.LpValue).Length + 1 << 1;
-                    lpdata = Marshal.StringToHGlobalUni((string)regKey.LpValue);
-                }
-                else if (regKey.LpKind == RegistryValueKind.DWord)
-                {
-                    lpcbdata = (uint)Marshal.SizeOf(typeof(int));
-                    lpdata = Marshal.AllocHGlobal((int)lpcbdata);
-                    Marshal.WriteInt32(lpdata, (int)regKey.LpValue);
-                }
-                else if (regKey.LpKind == RegistryValueKind.QWord)
-                {
-                    lpcbdata = (uint)Marshal.SizeOf(typeof(long));
-                    lpdata = Marshal.AllocHGlobal((int)lpcbdata);
-                    Marshal.WriteInt64(lpdata, (long)regKey.LpValue);
-                }
-                else
-                {
-                    throw new Exception(@"元数据类型异常");
-                }
-                regsetvaluetmp =
-                    NativeMethods.RegSetValueEx(phkResult, regKey.LpValueName, 0u, regKey.LpKind, lpdata, lpcbdata);
-                NativeMethods.RegCloseKey(phkResult);
-                if (regsetvaluetmp == (uint)ERROR_CODE.ERROR_SUCCESS)
-                {
-                    throw new Exception(@"注册表写入异常");
-                }
+                regsetvaluetmp = NativeMethods.RegCreateKeyEx(regKey.HKey, regKey.LpSubKey, 0u, null,
+                    (uint)Common.RegOpt.OPERATE_OPTION.REG_OPTION_NON_VOLATILE,
+                    (uint)Common.RegOpt.KEY_SAM_FLAG.KEY_WOW64_64KEY | (uint)Common.RegOpt.KEY_ACCESS_TYPE.KEY_READ |
+                    (uint)Common.RegOpt.KEY_ACCESS_TYPE.KEY_WRITE, ref sa, out phkResult, out exists);
             }
-            catch (Exception e)
+            else
             {
-                MessageBox.Show(e.Message + '\n' + e.StackTrace);
+                regsetvaluetmp = NativeMethods.RegCreateKeyEx(regKey.HKey, regKey.LpSubKey, 0u, null,
+                    (uint)Common.RegOpt.OPERATE_OPTION.REG_OPTION_NON_VOLATILE,
+                    (uint)Common.RegOpt.KEY_ACCESS_TYPE.KEY_READ |
+                    (uint)Common.RegOpt.KEY_ACCESS_TYPE.KEY_WRITE, ref sa, out phkResult, out exists);
+            }
+            if (regsetvaluetmp != (uint)ERROR_CODE.ERROR_SUCCESS && exists != REG_OPENED_EXISTING_KEY)
+            {
+                throw new Exception(@"注册表访问失败" + '\n' + regsetvaluetmp);
+            }
+            IntPtr lpdata;
+            uint lpcbdata;
+            if (regKey.LpKind == RegistryValueKind.String)
+            {
+                lpcbdata = (uint)((string)regKey.LpValue).Length + 1 << 1;
+                lpdata = Marshal.StringToHGlobalUni((string)regKey.LpValue);
+            }
+            else if (regKey.LpKind == RegistryValueKind.DWord)
+            {
+                lpcbdata = (uint)Marshal.SizeOf(typeof(int));
+                lpdata = Marshal.AllocHGlobal((int)lpcbdata);
+                Marshal.WriteInt32(lpdata, (int)regKey.LpValue);
+            }
+            else if (regKey.LpKind == RegistryValueKind.QWord)
+            {
+                lpcbdata = (uint)Marshal.SizeOf(typeof(long));
+                lpdata = Marshal.AllocHGlobal((int)lpcbdata);
+                Marshal.WriteInt64(lpdata, (long)regKey.LpValue);
+            }
+            else
+            {
+                throw new Exception(@"注册表访问失败" + '\n' + regsetvaluetmp);
+            }
+            regsetvaluetmp =
+                NativeMethods.RegSetValueEx(phkResult, regKey.LpValueName, 0u, regKey.LpKind, lpdata, lpcbdata);
+            NativeMethods.RegCloseKey(phkResult);
+            if (regsetvaluetmp == (uint)ERROR_CODE.ERROR_SUCCESS)
+            {
+                throw new Exception(@"注册表访问失败" + '\n' + regsetvaluetmp);
             }
         }
         /// <summary>
@@ -150,7 +142,7 @@ namespace CommunalComputerManager.RegOperation
                     (uint)Common.RegOpt.KEY_SAM_FLAG.KEY_WOW64_64KEY | (uint)Common.RegOpt.KEY_ACCESS_TYPE.KEY_ALL_ACCESS, 0u);
                 if (regdelkeytmp != (uint)ERROR_CODE.ERROR_SUCCESS)
                 {
-                    MessageBox.Show(@"注册表删除失败");
+                    throw new Exception(@"注册表访问失败" + '\n' + regdelkeytmp);
                 }
             }
             else
@@ -160,13 +152,12 @@ namespace CommunalComputerManager.RegOperation
                     (uint)Common.RegOpt.KEY_ACCESS_TYPE.KEY_ALL_ACCESS, out UIntPtr phkresult);
                 if (regdelkeytmp != (uint)ERROR_CODE.ERROR_SUCCESS)
                 {
-                    MessageBox.Show(@"注册表删除失败");
-                    return;
+                    throw new Exception(@"注册表访问失败" + '\n' + regdelkeytmp);
                 }
                 regdelkeytmp = NativeMethods.RegDeleteValueEx(phkresult, regPath.LpValueName);
                 if (regdelkeytmp != (uint)ERROR_CODE.ERROR_SUCCESS)
                 {
-                    MessageBox.Show(@"注册表删除失败");
+                    throw new Exception(@"注册表访问失败" + '\n' +regdelkeytmp);
                 }
                 NativeMethods.RegCloseKey(phkresult);
             }
@@ -178,32 +169,23 @@ namespace CommunalComputerManager.RegOperation
         /// <returns></returns>
         public static RegPath[] RegEnumName(RegPath regPath)
         {
-            RegPath[] regpath;
-            try
+            uint index = 0, size = 1023;
+            var phkresult = RegOpenKey(regPath);
+            var sc = new StringCollection();
+            var sb = new StringBuilder(1024);
+            while (NativeMethods.RegEnumKeyEx(phkresult, index, sb, ref size, IntPtr.Zero, IntPtr.Zero,
+                       IntPtr.Zero, IntPtr.Zero) == (int)ERROR_CODE.ERROR_SUCCESS)
             {
-                uint index = 0, size = 1023;
-                var phkresult = RegOpenKey(regPath);
-                var sc = new StringCollection();
-                var sb = new StringBuilder(1024);
-                while (NativeMethods.RegEnumKeyEx(phkresult, index, sb, ref size, IntPtr.Zero, IntPtr.Zero,
-                           IntPtr.Zero, IntPtr.Zero) == (int)ERROR_CODE.ERROR_SUCCESS)
-                {
-                    index++;
-                    sc.Add(sb.ToString());
-                }
-                regpath = new RegPath[sc.Count];
-                var str = new string[sc.Count];
-                sc.CopyTo(str, 0);
-                Array.Sort(str);
-                for (var i = 0; i < str.Length; i++)
-                {
-                    regpath[i] = new RegPath(regPath.HKey, regPath.LpSubKey, str[i]);
-                }
+                index++;
+                sc.Add(sb.ToString());
             }
-            catch (Exception e)
+            var regpath = new RegPath[sc.Count];
+            var str = new string[sc.Count];
+            sc.CopyTo(str, 0);
+            Array.Sort(str);
+            for (var i = 0; i < str.Length; i++)
             {
-                MessageBox.Show(e.Message + '\n' + e.StackTrace);
-                regpath = new RegPath[0];
+                regpath[i] = new RegPath(regPath.HKey, regPath.LpSubKey, str[i]);
             }
             return regpath;
         }
@@ -227,9 +209,13 @@ namespace CommunalComputerManager.RegOperation
                 regopenkeytmp = NativeMethods.RegOpenKeyEx(regPath.HKey, regPath.LpSubKey, 0,
                     (uint)Common.RegOpt.KEY_ACCESS_TYPE.KEY_READ, out phkresult);
             }
+            if (regopenkeytmp == (uint) ERROR_CODE.ERROR_FILE_NOT_FOUND)
+            {
+                throw new NullReferenceException(@"注册表访问失败" + '\n' +regopenkeytmp);
+            }
             if (regopenkeytmp != (uint)ERROR_CODE.ERROR_SUCCESS)
             {
-                throw new Exception(@"注册表打开失败");
+                throw new Exception(@"注册表访问失败" + '\n' +regopenkeytmp);
             }
             return phkresult;
         }

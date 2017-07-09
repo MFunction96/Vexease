@@ -74,6 +74,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Collections.cs" />
     <Compile Include="Gui\BandWList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,7 +126,6 @@
     <Compile Include="Gui\RequestEdit.Designer.cs">
       <DependentUpon>RequestEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Startup.cs" />
     <Compile Include="StatusMonitor\RegStatus.cs" />
     <Compile Include="Gui\User.cs">
       <SubType>Form</SubType>
@@ -195,5 +195,6 @@
     <None Include="Resources\half.png" />
     <None Include="Resources\背景.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
