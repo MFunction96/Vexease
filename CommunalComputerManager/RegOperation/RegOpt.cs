@@ -124,7 +124,7 @@ namespace CommunalComputerManager.RegOperation
             regsetvaluetmp =
                 NativeMethods.RegSetValueEx(phkResult, regKey.LpValueName, 0u, regKey.LpKind, lpdata, lpcbdata);
             NativeMethods.RegCloseKey(phkResult);
-            if (regsetvaluetmp == (uint)ERROR_CODE.ERROR_SUCCESS)
+            if (regsetvaluetmp != (uint)ERROR_CODE.ERROR_SUCCESS)
             {
                 throw new Exception(@"注册表访问失败" + '\n' + regsetvaluetmp);
             }

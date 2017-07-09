@@ -55,8 +55,8 @@ namespace CommunalComputerManager.StatusMonitor
                         throw;
                     }
                 }
-                if (!reg.IsNull && tmp.LpKind == RegistryValueKind.Unknown ||
-                    reg.LpValue != tmp.LpValue)
+                if (!reg.IsNull && (tmp.LpKind == RegistryValueKind.Unknown ||
+                    reg.LpValue != tmp.LpValue))
                 {
                     RegOn = false;
                     break;
