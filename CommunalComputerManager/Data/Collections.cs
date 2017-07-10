@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using CommunalComputerManager.RegOperation;
 using CommunalComputerManager.StatusMonitor;
 using Microsoft.Win32;

@@ -60,7 +60,7 @@ namespace CommunalComputerManager.Common
             [MarshalAs(UnmanagedType.LPWStr)] string lpClass,
             uint dwOptions,
             uint samDesired,
-            ref SECURITY_ATTRIBUTES lpSecurityAttributes,
+            IntPtr lpSecurityAttributes,
             out UIntPtr phkResult,
             out uint lpdwDisposition);
 
@@ -112,6 +112,19 @@ namespace CommunalComputerManager.Common
         [DllImport("kernel32.dll")]
         public static extern uint GetLastError();
 
+        [DllImport("coredll.dll", SetLastError = true, CallingConvention = CallingConvention.Winapi, CharSet = CharSet.Unicode, EntryPoint = "CreateProcessW")]
+        public static extern bool CreateProcess(
+            string lpApplicationName,
+            string lpCommandLine,
+            IntPtr lpProcessAttributes,
+            IntPtr lpThreadAttributes,
+            bool bInheritHandles,
+            uint dwCreationFlags,
+            IntPtr lpEnvironment,
+            string lpCurrentDirectory,
+            IntPtr lpStartupInfo,
+            out IntPtr lpProcessInformation
+        );
 
     }
 }

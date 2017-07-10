@@ -2,7 +2,6 @@
 using System.Collections.Specialized;
 using System.Runtime.InteropServices;
 using System.Text;
-using System.Windows.Forms;
 using CommunalComputerManager.Common;
 using Microsoft.Win32;
 
@@ -78,21 +77,20 @@ namespace CommunalComputerManager.RegOperation
         public static void RegSetValue(RegKey regKey)
         {
             uint regsetvaluetmp, exists;
-            var sa = new SECURITY_ATTRIBUTES();
             UIntPtr phkResult;
             if (Environment.Is64BitOperatingSystem)
             {
                 regsetvaluetmp = NativeMethods.RegCreateKeyEx(regKey.HKey, regKey.LpSubKey, 0u, null,
                     (uint)Common.RegOpt.OPERATE_OPTION.REG_OPTION_NON_VOLATILE,
                     (uint)Common.RegOpt.KEY_SAM_FLAG.KEY_WOW64_64KEY | (uint)Common.RegOpt.KEY_ACCESS_TYPE.KEY_READ |
-                    (uint)Common.RegOpt.KEY_ACCESS_TYPE.KEY_WRITE, ref sa, out phkResult, out exists);
+                    (uint)Common.RegOpt.KEY_ACCESS_TYPE.KEY_WRITE, IntPtr.Zero, out phkResult, out exists);
             }
             else
             {
                 regsetvaluetmp = NativeMethods.RegCreateKeyEx(regKey.HKey, regKey.LpSubKey, 0u, null,
                     (uint)Common.RegOpt.OPERATE_OPTION.REG_OPTION_NON_VOLATILE,
                     (uint)Common.RegOpt.KEY_ACCESS_TYPE.KEY_READ |
-                    (uint)Common.RegOpt.KEY_ACCESS_TYPE.KEY_WRITE, ref sa, out phkResult, out exists);
+                    (uint)Common.RegOpt.KEY_ACCESS_TYPE.KEY_WRITE, IntPtr.Zero, out phkResult, out exists);
             }
             if (regsetvaluetmp != (uint)ERROR_CODE.ERROR_SUCCESS && exists != REG_OPENED_EXISTING_KEY)
             {

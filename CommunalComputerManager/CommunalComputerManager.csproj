@@ -74,6 +74,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\PROCESS_INFORMATION.cs" />
+    <Compile Include="Common\STARTUPINFO.cs" />
     <Compile Include="Data\Collections.cs" />
     <Compile Include="Gui\BandWList.cs">
       <SubType>Form</SubType>

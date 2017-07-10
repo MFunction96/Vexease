@@ -5,10 +5,11 @@ using System.Runtime.InteropServices;
 namespace CommunalComputerManager.Common
 {
     [StructLayout(LayoutKind.Sequential)]
-    public struct SECURITY_ATTRIBUTES
+    public struct PROCESS_INFORMATION
     {
-        public uint nLength;
-        public UIntPtr lpSecurityDescriptor;
-        public int bInheritHandle;
+        public UIntPtr hProcess;
+        public UIntPtr hThread;
+        public int ProcessId;
+        public int ThreadId;
     }
 }
