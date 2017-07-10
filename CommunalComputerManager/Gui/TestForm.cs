@@ -95,6 +95,17 @@ namespace CommunalComputerManager.Gui
         {
             Registry.SwapStatus();
         }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            var regs = RegOpt.RegEnumName(new RegPath(new UIntPtr((uint) Common.RegOpt.REG_ROOT_KEY.HKEY_LOCAL_MACHINE),
+                @"SOFTWARE\Microsoft\.NETFramework"));
+            foreach (var reg in regs)
+            {
+                MessageBox.Show(reg.LpValueName);
+            }
+            
+        }
     }
 
 

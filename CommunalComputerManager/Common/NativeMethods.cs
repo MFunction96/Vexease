@@ -85,15 +85,26 @@ namespace CommunalComputerManager.Common
             [MarshalAs(UnmanagedType.LPWStr)] string lpSubKey);
 
         [DllImport("advapi32.dll", SetLastError = true, CharSet = CharSet.Unicode, EntryPoint = "RegEnumKeyExW")]
-        public static extern int RegEnumKeyEx(
-            UIntPtr hkey,
-            uint index,
-            StringBuilder lpName,
-            ref uint lpcbName,
-            IntPtr reserved,
-            IntPtr lpClass,
-            IntPtr lpcbClass,
-            IntPtr lpftLastWriteTime);
+        public static extern uint RegEnumKeyEx(
+            UIntPtr hKey,
+            uint dwIndex,
+            StringBuilder lpValueName,
+            ref uint lpcValueName,
+            IntPtr lpReserved,
+            IntPtr lpType,
+            IntPtr lpData,
+            IntPtr lpcbData);
+
+        [DllImport("advapi32.dll", SetLastError = true, CharSet = CharSet.Unicode, EntryPoint = "RegEnumValueW")]
+        public static extern uint RegEnumValue(
+            UIntPtr hKey,
+            uint dwIndex,
+            StringBuilder lpValueName,
+            ref uint lpcValueName,
+            IntPtr lpReserved,
+            IntPtr lpType,
+            IntPtr lpData,
+            IntPtr lpcbData);
 
         [DllImport("advapi32.dll", SetLastError = true)]
         public static extern uint RegCloseKey(UIntPtr hKey);

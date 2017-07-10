@@ -10,6 +10,7 @@ namespace CommunalComputerManager.Common
         ERROR_INVALID_HANDLE = 0x6,
         ERROR_INVALID_PARAMETER = 0x57,
         ERROR_NOACCESS = 0x3E6,
-        ERROR_MORE_DATA = 0xEA
+        ERROR_MORE_DATA = 0xEA,
+        ERROR_NO_MORE_ITEMS = 0x103
     }
 }

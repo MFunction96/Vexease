@@ -169,16 +169,24 @@ namespace CommunalComputerManager.RegOperation
         /// <returns></returns>
         public static RegPath[] RegEnumName(RegPath regPath)
         {
-            uint index = 0, size = 1023;
+            uint index = 0;
             var phkresult = RegOpenKey(regPath);
             var sc = new StringCollection();
             var sb = new StringBuilder(1024);
-            while (NativeMethods.RegEnumKeyEx(phkresult, index, sb, ref size, IntPtr.Zero, IntPtr.Zero,
-                       IntPtr.Zero, IntPtr.Zero) == (int)ERROR_CODE.ERROR_SUCCESS)
+            while (true)
             {
+                sb.Clear();
+                uint size = 1023;
+                var ret = NativeMethods.RegEnumValue(phkresult, index, sb, ref size, IntPtr.Zero, IntPtr.Zero,
+                              IntPtr.Zero, IntPtr.Zero);
+                if (ret == (int)ERROR_CODE.ERROR_NO_MORE_ITEMS)
+                {
+                    break;
+                }
                 index++;
                 sc.Add(sb.ToString());
             }
+            NativeMethods.RegCloseKey(phkresult);
             var regpath = new RegPath[sc.Count];
             var str = new string[sc.Count];
             sc.CopyTo(str, 0);
