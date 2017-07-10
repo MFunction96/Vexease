@@ -167,7 +167,7 @@ namespace CommunalComputerManager.RegOperation
         /// </summary>
         /// <param name="regPath"></param>
         /// <returns></returns>
-        public static RegPath[] RegEnumName(RegPath regPath)
+        public static RegPath[] RegEnumValue(RegPath regPath)
         {
             uint index = 0;
             var phkresult = RegOpenKey(regPath);
@@ -177,11 +177,15 @@ namespace CommunalComputerManager.RegOperation
             {
                 sb.Clear();
                 uint size = 1023;
-                var ret = NativeMethods.RegEnumValue(phkresult, index, sb, ref size, IntPtr.Zero, IntPtr.Zero,
+                var renenumvaluetmp = NativeMethods.RegEnumValue(phkresult, index, sb, ref size, IntPtr.Zero, IntPtr.Zero,
                               IntPtr.Zero, IntPtr.Zero);
-                if (ret == (int)ERROR_CODE.ERROR_NO_MORE_ITEMS)
+                if (renenumvaluetmp == (int)ERROR_CODE.ERROR_NO_MORE_ITEMS)
                 {
                     break;
+                }
+                if (renenumvaluetmp != (int) ERROR_CODE.ERROR_SUCCESS)
+                {
+                    throw new Exception(@"注册表键值枚举失败" + '\n' + renenumvaluetmp);
                 }
                 index++;
                 sc.Add(sb.ToString());
@@ -194,6 +198,45 @@ namespace CommunalComputerManager.RegOperation
             for (var i = 0; i < str.Length; i++)
             {
                 regpath[i] = new RegPath(regPath.HKey, regPath.LpSubKey, str[i]);
+            }
+            return regpath;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="regPath"></param>
+        /// <returns></returns>
+        public static RegPath[] RegEnumKey(RegPath regPath)
+        {
+            uint index = 0;
+            var phkresult = RegOpenKey(regPath);
+            var sc = new StringCollection();
+            var sb = new StringBuilder(1024);
+            while (true)
+            {
+                sb.Clear();
+                uint size = 1023;
+                var renenumkeytmp = NativeMethods.RegEnumKeyEx(phkresult, index, sb, ref size, IntPtr.Zero, IntPtr.Zero,
+                    IntPtr.Zero, IntPtr.Zero);
+                if (renenumkeytmp == (int)ERROR_CODE.ERROR_NO_MORE_ITEMS)
+                {
+                    break;
+                }
+                if (renenumkeytmp != (int)ERROR_CODE.ERROR_SUCCESS)
+                {
+                    throw new Exception(@"注册表键值枚举失败" + '\n' + renenumkeytmp);
+                }
+                index++;
+                sc.Add(sb.ToString());
+            }
+            NativeMethods.RegCloseKey(phkresult);
+            var regpath = new RegPath[sc.Count];
+            var str = new string[sc.Count];
+            sc.CopyTo(str, 0);
+            Array.Sort(str);
+            for (var i = 0; i < str.Length; i++)
+            {
+                regpath[i] = new RegPath(regPath.HKey, regPath.LpSubKey + @"\" + str[i]);
             }
             return regpath;
         }
