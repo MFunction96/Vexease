@@ -1,8 +1,8 @@
 ﻿using System;
-using CommunalComputerManager.RegOperation;
-using CommunalComputerManager.StatusMonitor;
+using CommunalComputerManager.Controllers.Status;
+using CommunalComputerManager.Models.Enums;
+using CommunalComputerManager.Models.Registrys;
 using Microsoft.Win32;
-using RegOpt = CommunalComputerManager.Common.RegOpt;
 
 namespace CommunalComputerManager.Data
 {
@@ -32,7 +32,7 @@ namespace CommunalComputerManager.Data
 
         private static RegStatus InitLimitProc()
         {
-            var regp = new RegPath(new UIntPtr((uint)RegOpt.REG_ROOT_KEY.HKEY_LOCAL_MACHINE), @"Software\Policies\Microsoft\Windows\safer\codeidentifiers", @"DefaultLevel");
+            var regp = new RegPath(new UIntPtr((uint)REG_ROOT_KEY.HKEY_LOCAL_MACHINE), @"Software\Policies\Microsoft\Windows\safer\codeidentifiers", @"DefaultLevel");
             var onreg = new RegStore[1];
             var offreg = new RegStore[1];
             onreg[0] = new RegStore(regp, RegistryValueKind.DWord, 0x0, sizeof(int), false);
@@ -42,7 +42,7 @@ namespace CommunalComputerManager.Data
 
         private static RegStatus InitLimitSys()
         {
-            var regp = new RegPath(new UIntPtr((uint)RegOpt.REG_ROOT_KEY.HKEY_CURRENT_USER), @"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer", @"NoDrives");
+            var regp = new RegPath(new UIntPtr((uint)REG_ROOT_KEY.HKEY_CURRENT_USER), @"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer", @"NoDrives");
             var onreg = new RegStore[1];
             var offreg = new RegStore[1];
             onreg[0] = new RegStore(regp, RegistryValueKind.DWord, 0x4, sizeof(int), false);
@@ -52,7 +52,7 @@ namespace CommunalComputerManager.Data
 
         private static RegStatus InitRegistry()
         {
-            var regp = new RegPath(new UIntPtr((uint)RegOpt.REG_ROOT_KEY.HKEY_CURRENT_USER), @"Software\Microsoft\Windows\CurrentVersion\Policies\System", @"DisableRegistryTools");
+            var regp = new RegPath(new UIntPtr((uint)REG_ROOT_KEY.HKEY_CURRENT_USER), @"Software\Microsoft\Windows\CurrentVersion\Policies\System", @"DisableRegistryTools");
             var onreg = new RegStore[1];
             var offreg = new RegStore[1];
             onreg[0] = new RegStore(regp, RegistryValueKind.DWord, 0x0, sizeof(int));
@@ -62,7 +62,7 @@ namespace CommunalComputerManager.Data
 
         private static RegStatus InitCmd()
         {
-            var regp = new RegPath(new UIntPtr((uint)RegOpt.REG_ROOT_KEY.HKEY_CURRENT_USER), @"Software\Microsoft\Windows\CurrentVersion\Policies\System", @"DisableCMD");
+            var regp = new RegPath(new UIntPtr((uint)REG_ROOT_KEY.HKEY_CURRENT_USER), @"Software\Microsoft\Windows\CurrentVersion\Policies\System", @"DisableCMD");
             var onreg = new RegStore[1];
             var offreg = new RegStore[1];
             onreg[0] = new RegStore(regp, RegistryValueKind.DWord, 0x0, sizeof(int));
@@ -71,7 +71,7 @@ namespace CommunalComputerManager.Data
         }
         private static RegStatus InitTaskmgr()
         {
-            var regp = new RegPath(new UIntPtr((uint)RegOpt.REG_ROOT_KEY.HKEY_CURRENT_USER), @"Software\Microsoft\Windows\CurrentVersion\Policies\System", @"DisableTaskMgr");
+            var regp = new RegPath(new UIntPtr((uint)REG_ROOT_KEY.HKEY_CURRENT_USER), @"Software\Microsoft\Windows\CurrentVersion\Policies\System", @"DisableTaskMgr");
             var onreg = new RegStore[1];
             var offreg = new RegStore[1];
             onreg[0] = new RegStore(regp, RegistryValueKind.DWord, 0x0, sizeof(int));
@@ -80,7 +80,7 @@ namespace CommunalComputerManager.Data
         }
         private static RegStatus InitLauncher()
         {
-            var regp = new RegPath(new UIntPtr((uint)RegOpt.REG_ROOT_KEY.HKEY_CURRENT_USER), @"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer", @"NoRun");
+            var regp = new RegPath(new UIntPtr((uint)REG_ROOT_KEY.HKEY_CURRENT_USER), @"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer", @"NoRun");
             var onreg = new RegStore[1];
             var offreg = new RegStore[1];
             onreg[0] = new RegStore(regp, RegistryValueKind.DWord, 0x0, sizeof(int));
@@ -89,7 +89,7 @@ namespace CommunalComputerManager.Data
         }
         private static RegStatus InitCtrlPal()
         {
-            var regp = new RegPath(new UIntPtr((uint)RegOpt.REG_ROOT_KEY.HKEY_CURRENT_USER), @"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer", @"NoControlPanel");
+            var regp = new RegPath(new UIntPtr((uint)REG_ROOT_KEY.HKEY_CURRENT_USER), @"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer", @"NoControlPanel");
             var onreg = new RegStore[1];
             var offreg = new RegStore[1];
             onreg[0] = new RegStore(regp, RegistryValueKind.DWord, 0x0, sizeof(int));

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using CommunalComputerManager.Gui;
+using CommunalComputerManager.Views;
 
 namespace CommunalComputerManager
 {
