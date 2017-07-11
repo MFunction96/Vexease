@@ -74,9 +74,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ProcCtrl\ProcCtrl.cs" />
+    <Compile Include="Models\Enums\PROCESS_CREATION_FLAGS.cs" />
     <Compile Include="Models\Structures\PROCESS_INFORMATION.cs" />
     <Compile Include="Models\Structures\STARTUPINFO.cs" />
-    <Compile Include="Data\Collections.cs" />
+    <Compile Include="Data\DataContext.cs" />
     <Compile Include="Views\BandWList.cs">
       <SubType>Form</SubType>
     </Compile>

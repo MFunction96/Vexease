@@ -112,7 +112,7 @@ namespace CommunalComputerManager.Controllers.PInvoke
         [DllImport("kernel32.dll")]
         public static extern uint GetLastError();
 
-        [DllImport("coredll.dll", SetLastError = true, CharSet = CharSet.Unicode, EntryPoint = "CreateProcessW")]
+        [DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Unicode, EntryPoint = "CreateProcessW")]
         public static extern bool CreateProcess(
             [MarshalAs(UnmanagedType.LPWStr)] string lpApplicationName,
             [MarshalAs(UnmanagedType.LPWStr)] string lpCommandLine,

@@ -1,6 +1,4 @@
 ﻿// ReSharper disable InconsistentNaming
-
-
 namespace CommunalComputerManager.Models.Enums
 {
     public enum REG_ROOT_KEY : uint

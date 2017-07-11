@@ -6,7 +6,7 @@ using Microsoft.Win32;
 
 namespace CommunalComputerManager.Data
 {
-    public class Collections
+    public class DataContext
     {
         public RegStatus LimitProc { get; }
         public RegStatus LimitSys { get; }
@@ -19,7 +19,7 @@ namespace CommunalComputerManager.Data
         public RegStatus Taskmgr { get; }
         public RegStatus PwrShell { get; }
 
-        public Collections()
+        public DataContext()
         {
             LimitProc = InitLimitProc();
             LimitSys = InitLimitSys();

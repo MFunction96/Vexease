@@ -13,12 +13,12 @@ namespace CommunalComputerManager.Views
     public partial class User : Form
     {
 
-        public Collections RegCol { get; }
+        public DataContext RegCol { get; }
 
         public User()
         {
             InitializeComponent();
-            RegCol = new Collections();
+            RegCol = new DataContext();
         }
 
         private void user_switchongmode_Click(object sender, EventArgs e)

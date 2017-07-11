@@ -60,7 +60,7 @@ namespace CommunalComputerManager.Views
             }
 
         }
-        public Collections RegCollections { get; set; }
+        public DataContext RegCollections { get; set; }
         private Status Registry { get; set; }
 
 
