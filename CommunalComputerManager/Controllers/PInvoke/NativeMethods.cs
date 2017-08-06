@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 using System.Text;
+using CommunalComputerManager.Models.Structures;
 using Microsoft.Win32;
 
 namespace CommunalComputerManager.Controllers.PInvoke
@@ -122,8 +123,8 @@ namespace CommunalComputerManager.Controllers.PInvoke
             uint dwCreationFlags,
             IntPtr lpEnvironment,
             [MarshalAs(UnmanagedType.LPWStr)] string lpCurrentDirectory,
-            IntPtr lpStartupInfo,
-            out IntPtr lpProcessInformation
+            ref STARTUPINFO lpStartupInfo,
+            out PROCESS_INFORMATION lpProcessInformation
         );
 
     }

@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Windows.Forms;
+using CommunalComputerManager.Controllers.ProcCtrl;
 using CommunalComputerManager.Controllers.RegCtrl;
 using CommunalComputerManager.Controllers.Status;
 using CommunalComputerManager.Data;
 using CommunalComputerManager.Models.Enums;
 using CommunalComputerManager.Models.Registrys;
+using CommunalComputerManager.Models.Structures;
 
 namespace CommunalComputerManager.Views
 {
@@ -100,13 +102,7 @@ namespace CommunalComputerManager.Views
 
         private void button14_Click(object sender, EventArgs e)
         {
-            var regs = RegCtrl.RegEnumValue(new RegPath(new UIntPtr((uint) REG_ROOT_KEY.HKEY_LOCAL_MACHINE),
-                @"SOFTWARE\Microsoft\.NETFramework"));
-            foreach (var reg in regs)
-            {
-                MessageBox.Show(reg.LpValueName);
-            }
-            
+            var process = ProcCtrl.CreateProcessEx(@"D:\Software\7z1604-x64.exe");
         }
     }
 

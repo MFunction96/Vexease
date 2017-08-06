@@ -7,8 +7,8 @@ namespace CommunalComputerManager.Models.Structures
     [StructLayout(LayoutKind.Sequential)]
     public struct SECURITY_ATTRIBUTES
     {
-        public uint nLength;
-        public UIntPtr lpSecurityDescriptor;
-        public int bInheritHandle;
+        public int nLength;
+        public IntPtr lpSecurityDescriptor;
+        public bool bInheritHandle;
     }
 }
