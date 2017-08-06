@@ -102,7 +102,7 @@ namespace CommunalComputerManager.Views
 
         private void button14_Click(object sender, EventArgs e)
         {
-            var process = ProcCtrl.CreateProcessEx(@"D:\Software\7z1604-x64.exe");
+            var process = ProcCtrl.CreateProcessEx(null , @"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe");
         }
     }
 
