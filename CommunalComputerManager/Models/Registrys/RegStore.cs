@@ -26,7 +26,6 @@ namespace CommunalComputerManager.Models.Registrys
         /// <param name="lpValueName"></param>
         /// <param name="lpKind"></param>
         /// <param name="lpValue"></param>
-        /// <param name="lpSize"></param>
         /// <param name="isNull"></param>
         public RegStore(
             UIntPtr hKey,
@@ -34,9 +33,8 @@ namespace CommunalComputerManager.Models.Registrys
             string lpValueName = "",
             RegistryValueKind lpKind = RegistryValueKind.Unknown,
             object lpValue = null,
-            uint lpSize = 0,
             bool isNull = true) :
-            base(hKey, lpSubKey, lpValueName, lpKind, lpValue, lpSize)
+            base(hKey, lpSubKey, lpValueName, lpKind, lpValue)
         {
             IsNull = isNull;
         }
@@ -46,15 +44,13 @@ namespace CommunalComputerManager.Models.Registrys
         /// <param name="regPath"></param>
         /// <param name="lpKind"></param>
         /// <param name="lpValue"></param>
-        /// <param name="lpSize"></param>
         /// <param name="isNull"></param>
         public RegStore(
             RegPath regPath,
             RegistryValueKind lpKind = RegistryValueKind.Unknown,
             object lpValue = null,
-            uint lpSize = 0,
             bool isNull = true) :
-            base(regPath, lpKind, lpValue, lpSize)
+            base(regPath, lpKind, lpValue)
         {
             IsNull = isNull;
         }
@@ -73,7 +69,7 @@ namespace CommunalComputerManager.Models.Registrys
         /// </summary>
         /// <param name="regStore"></param>
         public RegStore(RegStore regStore) :
-            base(regStore.HKey, regStore.LpSubKey, regStore.LpValueName, regStore.LpKind, regStore.LpValue, regStore.LpSize)
+            base(regStore.HKey, regStore.LpSubKey, regStore.LpValueName, regStore.LpKind, regStore.LpValue)
         {
             IsNull = regStore.IsNull;
         }
@@ -94,7 +90,7 @@ namespace CommunalComputerManager.Models.Registrys
         /// <returns></returns>
         public RegKey GetRegKey()
         {
-            return new RegKey(GetRegPath(), LpKind, LpValue, LpSize);
+            return new RegKey(GetRegPath(), LpKind, LpValue);
         }
     }
 }

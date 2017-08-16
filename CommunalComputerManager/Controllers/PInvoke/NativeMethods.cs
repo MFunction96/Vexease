@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 using System.Text;
+using CommunalComputerManager.Models.Enums;
 using CommunalComputerManager.Models.Structures;
 using Microsoft.Win32;
 
@@ -124,8 +125,18 @@ namespace CommunalComputerManager.Controllers.PInvoke
             IntPtr lpEnvironment,
             [MarshalAs(UnmanagedType.LPWStr)] string lpCurrentDirectory,
             ref STARTUPINFO lpStartupInfo,
-            out PROCESS_INFORMATION lpProcessInformation
-        );
+            out PROCESS_INFORMATION lpProcessInformation);
 
+        [DllImport("dismapi.dll", SetLastError = true, CharSet = CharSet.Unicode, EntryPoint = "DismInitialize")]
+        public static extern int DismInitialize(
+            DISM_LOG_LEVEL lLogLevel,
+            [MarshalAs(UnmanagedType.BStr)] string lpLogFilePath,
+            [MarshalAs(UnmanagedType.BStr)] string lpScratchDirectory);
+
+        [DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Unicode, EntryPoint = "SetSystemFileCacheSize")]
+        public static extern bool SetSystemFileCacheSize(
+            uint stMinimumFileCacheSize,
+            uint stMaximumFileCacheSize,
+            FILE_CACHE_FLAGS dwFlagss);
     }
 }

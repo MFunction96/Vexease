@@ -64,7 +64,7 @@ namespace CommunalComputerManager.Views
         }
         public DataContext RegCollections { get; set; }
         private Status Registry { get; set; }
-
+        private Status Mmc { get; set; }
 
         public TestForm()
         {
@@ -86,7 +86,8 @@ namespace CommunalComputerManager.Views
         {
             Registry = new Status(RegCollections.Registry, adm_registry_now_state, button8);
             Registry.CheckStatus();
-
+            Mmc = new Status(RegCollections.Mmc, adm_console_now_state, button6);
+            Mmc.CheckStatus();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -103,6 +104,11 @@ namespace CommunalComputerManager.Views
         private void button14_Click(object sender, EventArgs e)
         {
             var process = ProcCtrl.CreateProcessEx(null , @"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe");
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Mmc.SwapStatus();
         }
     }
 

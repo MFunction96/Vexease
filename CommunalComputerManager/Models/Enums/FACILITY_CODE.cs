@@ -5,9 +5,9 @@ using System;
 namespace CommunalComputerManager.Models.Enums
 {
     [Flags]
-    public enum KEY_SAM_FLAG : uint
+    public enum FACILITY_CODE
     {
-        KEY_WOW64_64KEY = 0x100u,
-        KEY_WOW64_32KEY = 0x200u
+        FACILITY_NULL = 0,
+        FACILITY_ITF = 4
     }
 }

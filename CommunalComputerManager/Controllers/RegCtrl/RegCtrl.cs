@@ -48,18 +48,18 @@ namespace CommunalComputerManager.Controllers.RegCtrl
                 if (lpkind == RegistryValueKind.DWord)
                 {
                     var lpdataint = Marshal.ReadInt32(lpdata);
-                    regkey = new RegKey(regPath, lpkind, lpdataint, lpcbdata);
+                    regkey = new RegKey(regPath, lpkind, lpdataint);
                 }
                 else if (lpkind == RegistryValueKind.QWord)
                 {
                     var lpdataint = Marshal.ReadInt64(lpdata);
-                    regkey = new RegKey(regPath, lpkind, lpdataint, lpcbdata);
+                    regkey = new RegKey(regPath, lpkind, lpdataint);
                 }
                 else if (lpkind == RegistryValueKind.String)
                 {
                     var lpdatastr = Marshal.PtrToStringUni(lpdata);
                     lpdatastr = lpdatastr?.Trim();
-                    regkey = new RegKey(regPath, lpkind, lpdatastr, lpcbdata);
+                    regkey = new RegKey(regPath, lpkind, lpdatastr);
                 }
                 else
                 {
@@ -84,7 +84,7 @@ namespace CommunalComputerManager.Controllers.RegCtrl
             {
                 regsetvaluetmp = NativeMethods.RegCreateKeyEx(regKey.HKey, regKey.LpSubKey, 0u, null,
                     (uint)OPERATE_OPTION.REG_OPTION_NON_VOLATILE,
-                    (uint)KEY_SAM_FLAG.KEY_WOW64_64KEY | (uint)KEY_ACCESS_TYPE.KEY_READ |
+                    (uint)KEY_SAM_FLAGS.KEY_WOW64_64KEY | (uint)KEY_ACCESS_TYPE.KEY_READ |
                     (uint)KEY_ACCESS_TYPE.KEY_WRITE, IntPtr.Zero, out phkResult, out exists);
             }
             else
@@ -139,7 +139,7 @@ namespace CommunalComputerManager.Controllers.RegCtrl
             if (string.IsNullOrEmpty(regPath.LpValueName))
             {
                 regdelkeytmp = NativeMethods.RegDeleteKeyEx(regPath.HKey, regPath.LpSubKey,
-                    (uint)KEY_SAM_FLAG.KEY_WOW64_64KEY | (uint)KEY_ACCESS_TYPE.KEY_ALL_ACCESS, 0u);
+                    (uint)KEY_SAM_FLAGS.KEY_WOW64_64KEY | (uint)KEY_ACCESS_TYPE.KEY_ALL_ACCESS, 0u);
                 if (regdelkeytmp != (uint)ERROR_CODE.ERROR_SUCCESS)
                 {
                     throw new Exception(@"注册表访问失败" + '\n' + regdelkeytmp);
@@ -148,7 +148,7 @@ namespace CommunalComputerManager.Controllers.RegCtrl
             else
             {
                 regdelkeytmp = NativeMethods.RegOpenKeyEx(regPath.HKey, regPath.LpSubKey, 0u,
-                    (uint)KEY_SAM_FLAG.KEY_WOW64_64KEY |
+                    (uint)KEY_SAM_FLAGS.KEY_WOW64_64KEY |
                     (uint)KEY_ACCESS_TYPE.KEY_ALL_ACCESS, out UIntPtr phkresult);
                 if (regdelkeytmp != (uint)ERROR_CODE.ERROR_SUCCESS)
                 {
@@ -252,7 +252,7 @@ namespace CommunalComputerManager.Controllers.RegCtrl
             if (Environment.Is64BitOperatingSystem)
             {
                 regopenkeytmp = NativeMethods.RegOpenKeyEx(regPath.HKey, regPath.LpSubKey, 0,
-                    (uint)KEY_SAM_FLAG.KEY_WOW64_64KEY |
+                    (uint)KEY_SAM_FLAGS.KEY_WOW64_64KEY |
                     (uint)KEY_ACCESS_TYPE.KEY_READ, out phkresult);
             }
             else

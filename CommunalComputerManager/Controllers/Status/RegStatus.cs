@@ -1,5 +1,4 @@
 ﻿using System;
-using CommunalComputerManager.Controllers.RegCtrl;
 using CommunalComputerManager.Models.Registrys;
 using Microsoft.Win32;
 
@@ -38,29 +37,105 @@ namespace CommunalComputerManager.Controllers.Status
         public bool CheckStatus()
         {
             RegOn = true;
-            foreach (var reg in OnRegStores)
+            /*foreach (var reg in OnRegStores)
             {
-                RegKey tmp;
-                try
+                if (reg.LpValueName == string.Empty)
                 {
-                    tmp = RegCtrl.RegCtrl.RegGetValue(reg.GetRegPath());
-                }
-                catch (Exception e)
-                {
-                    if (e.GetType() == typeof(NullReferenceException))
+                    var flag = true;
+                    var regp = RegCtrl.RegCtrl.RegEnumValue(reg.GetRegPath());
+                    RegPath temp;
+                    foreach (var regPath in regp)
                     {
-                        tmp = new RegKey(reg.GetRegPath());
+                        var tmp = RegCtrl.RegCtrl.RegGetValue(regPath);
+                        if (tmp.LpValue.ToString() == reg.LpValue.ToString())
+                        {
+                            flag = false;
+                            temp = regPath;
+                            break;
+                        }
                     }
-                    else
+                    if (flag)
                     {
-                        throw;
+                        RegOn = false;
+                        break;
                     }
                 }
-                if (!reg.IsNull && (tmp.LpKind == RegistryValueKind.Unknown ||
-                    reg.LpValue != tmp.LpValue))
+                else
                 {
-                    RegOn = false;
-                    break;
+                    RegKey tmp;
+                    try
+                    {
+                        tmp = RegCtrl.RegCtrl.RegGetValue(reg.GetRegPath());
+                    }
+                    catch (Exception e)
+                    {
+                        if (e.GetType() == typeof(NullReferenceException))
+                        {
+                            tmp = new RegKey(reg.GetRegPath());
+                        }
+                        else
+                        {
+                            throw;
+                        }
+                    }
+                    if (!reg.IsNull && (tmp.LpKind == RegistryValueKind.Unknown ||
+                                        reg.LpValue != tmp.LpValue))
+                    {
+                        RegOn = false;
+                        break;
+                    }
+                }
+                
+            }*/
+            for (var i = 0; i < OnRegStores.Length; i++)
+            {
+                var regstore = OnRegStores[i];
+                if (regstore.LpValueName == string.Empty)
+                {
+                    var flag = true;
+                    var regp = RegCtrl.RegCtrl.RegEnumValue(regstore.GetRegPath());
+                    RegPath temp = null;
+                    foreach (var regPath in regp)
+                    {
+                        var tmp = RegCtrl.RegCtrl.RegGetValue(regPath);
+                        if (tmp.LpValue.ToString() == regstore.LpValue.ToString())
+                        {
+                            flag = false;
+                            temp = regPath;
+                            break;
+                        }
+                    }
+                    if (flag)
+                    {
+                        RegOn = false;
+                        break;
+                    }
+                    regstore = new RegStore(regstore.HKey, regstore.LpSubKey, temp.LpValueName, regstore.LpKind,
+                        regstore.LpValue, regstore.IsNull);
+                }
+                else
+                {
+                    RegKey tmp;
+                    try
+                    {
+                        tmp = RegCtrl.RegCtrl.RegGetValue(regstore.GetRegPath());
+                    }
+                    catch (Exception e)
+                    {
+                        if (e.GetType() == typeof(NullReferenceException))
+                        {
+                            tmp = new RegKey(regstore.GetRegPath());
+                        }
+                        else
+                        {
+                            throw;
+                        }
+                    }
+                    if (!regstore.IsNull && (tmp.LpKind == RegistryValueKind.Unknown || regstore.LpValue != tmp.LpValue))
+                    {
+                        RegOn = false;
+                        break;
+                    }
                 }
             }
             return RegOn;

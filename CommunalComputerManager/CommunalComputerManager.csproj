@@ -75,6 +75,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\ProcCtrl\ProcCtrl.cs" />
+    <Compile Include="Models\Enums\DISM_LOG_LEVEL.cs" />
+    <Compile Include="Models\Enums\FACILITY_CODE.cs" />
+    <Compile Include="Models\Enums\FILE_CACHE_FLAGS.cs" />
     <Compile Include="Models\Enums\PROCESS_CREATION_FLAGS.cs" />
     <Compile Include="Models\Structures\PROCESS_INFORMATION.cs" />
     <Compile Include="Models\Structures\STARTUPINFO.cs" />
@@ -85,7 +88,7 @@
     <Compile Include="Views\BandWList.Designer.cs">
       <DependentUpon>BandWList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Enums\KEY_SAM_FLAG.cs" />
+    <Compile Include="Models\Enums\KEY_SAM_FLAGS.cs" />
     <Compile Include="Models\Enums\REG_ROOT_KEY.cs" />
     <Compile Include="Controllers\Cryptography\CryptStr.cs" />
     <Compile Include="Models\Enums\ERROR_CODE.cs" />
