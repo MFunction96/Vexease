@@ -82,7 +82,7 @@ namespace CommunalComputerManager.Data
             offreg[0] = new RegStore(regp, RegistryValueKind.DWord, 0x2, false);
             return new RegStatus(onreg, offreg);
         }
-        private RegStatus InitTaskmgr()
+        private static RegStatus InitTaskmgr()
         {
             var regp = new RegPath(new UIntPtr((uint)REG_ROOT_KEY.HKEY_CURRENT_USER), @"Software\Microsoft\Windows\CurrentVersion\Policies\System", @"DisableTaskMgr");
             var onreg = new RegStore[1];
