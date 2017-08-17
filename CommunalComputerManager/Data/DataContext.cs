@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using CommunalComputerManager.Controllers.RegCtrl;
 using CommunalComputerManager.Controllers.Status;
 using CommunalComputerManager.Models.Enums;
 using CommunalComputerManager.Models.Registrys;
@@ -18,6 +20,10 @@ namespace CommunalComputerManager.Data
         public RegStatus Cmd { get; }
         public RegStatus Taskmgr { get; }
         public RegStatus PwrShell { get; }
+        public LinkedList<RegKey> RestrictTasks { get; }
+        public LinkedList<RegKey> DisallowTasks { get; }
+        private RegPath Restricttaskpath { get; }
+        private RegPath Disallowtaskpath { get; }
 
         public DataContext()
         {
@@ -29,6 +35,12 @@ namespace CommunalComputerManager.Data
             Launcher = InitLauncher();
             CtrlPal = InitCtrlPal();
             Mmc = InitMmc();
+            RestrictTasks = InitTask(TASK_TYPE_FLAGS.RESTRICT_TASK);
+            DisallowTasks = InitTask(TASK_TYPE_FLAGS.DISALLOW_TASK);
+            Restricttaskpath = new RegPath(new RegPath(new UIntPtr((uint)REG_ROOT_KEY.HKEY_CURRENT_USER),
+                @"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\RestrictRun"));
+            Disallowtaskpath = new RegPath(new RegPath(new UIntPtr((uint)REG_ROOT_KEY.HKEY_CURRENT_USER),
+                @"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun"));
         }
 
         private static RegStatus InitLimitProc()
@@ -70,7 +82,7 @@ namespace CommunalComputerManager.Data
             offreg[0] = new RegStore(regp, RegistryValueKind.DWord, 0x2, false);
             return new RegStatus(onreg, offreg);
         }
-        private static RegStatus InitTaskmgr()
+        private RegStatus InitTaskmgr()
         {
             var regp = new RegPath(new UIntPtr((uint)REG_ROOT_KEY.HKEY_CURRENT_USER), @"Software\Microsoft\Windows\CurrentVersion\Policies\System", @"DisableTaskMgr");
             var onreg = new RegStore[1];
@@ -110,6 +122,62 @@ namespace CommunalComputerManager.Data
             onreg[1] = new RegStore(regp, RegistryValueKind.String, str, false);
             offreg[1] = new RegStore(regp, RegistryValueKind.String, str);
             return new RegStatus(onreg, offreg);
+        }
+
+        private LinkedList<RegKey> InitTask(TASK_TYPE_FLAGS taskType)
+        {
+            var task = new LinkedList<RegKey>();
+            try
+            {
+                var path = taskType == TASK_TYPE_FLAGS.RESTRICT_TASK ? Restricttaskpath : Disallowtaskpath;
+                var tmp = RegCtrl.RegEnumValue(new RegPath(path.HKey, path.LpSubKey));
+                foreach (var reg in tmp)
+                {
+                    task.AddLast(RegCtrl.RegGetValue(reg));
+                }
+            }
+            catch (Exception e)
+            {
+                if (e.GetType() != typeof(NullReferenceException))
+                {
+                    throw;
+                }
+            }
+            return task;
+        }
+
+        public RegKey[] GetTaskArray(TASK_TYPE_FLAGS taskType)
+        {
+            var tasks = taskType == TASK_TYPE_FLAGS.RESTRICT_TASK ? RestrictTasks : DisallowTasks;
+            var reg = new RegKey[tasks.Count];
+            var i = 0;
+            foreach (var tmp in tasks)
+            {
+                reg[i++] = tmp;
+            }
+            return reg;
+        }
+
+        public void AddTask((string, string)[] taskList, TASK_TYPE_FLAGS taskType)
+        {
+            var tasks = taskType == TASK_TYPE_FLAGS.RESTRICT_TASK ? RestrictTasks : DisallowTasks;
+            var path = taskType == TASK_TYPE_FLAGS.RESTRICT_TASK ? Restricttaskpath : Disallowtaskpath;
+            foreach (var task in taskList)
+            {
+                var reg = new RegKey(path.HKey, path.LpSubKey, task.Item1, RegistryValueKind.String, task.Item2);
+                RegCtrl.RegSetValue(reg);
+                tasks.AddLast(reg);
+            }
+        }
+
+        public void DropTask(RegKey[] taskList, TASK_TYPE_FLAGS taskType)
+        {
+            var tasks = taskType == TASK_TYPE_FLAGS.RESTRICT_TASK ? RestrictTasks : DisallowTasks;
+            foreach (var task in taskList)
+            {
+                tasks.Remove(task);
+                RegCtrl.RegDelKey(task.GetRegPath());
+            }
         }
     }
 }

@@ -137,6 +137,6 @@ namespace CommunalComputerManager.Controllers.PInvoke
         public static extern bool SetSystemFileCacheSize(
             uint stMinimumFileCacheSize,
             uint stMaximumFileCacheSize,
-            FILE_CACHE_FLAGS dwFlagss);
+            FILE_CACHE_FLAGS dwFlags);
     }
 }

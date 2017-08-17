@@ -63,6 +63,9 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\portable-net40+sl4+win8+wp8\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -79,6 +82,7 @@
     <Compile Include="Models\Enums\FACILITY_CODE.cs" />
     <Compile Include="Models\Enums\FILE_CACHE_FLAGS.cs" />
     <Compile Include="Models\Enums\PROCESS_CREATION_FLAGS.cs" />
+    <Compile Include="Models\Enums\TASK_TYPE_FLAGS.cs" />
     <Compile Include="Models\Structures\PROCESS_INFORMATION.cs" />
     <Compile Include="Models\Structures\STARTUPINFO.cs" />
     <Compile Include="Data\DataContext.cs" />
@@ -171,6 +175,7 @@
     <EmbeddedResource Include="Views\User.resx">
       <DependentUpon>User.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\app.manifest">
       <SubType>Designer</SubType>
     </None>
