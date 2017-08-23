@@ -77,6 +77,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Cryptography\AESCrypt.cs" />
     <Compile Include="Controllers\ProcCtrl\ProcCtrl.cs" />
     <Compile Include="Models\Enums\DISM_LOG_LEVEL.cs" />
     <Compile Include="Models\Enums\FACILITY_CODE.cs" />
@@ -94,7 +95,6 @@
     </Compile>
     <Compile Include="Models\Enums\KEY_SAM_FLAGS.cs" />
     <Compile Include="Models\Enums\REG_ROOT_KEY.cs" />
-    <Compile Include="Controllers\Cryptography\CryptStr.cs" />
     <Compile Include="Models\Enums\ERROR_CODE.cs" />
     <Compile Include="Models\Enums\KEY_ACCESS_TYPE.cs" />
     <Compile Include="Views\TestForm.cs">
