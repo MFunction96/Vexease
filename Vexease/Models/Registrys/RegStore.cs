@@ -79,10 +79,10 @@ namespace Vexease.Models.Registrys
         /// <param name="writer"></param>
         /// <param name="name"></param>
         /// <param name="skey"></param>
-        protected new void MidExport(XmlTextWriter writer, string name, string skey = "12345678")
+        protected new void MidExport(XmlTextWriter writer, string name)
         {
-            base.MidExport(writer, name, skey);
-            writer.WriteAttributeString("isnull", CryptStr.Encrypt(IsNull.ToString(), skey));
+            base.MidExport(writer, name);
+            writer.WriteAttributeString("isnull", AESCrypt.Encrypt(IsNull.ToString()));
         }
         /// <summary>
         /// 

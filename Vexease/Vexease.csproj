@@ -62,7 +62,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CSkin">
-      <HintPath>..\..\UI\CSkin 16.1.14.2\CSkin 4.0\CSkin.dll</HintPath>
+      <HintPath>Resources\CSkin.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

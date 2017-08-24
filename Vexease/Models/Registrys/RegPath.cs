@@ -66,12 +66,12 @@ namespace Vexease.Models.Registrys
         /// <param name="writer"></param>
         /// <param name="name"></param>
         /// <param name="skey"></param>
-        protected void MidExport(XmlTextWriter writer, string name, string skey = "12345678")
+        protected void MidExport(XmlTextWriter writer, string name)
         {
             writer.WriteStartElement(name, Guid.ToString());
-            writer.WriteAttributeString("hkey", CryptStr.Encrypt(HKey.ToString(), skey));
-            writer.WriteAttributeString("lpsubkey", CryptStr.Encrypt(LpSubKey, skey));
-            writer.WriteAttributeString("lpvaluename", CryptStr.Encrypt(LpValueName, skey));
+            writer.WriteAttributeString("hkey", AESCrypt.Encrypt(HKey.ToString()));
+            writer.WriteAttributeString("lpsubkey", AESCrypt.Encrypt(LpSubKey));
+            writer.WriteAttributeString("lpvaluename", AESCrypt.Encrypt(LpValueName));
         }
         /// <summary>
         /// 
