@@ -7,10 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Vexease.Data;
+using CCWin;
 
 namespace Vexease.Views
 {
-    public partial class User : Form
+    public partial class User : CCSkinMain
     {
 
         public DataContext RegCol { get; }
@@ -21,7 +22,7 @@ namespace Vexease.Views
             RegCol = new DataContext();
         }
 
-        private void user_switchongmode_Click(object sender, EventArgs e)
+        private void User_switchongmode_Click(object sender, EventArgs e)
         {
             Hide();
             var login = new Login();
@@ -37,10 +38,15 @@ namespace Vexease.Views
             testform.Show();
 
         }
-
         private void User_Load(object sender, EventArgs e)
         {
+            
+        }
 
+        private void User_close(object sender, EventArgs e)
+        {
+            //杀掉程序啊程序
+            Environment.Exit(Environment.ExitCode);
         }
     }
 }

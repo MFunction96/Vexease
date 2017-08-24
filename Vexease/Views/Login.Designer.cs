@@ -45,7 +45,6 @@
             this.label1.Size = new System.Drawing.Size(67, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "用户名：";
-           
             // 
             // label2
             // 
@@ -112,6 +111,7 @@
             this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Name = "Login";
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

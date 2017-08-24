@@ -9,30 +9,26 @@ using System.Windows.Forms;
 using CCWin;
 namespace Vexease.Views
 {
-    public partial class Login : CCSkinMain
+    public partial class Modifying_request : CCSkinMain
     {
-        public Login()
+        public Modifying_request()
         {
             InitializeComponent();
         }
-        
 
-        private void Login_btn_login_Click(object sender, EventArgs e)
+        private void Modifying_request_Load(object sender, EventArgs e)
         {
-            Adm adm = new Adm();
-            adm.Show();
-            this.Close();
 
         }
 
-        private void Login_btn_cancal_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void Login_Load(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }

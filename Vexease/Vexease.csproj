@@ -61,6 +61,9 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CSkin">
+      <HintPath>..\..\UI\CSkin 16.1.14.2\CSkin 4.0\CSkin.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -78,6 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\Cryptography\AESCrypt.cs" />
+    <Compile Include="Controllers\Cryptography\CryptStr.cs" />
     <Compile Include="Controllers\ProcCtrl\ProcCtrl.cs" />
     <Compile Include="Models\Enums\DISM_LOG_LEVEL.cs" />
     <Compile Include="Models\Enums\FACILITY_CODE.cs" />
@@ -97,6 +101,18 @@
     <Compile Include="Models\Enums\REG_ROOT_KEY.cs" />
     <Compile Include="Models\Enums\ERROR_CODE.cs" />
     <Compile Include="Models\Enums\KEY_ACCESS_TYPE.cs" />
+    <Compile Include="Views\Modifying_bandwist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Modifying_bandwist.designer.cs">
+      <DependentUpon>Modifying_bandwist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Modifying_request.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Modifying_request.designer.cs">
+      <DependentUpon>Modifying_request.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\TestForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +162,12 @@
     </Compile>
     <EmbeddedResource Include="Views\BandWList.resx">
       <DependentUpon>BandWList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Modifying_bandwist.resx">
+      <DependentUpon>Modifying_bandwist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Modifying_request.resx">
+      <DependentUpon>Modifying_request.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\TestForm.resx">
       <DependentUpon>TestForm.cs</DependentUpon>
@@ -207,6 +229,8 @@
     <None Include="Resources\half.png" />
     <None Include="Resources\背景.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

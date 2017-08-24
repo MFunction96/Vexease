@@ -4,10 +4,11 @@ using System.Windows.Forms;
 using Vexease.Controllers.RegCtrl;
 using Vexease.Models.Enums;
 using Vexease.Models.Registrys;
+using CCWin;
 
 namespace Vexease.Views
 {
-    public partial class Adm : Form
+    public partial class Adm : CCSkinMain
     {
         public Adm()
         {
@@ -102,6 +103,13 @@ namespace Vexease.Views
         private void Adm_exit_Click(object sender, EventArgs e)
         {
             this.Close();
+            User user = new User();
+            user.Show();
+        }
+
+        private void Adm_pnl_about_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

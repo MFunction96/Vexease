@@ -72,7 +72,7 @@ namespace Vexease.Views
             this.ControlBox = false;   // 设置不出现关闭按钮
         }
 
-        private void adm_conctrlpannelPnl_Paint(object sender, PaintEventArgs e)
+        private void Adm_conctrlpannelPnl_Paint(object sender, PaintEventArgs e)
         {
 
         }
@@ -90,30 +90,36 @@ namespace Vexease.Views
             Mmc.CheckStatus();
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void Button5_Click(object sender, EventArgs e)
         {
             //杀掉程序啊程序
             Environment.Exit(Environment.ExitCode);
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void Button7_Click(object sender, EventArgs e)
         {
             Registry.SwapStatus();
         }
 
-        private void button14_Click(object sender, EventArgs e)
+        private void Button14_Click(object sender, EventArgs e)
         {
-            var process = ProcCtrl.CreateProcessEx(null , @"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe");
+          
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void Button6_Click(object sender, EventArgs e)
         {
             Mmc.SwapStatus();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Button3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Button13_Click(object sender, EventArgs e)
+        {
+            //是在这里吧？button14是我才建的设重启时间的0.0错了的话你改回来吧
+            var process = ProcCtrl.CreateProcessEx(null, @"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe");
         }
     }
 

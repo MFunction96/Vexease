@@ -219,6 +219,7 @@
             this.Adm_pnl_about.Size = new System.Drawing.Size(799, 568);
             this.Adm_pnl_about.TabIndex = 2;
             this.Adm_pnl_about.Visible = false;
+            this.Adm_pnl_about.Paint += new System.Windows.Forms.PaintEventHandler(this.Adm_pnl_about_Paint);
             // 
             // Adm_setIP_btn_cancel
             // 

@@ -45,6 +45,7 @@
             this.Button5.TabIndex = 13;
             this.Button5.Text = "取消";
             this.Button5.UseVisualStyleBackColor = true;
+            this.Button5.Click += new System.EventHandler(this.Button5_Click_1);
             // 
             // Button4
             // 
@@ -124,6 +125,7 @@
             this.Controls.Add(this.ComboBox1);
             this.Name = "RequestEdit";
             this.Text = "RequestEdit";
+            this.Load += new System.EventHandler(this.RequestEdit_Load);
             this.ResumeLayout(false);
 
         }
