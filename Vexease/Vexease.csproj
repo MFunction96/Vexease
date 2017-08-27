@@ -81,6 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\Cryptography\AESCrypt.cs" />
+    <Compile Include="Controllers\ListCtrl\ListCompare.cs" />
     <Compile Include="Controllers\ProcCtrl\ProcCtrl.cs" />
     <Compile Include="Models\Enums\DISM_LOG_LEVEL.cs" />
     <Compile Include="Models\Enums\FACILITY_CODE.cs" />

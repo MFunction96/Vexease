@@ -7,8 +7,8 @@ namespace Vexease.Models.Structures
     [StructLayout(LayoutKind.Sequential)]
     public struct PROCESS_INFORMATION
     {
-        public UIntPtr hProcess;
-        public UIntPtr hThread;
+        public IntPtr hProcess;
+        public IntPtr hThread;
         public int ProcessId;
         public int ThreadId;
     }

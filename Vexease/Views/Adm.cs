@@ -17,10 +17,10 @@ namespace Vexease.Views
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            var reg = RegCtrl.RegGetValue(new RegPath((UIntPtr)REG_ROOT_KEY.HKEY_CURRENT_USER,
+            var reg = RegCtrl.RegGetValue(new RegPath(REG_ROOT_KEY.HKEY_CURRENT_USER,
                 @"Software\Google\Chrome\BLBeacon", @"state"));
             MessageBox.Show(reg.LpKind.ToString() + '\n' + reg.LpValue);
-            reg = RegCtrl.RegGetValue(new RegPath((UIntPtr)REG_ROOT_KEY.HKEY_CURRENT_USER,
+            reg = RegCtrl.RegGetValue(new RegPath(REG_ROOT_KEY.HKEY_CURRENT_USER,
                 @"Software\Google\Chrome\BLBeacon", @"version"));
             MessageBox.Show(reg.LpKind.ToString() + '\n' + reg.LpValue);
         }
@@ -38,7 +38,7 @@ namespace Vexease.Views
 
         private void Adm_btn_changeBandWlist_Click(object sender, EventArgs e)
         {
-            BandWList bandwlist = new BandWList();
+            var bandwlist = new BandWList(TASK_TYPE_FLAGS.RESTRICT_TASK_NAME);
             bandwlist.Show();
         }
 

@@ -11,7 +11,7 @@ namespace Vexease.Controllers.PInvoke
     {
         [DllImport("advapi32.dll", SetLastError = true, CharSet = CharSet.Unicode, EntryPoint = "RegSetValueExW")]
         public static extern uint RegSetValueEx(
-            UIntPtr hKey,
+            IntPtr hKey,
             [MarshalAs(UnmanagedType.LPWStr)] string lpValueName,
             uint lpReserved,
             RegistryValueKind dwType,
@@ -20,7 +20,7 @@ namespace Vexease.Controllers.PInvoke
 
         [DllImport("advapi32.dll", SetLastError = true, CharSet = CharSet.Unicode, EntryPoint = "RegSetValueExW")]
         public static extern uint RegSetValueEx(
-            UIntPtr hKey,
+            IntPtr hKey,
             [MarshalAs(UnmanagedType.LPWStr)] string lpValueName,
             uint lpReserved,
             RegistryValueKind dwType,
@@ -29,7 +29,7 @@ namespace Vexease.Controllers.PInvoke
 
         [DllImport("advapi32.dll", SetLastError = true, CharSet = CharSet.Unicode, EntryPoint = "RegSetValueExW")]
         public static extern uint RegSetValueEx(
-            UIntPtr hKey,
+            IntPtr hKey,
             [MarshalAs(UnmanagedType.LPWStr)] string lpValueName,
             uint lpReserved,
             RegistryValueKind dwType,
@@ -38,57 +38,57 @@ namespace Vexease.Controllers.PInvoke
 
         [DllImport("advapi32.dll", SetLastError = true, CharSet = CharSet.Unicode, EntryPoint = "RegQueryValueExW")]
         public static extern uint RegQueryValueEx(
-            UIntPtr hKey,
+            IntPtr hKey,
             [MarshalAs(UnmanagedType.LPWStr)] string lpValueName,
-            UIntPtr lpReserved,
+            IntPtr lpReserved,
             out RegistryValueKind lpType,
             IntPtr lpData,
             ref uint lpcbData);
 
         [DllImport("advapi32.dll", SetLastError = true, CharSet = CharSet.Unicode, EntryPoint = "RegQueryValueExW")]
         public static extern uint RegQueryValueEx(
-            UIntPtr hKey,
+            IntPtr hKey,
             [MarshalAs(UnmanagedType.LPWStr)] string lpValueName,
-            UIntPtr lpReserved,
+            IntPtr lpReserved,
             out RegistryValueKind lpType,
             StringBuilder lpData,
             ref uint lpcbData);
 
         [DllImport("advapi32.dll", SetLastError = true, CharSet = CharSet.Unicode, EntryPoint = "RegCreateKeyExW")]
         public static extern uint RegCreateKeyEx(
-            UIntPtr hKey,
+            IntPtr hKey,
             [MarshalAs(UnmanagedType.LPWStr)] string lpSubKey,
             uint lpReserved,
             [MarshalAs(UnmanagedType.LPWStr)] string lpClass,
             uint dwOptions,
             uint samDesired,
             IntPtr lpSecurityAttributes,
-            out UIntPtr phkResult,
+            out IntPtr phkResult,
             out uint lpdwDisposition);
 
         [DllImport("advapi32.dll", SetLastError = true, CharSet = CharSet.Unicode, EntryPoint = "RegOpenKeyExW")]
         public static extern uint RegOpenKeyEx(
-            UIntPtr hKey,
+            IntPtr hKey,
             [MarshalAs(UnmanagedType.LPWStr)] string lpSubKey,
             uint ulOptions,
             uint samDesired,
-            out UIntPtr hkResult);
+            out IntPtr hkResult);
 
         [DllImport("advapi32.dll", SetLastError = true, CharSet = CharSet.Unicode, EntryPoint = "RegDeleteKeyExW")]
         public static extern uint RegDeleteKeyEx(
-            UIntPtr hKey,
+            IntPtr hKey,
             [MarshalAs(UnmanagedType.LPWStr)] string lpSubKey,
             uint samDesired,
             uint lpReserved);
 
         [DllImport("advapi32.dll", SetLastError = true, CharSet = CharSet.Unicode, EntryPoint = "RegDeleteValueW")]
         public static extern uint RegDeleteValueEx(
-            UIntPtr hKey,
+            IntPtr hKey,
             [MarshalAs(UnmanagedType.LPWStr)] string lpSubKey);
 
         [DllImport("advapi32.dll", SetLastError = true, CharSet = CharSet.Unicode, EntryPoint = "RegEnumKeyExW")]
         public static extern uint RegEnumKeyEx(
-            UIntPtr hKey,
+            IntPtr hKey,
             uint dwIndex,
             StringBuilder lpValueName,
             ref uint lpcValueName,
@@ -99,7 +99,7 @@ namespace Vexease.Controllers.PInvoke
 
         [DllImport("advapi32.dll", SetLastError = true, CharSet = CharSet.Unicode, EntryPoint = "RegEnumValueW")]
         public static extern uint RegEnumValue(
-            UIntPtr hKey,
+            IntPtr hKey,
             uint dwIndex,
             StringBuilder lpValueName,
             ref uint lpcValueName,
@@ -109,7 +109,7 @@ namespace Vexease.Controllers.PInvoke
             IntPtr lpcbData);
 
         [DllImport("advapi32.dll", SetLastError = true)]
-        public static extern uint RegCloseKey(UIntPtr hKey);
+        public static extern uint RegCloseKey(IntPtr hKey);
 
         [DllImport("kernel32.dll")]
         public static extern uint GetLastError();

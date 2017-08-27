@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using Vexease.Data;
 using CCWin;
 
 namespace Vexease.Views
@@ -14,12 +6,9 @@ namespace Vexease.Views
     public partial class User : CCSkinMain
     {
 
-        public DataContext RegCol { get; }
-
         public User()
         {
             InitializeComponent();
-            RegCol = new DataContext();
         }
 
         private void User_switchongmode_Click(object sender, EventArgs e)
@@ -34,7 +23,7 @@ namespace Vexease.Views
         private void User_Text_Click(object sender, EventArgs e)
         {
             Hide();
-            var testform = new TestForm { RegCollections = RegCol };
+            var testform = new TestForm();
             testform.Show();
 
         }

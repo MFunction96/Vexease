@@ -32,14 +32,14 @@ namespace Vexease.Controllers.RegCtrl
             {
                 var phkresult = RegOpenKey(regPath);
                 uint lpcbdata = 0;
-                NativeMethods.RegQueryValueEx(phkresult, regPath.LpValueName, UIntPtr.Zero, out RegistryValueKind lpkind, IntPtr.Zero, ref lpcbdata);
+                NativeMethods.RegQueryValueEx(phkresult, regPath.LpValueName, IntPtr.Zero, out RegistryValueKind lpkind, IntPtr.Zero, ref lpcbdata);
                 if (lpcbdata == 0)
                 {
                     NativeMethods.RegCloseKey(phkresult);
                     throw new Exception(@"注册表访问失败" + '\n' +@"无法获取缓冲区大小");
                 }
                 var lpdata = Marshal.AllocHGlobal((int)lpcbdata);
-                var reggetvaluetemp = NativeMethods.RegQueryValueEx(phkresult, regPath.LpValueName, UIntPtr.Zero, out lpkind, lpdata, ref lpcbdata);
+                var reggetvaluetemp = NativeMethods.RegQueryValueEx(phkresult, regPath.LpValueName, IntPtr.Zero, out lpkind, lpdata, ref lpcbdata);
                 NativeMethods.RegCloseKey(phkresult);
                 if (reggetvaluetemp != (uint)ERROR_CODE.ERROR_SUCCESS)
                 {
@@ -79,17 +79,17 @@ namespace Vexease.Controllers.RegCtrl
         public static void RegSetValue(RegKey regKey)
         {
             uint regsetvaluetmp, exists;
-            UIntPtr phkResult;
+            IntPtr phkResult;
             if (Environment.Is64BitOperatingSystem)
             {
-                regsetvaluetmp = NativeMethods.RegCreateKeyEx(regKey.HKey, regKey.LpSubKey, 0u, null,
+                regsetvaluetmp = NativeMethods.RegCreateKeyEx(new IntPtr((int)new IntPtr((int)regKey.HKey)), regKey.LpSubKey, 0u, null,
                     (uint)OPERATE_OPTION.REG_OPTION_NON_VOLATILE,
                     (uint)KEY_SAM_FLAGS.KEY_WOW64_64KEY | (uint)KEY_ACCESS_TYPE.KEY_READ |
                     (uint)KEY_ACCESS_TYPE.KEY_WRITE, IntPtr.Zero, out phkResult, out exists);
             }
             else
             {
-                regsetvaluetmp = NativeMethods.RegCreateKeyEx(regKey.HKey, regKey.LpSubKey, 0u, null,
+                regsetvaluetmp = NativeMethods.RegCreateKeyEx(new IntPtr((int)regKey.HKey), regKey.LpSubKey, 0u, null,
                     (uint)OPERATE_OPTION.REG_OPTION_NON_VOLATILE,
                     (uint)KEY_ACCESS_TYPE.KEY_READ |
                     (uint)KEY_ACCESS_TYPE.KEY_WRITE, IntPtr.Zero, out phkResult, out exists);
@@ -138,7 +138,7 @@ namespace Vexease.Controllers.RegCtrl
             uint regdelkeytmp;
             if (string.IsNullOrEmpty(regPath.LpValueName))
             {
-                regdelkeytmp = NativeMethods.RegDeleteKeyEx(regPath.HKey, regPath.LpSubKey,
+                regdelkeytmp = NativeMethods.RegDeleteKeyEx(new IntPtr((int)regPath.HKey), regPath.LpSubKey,
                     (uint)KEY_SAM_FLAGS.KEY_WOW64_64KEY | (uint)KEY_ACCESS_TYPE.KEY_ALL_ACCESS, 0u);
                 if (regdelkeytmp != (uint)ERROR_CODE.ERROR_SUCCESS)
                 {
@@ -147,9 +147,9 @@ namespace Vexease.Controllers.RegCtrl
             }
             else
             {
-                regdelkeytmp = NativeMethods.RegOpenKeyEx(regPath.HKey, regPath.LpSubKey, 0u,
+                regdelkeytmp = NativeMethods.RegOpenKeyEx(new IntPtr((int)regPath.HKey), regPath.LpSubKey, 0u,
                     (uint)KEY_SAM_FLAGS.KEY_WOW64_64KEY |
-                    (uint)KEY_ACCESS_TYPE.KEY_ALL_ACCESS, out UIntPtr phkresult);
+                    (uint)KEY_ACCESS_TYPE.KEY_ALL_ACCESS, out IntPtr phkresult);
                 if (regdelkeytmp != (uint)ERROR_CODE.ERROR_SUCCESS)
                 {
                     throw new Exception(@"注册表访问失败" + '\n' + regdelkeytmp);
@@ -245,19 +245,19 @@ namespace Vexease.Controllers.RegCtrl
         /// </summary>
         /// <param name="regPath"></param>
         /// <returns></returns>
-        private static UIntPtr RegOpenKey(RegPath regPath)
+        private static IntPtr RegOpenKey(RegPath regPath)
         {
             uint regopenkeytmp;
-            UIntPtr phkresult;
+            IntPtr phkresult;
             if (Environment.Is64BitOperatingSystem)
             {
-                regopenkeytmp = NativeMethods.RegOpenKeyEx(regPath.HKey, regPath.LpSubKey, 0,
+                regopenkeytmp = NativeMethods.RegOpenKeyEx(new IntPtr((int)regPath.HKey), regPath.LpSubKey, 0,
                     (uint)KEY_SAM_FLAGS.KEY_WOW64_64KEY |
                     (uint)KEY_ACCESS_TYPE.KEY_READ, out phkresult);
             }
             else
             {
-                regopenkeytmp = NativeMethods.RegOpenKeyEx(regPath.HKey, regPath.LpSubKey, 0,
+                regopenkeytmp = NativeMethods.RegOpenKeyEx(new IntPtr((int)regPath.HKey), regPath.LpSubKey, 0,
                     (uint)KEY_ACCESS_TYPE.KEY_READ, out phkresult);
             }
             if (regopenkeytmp == (uint) ERROR_CODE.ERROR_FILE_NOT_FOUND)

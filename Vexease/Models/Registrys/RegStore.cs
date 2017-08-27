@@ -2,6 +2,7 @@
 using System.Xml;
 using Microsoft.Win32;
 using Vexease.Controllers.Cryptography;
+using Vexease.Models.Enums;
 
 namespace Vexease.Models.Registrys
 {
@@ -14,12 +15,12 @@ namespace Vexease.Models.Registrys
         /// 
         /// </summary>
         public bool IsNull { get; protected set; }
+        /// <inheritdoc />
         /// <summary>
-        /// 
         /// </summary>
         public RegStore() { }
+        /// <inheritdoc />
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="hKey"></param>
         /// <param name="lpSubKey"></param>
@@ -28,7 +29,7 @@ namespace Vexease.Models.Registrys
         /// <param name="lpValue"></param>
         /// <param name="isNull"></param>
         public RegStore(
-            UIntPtr hKey,
+            REG_ROOT_KEY hKey,
             string lpSubKey,
             string lpValueName = "",
             RegistryValueKind lpKind = RegistryValueKind.Unknown,
@@ -38,8 +39,8 @@ namespace Vexease.Models.Registrys
         {
             IsNull = isNull;
         }
+        /// <inheritdoc />
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="regPath"></param>
         /// <param name="lpKind"></param>
@@ -54,8 +55,8 @@ namespace Vexease.Models.Registrys
         {
             IsNull = isNull;
         }
+        /// <inheritdoc />
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="regKey"></param>
         /// <param name="isNull"></param>
@@ -64,8 +65,8 @@ namespace Vexease.Models.Registrys
         {
             IsNull = isNull;
         }
+        /// <inheritdoc />
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="regStore"></param>
         public RegStore(RegStore regStore) :

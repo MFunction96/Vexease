@@ -21,9 +21,9 @@ namespace Vexease.Models.Structures
         public uint dwFlags;
         public short wShowWindow;
         public short cbReserved2;
-        public UIntPtr lpReserved2;
-        public UIntPtr hStdInput;
-        public UIntPtr hStdOutput;
-        public UIntPtr hStdError;
+        public IntPtr lpReserved2;
+        public IntPtr hStdInput;
+        public IntPtr hStdOutput;
+        public IntPtr hStdError;
     }
 }

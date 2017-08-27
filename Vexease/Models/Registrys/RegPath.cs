@@ -4,11 +4,12 @@ using System.Text;
 using System.Windows.Forms;
 using System.Xml;
 using Vexease.Controllers.Cryptography;
+using Vexease.Models.Enums;
 
 namespace Vexease.Models.Registrys
 {
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
     [Serializable]
     public class RegPath : ICloneable
@@ -20,7 +21,7 @@ namespace Vexease.Models.Registrys
         /// <summary>
         /// 
         /// </summary>
-        public UIntPtr HKey { get; protected set; }
+        public REG_ROOT_KEY HKey { get; protected set; }
         /// <summary>
         /// 
         /// </summary>
@@ -42,7 +43,7 @@ namespace Vexease.Models.Registrys
         /// <param name="hKey"></param>
         /// <param name="lpSubKey"></param>
         /// <param name="lpValueName"></param>
-        public RegPath(UIntPtr hKey, string lpSubKey, string lpValueName = "")
+        public RegPath(REG_ROOT_KEY hKey, string lpSubKey, string lpValueName = "")
         {
             Guid = Guid.NewGuid();
             HKey = hKey;
@@ -65,7 +66,6 @@ namespace Vexease.Models.Registrys
         /// </summary>
         /// <param name="writer"></param>
         /// <param name="name"></param>
-        /// <param name="skey"></param>
         protected void MidExport(XmlTextWriter writer, string name)
         {
             writer.WriteStartElement(name, Guid.ToString());
@@ -104,8 +104,8 @@ namespace Vexease.Models.Registrys
             }
             return true;
         }
+        /// <inheritdoc />
         /// <summary>
-        /// 
         /// </summary>
         /// <returns></returns>
         public object Clone()

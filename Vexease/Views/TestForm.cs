@@ -62,7 +62,6 @@ namespace Vexease.Views
             }
 
         }
-        public DataContext RegCollections { get; set; }
         private Status Registry { get; set; }
         private Status Mmc { get; set; }
 
@@ -84,9 +83,9 @@ namespace Vexease.Views
 
         private void TestForm_Load(object sender, EventArgs e)
         {
-            Registry = new Status(RegCollections.Registry, adm_registry_now_state, button8);
+            Registry = new Status(DataContext.Registry, adm_registry_now_state, button8);
             Registry.CheckStatus();
-            Mmc = new Status(RegCollections.Mmc, adm_console_now_state, button6);
+            Mmc = new Status(DataContext.Mmc, adm_console_now_state, button6);
             Mmc.CheckStatus();
         }
 
