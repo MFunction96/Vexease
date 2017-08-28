@@ -49,19 +49,19 @@ namespace Vexease.Data
         /// <summary>
         /// 
         /// </summary>
-        public static LinkedList<RegKey> RestrictTaskNames { get; }
+        private static LinkedList<RegKey> RestrictTaskNames { get; }
         /// <summary>
         /// 
         /// </summary>
-        public static LinkedList<RegKey> DisallowTaskNames { get; }
+        private static LinkedList<RegKey> DisallowTaskNames { get; }
         /// <summary>
         /// 
         /// </summary>
-        public static LinkedList<RegKey> RestrictTaskPaths { get; }
+        private static LinkedList<RegKey> RestrictTaskPaths { get; }
         /// <summary>
         /// 
         /// </summary>
-        public static LinkedList<RegKey> DisallowTaskPaths { get; }
+        private static LinkedList<RegKey> DisallowTaskPaths { get; }
         /// <summary>
         /// 
         /// </summary>
@@ -206,27 +206,31 @@ namespace Vexease.Data
             offreg[1] = new RegStore(regp, RegistryValueKind.String, str);
             return new RegStatus(onreg, offreg);
         }
-
-        private static RegPath GetRegPath(TASK_TYPE_FLAGS taskType)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="taskType"></param>
+        /// <returns></returns>
+        public static RegPath GetRegPath(TASK_TYPE_FLAGS taskType)
         {
             RegPath path;
-            if (taskType == TASK_TYPE_FLAGS.DISALLOW_TASK_NAME)
+            if (taskType == TASK_TYPE_FLAGS.RESTRICT_TASK_NAME)
             {
                 path = new RegPath(REG_ROOT_KEY.HKEY_CURRENT_USER,
                     @"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\RestrictRun");
             }
-            else if (taskType == TASK_TYPE_FLAGS.RESTRICT_TASK_NAME)
+            else if (taskType == TASK_TYPE_FLAGS.DISALLOW_TASK_NAME)
             {
                 path = new RegPath(REG_ROOT_KEY.HKEY_CURRENT_USER,
                     @"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun");
             }
-            else if (taskType == TASK_TYPE_FLAGS.DISALLOW_TASK_PATH)
+            else if (taskType == TASK_TYPE_FLAGS.RESTRICT_TASK_PATH)
             {
-                path = new RegPath(REG_ROOT_KEY.HKEY_CURRENT_USER, @"SOFTWARE\Policies\Microsoft\Windows\safer\codeidentifiers\0");
+                path = new RegPath(REG_ROOT_KEY.HKEY_LOCAL_MACHINE, @"SOFTWARE\Policies\Microsoft\Windows\safer\codeidentifiers\262144\Paths");
             }
             else
             {
-                path = new RegPath(REG_ROOT_KEY.HKEY_CURRENT_USER, @"SOFTWARE\Policies\Microsoft\Windows\safer\codeidentifiers\‭262144‬");
+                path = new RegPath(REG_ROOT_KEY.HKEY_LOCAL_MACHINE, @"SOFTWARE\Policies\Microsoft\Windows\safer\codeidentifiers\‭0\Paths‬");
             }
             return path;
         }
@@ -261,72 +265,14 @@ namespace Vexease.Data
         /// </summary>
         /// <param name="taskType"></param>
         /// <returns></returns>
-        private static LinkedList<RegKey> GetTaskList(TASK_TYPE_FLAGS taskType)
+        public static LinkedList<RegKey> GetTaskList(TASK_TYPE_FLAGS taskType)
         {
             LinkedList<RegKey> list;
-            if (taskType == TASK_TYPE_FLAGS.DISALLOW_TASK_NAME)
-            {
-                list = RestrictTaskNames;
-            }
-            else if (taskType == TASK_TYPE_FLAGS.RESTRICT_TASK_NAME)
-            {
-                list = DisallowTaskNames;
-            }
-            else if (taskType == TASK_TYPE_FLAGS.DISALLOW_TASK_PATH)
-            {
-                list = RestrictTaskPaths;
-            }
-            else
-            {
-                list = DisallowTaskPaths;
-            }
+            if (taskType == TASK_TYPE_FLAGS.RESTRICT_TASK_NAME) list = RestrictTaskNames;
+            else if (taskType == TASK_TYPE_FLAGS.DISALLOW_TASK_NAME) list = DisallowTaskNames;
+            else if (taskType == TASK_TYPE_FLAGS.RESTRICT_TASK_PATH) list = RestrictTaskPaths;
+            else list = DisallowTaskPaths;
             return list;
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="taskType"></param>
-        /// <returns></returns>
-        public static RegKey[] GetTaskArray(TASK_TYPE_FLAGS taskType)
-        {
-            var tasks = GetTaskList(taskType);
-            var reg = new RegKey[tasks.Count];
-            var i = 0;
-            foreach (var tmp in tasks)
-            {
-                reg[i++] = tmp;
-            }
-            return reg;
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="taskList"></param>
-        /// <param name="taskType"></param>
-        public static void AddTask((string, string)[] taskList, TASK_TYPE_FLAGS taskType)
-        {
-            var tasks = GetTaskList(taskType);
-            var path = GetRegPath(taskType);
-            foreach (var task in taskList)
-            {
-                var reg = new RegKey(path.HKey, path.LpSubKey, task.Item1, RegistryValueKind.String, task.Item2);
-                RegCtrl.RegSetValue(reg);
-                tasks.AddLast(reg);
-            }
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="taskList"></param>
-        /// <param name="taskType"></param>
-        public static void DropTask(RegKey[] taskList, TASK_TYPE_FLAGS taskType)
-        {
-            var tasks = GetTaskList(taskType);
-            foreach (var task in taskList)
-            {
-                tasks.Remove(task);
-                RegCtrl.RegDelKey(task.GetRegPath());
-            }
         }
     }
 }

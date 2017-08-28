@@ -1,6 +1,9 @@
 ﻿using CCWin;
 using System;
 using System.Windows.Forms;
+using CCWin.SkinControl;
+using Vexease.Controllers.ListCtrl;
+using Vexease.Data;
 using Vexease.Models.Enums;
 
 namespace Vexease.Views
@@ -9,23 +12,35 @@ namespace Vexease.Views
     //0.0不对的话，欢迎返工
     public partial class BandWList : CCSkinMain
     {
-        
-        public TASK_TYPE_FLAGS ProcessFlag { get; }
 
-        public BandWList(TASK_TYPE_FLAGS processFlag)
+        public TASK_TYPE_FLAGS TaskType { get; }
+
+        public BandWList(TASK_TYPE_FLAGS taskType)
         {
             InitializeComponent();
-            ProcessFlag = processFlag;
+            TaskType = taskType;
         }
 
         private void BandWList_Load(object sender, EventArgs e)
         {
-
+            TaskListBox.Items.Clear();
+            var tasks = DataContext.GetTaskList(TaskType);
+            foreach (var task in tasks)
+            {
+                TaskListBox.Items.Add(new SkinListBoxItem(task.LpValue.ToString()));
+            }
         }
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
-        
+            if (ListCtrl.AddTask(TaskInfo.Text, TaskType))
+            {
+                TaskListBox.Items.Add(new SkinListBoxItem(TaskInfo.Text));
+            }
+            else
+            {
+                MessageBox.Show("已有重复进程");
+            }
         }
 
         private void BtnOK_Click(object sender, EventArgs e)
@@ -37,17 +52,18 @@ namespace Vexease.Views
 
         private void BtnDel_Click(object sender, EventArgs e)
         {
-
+            var item = (SkinListBoxItem)TaskListBox.SelectedItem;
+            ListCtrl.DelTask(item.Text, TaskType);
         }
 
         private void BtnReset_Click(object sender, EventArgs e)
         {
-
+            ListCtrl.Reset();
         }
 
         private void BtnBrowse_Click(object sender, EventArgs e)
         {
-            ProcessInfo.Text = BrowseProcess();
+            TaskInfo.Text = BrowseTask();
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -55,9 +71,9 @@ namespace Vexease.Views
 
         }
 
-        private string BrowseProcess()
+        private string BrowseTask()
         {
-            if ((uint)ProcessFlag >> 1 > 0)
+            if ((uint)TaskType >> 1 > 0)
             {
                 var dialog = new FolderBrowserDialog
                 {
@@ -79,6 +95,12 @@ namespace Vexease.Views
                 dialog.ShowDialog();
                 return dialog.SafeFileName;
             }
+        }
+
+        private void BtnModify_Click(object sender, EventArgs e)
+        {
+            var item = (SkinListBoxItem)TaskListBox.SelectedItem;
+            ListCtrl.ModifyTask(item.Text, TaskInfo.Text, TaskType);
         }
     }
 }

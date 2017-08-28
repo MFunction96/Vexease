@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Specialized;
 using System.Runtime.InteropServices;
 using System.Text;
-using Microsoft.Win32;
 using Vexease.Controllers.PInvoke;
 using Vexease.Models.Enums;
 using Vexease.Models.Registrys;

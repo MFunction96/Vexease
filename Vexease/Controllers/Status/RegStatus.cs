@@ -1,5 +1,5 @@
-﻿using System;
-using Microsoft.Win32;
+﻿using Microsoft.Win32;
+using System;
 using Vexease.Models.Registrys;
 
 namespace Vexease.Controllers.Status

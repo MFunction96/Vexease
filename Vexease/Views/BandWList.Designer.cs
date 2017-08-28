@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BandWList));
             this.BandWList_lbl_whitelist = new System.Windows.Forms.Label();
             this.BandWList_lbl_add = new System.Windows.Forms.Label();
-            this.ProcessInfo = new System.Windows.Forms.TextBox();
+            this.TaskInfo = new System.Windows.Forms.TextBox();
             this.BtnBrowse = new System.Windows.Forms.Button();
             this.BtnReset = new System.Windows.Forms.Button();
             this.BtnOK = new System.Windows.Forms.Button();
@@ -39,7 +39,8 @@
             this.BtnAdd = new System.Windows.Forms.Button();
             this.pushPanelItem2 = new CCWin.SkinControl.PushPanelItem();
             this.BtnDel = new System.Windows.Forms.Button();
-            this.BandWList_ltbox = new CCWin.SkinControl.SkinListBox();
+            this.TaskListBox = new CCWin.SkinControl.SkinListBox();
+            this.BtnModify = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BandWList_lbl_whitelist
@@ -60,12 +61,12 @@
             this.BandWList_lbl_add.TabIndex = 2;
             this.BandWList_lbl_add.Text = "添加项：";
             // 
-            // ProcessInfo
+            // TaskInfo
             // 
-            this.ProcessInfo.Location = new System.Drawing.Point(122, 453);
-            this.ProcessInfo.Name = "ProcessInfo";
-            this.ProcessInfo.Size = new System.Drawing.Size(698, 25);
-            this.ProcessInfo.TabIndex = 3;
+            this.TaskInfo.Location = new System.Drawing.Point(122, 453);
+            this.TaskInfo.Name = "TaskInfo";
+            this.TaskInfo.Size = new System.Drawing.Size(698, 25);
+            this.TaskInfo.TabIndex = 3;
             // 
             // BtnBrowse
             // 
@@ -138,38 +139,49 @@
             this.BtnDel.UseVisualStyleBackColor = true;
             this.BtnDel.Click += new System.EventHandler(this.BtnDel_Click);
             // 
-            // BandWList_ltbox
+            // TaskListBox
             // 
-            this.BandWList_ltbox.AllowDrop = true;
-            this.BandWList_ltbox.Back = null;
-            this.BandWList_ltbox.ColumnWidth = 12;
-            this.BandWList_ltbox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.BandWList_ltbox.FormattingEnabled = true;
-            this.BandWList_ltbox.HorizontalScrollbar = true;
-            this.BandWList_ltbox.ItemHeight = 20;
-            this.BandWList_ltbox.ItemRoundStyle = CCWin.SkinClass.RoundStyle.All;
-            this.BandWList_ltbox.Items.AddRange(new CCWin.SkinControl.SkinListBoxItem[] {
-            ((CCWin.SkinControl.SkinListBoxItem)(resources.GetObject("BandWList_ltbox.Items"))),
-            ((CCWin.SkinControl.SkinListBoxItem)(resources.GetObject("BandWList_ltbox.Items1")))});
-            this.BandWList_ltbox.Location = new System.Drawing.Point(52, 87);
-            this.BandWList_ltbox.Name = "BandWList_ltbox";
-            this.BandWList_ltbox.RoundStyle = CCWin.SkinClass.RoundStyle.All;
-            this.BandWList_ltbox.Size = new System.Drawing.Size(751, 344);
-            this.BandWList_ltbox.TabIndex = 11;
+            this.TaskListBox.AllowDrop = true;
+            this.TaskListBox.Back = null;
+            this.TaskListBox.ColumnWidth = 12;
+            this.TaskListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.TaskListBox.FormattingEnabled = true;
+            this.TaskListBox.HorizontalScrollbar = true;
+            this.TaskListBox.ItemHeight = 20;
+            this.TaskListBox.ItemRoundStyle = CCWin.SkinClass.RoundStyle.All;
+            this.TaskListBox.Items.AddRange(new CCWin.SkinControl.SkinListBoxItem[] {
+            ((CCWin.SkinControl.SkinListBoxItem)(resources.GetObject("TaskListBox.Items"))),
+            ((CCWin.SkinControl.SkinListBoxItem)(resources.GetObject("TaskListBox.Items1")))});
+            this.TaskListBox.Location = new System.Drawing.Point(52, 87);
+            this.TaskListBox.Name = "TaskListBox";
+            this.TaskListBox.RoundStyle = CCWin.SkinClass.RoundStyle.All;
+            this.TaskListBox.Size = new System.Drawing.Size(751, 344);
+            this.TaskListBox.TabIndex = 11;
+            // 
+            // BtnModify
+            // 
+            this.BtnModify.Location = new System.Drawing.Point(835, 266);
+            this.BtnModify.Name = "BtnModify";
+            this.BtnModify.Size = new System.Drawing.Size(75, 23);
+            this.BtnModify.TabIndex = 12;
+            this.BtnModify.Text = "修改";
+            this.BtnModify.UseVisualStyleBackColor = true;
+            this.BtnModify.Click += new System.EventHandler(this.BtnModify_Click);
             // 
             // BandWList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(982, 553);
-            this.Controls.Add(this.BandWList_ltbox);
+            this.Controls.Add(this.BtnModify);
+            this.Controls.Add(this.TaskListBox);
             this.Controls.Add(this.BtnDel);
             this.Controls.Add(this.BtnAdd);
             this.Controls.Add(this.BtnCancel);
             this.Controls.Add(this.BtnOK);
             this.Controls.Add(this.BtnReset);
             this.Controls.Add(this.BtnBrowse);
-            this.Controls.Add(this.ProcessInfo);
+            this.Controls.Add(this.TaskInfo);
             this.Controls.Add(this.BandWList_lbl_add);
             this.Controls.Add(this.BandWList_lbl_whitelist);
             this.Name = "BandWList";
@@ -183,7 +195,7 @@
         #endregion
         private System.Windows.Forms.Label BandWList_lbl_whitelist;
         private System.Windows.Forms.Label BandWList_lbl_add;
-        private System.Windows.Forms.TextBox ProcessInfo;
+        private System.Windows.Forms.TextBox TaskInfo;
         private System.Windows.Forms.Button BtnBrowse;
         private System.Windows.Forms.Button BtnReset;
         private System.Windows.Forms.Button BtnOK;
@@ -191,6 +203,7 @@
         private System.Windows.Forms.Button BtnAdd;
         private CCWin.SkinControl.PushPanelItem pushPanelItem2;
         private System.Windows.Forms.Button BtnDel;
-        private CCWin.SkinControl.SkinListBox BandWList_ltbox;
+        private CCWin.SkinControl.SkinListBox TaskListBox;
+        private System.Windows.Forms.Button BtnModify;
     }
 }

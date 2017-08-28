@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Runtime.InteropServices;
-using System.Threading.Tasks;
-using System.Web;
 using Vexease.Controllers.PInvoke;
 using Vexease.Models.Structures;
 
 namespace Vexease.Controllers.ProcCtrl
 {
-    public class ProcCtrl
+    public class TaskCtrl
     {
         public static PROCESS_INFORMATION CreateProcessEx(string appName = null, string cmdLine = null, STARTUPINFO si = new STARTUPINFO())
         {
@@ -29,7 +27,7 @@ namespace Vexease.Controllers.ProcCtrl
             Marshal.StructureToPtr(sat, ptrsat, false);
             var cmd = cmdLine != null ? string.Copy(cmdLine) : "";
             if (NativeMethods.CreateProcess(appName, cmd, ptrsap, ptrsat, true, 0, IntPtr.Zero, null,
-                    ref si, out PROCESS_INFORMATION pi))
+                    ref si, out var pi))
             {
                 return pi;
             }

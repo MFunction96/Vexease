@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Xml;
-using Microsoft.Win32;
 using Vexease.Controllers.Cryptography;
 using Vexease.Models.Enums;
 

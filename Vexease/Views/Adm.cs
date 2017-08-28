@@ -38,7 +38,7 @@ namespace Vexease.Views
 
         private void Adm_btn_changeBandWlist_Click(object sender, EventArgs e)
         {
-            var bandwlist = new BandWList(TASK_TYPE_FLAGS.RESTRICT_TASK_NAME);
+            var bandwlist = new BandWList(TASK_TYPE_FLAGS.RESTRICT_TASK_PATH);
             bandwlist.Show();
         }
 
