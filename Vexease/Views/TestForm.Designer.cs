@@ -1041,11 +1041,6 @@ namespace Vexease.Views
 
         }
 
-        private void button14_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         #endregion
 
         private System.Windows.Forms.Panel adm_consolePnl;
