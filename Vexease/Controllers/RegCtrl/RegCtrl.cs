@@ -55,7 +55,9 @@ namespace Vexease.Controllers.RegCtrl
                     var lpdataint = Marshal.ReadInt64(lpdata);
                     regkey = new RegKey(regPath, lpkind, lpdataint);
                 }
-                else if (lpkind == RegistryValueKind.String)
+                else if (lpkind == RegistryValueKind.String || 
+                    lpkind == RegistryValueKind.ExpandString || 
+                    lpkind == RegistryValueKind.MultiString)
                 {
                     var lpdatastr = Marshal.PtrToStringUni(lpdata);
                     lpdatastr = lpdatastr?.Trim();

@@ -40,6 +40,28 @@ namespace Vexease.Models.Registrys
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="path"></param>
+        /// <param name="isRef"></param>
+        public RegPath(string path, bool isRef = false)
+        {
+            Guid = Guid.NewGuid();
+            if (isRef) path = path.Substring(1, path.Length - 2);
+            var index1 = path.IndexOf(@"\", StringComparison.Ordinal);
+            var index2 = path.LastIndexOf(@"\", StringComparison.Ordinal);
+            var tmp = path.Substring(0, index1);
+            if (tmp == @"HKEY_CLASSES_ROOT") HKey = REG_ROOT_KEY.HKEY_CLASSES_ROOT;
+            else if (tmp == @"HKEY_CURRENT_USER") HKey = REG_ROOT_KEY.HKEY_CURRENT_CONFIG;
+            else if (tmp == @"HKEY_LOCAL_MACHINE") HKey = REG_ROOT_KEY.HKEY_LOCAL_MACHINE;
+            else if (tmp == @"HKEY_USERS") HKey = REG_ROOT_KEY.HKEY_USERS;
+            else if (tmp == @"HKEY_PERFORMANCE_DATA") HKey = REG_ROOT_KEY.HKEY_PERFORMANCE_DATA;
+            else if (tmp == @"HKEY_CURRENT_CONFIG") HKey = REG_ROOT_KEY.HKEY_CURRENT_CONFIG;
+            else HKey = REG_ROOT_KEY.HKEY_DYN_DATA;
+            LpSubKey = path.Substring(index1 + 1, index2 - index1 - 1);
+            LpValueName = path.Substring(index2 + 1, path.Length - index2 - 1);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="hKey"></param>
         /// <param name="lpSubKey"></param>
         /// <param name="lpValueName"></param>

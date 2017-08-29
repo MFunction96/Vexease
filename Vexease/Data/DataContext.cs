@@ -241,14 +241,26 @@ namespace Vexease.Data
         /// <returns></returns>
         private static LinkedList<RegKey> InitTask(TASK_TYPE_FLAGS taskType)
         {
-            var task = new LinkedList<RegKey>();
+            var tasks = new LinkedList<RegKey>();
             try
             {
                 var path = GetRegPath(taskType);
-                var tmp = RegCtrl.RegEnumValue(new RegPath(path.HKey, path.LpSubKey));
-                foreach (var reg in tmp)
+                var regs = (uint) taskType >> 1 > 0 
+                    ? RegCtrl.RegEnumKey(new RegPath(path.HKey, path.LpSubKey))
+                    : RegCtrl.RegEnumValue(new RegPath(path.HKey, path.LpSubKey));
+                foreach (var reg in regs)
                 {
-                    task.AddLast(RegCtrl.RegGetValue(reg));
+                    RegKey task;
+                    if ((uint) taskType >> 1 > 0)
+                    {
+                        task = RegCtrl.RegGetValue(new RegPath(reg.HKey, reg.LpSubKey, @"ItemData"));
+                        task = RegCtrl.RegGetValue(new RegPath(task.LpValue.ToString(), true));
+                    }
+                    else
+                    {
+                        task = RegCtrl.RegGetValue(reg);
+                    }
+                    tasks.AddLast(task);
                 }
             }
             catch (Exception e)
@@ -258,7 +270,7 @@ namespace Vexease.Data
                     throw;
                 }
             }
-            return task;
+            return tasks;
         }
         /// <summary>
         /// 
