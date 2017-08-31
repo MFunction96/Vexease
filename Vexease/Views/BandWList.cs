@@ -73,7 +73,7 @@ namespace Vexease.Views
 
         private string BrowseTask()
         {
-            if ((uint)TaskType >> 1 > 0)
+            if ((int)TaskType >> 1 > 0)
             {
                 var dialog = new FolderBrowserDialog
                 {

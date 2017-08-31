@@ -4,17 +4,27 @@ using System.Text;
 
 namespace Vexease.Controllers.Cryptography
 {
+    /// <summary>
+    /// AESCrypt Controller
+    /// </summary>
     public static class AESCrypt
     {
 
         // 128bit(16byte)IV and Key
+        // ReSharper disable once InconsistentNaming
         private const string AESIV = @"!QAZ2WSX#EDC4RFV";
+        // ReSharper disable once InconsistentNaming
         private const string AESKEY = @"5TGB&YHN7UJM(IK<";
 
         /// <summary>
         /// AES Encryption
-        /// <param name="text"></param>
+        /// <param name="text">
+        /// Text for Encryption
+        /// </param>
         /// </summary>
+        /// <returns>
+        /// Encrypted text
+        /// </returns>
         public static string Encrypt(string text)
         {
             // AesCryptoServiceProvider
@@ -43,7 +53,12 @@ namespace Vexease.Controllers.Cryptography
 
         /// <summary>
         /// AES decryption
-        /// <param name="text"></param>
+        /// <param name="text">
+        /// Text for decryption
+        /// </param>
+        /// <returns>
+        /// Decrypted text
+        /// </returns>
         /// </summary>
         public static string Decrypt(string text)
         {

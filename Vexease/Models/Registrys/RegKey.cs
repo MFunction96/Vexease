@@ -6,6 +6,10 @@ using Vexease.Models.Enums;
 
 namespace Vexease.Models.Registrys
 {
+    /// <inheritdoc cref="RegPath" />
+    /// <summary>
+    /// 
+    /// </summary>
     [Serializable]
     public class RegKey : RegPath
     {
@@ -80,6 +84,28 @@ namespace Vexease.Models.Registrys
         public RegPath GetRegPath()
         {
             return new RegPath(HKey, LpSubKey, LpValueName);
+        }
+        /// <summary>
+        /// </summary>
+        /// <returns></returns>
+        public new object Clone()
+        {
+            return MemberwiseClone();
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public new int CompareTo(object obj)
+        {
+            var regkey = obj as RegKey;
+            if (regkey is null) throw new NullReferenceException();
+            var flag = base.CompareTo(obj);
+            if (flag != 0) return flag;
+            if (LpKind < regkey.LpKind) return 1;
+            if (LpKind > regkey.LpKind) return -1;
+            return string.CompareOrdinal(LpValue.ToString(), regkey.LpValue.ToString());
         }
     }
 }

@@ -81,12 +81,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\Cryptography\AESCrypt.cs" />
+    <Compile Include="Controllers\DismCtrl\DismCtrl.cs" />
     <Compile Include="Controllers\ListCtrl\ListCtrl.cs" />
     <Compile Include="Controllers\TaskCtrl\TaskCtrl.cs" />
     <Compile Include="Models\Enums\DISM_LOG_LEVEL.cs" />
     <Compile Include="Models\Enums\FACILITY_CODE.cs" />
     <Compile Include="Models\Enums\FILE_CACHE_FLAGS.cs" />
     <Compile Include="Models\Enums\PROCESS_CREATION_FLAGS.cs" />
+    <Compile Include="Models\Enums\REG_CREATE_DISPOSITION.cs" />
     <Compile Include="Models\Enums\TASK_TYPE_FLAGS.cs" />
     <Compile Include="Models\Structures\PROCESS_INFORMATION.cs" />
     <Compile Include="Models\Structures\STARTUPINFO.cs" />
@@ -139,7 +141,6 @@
     <Compile Include="Views\MyButtonCheck.Designer.cs">
       <DependentUpon>MyButtonCheck.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\Capture\CaptureDism.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Registrys\RegKey.cs" />

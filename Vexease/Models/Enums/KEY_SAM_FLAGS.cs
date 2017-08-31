@@ -4,10 +4,13 @@ using System;
 
 namespace Vexease.Models.Enums
 {
+    /// <summary>
+    /// 注册表访问位宽
+    /// </summary>
     [Flags]
-    public enum KEY_SAM_FLAGS : uint
+    public enum KEY_SAM_FLAGS
     {
-        KEY_WOW64_64KEY = 0x100u,
-        KEY_WOW64_32KEY = 0x200u
+        KEY_WOW64_64KEY = 0x100,
+        KEY_WOW64_32KEY = 0x200
     }
 }

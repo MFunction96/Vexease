@@ -2,8 +2,11 @@
 // ReSharper disable InconsistentNaming
 namespace Vexease.Models.Enums
 {
+    /// <summary>
+    /// 进程创建选项
+    /// </summary>
     [Flags]
-    public enum PROCESS_CREATION_FLAGS : uint
+    public enum PROCESS_CREATION_FLAGS
     {
         CREATE_BREAKAWAY_FROM_JOB = 0x01000000,
         CREATE_DEFAULT_ERROR_MODE = 0x04000000,

@@ -4,21 +4,24 @@ using System.Runtime.InteropServices;
 
 namespace Vexease.Models.Structures
 {
+    /// <summary>
+    /// 进程启动选项结构
+    /// </summary>
     [StructLayout(LayoutKind.Sequential)]
     public struct STARTUPINFO
     {
-        public uint cb;
+        public int cb;
         public string lpReserved;
         public string lpDesktop;
         public string lpTitle;
-        public uint dwX;
-        public uint dwY;
-        public uint dwXSize;
-        public uint dwYSize;
-        public uint dwXCountChars;
-        public uint dwYCountChars;
-        public uint dwFillAttribute;
-        public uint dwFlags;
+        public int dwX;
+        public int dwY;
+        public int dwXSize;
+        public int dwYSize;
+        public int dwXCountChars;
+        public int dwYCountChars;
+        public int dwFillAttribute;
+        public int dwFlags;
         public short wShowWindow;
         public short cbReserved2;
         public IntPtr lpReserved2;

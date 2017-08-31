@@ -4,6 +4,9 @@ using System;
 
 namespace Vexease.Models.Enums
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [Flags]
     public enum FACILITY_CODE
     {

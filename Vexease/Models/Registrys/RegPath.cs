@@ -8,11 +8,11 @@ using Vexease.Models.Enums;
 
 namespace Vexease.Models.Registrys
 {
-    /// <inheritdoc />
+    /// <inheritdoc cref="IComparable" />
     /// <summary>
     /// </summary>
     [Serializable]
-    public class RegPath : ICloneable
+    public class RegPath : ICloneable, IComparable
     {
         /// <summary>
         /// 
@@ -133,6 +133,20 @@ namespace Vexease.Models.Registrys
         public object Clone()
         {
             return MemberwiseClone();
+        }
+        /// <inheritdoc />
+        /// <summary>
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public int CompareTo(object obj)
+        {
+            var regpath = obj as RegPath;
+            if (regpath is null) throw new NullReferenceException();
+            if (HKey < regpath.HKey) return 1;
+            if (HKey > regpath.HKey) return -1;
+            var flag = string.CompareOrdinal(LpSubKey, regpath.LpSubKey);
+            return flag != 0 ? flag : string.CompareOrdinal(LpValueName, LpValueName);
         }
     }
 }

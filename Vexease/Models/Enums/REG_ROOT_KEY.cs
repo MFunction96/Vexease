@@ -1,6 +1,9 @@
 ﻿// ReSharper disable InconsistentNaming
 namespace Vexease.Models.Enums
 {
+    /// <summary>
+    /// 注册表根键常量
+    /// </summary>
     public enum REG_ROOT_KEY : uint
     {
         HKEY_CLASSES_ROOT = 0x80000000,

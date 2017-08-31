@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 using Vexease.Controllers.PInvoke;
 using Vexease.Models.Structures;
 
-namespace Vexease.Controllers.ProcCtrl
+namespace Vexease.Controllers.TaskCtrl
 {
     public class TaskCtrl
     {

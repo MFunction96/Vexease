@@ -1,13 +1,15 @@
-﻿using Microsoft.Win32;
+﻿using System;
+using Microsoft.Win32;
 using System.Xml;
 using Vexease.Controllers.Cryptography;
 using Vexease.Models.Enums;
 
 namespace Vexease.Models.Registrys
 {
+    /// <inheritdoc cref="RegKey" />
     /// <summary>
-    /// 
     /// </summary>
+    [Serializable]
     public class RegStore : RegKey
     {
         /// <summary>
@@ -78,7 +80,6 @@ namespace Vexease.Models.Registrys
         /// </summary>
         /// <param name="writer"></param>
         /// <param name="name"></param>
-        /// <param name="skey"></param>
         protected new void MidExport(XmlTextWriter writer, string name)
         {
             base.MidExport(writer, name);
@@ -91,6 +92,26 @@ namespace Vexease.Models.Registrys
         public RegKey GetRegKey()
         {
             return new RegKey(GetRegPath(), LpKind, LpValue);
+        }
+        /// <summary>
+        /// </summary>
+        /// <returns></returns>
+        public new object Clone()
+        {
+            return MemberwiseClone();
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public new int CompareTo(object obj)
+        {
+            var regkey = obj as RegKey;
+            if (regkey is null) throw new NullReferenceException();
+            var flag = base.CompareTo(obj);
+            if (flag != 0) return flag;
+            return IsNull ? 1 : -1;
         }
     }
 }

@@ -1,7 +1,10 @@
 ﻿// ReSharper disable InconsistentNaming
 namespace Vexease.Models.Enums
 {
-    public enum ERROR_CODE : uint
+    /// <summary>
+    /// 常用系统错误代码
+    /// </summary>
+    public enum ERROR_CODE
     {
         ERROR_SUCCESS = 0x0,
         ERROR_FILE_NOT_FOUND = 0x2,

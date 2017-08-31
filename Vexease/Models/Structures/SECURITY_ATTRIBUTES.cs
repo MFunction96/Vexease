@@ -4,6 +4,9 @@ using System.Runtime.InteropServices;
 
 namespace Vexease.Models.Structures
 {
+    /// <summary>
+    /// 安全标识符结构
+    /// </summary>
     [StructLayout(LayoutKind.Sequential)]
     public struct SECURITY_ATTRIBUTES
     {

@@ -4,6 +4,9 @@ using System.Runtime.InteropServices;
 
 namespace Vexease.Models.Structures
 {
+    /// <summary>
+    /// 进程信息结构
+    /// </summary>
     [StructLayout(LayoutKind.Sequential)]
     public struct PROCESS_INFORMATION
     {

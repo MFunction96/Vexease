@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
-using Vexease.Controllers.RegCtrl;
-using Vexease.Models.Enums;
-using Vexease.Models.Structures;
-using Vexease.Controllers.ProcCtrl;
 using Vexease.Controllers.Status;
+using Vexease.Controllers.TaskCtrl;
 using Vexease.Data;
 using Vexease.Models.Registrys;
 

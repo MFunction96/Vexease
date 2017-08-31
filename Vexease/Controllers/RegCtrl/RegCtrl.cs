@@ -1,6 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
-using System.Collections.Specialized;
+using System.Collections;
 using System.Runtime.InteropServices;
 using System.Text;
 using Vexease.Controllers.PInvoke;
@@ -10,63 +10,43 @@ using Vexease.Models.Registrys;
 namespace Vexease.Controllers.RegCtrl
 {
     /// <summary>
-    /// 
+    /// 注册表控制器。
     /// </summary>
     public static class RegCtrl
     {
         /// <summary>
-        /// 
+        /// 获取注册表键信息。
         /// </summary>
-        // ReSharper disable once InconsistentNaming
-        private const uint REG_OPENED_EXISTING_KEY = 0x2;
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="regPath"></param>
-        /// <exception cref="Exception"></exception>
-        /// <returns></returns>
+        /// <param name="regPath">
+        /// 注册表路径信息。
+        /// </param>
+        /// <exception cref="Exception">
+        /// 非托管代码获取注册表时产生的异常，详情请参阅MSDN。
+        /// </exception>
+        /// <returns>
+        /// 注册表键信息。
+        /// </returns>
         public static RegKey RegGetValue(RegPath regPath)
         {
             RegKey regkey;
             try
             {
                 var phkresult = RegOpenKey(regPath);
-                uint lpcbdata = 0;
-                NativeMethods.RegQueryValueEx(phkresult, regPath.LpValueName, IntPtr.Zero, out RegistryValueKind lpkind, IntPtr.Zero, ref lpcbdata);
-                if (lpcbdata == 0)
+                var lpcbData = 0;
+                NativeMethods.RegQueryValueEx(phkresult, regPath.LpValueName, IntPtr.Zero, out var lpkind, IntPtr.Zero, ref lpcbData);
+                if (lpcbData == 0)
                 {
                     NativeMethods.RegCloseKey(phkresult);
-                    throw new Exception(@"注册表访问失败" + '\n' +@"无法获取缓冲区大小");
+                    throw new Exception(@"注册表访问失败" + '\n' + @"无法获取缓冲区大小");
                 }
-                var lpdata = Marshal.AllocHGlobal((int)lpcbdata);
-                var reggetvaluetemp = NativeMethods.RegQueryValueEx(phkresult, regPath.LpValueName, IntPtr.Zero, out lpkind, lpdata, ref lpcbdata);
+                var lpdata = Marshal.AllocHGlobal(lpcbData);
+                var reggetvaluetemp = NativeMethods.RegQueryValueEx(phkresult, regPath.LpValueName, IntPtr.Zero, out lpkind, lpdata, ref lpcbData);
                 NativeMethods.RegCloseKey(phkresult);
-                if (reggetvaluetemp != (uint)ERROR_CODE.ERROR_SUCCESS)
+                if (reggetvaluetemp != (int)ERROR_CODE.ERROR_SUCCESS)
                 {
-                    throw new Exception(@"注册表访问失败" + '\n' +reggetvaluetemp);
+                    throw new Exception(@"注册表访问失败" + '\n' + reggetvaluetemp);
                 }
-                if (lpkind == RegistryValueKind.DWord)
-                {
-                    var lpdataint = Marshal.ReadInt32(lpdata);
-                    regkey = new RegKey(regPath, lpkind, lpdataint);
-                }
-                else if (lpkind == RegistryValueKind.QWord)
-                {
-                    var lpdataint = Marshal.ReadInt64(lpdata);
-                    regkey = new RegKey(regPath, lpkind, lpdataint);
-                }
-                else if (lpkind == RegistryValueKind.String || 
-                    lpkind == RegistryValueKind.ExpandString || 
-                    lpkind == RegistryValueKind.MultiString)
-                {
-                    var lpdatastr = Marshal.PtrToStringUni(lpdata);
-                    lpdatastr = lpdatastr?.Trim();
-                    regkey = new RegKey(regPath, lpkind, lpdatastr);
-                }
-                else
-                {
-                    throw new Exception(@"注册表访问失败" + '\n' +@"注册表数据类型异常");
-                }
+                regkey = ConvertData(regPath, lpkind, lpdata, lpcbData);
             }
             catch (Exception)
             {
@@ -75,151 +55,176 @@ namespace Vexease.Controllers.RegCtrl
             return regkey;
         }
         /// <summary>
-        /// 
+        /// 设置注册表键。
         /// </summary>
-        /// <param name="regKey"></param>
+        /// <param name="regKey">
+        /// 待设置注册表键信息。
+        /// </param>
         public static void RegSetValue(RegKey regKey)
         {
-            uint regsetvaluetmp, exists;
+            int regsetvaluetmp, exists;
             IntPtr phkResult;
             if (Environment.Is64BitOperatingSystem)
             {
-                regsetvaluetmp = NativeMethods.RegCreateKeyEx(new IntPtr((int)new IntPtr((int)regKey.HKey)), regKey.LpSubKey, 0u, null,
-                    (uint)OPERATE_OPTION.REG_OPTION_NON_VOLATILE,
-                    (uint)KEY_SAM_FLAGS.KEY_WOW64_64KEY | (uint)KEY_ACCESS_TYPE.KEY_READ |
-                    (uint)KEY_ACCESS_TYPE.KEY_WRITE, IntPtr.Zero, out phkResult, out exists);
+                regsetvaluetmp = NativeMethods.RegCreateKeyEx(new IntPtr((int)regKey.HKey), regKey.LpSubKey, 0, null,
+                    (int)OPERATE_OPTION.REG_OPTION_NON_VOLATILE,
+                    (int)KEY_SAM_FLAGS.KEY_WOW64_64KEY | (int)KEY_ACCESS_TYPE.KEY_READ |
+                    (int)KEY_ACCESS_TYPE.KEY_WRITE, IntPtr.Zero, out phkResult, out exists);
             }
             else
             {
-                regsetvaluetmp = NativeMethods.RegCreateKeyEx(new IntPtr((int)regKey.HKey), regKey.LpSubKey, 0u, null,
-                    (uint)OPERATE_OPTION.REG_OPTION_NON_VOLATILE,
-                    (uint)KEY_ACCESS_TYPE.KEY_READ |
-                    (uint)KEY_ACCESS_TYPE.KEY_WRITE, IntPtr.Zero, out phkResult, out exists);
+                regsetvaluetmp = NativeMethods.RegCreateKeyEx(new IntPtr((int)regKey.HKey), regKey.LpSubKey, 0, null,
+                    (int)OPERATE_OPTION.REG_OPTION_NON_VOLATILE,
+                    (int)KEY_ACCESS_TYPE.KEY_READ |
+                    (int)KEY_ACCESS_TYPE.KEY_WRITE, IntPtr.Zero, out phkResult, out exists);
             }
-            if (regsetvaluetmp != (uint)ERROR_CODE.ERROR_SUCCESS && exists != REG_OPENED_EXISTING_KEY)
+            if (regsetvaluetmp != (int)ERROR_CODE.ERROR_SUCCESS && exists != (int)REG_CREATE_DISPOSITION.REG_OPENED_EXISTING_KEY)
             {
                 throw new Exception(@"注册表访问失败" + '\n' + regsetvaluetmp);
             }
             IntPtr lpdata;
-            uint lpcbdata;
-            if (regKey.LpKind == RegistryValueKind.String)
+            int lpcbData;
+            if (regKey.LpKind == RegistryValueKind.String ||
+                regKey.LpKind == RegistryValueKind.MultiString ||
+                regKey.LpKind == RegistryValueKind.ExpandString)
             {
-                lpcbdata = (uint)((string)regKey.LpValue).Length + 1 << 1;
-                lpdata = Marshal.StringToHGlobalUni((string)regKey.LpValue);
+                var lpdatastr = regKey.LpValue as string;
+                lpcbData = ((string)regKey.LpValue).Length + 1 << 1;
+                lpdata = Marshal.StringToHGlobalUni(lpdatastr);
             }
             else if (regKey.LpKind == RegistryValueKind.DWord)
             {
-                lpcbdata = (uint)Marshal.SizeOf(typeof(int));
-                lpdata = Marshal.AllocHGlobal((int)lpcbdata);
+                lpcbData = Marshal.SizeOf(typeof(int));
+                lpdata = Marshal.AllocHGlobal(lpcbData);
                 Marshal.WriteInt32(lpdata, (int)regKey.LpValue);
             }
             else if (regKey.LpKind == RegistryValueKind.QWord)
             {
-                lpcbdata = (uint)Marshal.SizeOf(typeof(long));
-                lpdata = Marshal.AllocHGlobal((int)lpcbdata);
+                lpcbData = Marshal.SizeOf(typeof(long));
+                lpdata = Marshal.AllocHGlobal(lpcbData);
                 Marshal.WriteInt64(lpdata, (long)regKey.LpValue);
+            }
+            else if (regKey.LpKind == RegistryValueKind.Binary)
+            {
+                var lpdatabin = regKey.LpValue as byte[];
+                if (lpdatabin is null) throw new NullReferenceException();
+                lpcbData = lpdatabin.Length;
+                lpdata = Marshal.AllocHGlobal(lpcbData);
+                Marshal.Copy(lpdatabin, 0, lpdata, lpcbData);
             }
             else
             {
                 throw new Exception(@"注册表访问失败" + '\n' + regsetvaluetmp);
             }
             regsetvaluetmp =
-                NativeMethods.RegSetValueEx(phkResult, regKey.LpValueName, 0u, regKey.LpKind, lpdata, lpcbdata);
+                NativeMethods.RegSetValueEx(phkResult, regKey.LpValueName, 0, regKey.LpKind, lpdata, lpcbData);
             NativeMethods.RegCloseKey(phkResult);
-            if (regsetvaluetmp != (uint)ERROR_CODE.ERROR_SUCCESS)
+            if (regsetvaluetmp != (int)ERROR_CODE.ERROR_SUCCESS)
             {
                 throw new Exception(@"注册表访问失败" + '\n' + regsetvaluetmp);
             }
         }
         /// <summary>
-        /// 
+        /// 删除指定注册表键。
         /// </summary>
-        /// <param name="regPath"></param>
+        /// <param name="regPath">
+        /// 注册表键信息。当注册表键名信息为空时，删除注册表子键及其包含键。
+        /// </param>
         public static void RegDelKey(RegPath regPath)
         {
-            uint regdelkeytmp;
+            int regdelkeytmp;
             if (string.IsNullOrEmpty(regPath.LpValueName))
             {
                 regdelkeytmp = NativeMethods.RegDeleteKeyEx(new IntPtr((int)regPath.HKey), regPath.LpSubKey,
-                    (uint)KEY_SAM_FLAGS.KEY_WOW64_64KEY | (uint)KEY_ACCESS_TYPE.KEY_ALL_ACCESS, 0u);
-                if (regdelkeytmp != (uint)ERROR_CODE.ERROR_SUCCESS)
+                    (int)KEY_SAM_FLAGS.KEY_WOW64_64KEY | (int)KEY_ACCESS_TYPE.KEY_SET_VALUE, 0);
+                if (regdelkeytmp != (int)ERROR_CODE.ERROR_SUCCESS)
                 {
                     throw new Exception(@"注册表访问失败" + '\n' + regdelkeytmp);
                 }
             }
             else
             {
-                regdelkeytmp = NativeMethods.RegOpenKeyEx(new IntPtr((int)regPath.HKey), regPath.LpSubKey, 0u,
-                    (uint)KEY_SAM_FLAGS.KEY_WOW64_64KEY |
-                    (uint)KEY_ACCESS_TYPE.KEY_ALL_ACCESS, out IntPtr phkresult);
-                if (regdelkeytmp != (uint)ERROR_CODE.ERROR_SUCCESS)
+                regdelkeytmp = NativeMethods.RegOpenKeyEx(new IntPtr((int)regPath.HKey), regPath.LpSubKey, 0,
+                    (int)KEY_SAM_FLAGS.KEY_WOW64_64KEY |
+                    (int)KEY_ACCESS_TYPE.KEY_SET_VALUE, out var phkresult);
+                if (regdelkeytmp != (int)ERROR_CODE.ERROR_SUCCESS)
                 {
                     throw new Exception(@"注册表访问失败" + '\n' + regdelkeytmp);
                 }
-                regdelkeytmp = NativeMethods.RegDeleteValueEx(phkresult, regPath.LpValueName);
-                if (regdelkeytmp != (uint)ERROR_CODE.ERROR_SUCCESS)
+                regdelkeytmp = NativeMethods.RegDeleteValue(phkresult, regPath.LpValueName);
+                if (regdelkeytmp != (int)ERROR_CODE.ERROR_SUCCESS)
                 {
-                    throw new Exception(@"注册表访问失败" + '\n' +regdelkeytmp);
+                    throw new Exception(@"注册表访问失败" + '\n' + regdelkeytmp);
                 }
                 NativeMethods.RegCloseKey(phkresult);
             }
         }
+
         /// <summary>
-        /// 
+        /// 枚举当前子键下所有键名信息
         /// </summary>
-        /// <param name="regPath"></param>
-        /// <returns></returns>
-        public static RegPath[] RegEnumValue(RegPath regPath)
+        /// <param name="regPath">
+        /// 待枚举注册表键信息
+        /// </param>
+        /// <param name="comparer"></param>
+        /// <returns>
+        /// 枚举得到的注册表键名信息
+        /// </returns>
+        public static RegKey[] RegEnumValue(RegPath regPath, IComparer comparer = null)
         {
-            uint index = 0;
             var phkresult = RegOpenKey(regPath);
-            var sc = new StringCollection();
-            var sb = new StringBuilder(1024);
-            while (true)
+            var list = new ArrayList();
+            for (var index = 0; ; index++)
             {
-                sb.Clear();
-                uint size = 1023;
-                var renenumvaluetmp = NativeMethods.RegEnumValue(phkresult, index, sb, ref size, IntPtr.Zero, IntPtr.Zero,
-                              IntPtr.Zero, IntPtr.Zero);
-                if (renenumvaluetmp == (int)ERROR_CODE.ERROR_NO_MORE_ITEMS)
-                {
-                    break;
-                }
-                if (renenumvaluetmp != (int) ERROR_CODE.ERROR_SUCCESS)
+                var sb = new StringBuilder(0x7FFF);
+                var size = 0x7FFF;
+                var lpcbdata = 0;
+                var renenumvaluetmp = NativeMethods.RegEnumValue(phkresult, index, sb, ref size, IntPtr.Zero, out var lpkind,
+                              IntPtr.Zero, ref lpcbdata);
+                if (renenumvaluetmp == (int)ERROR_CODE.ERROR_NO_MORE_ITEMS) break;
+                if (renenumvaluetmp != (int)ERROR_CODE.ERROR_SUCCESS)
                 {
                     throw new Exception(@"注册表键值枚举失败" + '\n' + renenumvaluetmp);
                 }
-                index++;
-                sc.Add(sb.ToString());
+                var lpdata = Marshal.AllocHGlobal(lpcbdata);
+                renenumvaluetmp = NativeMethods.RegEnumValue(phkresult, index, sb, ref size, IntPtr.Zero, out lpkind,
+                    lpdata, ref lpcbdata);
+                if (renenumvaluetmp == (int)ERROR_CODE.ERROR_NO_MORE_ITEMS) break;
+                if (renenumvaluetmp != (int)ERROR_CODE.ERROR_SUCCESS)
+                {
+                    throw new Exception(@"注册表键值枚举失败" + '\n' + renenumvaluetmp);
+                }
+                list.Add(ConvertData(new RegPath(regPath.HKey, regPath.LpSubKey, sb.ToString()), lpkind, lpdata,
+                    lpcbdata));
             }
             NativeMethods.RegCloseKey(phkresult);
-            var regpath = new RegPath[sc.Count];
-            var str = new string[sc.Count];
-            sc.CopyTo(str, 0);
-            Array.Sort(str);
-            for (var i = 0; i < str.Length; i++)
-            {
-                regpath[i] = new RegPath(regPath.HKey, regPath.LpSubKey, str[i]);
-            }
-            return regpath;
+            var regkeys = list.ToArray(typeof(RegKey)) as RegKey[];
+            if (regkeys is null) throw new NullReferenceException();
+            if (comparer is null) Array.Sort(regkeys);
+            else Array.Sort(regkeys, comparer);
+            return regkeys;
         }
+
         /// <summary>
-        /// 
+        /// 枚举当前子键下所有子键信息
         /// </summary>
-        /// <param name="regPath"></param>
-        /// <returns></returns>
-        public static RegPath[] RegEnumKey(RegPath regPath)
+        /// <param name="regPath">
+        /// 待枚举注册表键信息
+        /// </param>
+        /// <param name="comparer"></param>
+        /// <returns>
+        /// 枚举得到的注册表键名信息
+        /// </returns>
+        public static RegPath[] RegEnumKey(RegPath regPath, IComparer comparer = null)
         {
-            uint index = 0;
             var phkresult = RegOpenKey(regPath);
-            var sc = new StringCollection();
-            var sb = new StringBuilder(1024);
-            while (true)
+            var list = new ArrayList();
+            for (var index = 0;;index++)
             {
-                sb.Clear();
-                uint size = 1023;
+                var sb = new StringBuilder(0x7FFF);
+                var size = 0x7FFF;
                 var renenumkeytmp = NativeMethods.RegEnumKeyEx(phkresult, index, sb, ref size, IntPtr.Zero, IntPtr.Zero,
-                    IntPtr.Zero, IntPtr.Zero);
+                    IntPtr.Zero, out _);
                 if (renenumkeytmp == (int)ERROR_CODE.ERROR_NO_MORE_ITEMS)
                 {
                     break;
@@ -228,49 +233,89 @@ namespace Vexease.Controllers.RegCtrl
                 {
                     throw new Exception(@"注册表键值枚举失败" + '\n' + renenumkeytmp);
                 }
-                index++;
-                sc.Add(sb.ToString());
+                list.Add(new RegPath(regPath.HKey,regPath.LpSubKey + @"\" + sb));
             }
             NativeMethods.RegCloseKey(phkresult);
-            var regpath = new RegPath[sc.Count];
-            var str = new string[sc.Count];
-            sc.CopyTo(str, 0);
-            Array.Sort(str);
-            for (var i = 0; i < str.Length; i++)
+            var regpaths = list.ToArray(typeof(RegPath)) as RegPath[];
+            if (regpaths is null) throw new NullReferenceException();
+            if (comparer is null) Array.Sort(regpaths);
+            else Array.Sort(regpaths, comparer);
+            return regpaths;
+        }
+        /// <summary>
+        /// 打开注册表子键句柄
+        /// </summary>
+        /// <param name="regPath">
+        /// 待打开的注册表键信息
+        /// </param>
+        /// <returns>
+        /// 注册表子键句柄
+        /// </returns>
+        private static IntPtr RegOpenKey(RegPath regPath)
+        {
+            int regopenkeytmp;
+            IntPtr phkresult;
+            if (Environment.Is64BitOperatingSystem)
             {
-                regpath[i] = new RegPath(regPath.HKey, regPath.LpSubKey + @"\" + str[i]);
+                regopenkeytmp = NativeMethods.RegOpenKeyEx(new IntPtr((int)regPath.HKey), regPath.LpSubKey, 0,
+                    (int)KEY_SAM_FLAGS.KEY_WOW64_64KEY |
+                    (int)KEY_ACCESS_TYPE.KEY_READ, out phkresult);
             }
-            return regpath;
+            else
+            {
+                regopenkeytmp = NativeMethods.RegOpenKeyEx(new IntPtr((int)regPath.HKey), regPath.LpSubKey, 0,
+                    (int)KEY_ACCESS_TYPE.KEY_READ, out phkresult);
+            }
+            if (regopenkeytmp == (int)ERROR_CODE.ERROR_FILE_NOT_FOUND)
+            {
+                throw new NullReferenceException(@"注册表访问失败" + '\n' + regopenkeytmp);
+            }
+            if (regopenkeytmp != (int)ERROR_CODE.ERROR_SUCCESS)
+            {
+                throw new Exception(@"注册表访问失败" + '\n' + regopenkeytmp);
+            }
+            return phkresult;
         }
         /// <summary>
         /// 
         /// </summary>
         /// <param name="regPath"></param>
+        /// <param name="lpKind"></param>
+        /// <param name="lpData"></param>
+        /// <param name="lpcbData"></param>
         /// <returns></returns>
-        private static IntPtr RegOpenKey(RegPath regPath)
+        private static RegKey ConvertData(RegPath regPath, RegistryValueKind lpKind, IntPtr lpData, int lpcbData)
         {
-            uint regopenkeytmp;
-            IntPtr phkresult;
-            if (Environment.Is64BitOperatingSystem)
+            RegKey regkey;
+            if (lpKind == RegistryValueKind.DWord)
             {
-                regopenkeytmp = NativeMethods.RegOpenKeyEx(new IntPtr((int)regPath.HKey), regPath.LpSubKey, 0,
-                    (uint)KEY_SAM_FLAGS.KEY_WOW64_64KEY |
-                    (uint)KEY_ACCESS_TYPE.KEY_READ, out phkresult);
+                var lpdataint = Marshal.ReadInt32(lpData);
+                regkey = new RegKey(regPath, lpKind, lpdataint);
+            }
+            else if (lpKind == RegistryValueKind.QWord)
+            {
+                var lpdataint = Marshal.ReadInt64(lpData);
+                regkey = new RegKey(regPath, lpKind, lpdataint);
+            }
+            else if (lpKind == RegistryValueKind.String ||
+                     lpKind == RegistryValueKind.ExpandString ||
+                     lpKind == RegistryValueKind.MultiString)
+            {
+                var lpdatastr = Marshal.PtrToStringUni(lpData);
+                lpdatastr = lpdatastr?.Trim();
+                regkey = new RegKey(regPath, lpKind, lpdatastr);
+            }
+            else if (lpKind == RegistryValueKind.Binary)
+            {
+                var lpdatabin = new byte[lpcbData];
+                Marshal.Copy(lpData, lpdatabin, 0, lpcbData);
+                regkey = new RegKey(regPath, lpKind, lpdatabin);
             }
             else
             {
-                regopenkeytmp = NativeMethods.RegOpenKeyEx(new IntPtr((int)regPath.HKey), regPath.LpSubKey, 0,
-                    (uint)KEY_ACCESS_TYPE.KEY_READ, out phkresult);
+                throw new Exception(@"注册表访问失败" + '\n' + @"注册表数据类型异常");
             }
-            if (regopenkeytmp == (uint) ERROR_CODE.ERROR_FILE_NOT_FOUND)
-            {
-                throw new NullReferenceException(@"注册表访问失败" + '\n' +regopenkeytmp);
-            }
-            if (regopenkeytmp != (uint)ERROR_CODE.ERROR_SUCCESS)
-            {
-                throw new Exception(@"注册表访问失败" + '\n' +regopenkeytmp);
-            }
-            return phkresult;
+            return regkey;
         }
     }
 }

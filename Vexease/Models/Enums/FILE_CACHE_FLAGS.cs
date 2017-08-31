@@ -4,8 +4,11 @@ using System;
 
 namespace Vexease.Models.Enums
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [Flags]
-    public enum FILE_CACHE_FLAGS : uint
+    public enum FILE_CACHE_FLAGS
     {
         FILE_CACHE_MAX_HARD_ENABLE = 0x1,
         FILE_CACHE_MAX_HARD_DISABLE = 0x2,
