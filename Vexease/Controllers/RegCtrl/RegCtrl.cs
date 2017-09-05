@@ -89,7 +89,8 @@ namespace Vexease.Controllers.RegCtrl
                 regKey.LpKind == RegistryValueKind.ExpandString)
             {
                 var lpdatastr = regKey.LpValue as string;
-                lpcbData = ((string)regKey.LpValue).Length + 1 << 1;
+                if (lpdatastr is null) throw new NullReferenceException();
+                lpcbData = lpdatastr.Length + 1 << 1;
                 lpdata = Marshal.StringToHGlobalUni(lpdatastr);
             }
             else if (regKey.LpKind == RegistryValueKind.DWord)
@@ -194,7 +195,7 @@ namespace Vexease.Controllers.RegCtrl
                 {
                     throw new Exception(@"注册表键值枚举失败" + '\n' + renenumvaluetmp);
                 }
-                list.Add(ConvertData(new RegPath(regPath.HKey, regPath.LpSubKey, sb.ToString()), lpkind, lpdata,
+                list.Add(ConvertData(new RegPath(regPath.HKey, regPath.LpSubKey, sb.ToString().Trim()), lpkind, lpdata,
                     lpcbdata));
             }
             NativeMethods.RegCloseKey(phkresult);

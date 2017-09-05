@@ -2,7 +2,7 @@
 namespace Vexease.Models.Enums
 {
     /// <summary>
-    /// 注册表根键常量
+    /// 注册表根键常量。
     /// </summary>
     public enum REG_ROOT_KEY : uint
     {

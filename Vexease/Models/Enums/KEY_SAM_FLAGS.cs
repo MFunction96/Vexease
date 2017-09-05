@@ -5,7 +5,7 @@ using System;
 namespace Vexease.Models.Enums
 {
     /// <summary>
-    /// 注册表访问位宽
+    /// 注册表访问位宽。
     /// </summary>
     [Flags]
     public enum KEY_SAM_FLAGS

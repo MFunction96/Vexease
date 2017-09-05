@@ -16,98 +16,98 @@ namespace Vexease.Data
     {
         /// <summary>
         /// 进程路径限制注册表信息。
-        /// On为启动限制
-        /// Off为关闭限制
+        /// On为启动限制。
+        /// Off为关闭限制。
         /// </summary>
         public static RegStatus LimitTaskPath { get; private set; }
         /// <summary>
-        /// 进程名称白名单策略注册表信息
-        /// On为启动白名单限制
-        /// Off为关闭白名单限制
+        /// 进程名称白名单策略注册表信息。
+        /// On为启动白名单限制。
+        /// Off为关闭白名单限制。
         /// </summary>
         public static RegStatus RestrictTask { get; private set; }
         /// <summary>
-        /// 进程名称黑名单策略注册表信息
-        /// On为启动黑名单限制
-        /// Off为关闭黑名单限制
+        /// 进程名称黑名单策略注册表信息。
+        /// On为启动黑名单限制。
+        /// Off为关闭黑名单限制。
         /// </summary>
         public static RegStatus DisallowTask { get; private set; }
         /// <summary>
-        /// C盘显示状态注册表信息
-        /// On为显示所有盘符
-        /// Off为隐藏C盘盘符
+        /// C盘显示状态注册表信息。
+        /// On为显示所有盘符。
+        /// Off为隐藏C盘盘符。
         /// </summary>
         public static RegStatus SysDriver { get; private set; }
         /// <summary>
-        /// 控制台状态注册表信息
-        /// On为启用控制台
-        /// Off为禁用控制台
+        /// 控制台状态注册表信息。
+        /// On为启用控制台。
+        /// Off为禁用控制台。
         /// </summary>
         public static RegStatus Mmc { get; private set; }
         /// <summary>
-        /// 注册表状态注册表信息
-        /// On为启用注册表
-        /// Off为禁用注册表
+        /// 注册表状态注册表信息。
+        /// On为启用注册表。
+        /// Off为禁用注册表。
         /// </summary>
         public static RegStatus Registry { get; private set; }
         /// <summary>
-        /// 控制面板（设置）状态注册表信息
-        /// On为启用控制面板（设置）
-        /// Off为禁用控制面板（设置）
+        /// 控制面板（设置）状态注册表信息。
+        /// On为启用控制面板（设置）。
+        /// Off为禁用控制面板（设置）。
         /// </summary>
         public static RegStatus CtrlPal { get; private set; }
         /// <summary>
-        /// 运行工具状态注册表信息
-        /// On为启用运行工具
-        /// Off为禁用运行工具
+        /// 运行工具状态注册表信息。
+        /// On为启用运行工具。
+        /// Off为禁用运行工具。
         /// </summary>
         public static RegStatus Launcher { get; private set; }
         /// <summary>
-        /// 命令提示符状态注册表信息
-        /// On为启用命令提示符
-        /// Off为禁用命令提示符
+        /// 命令提示符状态注册表信息。
+        /// On为启用命令提示符。
+        /// Off为禁用命令提示符。
         /// </summary>
         public static RegStatus Cmd { get; private set; }
         /// <summary>
-        /// 任务管理器状态注册表信息
-        /// On为启用任务管理器
-        /// Off为禁用任务管理器
+        /// 任务管理器状态注册表信息。
+        /// On为启用任务管理器。
+        /// Off为禁用任务管理器。
         /// </summary>
         public static RegStatus Taskmgr { get; private set; }
         /// <summary>
-        /// Powershell状态注册表信息
-        /// On为启用Powershell
-        /// Off为禁用Powershell
+        /// Powershell状态注册表信息。
+        /// On为启用Powershell。
+        /// Off为禁用Powershell。
         /// </summary>
         public static RegStatus PwrShell { get; private set; }
         /// <summary>
-        /// 进程名称白名单
+        /// 进程名称白名单。
         /// </summary>
         private static LinkedList<RegKey> RestrictTaskNames { get; set; }
         /// <summary>
-        /// 进程名称黑名单
+        /// 进程名称黑名单。
         /// </summary>
         private static LinkedList<RegKey> DisallowTaskNames { get; set; }
         /// <summary>
-        /// 进程路径白名单
+        /// 进程路径白名单。
         /// </summary>
         private static LinkedList<RegKey> RestrictTaskPaths { get; set; }
         /// <summary>
-        /// 进程路径黑名单
+        /// 进程路径黑名单。
         /// </summary>
         private static LinkedList<RegKey> DisallowTaskPaths { get; set; }
         /// <summary>
-        /// 初始化全局数据
+        /// 初始化全局数据。
         /// </summary>
         static DataContext()
         {
             RefrushData();
         }
         /// <summary>
-        /// 初始化进程路径限制状态
+        /// 初始化进程路径限制状态。
         /// </summary>
         /// <returns>
-        /// 进程路径限制状态注册表信息
+        /// 进程路径限制状态注册表信息。
         /// </returns>
         private static RegStatus InitLimitTaskPath()
         {
@@ -119,10 +119,10 @@ namespace Vexease.Data
             return new RegStatus(onreg, offreg);
         }
         /// <summary>
-        /// 初始化进程名称白名单状态
+        /// 初始化进程名称白名单状态。
         /// </summary>
         /// <returns>
-        /// 进程名称白名单状态注册表信息
+        /// 进程名称白名单状态注册表信息。
         /// </returns>
         private static RegStatus InitRestrictTask()
         {
@@ -134,9 +134,11 @@ namespace Vexease.Data
             return new RegStatus(onreg, offreg);
         }
         /// <summary>
-        /// 
+        /// 初始化进程名称黑名单状态。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// 进程名称黑名单状态注册表信息。
+        /// </returns>
         private static RegStatus InitDisallowTask()
         {
             var regp = new RegPath(REG_ROOT_KEY.HKEY_CURRENT_USER, @"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer", @"DisallowRun");
@@ -147,9 +149,11 @@ namespace Vexease.Data
             return new RegStatus(onreg, offreg);
         }
         /// <summary>
-        /// 
+        /// 初始化C盘显示状态。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// C盘显示状态注册表信息。
+        /// </returns>
         private static RegStatus InitSysDriver()
         {
             var regp = new RegPath(REG_ROOT_KEY.HKEY_CURRENT_USER, @"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer", @"NoDrives");
@@ -160,9 +164,11 @@ namespace Vexease.Data
             return new RegStatus(onreg, offreg);
         }
         /// <summary>
-        /// 
+        /// 初始化注册表状态。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// 注册表状态注册表信息。
+        /// </returns>
         private static RegStatus InitRegistry()
         {
             var regp = new RegPath(REG_ROOT_KEY.HKEY_CURRENT_USER, @"Software\Microsoft\Windows\CurrentVersion\Policies\System", @"DisableRegistryTools");
@@ -173,9 +179,11 @@ namespace Vexease.Data
             return new RegStatus(onreg, offreg);
         }
         /// <summary>
-        /// 
+        /// 初始化命令提示符状态。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// 命令提示符状态注册表信息。
+        /// </returns>
         private static RegStatus InitCmd()
         {
             var regp = new RegPath(REG_ROOT_KEY.HKEY_CURRENT_USER, @"Software\Microsoft\Windows\CurrentVersion\Policies\System", @"DisableCMD");
@@ -186,9 +194,11 @@ namespace Vexease.Data
             return new RegStatus(onreg, offreg);
         }
         /// <summary>
-        /// 
+        /// 初始化任务管理器状态。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// 任务管理器状态注册表信息。
+        /// </returns>
         private static RegStatus InitTaskmgr()
         {
             var regp = new RegPath(REG_ROOT_KEY.HKEY_CURRENT_USER, @"Software\Microsoft\Windows\CurrentVersion\Policies\System", @"DisableTaskMgr");
@@ -199,9 +209,11 @@ namespace Vexease.Data
             return new RegStatus(onreg, offreg);
         }
         /// <summary>
-        /// 
+        /// 初始化运行工具状态。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// 运行工具状态注册表信息。
+        /// </returns>
         private static RegStatus InitLauncher()
         {
             var regp = new RegPath(REG_ROOT_KEY.HKEY_CURRENT_USER, @"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer", @"NoRun");
@@ -212,9 +224,11 @@ namespace Vexease.Data
             return new RegStatus(onreg, offreg);
         }
         /// <summary>
-        /// 
+        /// 初始化控制面板（设置）状态。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// 控制面板（设置）状态注册表信息。
+        /// </returns>
         private static RegStatus InitCtrlPal()
         {
             var regp = new RegPath(REG_ROOT_KEY.HKEY_CURRENT_USER, @"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer", @"NoControlPanel");
@@ -225,9 +239,11 @@ namespace Vexease.Data
             return new RegStatus(onreg, offreg);
         }
         /// <summary>
-        /// 
+        /// 初始化控制台状态。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// 控制台状态注册表信息。
+        /// </returns>
         private static RegStatus InitMmc()
         {
             var regp = new RegPath(REG_ROOT_KEY.HKEY_CURRENT_USER, @"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer", @"DisallowRun");
@@ -242,9 +258,11 @@ namespace Vexease.Data
             return new RegStatus(onreg, offreg);
         }
         /// <summary>
-        /// 
+        /// 初始化Powershell状态。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// Powershell状态注册表信息。
+        /// </returns>
         private static RegStatus InitPwrShell()
         {
             var regp = new RegPath(REG_ROOT_KEY.HKEY_CURRENT_USER, @"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer", @"DisallowRun");
@@ -259,7 +277,7 @@ namespace Vexease.Data
             return new RegStatus(onreg, offreg);
         }
         /// <summary>
-        /// 
+        /// 刷新当前注册表记录状态。
         /// </summary>
         public static void RefrushData()
         {
@@ -280,10 +298,14 @@ namespace Vexease.Data
             PwrShell = InitPwrShell();
         }
         /// <summary>
-        /// 
+        /// 获取进程信息注册表路径。
         /// </summary>
-        /// <param name="taskType"></param>
-        /// <returns></returns>
+        /// <param name="taskType">
+        /// 进程信息类型。
+        /// </param>
+        /// <returns>
+        /// 相应类型的进程信息注册表路径。
+        /// </returns>
         public static RegPath GetRegPath(TASK_TYPE_FLAGS taskType)
         {
             RegPath path;
@@ -308,10 +330,14 @@ namespace Vexease.Data
             return path;
         }
         /// <summary>
-        /// 
+        /// 初始化进程信息。
         /// </summary>
-        /// <param name="taskType"></param>
-        /// <returns></returns>
+        /// <param name="taskType">
+        /// 进程信息类型。
+        /// </param>
+        /// <returns>
+        /// 进程信息注册表信息。
+        /// </returns>
         private static LinkedList<RegKey> InitTask(TASK_TYPE_FLAGS taskType)
         {
             var tasks = new LinkedList<RegKey>();
@@ -346,10 +372,14 @@ namespace Vexease.Data
             return tasks;
         }
         /// <summary>
-        /// 
+        /// 获取进程信息。
         /// </summary>
-        /// <param name="taskType"></param>
-        /// <returns></returns>
+        /// <param name="taskType">
+        /// 进程信息类型。
+        /// </param>
+        /// <returns>
+        /// 相应类型的进程信息注册表信息。
+        /// </returns>
         public static LinkedList<RegKey> GetTaskList(TASK_TYPE_FLAGS taskType)
         {
             LinkedList<RegKey> list;
@@ -361,9 +391,23 @@ namespace Vexease.Data
         }
         /// <inheritdoc />
         /// <summary>
+        /// 自定义RegKey类排序类。
         /// </summary>
         private class RegKeyComparer : IComparer
         {
+            /// <inheritdoc />
+            /// <summary>
+            /// 自定义RegKey类排序规则。
+            /// </summary>
+            /// <param name="x">
+            /// 前RegKey对象。
+            /// </param>
+            /// <param name="y">
+            /// 后RegKey对象。
+            /// </param>
+            /// <returns>
+            /// 排序结果。
+            /// </returns>
             public int Compare(object x, object y)
             {
                 var regx = x as RegKey;

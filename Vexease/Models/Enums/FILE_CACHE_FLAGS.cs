@@ -5,7 +5,7 @@ using System;
 namespace Vexease.Models.Enums
 {
     /// <summary>
-    /// 
+    /// 页面文件控制选项。
     /// </summary>
     [Flags]
     public enum FILE_CACHE_FLAGS

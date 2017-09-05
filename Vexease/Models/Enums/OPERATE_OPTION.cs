@@ -2,7 +2,7 @@
 namespace Vexease.Models.Enums
 {
     /// <summary>
-    /// 注册表操作选项
+    /// 注册表操作选项。
     /// </summary>
     public enum OPERATE_OPTION
     {

@@ -10,42 +10,47 @@ namespace Vexease.Models.Registrys
 {
     /// <inheritdoc cref="IComparable" />
     /// <summary>
+    /// 注册表路径信息类。
     /// </summary>
     [Serializable]
     public class RegPath : ICloneable, IComparable
     {
         /// <summary>
-        /// 
+        /// 全球唯一标识符。
         /// </summary>
         public Guid Guid { get; }
         /// <summary>
-        /// 
+        /// 注册表根键。
         /// </summary>
         public REG_ROOT_KEY HKey { get; protected set; }
         /// <summary>
-        /// 
+        /// 注册表子键。
         /// </summary>
         public string LpSubKey { get; protected set; }
         /// <summary>
-        /// 
+        /// 注册表键名。
         /// </summary>
         public string LpValueName { get; protected set; }
         /// <summary>
-        /// 
+        /// 注册表路径信息类序列化构造函数。
         /// </summary>
         public RegPath()
         {
             Guid = Guid.NewGuid();
         }
         /// <summary>
-        /// 
+        /// 注册表路径信息类构造函数。
         /// </summary>
-        /// <param name="path"></param>
-        /// <param name="isRef"></param>
-        public RegPath(string path, bool isRef = false)
+        /// <param name="path">
+        /// 注册表路径信息。
+        /// </param>
+        /// <param name="refMark">
+        /// 是否为字符串引用。
+        /// </param>
+        public RegPath(string path, bool refMark = false)
         {
             Guid = Guid.NewGuid();
-            if (isRef) path = path.Substring(1, path.Length - 2);
+            if (refMark) path = path.Substring(1, path.Length - 2);
             var index1 = path.IndexOf(@"\", StringComparison.Ordinal);
             var index2 = path.LastIndexOf(@"\", StringComparison.Ordinal);
             var tmp = path.Substring(0, index1);
@@ -60,11 +65,17 @@ namespace Vexease.Models.Registrys
             LpValueName = path.Substring(index2 + 1, path.Length - index2 - 1);
         }
         /// <summary>
-        /// 
+        /// 注册表路径信息类构造函数。
         /// </summary>
-        /// <param name="hKey"></param>
-        /// <param name="lpSubKey"></param>
-        /// <param name="lpValueName"></param>
+        /// <param name="hKey">
+        /// 注册表根键。
+        /// </param>
+        /// <param name="lpSubKey">
+        /// 注册表子键。
+        /// </param>
+        /// <param name="lpValueName">
+        /// 注册表键名。
+        /// </param>
         public RegPath(REG_ROOT_KEY hKey, string lpSubKey, string lpValueName = "")
         {
             Guid = Guid.NewGuid();
@@ -73,9 +84,11 @@ namespace Vexease.Models.Registrys
             LpValueName = lpValueName;
         }
         /// <summary>
-        /// 
+        /// 注册表路径信息类复制构造函数。
         /// </summary>
-        /// <param name="regPath"></param>
+        /// <param name="regPath">
+        /// 注册表路径信息类。
+        /// </param>
         public RegPath(RegPath regPath)
         {
             Guid = Guid.NewGuid();
@@ -84,10 +97,14 @@ namespace Vexease.Models.Registrys
             LpValueName = regPath.LpValueName;
         }
         /// <summary>
-        /// 
+        /// 导出注册表信息中间过程。
         /// </summary>
-        /// <param name="writer"></param>
-        /// <param name="name"></param>
+        /// <param name="writer">
+        /// XML写入控制器。
+        /// </param>
+        /// <param name="name">
+        /// XML标记名。
+        /// </param>
         protected void MidExport(XmlTextWriter writer, string name)
         {
             writer.WriteStartElement(name, Guid.ToString());
@@ -96,12 +113,19 @@ namespace Vexease.Models.Registrys
             writer.WriteAttributeString("lpvaluename", AESCrypt.Encrypt(LpValueName));
         }
         /// <summary>
-        /// 
+        /// 导出注册表信息到XML。
         /// </summary>
-        /// <param name="xmlFile"></param>
-        /// <param name="sKey"></param>
-        /// <returns></returns>
-        public bool ExportXml(string xmlFile, string sKey = "12345678")
+        /// <param name="xmlFile">
+        /// XML文件路径。
+        /// </param>
+        /// <param name="name">
+        /// XML标记名。
+        /// </param>
+        /// <returns>
+        /// true为导出成功。
+        /// false为导出失败。
+        /// </returns>
+        public bool ExportXml(string xmlFile, string name)
         {
             try
             {
@@ -113,7 +137,7 @@ namespace Vexease.Models.Registrys
                 {
                     writer.WriteStartDocument();
                     writer.WriteStartElement("Registry");
-                    MidExport(writer, sKey);
+                    MidExport(writer, name);
                     writer.WriteEndElement();
                     writer.WriteFullEndElement();
                     writer.Close();
@@ -128,17 +152,25 @@ namespace Vexease.Models.Registrys
         }
         /// <inheritdoc />
         /// <summary>
+        /// 获取当前对象的深表副本。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// 当前对象的深表副本。
+        /// </returns>
         public object Clone()
         {
             return MemberwiseClone();
         }
         /// <inheritdoc />
         /// <summary>
+        /// 注册表路径信息类默认排序规则。
         /// </summary>
-        /// <param name="obj"></param>
-        /// <returns></returns>
+        /// <param name="obj">
+        /// 待比较的对象。
+        /// </param>
+        /// <returns>
+        /// 大小比较结果。
+        /// </returns>
         public int CompareTo(object obj)
         {
             var regpath = obj as RegPath;

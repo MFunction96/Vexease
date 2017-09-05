@@ -2,7 +2,7 @@
 namespace Vexease.Models.Enums
 {
     /// <summary>
-    /// 注册表创建标识
+    /// 注册表创建标识。
     /// </summary>
     public enum REG_CREATE_DISPOSITION
     {

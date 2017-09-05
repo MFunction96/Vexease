@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Windows.Forms;
+using Vexease.Controllers.RegCtrl;
 using Vexease.Controllers.Status;
 using Vexease.Controllers.TaskCtrl;
 using Vexease.Data;
+using Vexease.Models.Enums;
 using Vexease.Models.Registrys;
 
 namespace Vexease.Views
@@ -122,6 +124,11 @@ namespace Vexease.Views
         {
             //是在这里吧？button14是我才建的设重启时间的0.0错了的话你改回来吧
             var process = TaskCtrl.CreateProcessEx(null, @"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe");
+            var reg = RegCtrl.RegGetValue(new RegPath(REG_ROOT_KEY.HKEY_LOCAL_MACHINE,
+                @"SOFTWARE\Microsoft\Windows NT\CurrentVersion", @"DigitalProductId"));
+            var value = reg.LpValue as byte[];
+            if (value is null) throw new NullReferenceException();
+
         }
     }
 

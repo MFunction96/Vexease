@@ -3,7 +3,7 @@
 namespace Vexease.Models.Enums
 {
     /// <summary>
-    /// 进程创建选项
+    /// 进程创建选项。
     /// </summary>
     [Flags]
     public enum PROCESS_CREATION_FLAGS

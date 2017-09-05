@@ -31,7 +31,7 @@ namespace Vexease.Controllers.PInvoke
         /// <param name="lpData">
         /// 注册表键值。
         /// </param>
-        /// <param name="cbData">
+        /// <param name="lpcbData">
         /// 注册表键值占用空间大小。
         /// </param>
         /// <returns>
@@ -44,7 +44,7 @@ namespace Vexease.Controllers.PInvoke
             int lpReserved,
             RegistryValueKind dwType,
             [MarshalAs(UnmanagedType.LPWStr)] string lpData,
-            int cbData);
+            int lpcbData);
         /// <summary>
         /// 写入注册表数据。详情参阅：https://msdn.microsoft.com/en-us/library/ms724923(VS.85).aspx。
         /// </summary>
@@ -63,7 +63,7 @@ namespace Vexease.Controllers.PInvoke
         /// <param name="lpData">
         /// 注册表键值。
         /// </param>
-        /// <param name="cbData">
+        /// <param name="lpcbData">
         /// 注册表键值占用空间大小。
         /// </param>
         /// <returns>
@@ -76,7 +76,7 @@ namespace Vexease.Controllers.PInvoke
             int lpReserved,
             RegistryValueKind dwType,
             IntPtr lpData,
-            int cbData);
+            int lpcbData);
         /// <summary>
         /// 写入注册表数据。详情参阅：https://msdn.microsoft.com/en-us/library/ms724923(VS.85).aspx。
         /// </summary>
@@ -95,7 +95,7 @@ namespace Vexease.Controllers.PInvoke
         /// <param name="lpData">
         /// 注册表键值。
         /// </param>
-        /// <param name="cbData">
+        /// <param name="lpcbData">
         /// 注册表键值占用空间大小。
         /// </param>
         /// <returns>
@@ -108,7 +108,7 @@ namespace Vexease.Controllers.PInvoke
             int lpReserved,
             RegistryValueKind dwType,
             byte[] lpData,
-            int cbData);
+            int lpcbData);
         /// <summary>
         /// 获取注册表键值信息。详情参阅：https://msdn.microsoft.com/en-us/library/ms724911(v=vs.85).aspx。
         /// </summary>

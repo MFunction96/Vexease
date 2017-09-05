@@ -2,7 +2,7 @@
 namespace Vexease.Models.Enums
 {
     /// <summary>
-    /// 常用系统错误代码
+    /// 常用系统错误代码。
     /// </summary>
     public enum ERROR_CODE
     {

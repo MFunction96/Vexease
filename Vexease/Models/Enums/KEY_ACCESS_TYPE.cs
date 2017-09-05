@@ -5,7 +5,7 @@ using System;
 namespace Vexease.Models.Enums
 {
     /// <summary>
-    /// 注册表访问权限
+    /// 注册表访问权限。
     /// </summary>
     [Flags]
     public enum KEY_ACCESS_TYPE

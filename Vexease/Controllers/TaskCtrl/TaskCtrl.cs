@@ -5,8 +5,26 @@ using Vexease.Models.Structures;
 
 namespace Vexease.Controllers.TaskCtrl
 {
+    /// <summary>
+    /// 进程控制器，用于启动或终止进程。
+    /// </summary>
     public class TaskCtrl
     {
+        /// <summary>
+        /// 以当前进程权限运行新程序。
+        /// </summary>
+        /// <param name="appName">
+        /// 应用程序名称。
+        /// </param>
+        /// <param name="cmdLine">
+        /// 程序运行命令行。
+        /// </param>
+        /// <param name="si">
+        /// 程序启动信息及状态。
+        /// </param>
+        /// <returns>
+        /// 新进程的运行信息。
+        /// </returns>
         public static PROCESS_INFORMATION CreateProcessEx(string appName = null, string cmdLine = null, STARTUPINFO si = new STARTUPINFO())
         {
             var sap = new SECURITY_ATTRIBUTES
