@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Vexease.Data;
 using Vexease.Models.Enums;
@@ -41,13 +42,15 @@ namespace Vexease.Controllers.ListCtrl
         /// </returns>
         public static bool AddTask(string task, TASK_TYPE_FLAGS taskType)
         {
-            if (AddList.Any(tmp => tmp == task)) return false;
-            if (DelList.Any(tmp => tmp == task))
+            if (AddList.Any(tmp => string.Equals(tmp, task, StringComparison.CurrentCultureIgnoreCase))) return false;
+            if (DelList.Any(tmp => string.Equals(tmp, task, StringComparison.CurrentCultureIgnoreCase)))
             {
                 DelList.Remove(task);
                 return true;
             }
-            if (DataContext.GetTaskList(taskType).Any(tmp => tmp.LpValue.ToString() == task)) return false;
+            if (DataContext.GetTaskList(taskType).Any(tmp =>
+                string.Equals(tmp.LpValue.ToString().ToLower(), task.ToLower(), StringComparison.CurrentCultureIgnoreCase)))
+                return false;
             AddList.AddLast(task);
             return true;
         }
@@ -69,14 +72,16 @@ namespace Vexease.Controllers.ListCtrl
         /// </returns>
         public static bool ModifyTask(string frmTask, string nowTask, TASK_TYPE_FLAGS taskType)
         {
-            if (AddList.Any(tmp => tmp == nowTask)) return false;
-            if (DelList.Any(tmp => tmp == nowTask))
+            if (AddList.Any(tmp => string.Equals(tmp, nowTask, StringComparison.CurrentCultureIgnoreCase))) return false;
+            if (DelList.Any(tmp => string.Equals(tmp.ToLower(), nowTask.ToLower(), StringComparison.CurrentCultureIgnoreCase)))
             {
                 DelList.AddLast(frmTask);
                 DelList.Remove(nowTask);
                 return true;
             }
-            if (DataContext.GetTaskList(taskType).Any(tmp => tmp.LpValue.ToString() == nowTask)) return false;
+            if (DataContext.GetTaskList(taskType).Any(tmp =>
+                string.Equals(tmp.LpValue.ToString(), nowTask, StringComparison.CurrentCultureIgnoreCase)))
+                return false;
             DelList.AddLast(frmTask);
             AddList.AddLast(nowTask);
             return true;
@@ -92,7 +97,8 @@ namespace Vexease.Controllers.ListCtrl
         /// </param>
         public static void DelTask(string task, TASK_TYPE_FLAGS taskType)
         {
-            if (AddList.Any(tmp => tmp == task)) AddList.Remove(task);
+            if (AddList.Any(tmp => string.Equals(tmp, task, StringComparison.CurrentCultureIgnoreCase)))
+                AddList.Remove(task);
             DelList.AddLast(task);
         }
         /// <summary>

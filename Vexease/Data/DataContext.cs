@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Vexease.Controllers.Comparer;
 using Vexease.Controllers.RegCtrl;
 using Vexease.Controllers.Status;
 using Vexease.Models.Enums;
@@ -249,12 +250,12 @@ namespace Vexease.Data
             var regp = new RegPath(REG_ROOT_KEY.HKEY_CURRENT_USER, @"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer", @"DisallowRun");
             var onreg = new RegStore[2];
             var offreg = new RegStore[2];
-            onreg[0] = new RegStore(regp, RegistryValueKind.DWord, 0x0, false);
-            offreg[0] = new RegStore(regp, RegistryValueKind.DWord, 0x0);
+            onreg[0] = new RegStore(regp, RegistryValueKind.DWord, 0x0);
+            offreg[0] = new RegStore(regp, RegistryValueKind.DWord, 0x1, false);
             regp = new RegPath(REG_ROOT_KEY.HKEY_CURRENT_USER, @"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun");
             const string str = @"mmc.exe";
-            onreg[1] = new RegStore(regp, RegistryValueKind.String, str, false);
-            offreg[1] = new RegStore(regp, RegistryValueKind.String, str);
+            onreg[1] = new RegStore(regp, RegistryValueKind.String, str, true, false);
+            offreg[1] = new RegStore(regp, RegistryValueKind.String, str, false);
             return new RegStatus(onreg, offreg);
         }
         /// <summary>
@@ -266,14 +267,14 @@ namespace Vexease.Data
         private static RegStatus InitPwrShell()
         {
             var regp = new RegPath(REG_ROOT_KEY.HKEY_CURRENT_USER, @"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer", @"DisallowRun");
-            var onreg = new RegStore[3];
-            var offreg = new RegStore[3];
-            onreg[0] = new RegStore(regp, RegistryValueKind.DWord, 0x1, false);
-            offreg[0] = new RegStore(regp, RegistryValueKind.DWord, 0x0);
+            var onreg = new RegStore[2];
+            var offreg = new RegStore[2];
+            onreg[0] = new RegStore(regp, RegistryValueKind.DWord, 0x0);
+            offreg[0] = new RegStore(regp, RegistryValueKind.DWord, 0x1, false);
             regp = new RegPath(REG_ROOT_KEY.HKEY_CURRENT_USER, @"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun");
             const string str = @"powershell.exe";
-            onreg[1] = new RegStore(regp, RegistryValueKind.String, str, false);
-            offreg[1] = new RegStore(regp, RegistryValueKind.String, str);
+            onreg[1] = new RegStore(regp, RegistryValueKind.String, str, true, false);
+            offreg[1] = new RegStore(regp, RegistryValueKind.String, str, false);
             return new RegStatus(onreg, offreg);
         }
         /// <summary>
@@ -340,36 +341,49 @@ namespace Vexease.Data
         /// </returns>
         private static LinkedList<RegKey> InitTask(TASK_TYPE_FLAGS taskType)
         {
-            var tasks = new LinkedList<RegKey>();
-            try
+            var path = GetRegPath(taskType);
+            var list = new LinkedList<RegKey>();
+            if ((int) taskType >> 1 > 0)
             {
-                var path = GetRegPath(taskType);
-                var regs = (int)taskType >> 1 > 0
-                    ? RegCtrl.RegEnumKey(new RegPath(path.HKey, path.LpSubKey))
-                    : RegCtrl.RegEnumValue(new RegPath(path.HKey, path.LpSubKey), new RegKeyComparer());
-                foreach (var reg in regs)
+                var array = new ArrayList();
+                try
                 {
-                    RegKey task;
-                    if ((int)taskType >> 1 > 0)
+                    var regs = RegCtrl.RegEnumKey(path);
+                    foreach (var reg in regs)
                     {
-                        task = RegCtrl.RegGetValue(new RegPath(reg.HKey, reg.LpSubKey, @"ItemData"));
-                        task = RegCtrl.RegGetValue(new RegPath(task.LpValue.ToString(), true));
+                        var tmp = RegCtrl.RegGetValue(new RegPath(reg.HKey, reg.LpSubKey, @"ItemData"));
+                        var str = tmp.LpValue as string;
+                        array.Add(RegCtrl.RegGetValue(new RegPath(str, true)));
                     }
-                    else
+                    array.Sort(new PathComparer());
+                    foreach (var reg in array)
                     {
-                        task = RegCtrl.RegGetValue(reg);
+                        var tmp = reg as RegKey;
+                        if (tmp is null) throw new NotSupportedException();
+                        list.AddLast(tmp);
                     }
-                    tasks.AddLast(task);
+                }
+                catch (Exception e)
+                {
+                    if (e.GetType() != typeof(NullReferenceException)) throw;
                 }
             }
-            catch (Exception e)
+            else
             {
-                if (e.GetType() != typeof(NullReferenceException))
+                try
                 {
-                    throw;
+                    var regs = RegCtrl.RegEnumValue(path, new NameComparer());
+                    foreach (var reg in regs)
+                    {
+                        list.AddLast(reg);
+                    }
+                }
+                catch (Exception e)
+                {
+                    if (e.GetType() != typeof(NullReferenceException)) throw;
                 }
             }
-            return tasks;
+            return list;
         }
         /// <summary>
         /// 获取进程信息。
@@ -388,36 +402,6 @@ namespace Vexease.Data
             else if (taskType == TASK_TYPE_FLAGS.RESTRICT_TASK_PATH) list = RestrictTaskPaths;
             else list = DisallowTaskPaths;
             return list;
-        }
-        /// <inheritdoc />
-        /// <summary>
-        /// 自定义RegKey类排序类。
-        /// </summary>
-        private class RegKeyComparer : IComparer
-        {
-            /// <inheritdoc />
-            /// <summary>
-            /// 自定义RegKey类排序规则。
-            /// </summary>
-            /// <param name="x">
-            /// 前RegKey对象。
-            /// </param>
-            /// <param name="y">
-            /// 后RegKey对象。
-            /// </param>
-            /// <returns>
-            /// 排序结果。
-            /// </returns>
-            public int Compare(object x, object y)
-            {
-                var regx = x as RegKey;
-                var regy = y as RegKey;
-                if (regx is null || regy is null) throw new NullReferenceException();
-                var valuex = regx.LpValue as string;
-                var valuey = regy.LpValue as string;
-                if (valuex is null || valuey is null) throw new NullReferenceException();
-                return int.Parse(valuex) < int.Parse(valuey) ? 1 : -1;
-            }
         }
     }
 }

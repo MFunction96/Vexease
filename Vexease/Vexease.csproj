@@ -80,6 +80,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Comparer\NameComparer.cs" />
+    <Compile Include="Controllers\Comparer\PathComparer.cs" />
     <Compile Include="Controllers\Cryptography\AESCrypt.cs" />
     <Compile Include="Controllers\DismCtrl\DismCtrl.cs" />
     <Compile Include="Controllers\ListCtrl\ListCtrl.cs" />

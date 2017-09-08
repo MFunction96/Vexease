@@ -86,6 +86,7 @@ namespace Vexease.Views
             Registry.CheckStatus();
             Mmc = new Status(DataContext.Mmc, adm_console_now_state, button6);
             Mmc.CheckStatus();
+
         }
 
         private void Button5_Click(object sender, EventArgs e)

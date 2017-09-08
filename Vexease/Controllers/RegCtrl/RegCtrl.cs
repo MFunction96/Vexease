@@ -37,14 +37,18 @@ namespace Vexease.Controllers.RegCtrl
                 if (lpcbData == 0)
                 {
                     NativeMethods.RegCloseKey(phkresult);
-                    throw new Exception(@"注册表访问失败" + '\n' + @"无法获取缓冲区大小");
+                    throw new Exception(@"注册表访问失败" + '\n' + @"无法获取缓冲区大小" + '\n' + nameof(RegGetValue));
                 }
                 var lpdata = Marshal.AllocHGlobal(lpcbData);
                 var reggetvaluetemp = NativeMethods.RegQueryValueEx(phkresult, regPath.LpValueName, IntPtr.Zero, out lpkind, lpdata, ref lpcbData);
+                if (reggetvaluetemp != (int)ERROR_CODE.ERROR_SUCCESS)
+                {
+                    throw new Exception(@"注册表访问失败" + '\n' + reggetvaluetemp + '\n' + nameof(RegGetValue));
+                }
                 NativeMethods.RegCloseKey(phkresult);
                 if (reggetvaluetemp != (int)ERROR_CODE.ERROR_SUCCESS)
                 {
-                    throw new Exception(@"注册表访问失败" + '\n' + reggetvaluetemp);
+                    throw new Exception(@"注册表访问失败" + '\n' + reggetvaluetemp + '\n' + nameof(RegGetValue));
                 }
                 regkey = ConvertData(regPath, lpkind, lpdata, lpcbData);
             }
@@ -80,7 +84,7 @@ namespace Vexease.Controllers.RegCtrl
             }
             if (regsetvaluetmp != (int)ERROR_CODE.ERROR_SUCCESS && exists != (int)REG_CREATE_DISPOSITION.REG_OPENED_EXISTING_KEY)
             {
-                throw new Exception(@"注册表访问失败" + '\n' + regsetvaluetmp);
+                throw new Exception(@"注册表访问失败" + '\n' + regsetvaluetmp + '\n' + nameof(RegSetValue));
             }
             IntPtr lpdata;
             int lpcbData;
@@ -115,14 +119,14 @@ namespace Vexease.Controllers.RegCtrl
             }
             else
             {
-                throw new Exception(@"注册表访问失败" + '\n' + regsetvaluetmp);
+                throw new Exception(@"注册表访问失败" + '\n' + regsetvaluetmp + '\n' + nameof(RegSetValue));
             }
             regsetvaluetmp =
                 NativeMethods.RegSetValueEx(phkResult, regKey.LpValueName, 0, regKey.LpKind, lpdata, lpcbData);
             NativeMethods.RegCloseKey(phkResult);
             if (regsetvaluetmp != (int)ERROR_CODE.ERROR_SUCCESS)
             {
-                throw new Exception(@"注册表访问失败" + '\n' + regsetvaluetmp);
+                throw new Exception(@"注册表访问失败" + '\n' + regsetvaluetmp + '\n' + nameof(RegSetValue));
             }
         }
         /// <summary>
@@ -140,7 +144,7 @@ namespace Vexease.Controllers.RegCtrl
                     (int)KEY_SAM_FLAGS.KEY_WOW64_64KEY | (int)KEY_ACCESS_TYPE.KEY_SET_VALUE, 0);
                 if (regdelkeytmp != (int)ERROR_CODE.ERROR_SUCCESS)
                 {
-                    throw new Exception(@"注册表访问失败" + '\n' + regdelkeytmp);
+                    throw new Exception(@"注册表访问失败" + '\n' + regdelkeytmp + '\n' + nameof(RegDelKey));
                 }
             }
             else
@@ -150,12 +154,12 @@ namespace Vexease.Controllers.RegCtrl
                     (int)KEY_ACCESS_TYPE.KEY_SET_VALUE, out var phkresult);
                 if (regdelkeytmp != (int)ERROR_CODE.ERROR_SUCCESS)
                 {
-                    throw new Exception(@"注册表访问失败" + '\n' + regdelkeytmp);
+                    throw new Exception(@"注册表访问失败" + '\n' + regdelkeytmp + '\n' + nameof(RegDelKey));
                 }
                 regdelkeytmp = NativeMethods.RegDeleteValue(phkresult, regPath.LpValueName);
                 if (regdelkeytmp != (int)ERROR_CODE.ERROR_SUCCESS)
                 {
-                    throw new Exception(@"注册表访问失败" + '\n' + regdelkeytmp);
+                    throw new Exception(@"注册表访问失败" + '\n' + regdelkeytmp + '\n' + nameof(RegDelKey));
                 }
                 NativeMethods.RegCloseKey(phkresult);
             }
@@ -185,7 +189,7 @@ namespace Vexease.Controllers.RegCtrl
                 if (renenumvaluetmp == (int)ERROR_CODE.ERROR_NO_MORE_ITEMS) break;
                 if (renenumvaluetmp != (int)ERROR_CODE.ERROR_SUCCESS)
                 {
-                    throw new Exception(@"注册表键值枚举失败" + '\n' + renenumvaluetmp);
+                    throw new Exception(@"注册表键值枚举失败" + '\n' + renenumvaluetmp + '\n' + nameof(RegEnumValue));
                 }
                 var lpdata = Marshal.AllocHGlobal(lpcbdata);
                 renenumvaluetmp = NativeMethods.RegEnumValue(phkresult, index, sb, ref size, IntPtr.Zero, out lpkind,
@@ -193,7 +197,7 @@ namespace Vexease.Controllers.RegCtrl
                 if (renenumvaluetmp == (int)ERROR_CODE.ERROR_NO_MORE_ITEMS) break;
                 if (renenumvaluetmp != (int)ERROR_CODE.ERROR_SUCCESS)
                 {
-                    throw new Exception(@"注册表键值枚举失败" + '\n' + renenumvaluetmp);
+                    throw new Exception(@"注册表键值枚举失败" + '\n' + renenumvaluetmp + '\n' + nameof(RegEnumValue));
                 }
                 list.Add(ConvertData(new RegPath(regPath.HKey, regPath.LpSubKey, sb.ToString().Trim()), lpkind, lpdata,
                     lpcbdata));
@@ -224,15 +228,15 @@ namespace Vexease.Controllers.RegCtrl
             {
                 var sb = new StringBuilder(0x7FFF);
                 var size = 0x7FFF;
-                var renenumkeytmp = NativeMethods.RegEnumKeyEx(phkresult, index, sb, ref size, IntPtr.Zero, IntPtr.Zero,
+                var regenumkeytmp = NativeMethods.RegEnumKeyEx(phkresult, index, sb, ref size, IntPtr.Zero, IntPtr.Zero,
                     IntPtr.Zero, out _);
-                if (renenumkeytmp == (int)ERROR_CODE.ERROR_NO_MORE_ITEMS)
+                if (regenumkeytmp == (int)ERROR_CODE.ERROR_NO_MORE_ITEMS)
                 {
                     break;
                 }
-                if (renenumkeytmp != (int)ERROR_CODE.ERROR_SUCCESS)
+                if (regenumkeytmp != (int)ERROR_CODE.ERROR_SUCCESS)
                 {
-                    throw new Exception(@"注册表键值枚举失败" + '\n' + renenumkeytmp);
+                    throw new Exception(@"注册表键值枚举失败" + '\n' + regenumkeytmp + '\n' + nameof(RegEnumKey));
                 }
                 list.Add(new RegPath(regPath.HKey,regPath.LpSubKey + @"\" + sb));
             }
@@ -269,11 +273,11 @@ namespace Vexease.Controllers.RegCtrl
             }
             if (regopenkeytmp == (int)ERROR_CODE.ERROR_FILE_NOT_FOUND)
             {
-                throw new NullReferenceException(@"注册表访问失败" + '\n' + regopenkeytmp);
+                throw new NullReferenceException(@"注册表访问失败" + '\n' + regopenkeytmp + '\n' + nameof(RegOpenKey));
             }
             if (regopenkeytmp != (int)ERROR_CODE.ERROR_SUCCESS)
             {
-                throw new Exception(@"注册表访问失败" + '\n' + regopenkeytmp);
+                throw new Exception(@"注册表访问失败" + '\n' + regopenkeytmp + '\n' + nameof(RegOpenKey));
             }
             return phkresult;
         }
@@ -314,7 +318,7 @@ namespace Vexease.Controllers.RegCtrl
             }
             else
             {
-                throw new Exception(@"注册表访问失败" + '\n' + @"注册表数据类型异常");
+                throw new Exception(@"注册表访问失败" + '\n' + @"注册表数据类型异常" + '\n' + nameof(ConvertData));
             }
             return regkey;
         }

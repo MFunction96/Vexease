@@ -1,5 +1,7 @@
-﻿using Microsoft.Win32;
-using System;
+﻿using System;
+using System.Linq;
+using Vexease.Data;
+using Vexease.Models.Enums;
 using Vexease.Models.Registrys;
 
 namespace Vexease.Controllers.Status
@@ -45,30 +47,46 @@ namespace Vexease.Controllers.Status
         /// </returns>
         public bool CheckStatus()
         {
-            RegOn = true;
-            foreach (var reg in OnRegStores)
+            foreach (var regStore in OnRegStores)
             {
-                RegKey tmp;
+                if (!regStore.IsNecessary) continue;
                 try
                 {
-                    tmp = RegCtrl.RegCtrl.RegGetValue(reg.GetRegPath());
-                }
-                catch (Exception e)
-                {
-                    if (e.GetType() == typeof(NullReferenceException))
+                    if (regStore.LpValueName is null)
                     {
-                        tmp = new RegKey(reg.GetRegPath());
+                        if (regStore.HKey == REG_ROOT_KEY.HKEY_CURRENT_USER)
+                        {
+                            if (regStore.LpSubKey ==
+                                @"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\RestrictRun")
+                            {
+                                var list = DataContext.GetTaskList(TASK_TYPE_FLAGS.RESTRICT_TASK_NAME);
+                                if (list.All(tmp => tmp.LpValue != regStore.LpValue)) return RegOn = false;
+                            }
+                            else if (regStore.LpSubKey == 
+                                @"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun")
+                            {
+                                var list = DataContext.GetTaskList(TASK_TYPE_FLAGS.DISALLOW_TASK_NAME);
+                                if (list.All(tmp => tmp.LpValue != regStore.LpValue)) return RegOn = false;
+                            }
+                        }
+                        else
+                        {
+                            var regs = RegCtrl.RegCtrl.RegEnumValue(regStore.GetRegPath());
+                            if (regs.All(reg => reg.LpValue != regStore.LpValue)) return RegOn = false;
+                        }
                     }
                     else
                     {
-                        throw;
+                        var reg = RegCtrl.RegCtrl.RegGetValue(regStore.GetRegPath());
+                        if (reg.LpValue != regStore.LpValue) return RegOn = false;
                     }
                 }
-                if (reg.IsNull || (tmp.LpKind != RegistryValueKind.Unknown && reg.LpValue == tmp.LpValue)) continue;
-                RegOn = false;
-                break;
+                catch (Exception e)
+                {
+                    if (!regStore.IsNull || e.GetType() != typeof(NullReferenceException)) throw;
+                }
             }
-            return RegOn;
+            return RegOn = true;
         }
         /// <summary>
         /// 切换注册表状态。
@@ -82,6 +100,7 @@ namespace Vexease.Controllers.Status
             var regStores = RegOn ? OffRegStores : OnRegStores;
             foreach (var reg in regStores)
             {
+                if (!reg.IsNecessary) continue;
                 if (reg.IsNull)
                 {
                     RegCtrl.RegCtrl.RegDelKey(reg.GetRegPath());
