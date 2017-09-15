@@ -100,10 +100,7 @@ namespace Vexease.Views
             Registry.SwapStatus();
         }
 
-        private void Button14_Click(object sender, EventArgs e)
-        {
-          
-        }
+       
 
         private void Button6_Click(object sender, EventArgs e)
         {
@@ -121,7 +118,7 @@ namespace Vexease.Views
             
         }
 
-        private void button14_Click(object sender, EventArgs e)
+        private void Button14_Click(object sender, EventArgs e)
         {
             //是在这里吧？button14是我才建的设重启时间的0.0错了的话你改回来吧
             var process = TaskCtrl.CreateProcessEx(null, @"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe");

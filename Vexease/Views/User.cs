@@ -37,5 +37,10 @@ namespace Vexease.Views
             //杀掉程序啊程序
             Environment.Exit(Environment.ExitCode);
         }
+
+        private void User_taskmanagerPnl_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
+        {
+
+        }
     }
 }

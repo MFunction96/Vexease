@@ -561,6 +561,7 @@
             this.user_taskmanagerPnl.Name = "user_taskmanagerPnl";
             this.user_taskmanagerPnl.Size = new System.Drawing.Size(192, 200);
             this.user_taskmanagerPnl.TabIndex = 27;
+            this.user_taskmanagerPnl.Paint += new System.Windows.Forms.PaintEventHandler(this.User_taskmanagerPnl_Paint);
             // 
             // user_taskmanager_now_state
             // 

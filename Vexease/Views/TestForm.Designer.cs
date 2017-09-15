@@ -60,6 +60,18 @@ namespace Vexease.Views
             this.adm_conctrlpannel_now = new System.Windows.Forms.Label();
             this.adm_toolsPnl = new System.Windows.Forms.Panel();
             this.button10 = new System.Windows.Forms.Button();
+            this.adm_pnl_setIP = new System.Windows.Forms.Panel();
+            this.adm_pnl_about = new System.Windows.Forms.Panel();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.adm_setIP_btn_cancel = new System.Windows.Forms.Button();
+            this.adm_setIP_btn_OK = new System.Windows.Forms.Button();
+            this.adm_setIP_newIP = new System.Windows.Forms.TextBox();
+            this.adm_setIP_lbl2 = new System.Windows.Forms.Label();
+            this.adm_setIP_now = new System.Windows.Forms.Label();
+            this.adm_setIP_lbl1 = new System.Windows.Forms.Label();
             this.adm_tools_now_state = new System.Windows.Forms.Label();
             this.adm_tools = new System.Windows.Forms.Label();
             this.adm_tools_default_state = new System.Windows.Forms.Label();
@@ -92,29 +104,17 @@ namespace Vexease.Views
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
-            this.adm_pnl_setIP = new System.Windows.Forms.Panel();
-            this.adm_pnl_about = new System.Windows.Forms.Panel();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.adm_setIP_btn_cancel = new System.Windows.Forms.Button();
-            this.adm_setIP_btn_OK = new System.Windows.Forms.Button();
-            this.adm_setIP_newIP = new System.Windows.Forms.TextBox();
-            this.adm_setIP_lbl2 = new System.Windows.Forms.Label();
-            this.adm_setIP_now = new System.Windows.Forms.Label();
-            this.adm_setIP_lbl1 = new System.Windows.Forms.Label();
             this.adm_consolePnl.SuspendLayout();
             this.adm_registryPnl.SuspendLayout();
             this.adm_schedulerPnl.SuspendLayout();
             this.adm_conctrlpannelPnl.SuspendLayout();
             this.adm_toolsPnl.SuspendLayout();
-            this.adm_taskmanagerPnl.SuspendLayout();
-            this.adm_commendindicaterPnl.SuspendLayout();
-            this.adm_powershellPnl.SuspendLayout();
             this.adm_pnl_setIP.SuspendLayout();
             this.adm_pnl_about.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.adm_taskmanagerPnl.SuspendLayout();
+            this.adm_commendindicaterPnl.SuspendLayout();
+            this.adm_powershellPnl.SuspendLayout();
             this.SuspendLayout();
             // 
             // adm_consolePnl
@@ -861,139 +861,7 @@ namespace Vexease.Views
             this.button14.TabIndex = 43;
             this.button14.Text = "定时重启电脑";
             this.button14.UseVisualStyleBackColor = true;
-            this.button14.Click += new System.EventHandler(this.button14_Click);
-            // 
-            // adm_pnl_setIP
-            // 
-            this.adm_pnl_setIP.BackColor = System.Drawing.Color.Transparent;
-            this.adm_pnl_setIP.BackgroundImage = global::Vexease.Properties.Resources.背景;
-            this.adm_pnl_setIP.Controls.Add(this.adm_pnl_about);
-            this.adm_pnl_setIP.Controls.Add(this.adm_setIP_btn_cancel);
-            this.adm_pnl_setIP.Controls.Add(this.adm_setIP_btn_OK);
-            this.adm_pnl_setIP.Controls.Add(this.adm_setIP_newIP);
-            this.adm_pnl_setIP.Controls.Add(this.adm_setIP_lbl2);
-            this.adm_pnl_setIP.Controls.Add(this.adm_setIP_now);
-            this.adm_pnl_setIP.Controls.Add(this.adm_setIP_lbl1);
-            this.adm_pnl_setIP.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.adm_pnl_setIP.Location = new System.Drawing.Point(355, 235);
-            this.adm_pnl_setIP.Name = "adm_pnl_setIP";
-            this.adm_pnl_setIP.Size = new System.Drawing.Size(799, 568);
-            this.adm_pnl_setIP.TabIndex = 1;
-            this.adm_pnl_setIP.Visible = false;
-            // 
-            // adm_pnl_about
-            // 
-            this.adm_pnl_about.BackColor = System.Drawing.Color.Transparent;
-            this.adm_pnl_about.BackgroundImage = global::Vexease.Properties.Resources.背景;
-            this.adm_pnl_about.Controls.Add(this.tabControl1);
-            this.adm_pnl_about.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.adm_pnl_about.Location = new System.Drawing.Point(430, 459);
-            this.adm_pnl_about.Name = "adm_pnl_about";
-            this.adm_pnl_about.Size = new System.Drawing.Size(799, 568);
-            this.adm_pnl_about.TabIndex = 2;
-            this.adm_pnl_about.Visible = false;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tabControl1.Location = new System.Drawing.Point(35, 13);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(796, 568);
-            this.tabControl1.TabIndex = 0;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.BackgroundImage = global::Vexease.Properties.Resources.背景;
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(788, 539);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "注册";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.BackgroundImage = global::Vexease.Properties.Resources.背景;
-            this.tabPage2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(788, 539);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "帮助";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.BackgroundImage = global::Vexease.Properties.Resources.背景;
-            this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(788, 539);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "反馈";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // adm_setIP_btn_cancel
-            // 
-            this.adm_setIP_btn_cancel.BackgroundImage = global::Vexease.Properties.Resources.half2;
-            this.adm_setIP_btn_cancel.Image = global::Vexease.Properties.Resources.half2;
-            this.adm_setIP_btn_cancel.Location = new System.Drawing.Point(364, 274);
-            this.adm_setIP_btn_cancel.Name = "adm_setIP_btn_cancel";
-            this.adm_setIP_btn_cancel.Size = new System.Drawing.Size(75, 23);
-            this.adm_setIP_btn_cancel.TabIndex = 5;
-            this.adm_setIP_btn_cancel.Text = "取消";
-            this.adm_setIP_btn_cancel.UseVisualStyleBackColor = true;
-            // 
-            // adm_setIP_btn_OK
-            // 
-            this.adm_setIP_btn_OK.BackgroundImage = global::Vexease.Properties.Resources.half2;
-            this.adm_setIP_btn_OK.Image = global::Vexease.Properties.Resources.half2;
-            this.adm_setIP_btn_OK.Location = new System.Drawing.Point(225, 274);
-            this.adm_setIP_btn_OK.Name = "adm_setIP_btn_OK";
-            this.adm_setIP_btn_OK.Size = new System.Drawing.Size(75, 23);
-            this.adm_setIP_btn_OK.TabIndex = 4;
-            this.adm_setIP_btn_OK.Text = "确定";
-            this.adm_setIP_btn_OK.UseVisualStyleBackColor = true;
-            // 
-            // adm_setIP_newIP
-            // 
-            this.adm_setIP_newIP.Location = new System.Drawing.Point(296, 212);
-            this.adm_setIP_newIP.Name = "adm_setIP_newIP";
-            this.adm_setIP_newIP.Size = new System.Drawing.Size(319, 25);
-            this.adm_setIP_newIP.TabIndex = 3;
-            // 
-            // adm_setIP_lbl2
-            // 
-            this.adm_setIP_lbl2.AutoSize = true;
-            this.adm_setIP_lbl2.Location = new System.Drawing.Point(192, 215);
-            this.adm_setIP_lbl2.Name = "adm_setIP_lbl2";
-            this.adm_setIP_lbl2.Size = new System.Drawing.Size(98, 15);
-            this.adm_setIP_lbl2.TabIndex = 2;
-            this.adm_setIP_lbl2.Text = "设置IP地址：";
-            // 
-            // adm_setIP_now
-            // 
-            this.adm_setIP_now.AutoSize = true;
-            this.adm_setIP_now.Location = new System.Drawing.Point(297, 174);
-            this.adm_setIP_now.Name = "adm_setIP_now";
-            this.adm_setIP_now.Size = new System.Drawing.Size(53, 15);
-            this.adm_setIP_now.TabIndex = 1;
-            this.adm_setIP_now.Text = "暂无IP";
-            // 
-            // adm_setIP_lbl1
-            // 
-            this.adm_setIP_lbl1.AutoSize = true;
-            this.adm_setIP_lbl1.Location = new System.Drawing.Point(222, 174);
-            this.adm_setIP_lbl1.Name = "adm_setIP_lbl1";
-            this.adm_setIP_lbl1.Size = new System.Drawing.Size(68, 15);
-            this.adm_setIP_lbl1.TabIndex = 0;
-            this.adm_setIP_lbl1.Text = "IP地址：";
+            this.button14.Click += new System.EventHandler(this.Button14_Click);
             // 
             // TestForm
             // 
@@ -1027,16 +895,16 @@ namespace Vexease.Views
             this.adm_conctrlpannelPnl.PerformLayout();
             this.adm_toolsPnl.ResumeLayout(false);
             this.adm_toolsPnl.PerformLayout();
+            this.adm_pnl_setIP.ResumeLayout(false);
+            this.adm_pnl_setIP.PerformLayout();
+            this.adm_pnl_about.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
             this.adm_taskmanagerPnl.ResumeLayout(false);
             this.adm_taskmanagerPnl.PerformLayout();
             this.adm_commendindicaterPnl.ResumeLayout(false);
             this.adm_commendindicaterPnl.PerformLayout();
             this.adm_powershellPnl.ResumeLayout(false);
             this.adm_powershellPnl.PerformLayout();
-            this.adm_pnl_setIP.ResumeLayout(false);
-            this.adm_pnl_setIP.PerformLayout();
-            this.adm_pnl_about.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

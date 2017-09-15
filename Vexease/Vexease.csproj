@@ -163,6 +163,36 @@
     <Compile Include="Views\User.Designer.cs">
       <DependentUpon>User.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\AdmForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdmForm.Designer.cs">
+      <DependentUpon>AdmForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\BandWListSetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\BandWListSetForm.Designer.cs">
+      <DependentUpon>BandWListSetForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\SetIPForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SetIPForm.Designer.cs">
+      <DependentUpon>SetIPForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\User.Designer.cs">
+      <DependentUpon>User.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Views\BandWList.resx">
       <DependentUpon>BandWList.cs</DependentUpon>
     </EmbeddedResource>
@@ -200,6 +230,21 @@
     <EmbeddedResource Include="Views\User.resx">
       <DependentUpon>User.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\AdmForm.resx">
+      <DependentUpon>AdmForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BandWListSetForm.resx">
+      <DependentUpon>BandWListSetForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SetIPForm.resx">
+      <DependentUpon>SetIPForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\User.resx">
+      <DependentUpon>User.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\app.manifest">
       <SubType>Designer</SubType>
@@ -235,5 +280,6 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
