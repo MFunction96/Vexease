@@ -31,9 +31,9 @@
             this.LblUserName = new System.Windows.Forms.Label();
             this.LblPwd = new System.Windows.Forms.Label();
             this.TxtUserName = new System.Windows.Forms.TextBox();
-            this.TxtPwd = new System.Windows.Forms.TextBox();
             this.BtnOk = new System.Windows.Forms.Button();
             this.BtnCancel = new System.Windows.Forms.Button();
+            this.TxtPwd = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // LblUserName
@@ -61,16 +61,9 @@
             this.TxtUserName.Size = new System.Drawing.Size(371, 25);
             this.TxtUserName.TabIndex = 2;
             // 
-            // TxtPwd
-            // 
-            this.TxtPwd.Location = new System.Drawing.Point(139, 125);
-            this.TxtPwd.Name = "TxtPwd";
-            this.TxtPwd.Size = new System.Drawing.Size(371, 25);
-            this.TxtPwd.TabIndex = 3;
-            // 
             // BtnOk
             // 
-            this.BtnOk.Location = new System.Drawing.Point(126, 214);
+            this.BtnOk.Location = new System.Drawing.Point(139, 240);
             this.BtnOk.Name = "BtnOk";
             this.BtnOk.Size = new System.Drawing.Size(75, 23);
             this.BtnOk.TabIndex = 4;
@@ -80,21 +73,28 @@
             // 
             // BtnCancel
             // 
-            this.BtnCancel.Location = new System.Drawing.Point(401, 214);
+            this.BtnCancel.Location = new System.Drawing.Point(355, 240);
             this.BtnCancel.Name = "BtnCancel";
             this.BtnCancel.Size = new System.Drawing.Size(75, 23);
             this.BtnCancel.TabIndex = 5;
             this.BtnCancel.Text = "取消";
             this.BtnCancel.UseVisualStyleBackColor = true;
             // 
+            // TxtPwd
+            // 
+            this.TxtPwd.Location = new System.Drawing.Point(139, 128);
+            this.TxtPwd.Name = "TxtPwd";
+            this.TxtPwd.Size = new System.Drawing.Size(371, 25);
+            this.TxtPwd.TabIndex = 6;
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(569, 323);
+            this.Controls.Add(this.TxtPwd);
             this.Controls.Add(this.BtnCancel);
             this.Controls.Add(this.BtnOk);
-            this.Controls.Add(this.TxtPwd);
             this.Controls.Add(this.TxtUserName);
             this.Controls.Add(this.LblPwd);
             this.Controls.Add(this.LblUserName);
@@ -110,8 +110,8 @@
         private System.Windows.Forms.Label LblUserName;
         private System.Windows.Forms.Label LblPwd;
         private System.Windows.Forms.TextBox TxtUserName;
-        private System.Windows.Forms.TextBox TxtPwd;
         private System.Windows.Forms.Button BtnOk;
         private System.Windows.Forms.Button BtnCancel;
+        private System.Windows.Forms.MaskedTextBox TxtPwd;
     }
 }

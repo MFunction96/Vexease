@@ -1,6 +1,6 @@
 ﻿using System;
 using CCWin;
-
+using Vexease.View;
 namespace Vexease.Views
 {
     public partial class User : CCSkinMain
@@ -41,6 +41,13 @@ namespace Vexease.Views
         private void User_taskmanagerPnl_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
         {
 
+        }
+
+        private void BtnToNow_Click(object sender, EventArgs e)
+        {
+            Hide();
+            var userform = new UserForm();
+            userform.Show();
         }
     }
 }

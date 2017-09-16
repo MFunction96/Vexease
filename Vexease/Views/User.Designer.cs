@@ -90,6 +90,7 @@
             this.user_powershell_default = new System.Windows.Forms.Label();
             this.user_powershell_now = new System.Windows.Forms.Label();
             this.user_Text = new System.Windows.Forms.Label();
+            this.BtnToNow = new System.Windows.Forms.Button();
             this.user_consolePnl.SuspendLayout();
             this.user_registryPnl.SuspendLayout();
             this.user_schedulerPnl.SuspendLayout();
@@ -740,6 +741,16 @@
             this.user_Text.Text = "切换至测试模式";
             this.user_Text.Click += new System.EventHandler(this.User_Text_Click);
             // 
+            // BtnToNow
+            // 
+            this.BtnToNow.Location = new System.Drawing.Point(648, 520);
+            this.BtnToNow.Name = "BtnToNow";
+            this.BtnToNow.Size = new System.Drawing.Size(75, 23);
+            this.BtnToNow.TabIndex = 31;
+            this.BtnToNow.Text = "button1";
+            this.BtnToNow.UseVisualStyleBackColor = true;
+            this.BtnToNow.Click += new System.EventHandler(this.BtnToNow_Click);
+            // 
             // User
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -747,6 +758,7 @@
             this.BackgroundImage = global::Vexease.Properties.Resources.背景;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(982, 553);
+            this.Controls.Add(this.BtnToNow);
             this.Controls.Add(this.user_Text);
             this.Controls.Add(this.user_consolePnl);
             this.Controls.Add(this.user_registryPnl);
@@ -849,5 +861,6 @@
         private System.Windows.Forms.Label user_powershell_default;
         private System.Windows.Forms.Label user_powershell_now;
         private System.Windows.Forms.Label user_Text;
+        private System.Windows.Forms.Button BtnToNow;
     }
 }
