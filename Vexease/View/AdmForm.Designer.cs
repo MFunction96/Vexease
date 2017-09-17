@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Vexease.View
@@ -22,7 +23,33 @@ namespace Vexease.View
             }
             base.Dispose(disposing);
         }
-
+        /// <summary>
+        /// 设定控件绘制模式
+        /// </summary>
+        private void TabSet()
+        {
+            TabCtrlAdm.DrawMode = TabDrawMode.OwnerDrawFixed;
+            TabCtrlAdm.Alignment = TabAlignment.Left;
+            TabCtrlAdm.SizeMode = TabSizeMode.Fixed;
+            TabCtrlAdm.Multiline = true;
+            
+        }
+        ///<summary>
+        /// 重绘控件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TabCtrlAdm_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            Font font = new Font("微软雅黑", 10.0f);
+            SolidBrush brush = new SolidBrush(Color.Black);
+            RectangleF rectangleF = TabCtrlAdm.GetTabRect(e.Index);
+            StringFormat sf = new StringFormat();//封装文本布局信息
+            sf.LineAlignment = StringAlignment.Center;
+            sf.LineAlignment = StringAlignment.Near;
+            g.DrawString(this.Controls[e.Index].Text, font, brush, rectangleF, sf);
+        }
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -81,13 +108,13 @@ namespace Vexease.View
             this.FlwLytPnlUser = new System.Windows.Forms.FlowLayoutPanel();
             this.BtnUser01 = new System.Windows.Forms.Button();
             this.BtnUser02 = new System.Windows.Forms.Button();
-            this.TabControl = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.TabCtrlAdm = new System.Windows.Forms.TabControl();
+            this.TabAbout = new System.Windows.Forms.TabPage();
             this.LblAbout = new System.Windows.Forms.Label();
             this.TabConfigure = new System.Windows.Forms.TabPage();
             this.PnlWList = new System.Windows.Forms.Panel();
             this.LvWList = new System.Windows.Forms.ListView();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.TlStrWList = new System.Windows.Forms.ToolStrip();
             this.TlStrBtnWListSet = new System.Windows.Forms.ToolStripButton();
             this.TlStrBtnWList = new System.Windows.Forms.ToolStripButton();
             this.PnlBList = new System.Windows.Forms.Panel();
@@ -100,19 +127,21 @@ namespace Vexease.View
             this.ColDflt = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ColNow = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ColButton = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.BtnStatus = new System.Windows.Forms.Button();
+            this.TlStrStatus = new System.Windows.Forms.ToolStrip();
+            this.TlStrBtnStatus = new System.Windows.Forms.ToolStripButton();
             this.TabOptimization = new System.Windows.Forms.TabPage();
             this.ImageList = new System.Windows.Forms.ImageList(this.components);
             MenuFileImport = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuStripAdm.SuspendLayout();
             this.FlwLytPnlUser.SuspendLayout();
-            this.TabControl.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.TabCtrlAdm.SuspendLayout();
+            this.TabAbout.SuspendLayout();
             this.TabConfigure.SuspendLayout();
             this.PnlWList.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
+            this.TlStrWList.SuspendLayout();
             this.PnlBList.SuspendLayout();
             this.TlStrBList.SuspendLayout();
+            this.TlStrStatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // MenuFileImport
@@ -212,33 +241,36 @@ namespace Vexease.View
             this.BtnUser02.Text = "拖进坑的用户2";
             this.BtnUser02.UseVisualStyleBackColor = true;
             // 
-            // TabControl
+            // TabCtrlAdm
             // 
-            this.TabControl.Alignment = System.Windows.Forms.TabAlignment.Left;
-            this.TabControl.Appearance = System.Windows.Forms.TabAppearance.Buttons;
-            this.TabControl.Controls.Add(this.tabPage1);
-            this.TabControl.Controls.Add(this.TabConfigure);
-            this.TabControl.Controls.Add(this.TabOptimization);
-            this.TabControl.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
-            this.TabControl.ImageList = this.ImageList;
-            this.TabControl.ItemSize = new System.Drawing.Size(20, 150);
-            this.TabControl.Location = new System.Drawing.Point(0, 140);
-            this.TabControl.Multiline = true;
-            this.TabControl.Name = "TabControl";
-            this.TabControl.SelectedIndex = 0;
-            this.TabControl.Size = new System.Drawing.Size(985, 596);
-            this.TabControl.TabIndex = 3;
+            this.TabCtrlAdm.Alignment = System.Windows.Forms.TabAlignment.Left;
+            this.TabCtrlAdm.Appearance = System.Windows.Forms.TabAppearance.Buttons;
+            this.TabCtrlAdm.Controls.Add(this.TabAbout);
+            this.TabCtrlAdm.Controls.Add(this.TabConfigure);
+            this.TabCtrlAdm.Controls.Add(this.TabOptimization);
+            this.TabCtrlAdm.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.TabCtrlAdm.ImageList = this.ImageList;
+            this.TabCtrlAdm.ItemSize = new System.Drawing.Size(50, 150);
+            this.TabCtrlAdm.Location = new System.Drawing.Point(0, 140);
+            this.TabCtrlAdm.Multiline = true;
+            this.TabCtrlAdm.Name = "TabCtrlAdm";
+            this.TabCtrlAdm.SelectedIndex = 0;
+            this.TabCtrlAdm.Size = new System.Drawing.Size(985, 596);
+            this.TabCtrlAdm.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.TabCtrlAdm.TabIndex = 3;
+            this.TabCtrlAdm.TabStop = false;
+            this.TabCtrlAdm.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.TabCtrlAdm_DrawItem);
             // 
-            // tabPage1
+            // TabAbout
             // 
-            this.tabPage1.Controls.Add(this.LblAbout);
-            this.tabPage1.Location = new System.Drawing.Point(230, 4);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(751, 588);
-            this.tabPage1.TabIndex = 2;
-            this.tabPage1.Text = "TabAbout";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.TabAbout.Controls.Add(this.LblAbout);
+            this.TabAbout.Location = new System.Drawing.Point(160, 4);
+            this.TabAbout.Name = "TabAbout";
+            this.TabAbout.Padding = new System.Windows.Forms.Padding(3);
+            this.TabAbout.Size = new System.Drawing.Size(821, 588);
+            this.TabAbout.TabIndex = 2;
+            this.TabAbout.Text = "关于";
+            this.TabAbout.UseVisualStyleBackColor = true;
             // 
             // LblAbout
             // 
@@ -251,29 +283,31 @@ namespace Vexease.View
             // 
             // TabConfigure
             // 
+            this.TabConfigure.AutoScroll = true;
             this.TabConfigure.Controls.Add(this.PnlWList);
-            this.TabConfigure.Controls.Add(this.toolStrip1);
+            this.TabConfigure.Controls.Add(this.TlStrWList);
             this.TabConfigure.Controls.Add(this.PnlBList);
             this.TabConfigure.Controls.Add(this.TlStrBList);
             this.TabConfigure.Controls.Add(this.LvStatus);
-            this.TabConfigure.Controls.Add(this.BtnStatus);
-            this.TabConfigure.Location = new System.Drawing.Point(230, 4);
+            this.TabConfigure.Controls.Add(this.TlStrStatus);
+            this.TabConfigure.ImageIndex = 0;
+            this.TabConfigure.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.TabConfigure.Location = new System.Drawing.Point(160, 4);
             this.TabConfigure.Name = "TabConfigure";
             this.TabConfigure.Padding = new System.Windows.Forms.Padding(3);
             this.TabConfigure.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.TabConfigure.Size = new System.Drawing.Size(751, 588);
+            this.TabConfigure.Size = new System.Drawing.Size(821, 588);
             this.TabConfigure.TabIndex = 0;
             this.TabConfigure.Text = "系统配置";
             this.TabConfigure.UseVisualStyleBackColor = true;
-            this.TabConfigure.Click += new System.EventHandler(this.TabConfigure_Click);
             // 
             // PnlWList
             // 
             this.PnlWList.Controls.Add(this.LvWList);
             this.PnlWList.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PnlWList.Location = new System.Drawing.Point(3, 377);
+            this.PnlWList.Location = new System.Drawing.Point(3, 381);
             this.PnlWList.Name = "PnlWList";
-            this.PnlWList.Size = new System.Drawing.Size(745, 100);
+            this.PnlWList.Size = new System.Drawing.Size(815, 100);
             this.PnlWList.TabIndex = 6;
             // 
             // LvWList
@@ -284,23 +318,23 @@ namespace Vexease.View
             listViewItem2});
             this.LvWList.Location = new System.Drawing.Point(0, 0);
             this.LvWList.Name = "LvWList";
-            this.LvWList.Size = new System.Drawing.Size(745, 100);
+            this.LvWList.Size = new System.Drawing.Size(815, 100);
             this.LvWList.TabIndex = 0;
             this.LvWList.UseCompatibleStateImageBehavior = false;
             this.LvWList.View = System.Windows.Forms.View.List;
             // 
-            // toolStrip1
+            // TlStrWList
             // 
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TlStrWList.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.TlStrWList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TlStrBtnWListSet,
             this.TlStrBtnWList});
-            this.toolStrip1.Location = new System.Drawing.Point(3, 350);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.toolStrip1.Size = new System.Drawing.Size(745, 27);
-            this.toolStrip1.TabIndex = 8;
-            this.toolStrip1.Text = "toolStrip1";
+            this.TlStrWList.Location = new System.Drawing.Point(3, 354);
+            this.TlStrWList.Name = "TlStrWList";
+            this.TlStrWList.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.TlStrWList.Size = new System.Drawing.Size(815, 27);
+            this.TlStrWList.TabIndex = 8;
+            this.TlStrWList.Text = "toolStrip1";
             // 
             // TlStrBtnWListSet
             // 
@@ -329,9 +363,9 @@ namespace Vexease.View
             // 
             this.PnlBList.Controls.Add(this.LvBList);
             this.PnlBList.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PnlBList.Location = new System.Drawing.Point(3, 250);
+            this.PnlBList.Location = new System.Drawing.Point(3, 254);
             this.PnlBList.Name = "PnlBList";
-            this.PnlBList.Size = new System.Drawing.Size(745, 100);
+            this.PnlBList.Size = new System.Drawing.Size(815, 100);
             this.PnlBList.TabIndex = 5;
             // 
             // LvBList
@@ -342,7 +376,7 @@ namespace Vexease.View
             listViewItem4});
             this.LvBList.Location = new System.Drawing.Point(0, 0);
             this.LvBList.Name = "LvBList";
-            this.LvBList.Size = new System.Drawing.Size(745, 100);
+            this.LvBList.Size = new System.Drawing.Size(815, 100);
             this.LvBList.TabIndex = 0;
             this.LvBList.UseCompatibleStateImageBehavior = false;
             this.LvBList.View = System.Windows.Forms.View.List;
@@ -353,10 +387,10 @@ namespace Vexease.View
             this.TlStrBList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TlStrBtnBListSet,
             this.TlStrBtnBList});
-            this.TlStrBList.Location = new System.Drawing.Point(3, 223);
+            this.TlStrBList.Location = new System.Drawing.Point(3, 227);
             this.TlStrBList.Name = "TlStrBList";
             this.TlStrBList.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.TlStrBList.Size = new System.Drawing.Size(745, 27);
+            this.TlStrBList.Size = new System.Drawing.Size(815, 27);
             this.TlStrBList.TabIndex = 7;
             this.TlStrBList.Text = "toolStrip1";
             // 
@@ -395,6 +429,7 @@ namespace Vexease.View
             this.ColNow,
             this.ColButton});
             this.LvStatus.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LvStatus.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.LvStatus.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem5,
             listViewItem6,
@@ -405,12 +440,12 @@ namespace Vexease.View
             listViewItem11,
             listViewItem12});
             this.LvStatus.LabelWrap = false;
-            this.LvStatus.Location = new System.Drawing.Point(3, 26);
+            this.LvStatus.Location = new System.Drawing.Point(3, 30);
             this.LvStatus.Name = "LvStatus";
             this.LvStatus.OwnerDraw = true;
-            this.LvStatus.Scrollable = false;
-            this.LvStatus.Size = new System.Drawing.Size(745, 197);
+            this.LvStatus.Size = new System.Drawing.Size(815, 197);
             this.LvStatus.TabIndex = 0;
+            this.LvStatus.TabStop = false;
             this.LvStatus.UseCompatibleStateImageBehavior = false;
             this.LvStatus.View = System.Windows.Forms.View.Details;
             // 
@@ -437,23 +472,37 @@ namespace Vexease.View
             this.ColButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.ColButton.Width = 100;
             // 
-            // BtnStatus
+            // TlStrStatus
             // 
-            this.BtnStatus.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnStatus.Location = new System.Drawing.Point(3, 3);
-            this.BtnStatus.Name = "BtnStatus";
-            this.BtnStatus.Size = new System.Drawing.Size(745, 23);
-            this.BtnStatus.TabIndex = 0;
-            this.BtnStatus.Text = "状态";
-            this.BtnStatus.UseVisualStyleBackColor = true;
-            this.BtnStatus.Click += new System.EventHandler(this.BtnStatus_Click);
+            this.TlStrStatus.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.TlStrStatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TlStrBtnStatus});
+            this.TlStrStatus.Location = new System.Drawing.Point(3, 3);
+            this.TlStrStatus.Name = "TlStrStatus";
+            this.TlStrStatus.Size = new System.Drawing.Size(815, 27);
+            this.TlStrStatus.TabIndex = 9;
+            this.TlStrStatus.Text = "toolStrip2";
+            // 
+            // TlStrBtnStatus
+            // 
+            this.TlStrBtnStatus.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.TlStrBtnStatus.AutoSize = false;
+            this.TlStrBtnStatus.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.TlStrBtnStatus.Image = ((System.Drawing.Image)(resources.GetObject("TlStrBtnStatus.Image")));
+            this.TlStrBtnStatus.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TlStrBtnStatus.Name = "TlStrBtnStatus";
+            this.TlStrBtnStatus.Size = new System.Drawing.Size(500, 24);
+            this.TlStrBtnStatus.Text = "<<状态";
+            this.TlStrBtnStatus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.TlStrBtnStatus.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // TabOptimization
             // 
-            this.TabOptimization.Location = new System.Drawing.Point(230, 4);
+            this.TabOptimization.ImageIndex = 1;
+            this.TabOptimization.Location = new System.Drawing.Point(160, 4);
             this.TabOptimization.Name = "TabOptimization";
             this.TabOptimization.Padding = new System.Windows.Forms.Padding(3);
-            this.TabOptimization.Size = new System.Drawing.Size(751, 588);
+            this.TabOptimization.Size = new System.Drawing.Size(821, 588);
             this.TabOptimization.TabIndex = 1;
             this.TabOptimization.Text = "系统优化";
             this.TabOptimization.UseVisualStyleBackColor = true;
@@ -470,7 +519,7 @@ namespace Vexease.View
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(982, 753);
-            this.Controls.Add(this.TabControl);
+            this.Controls.Add(this.TabCtrlAdm);
             this.Controls.Add(this.FlwLytPnlUser);
             this.Controls.Add(this.MenuStripAdm);
             this.MainMenuStrip = this.MenuStripAdm;
@@ -480,17 +529,19 @@ namespace Vexease.View
             this.MenuStripAdm.ResumeLayout(false);
             this.MenuStripAdm.PerformLayout();
             this.FlwLytPnlUser.ResumeLayout(false);
-            this.TabControl.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.TabCtrlAdm.ResumeLayout(false);
+            this.TabAbout.ResumeLayout(false);
+            this.TabAbout.PerformLayout();
             this.TabConfigure.ResumeLayout(false);
             this.TabConfigure.PerformLayout();
             this.PnlWList.ResumeLayout(false);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.TlStrWList.ResumeLayout(false);
+            this.TlStrWList.PerformLayout();
             this.PnlBList.ResumeLayout(false);
             this.TlStrBList.ResumeLayout(false);
             this.TlStrBList.PerformLayout();
+            this.TlStrStatus.ResumeLayout(false);
+            this.TlStrStatus.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -512,10 +563,9 @@ namespace Vexease.View
         private System.Windows.Forms.ToolStripMenuItem MenuHlepView;
         private System.Windows.Forms.ToolStripMenuItem MenuHelpAbout;
         private System.Windows.Forms.FlowLayoutPanel FlwLytPnlUser;
-        private System.Windows.Forms.TabControl TabControl;
+        private System.Windows.Forms.TabControl TabCtrlAdm;
         private System.Windows.Forms.TabPage TabConfigure;
         private System.Windows.Forms.TabPage TabOptimization;
-        private System.Windows.Forms.Button BtnStatus;
         private System.Windows.Forms.Panel PnlWList;
          private System.Windows.Forms.Panel PnlBList;
         private System.Windows.Forms.ListView LvStatus;
@@ -531,10 +581,12 @@ namespace Vexease.View
         private ToolStrip TlStrBList;
         private ToolStripButton TlStrBtnBListSet;
         private ToolStripButton TlStrBtnBList;
-        private ToolStrip toolStrip1;
+        private ToolStrip TlStrWList;
         private ToolStripButton TlStrBtnWListSet;
         private ToolStripButton TlStrBtnWList;
-        private TabPage tabPage1;
+        private TabPage TabAbout;
         private Label LblAbout;
+        private ToolStrip TlStrStatus;
+        private ToolStripButton TlStrBtnStatus;
     }
 }

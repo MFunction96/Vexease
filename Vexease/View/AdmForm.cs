@@ -14,38 +14,17 @@ namespace Vexease.View
         public AdmForm()
         {
             InitializeComponent();
-
+            TabSet();
 
         }
 
-        private void BtnStatus_Click(object sender, EventArgs e)
-        {
-
-            if (LvStatus.Height == 0)
-            {
-                LvStatus.Height = 180;
-            }
-            else
-            {
-                LvStatus.Height = 0;
-            }
-            //已经移到Designer里面
-            /*BtnStatus.Width = TabConfigure.Width;//按钮与页面等宽
-            BtnStatus.Parent = TabConfigure;
-            BtnStatus.Dock = DockStyle.Left;
-            BtnStatus.Dock = DockStyle.Top;//停靠到父窗口的左上边*/
-        }
+        
 
         private void AdmForm_Load(object sender, EventArgs e)
         {
 
         }
-
-        private void TabConfigure_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
 
         private void TlStrBtnBList_Click(object sender, EventArgs e)
         {
@@ -58,7 +37,7 @@ namespace Vexease.View
         {
             int n = 0;//给个名单内名字的个数吧..
 
-            if (PnlBList.Height == 0) { PnlBList.Height = 180; } else { PnlBList.Height = 0; }
+            if (PnlWList.Height == 0) { PnlWList.Height = 180; } else { PnlWList.Height = 0; }
         }
 
         private void TlStrBtnBListSet_Click(object sender, EventArgs e)
@@ -92,6 +71,18 @@ namespace Vexease.View
 
         }
 
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            if (LvStatus.Height == 0)
+            {
+                LvStatus.Height = 180;
+            }
+            else
+            {
+                LvStatus.Height = 0;
+            }
+        }
 
+        
     }
 }

@@ -15,5 +15,10 @@ namespace Vexease.View
         {
             InitializeComponent();
         }
+
+        private void BtnTest_Click(object sender, EventArgs e)
+        {
+            //下面还有一个BtnOk
+        }
     }
 }
