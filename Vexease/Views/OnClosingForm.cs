@@ -17,12 +17,14 @@ namespace Vexease.Views
         {
             StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
-            LblTip.Visible = false;
+           
         }
 
         private void OnClosingForm_Load(object sender, EventArgs e)
         {
-            FormBorderStyle = FormBorderStyle.None;//隐藏边框
+            // FormBorderStyle = FormBorderStyle.None;//隐藏边框
+            MaximizeBox = false;//最大化不可用
+            MinimizeBox = false;//最小化不可用
         }
 
         private void BtnOk_Click(object sender, EventArgs e)
@@ -38,26 +40,7 @@ namespace Vexease.Views
                 t = 1;
                
                 Hide();
-            }
-            else
-            {
-                Thread th = new Thread(ThreadMethod);
-                th.Start();
-                th.Join();
-            }
-        }
-        private void ThreadMethod()
-        {
-            LblTip.Visible = true;
-            LblTip.Text = "您还没有选择！";
-            Thread.Sleep(1000 * 2);
-            LblTip.Visible = false;
-
-        }
-
-        private void RdoMin_CheckedChanged(object sender, EventArgs e)
-        {
-
+            }      
         }
     }
 }
