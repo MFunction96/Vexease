@@ -1,4 +1,4 @@
-﻿namespace Vexease.View
+﻿namespace Vexease.Views
 {
     partial class UserForm
     {

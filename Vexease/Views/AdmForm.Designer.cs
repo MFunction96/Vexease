@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Vexease.View
+namespace Vexease.Views
 {
     partial class AdmForm
     {

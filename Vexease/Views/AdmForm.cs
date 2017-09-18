@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Threading;
-namespace Vexease.View
+namespace Vexease.Views
 {
     public partial class AdmForm : Form
     {

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Vexease.View
+namespace Vexease.Views
 {
     public partial class UserForm : Form
     {
