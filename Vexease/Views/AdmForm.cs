@@ -83,6 +83,16 @@ namespace Vexease.Views
             }
         }
 
-        
+        private void MenuFileImport_Click(object sender, EventArgs e)
+        {
+            var importForm = new ImportForm();
+            importForm.Show();
+        }
+
+        private void MenuFileExport_Click(object sender, EventArgs e)
+        {
+            var exportForm = new ExportForm();
+            exportForm.Show();
+        }
     }
 }

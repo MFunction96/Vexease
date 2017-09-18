@@ -147,8 +147,9 @@ namespace Vexease.Views
             // MenuFileImport
             // 
             MenuFileImport.Name = "MenuFileImport";
-            MenuFileImport.Size = new System.Drawing.Size(114, 26);
+            MenuFileImport.Size = new System.Drawing.Size(181, 26);
             MenuFileImport.Text = "导入";
+            MenuFileImport.Click += new System.EventHandler(this.MenuFileImport_Click);
             // 
             // MenuStripAdm
             // 
@@ -175,8 +176,9 @@ namespace Vexease.Views
             // MenuFileExport
             // 
             this.MenuFileExport.Name = "MenuFileExport";
-            this.MenuFileExport.Size = new System.Drawing.Size(114, 26);
+            this.MenuFileExport.Size = new System.Drawing.Size(181, 26);
             this.MenuFileExport.Text = "导出";
+            this.MenuFileExport.Click += new System.EventHandler(this.MenuFileExport_Click);
             // 
             // MenuSet
             // 

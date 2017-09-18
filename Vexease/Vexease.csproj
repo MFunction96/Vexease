@@ -121,6 +121,18 @@
     <Compile Include="Views\BListSetForm.Designer.cs">
       <DependentUpon>BListSetForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ExportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ExportForm.Designer.cs">
+      <DependentUpon>ExportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ImportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ImportForm.Designer.cs">
+      <DependentUpon>ImportForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +166,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\BListSetForm.resx">
       <DependentUpon>BListSetForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ExportForm.resx">
+      <DependentUpon>ExportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ImportForm.resx">
+      <DependentUpon>ImportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
