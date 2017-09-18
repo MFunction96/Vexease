@@ -131,6 +131,7 @@ namespace Vexease.Views
             this.TlStrBtnStatus = new System.Windows.Forms.ToolStripButton();
             this.TabOptimization = new System.Windows.Forms.TabPage();
             this.ImageList = new System.Windows.Forms.ImageList(this.components);
+            this.NotifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             MenuFileImport = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuStripAdm.SuspendLayout();
             this.FlwLytPnlUser.SuspendLayout();
@@ -147,7 +148,7 @@ namespace Vexease.Views
             // MenuFileImport
             // 
             MenuFileImport.Name = "MenuFileImport";
-            MenuFileImport.Size = new System.Drawing.Size(181, 26);
+            MenuFileImport.Size = new System.Drawing.Size(114, 26);
             MenuFileImport.Text = "导入";
             MenuFileImport.Click += new System.EventHandler(this.MenuFileImport_Click);
             // 
@@ -163,6 +164,7 @@ namespace Vexease.Views
             this.MenuStripAdm.Size = new System.Drawing.Size(982, 28);
             this.MenuStripAdm.TabIndex = 0;
             this.MenuStripAdm.Text = "menuStrip1";
+            this.MenuStripAdm.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.MenuStripAdm_ItemClicked_1);
             // 
             // MenuFile
             // 
@@ -176,7 +178,7 @@ namespace Vexease.Views
             // MenuFileExport
             // 
             this.MenuFileExport.Name = "MenuFileExport";
-            this.MenuFileExport.Size = new System.Drawing.Size(181, 26);
+            this.MenuFileExport.Size = new System.Drawing.Size(114, 26);
             this.MenuFileExport.Text = "导出";
             this.MenuFileExport.Click += new System.EventHandler(this.MenuFileExport_Click);
             // 
@@ -516,6 +518,11 @@ namespace Vexease.Views
             this.ImageList.Images.SetKeyName(0, "SET.png");
             this.ImageList.Images.SetKeyName(1, "UP.png");
             // 
+            // NotifyIcon
+            // 
+            this.NotifyIcon.Text = "notifyIcon1";
+            this.NotifyIcon.Visible = true;
+            // 
             // AdmForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -590,5 +597,6 @@ namespace Vexease.Views
         private Label LblAbout;
         private ToolStrip TlStrStatus;
         private ToolStripButton TlStrBtnStatus;
+        private NotifyIcon NotifyIcon;
     }
 }

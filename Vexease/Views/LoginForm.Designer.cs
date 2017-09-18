@@ -101,6 +101,7 @@
             this.Controls.Add(this.LblUserName);
             this.Name = "LoginForm";
             this.Text = "登录界面";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

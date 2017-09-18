@@ -20,6 +20,7 @@ namespace Vexease.Views
         private void BtnTest_Click(object sender, EventArgs e)
         {
             //下面还有一个BtnOk
+            Visible = false;
         }
 
         private void SetIPForm_Load(object sender, EventArgs e)

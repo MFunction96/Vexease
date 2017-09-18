@@ -29,6 +29,7 @@
         private void InitializeComponent()
 
         {
+            this.components = new System.ComponentModel.Container();
             this.TLPUser = new System.Windows.Forms.TableLayoutPanel();
             this.LblPwSNow = new System.Windows.Forms.Label();
             this.LblPwSDflt = new System.Windows.Forms.Label();
@@ -58,6 +59,7 @@
             this.LblPlanningTask = new System.Windows.Forms.Label();
             this.LblRegustry = new System.Windows.Forms.Label();
             this.BtnSwitchToAdmMode = new System.Windows.Forms.Button();
+            this.NotifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.TLPUser.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -443,6 +445,11 @@
             this.BtnSwitchToAdmMode.UseVisualStyleBackColor = true;
             this.BtnSwitchToAdmMode.Click += new System.EventHandler(this.BtnSwitchToAdmMode_Click);
             // 
+            // NotifyIcon
+            // 
+            this.NotifyIcon.Text = "notifyIcon1";
+            this.NotifyIcon.Visible = true;
+            // 
             // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -490,5 +497,6 @@
         private System.Windows.Forms.Label LblPlanningTask;
         private System.Windows.Forms.Label LblRegustry;
         private System.Windows.Forms.Button BtnSwitchToAdmMode;
+        private System.Windows.Forms.NotifyIcon NotifyIcon;
     }
 }

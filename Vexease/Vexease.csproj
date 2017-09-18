@@ -139,6 +139,12 @@
     <Compile Include="Views\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\OnClosingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\OnClosingForm.Designer.cs">
+      <DependentUpon>OnClosingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\SetIPForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\OnClosingForm.resx">
+      <DependentUpon>OnClosingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SetIPForm.resx">
       <DependentUpon>SetIPForm.cs</DependentUpon>
