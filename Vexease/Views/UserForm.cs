@@ -5,27 +5,35 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace Vexease.Views
 {
     public partial class UserForm : Form
     {
+       
         public UserForm()
         {
+            StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
+           
         }
-
-        private void User_Load(object sender, EventArgs e)
+        private void UserForm_Load(object sender, EventArgs e)
         {
-
+            
         }
-
+        
         private void BtnSwitchToAdmMode_Click(object sender, EventArgs e)
         {
             Hide();
-            var loginform = new LoginForm();
-            loginform.Show();
+            var loginform = new LoginForm
+            {
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            loginform.ShowDialog();
         }
+
+       
     }
 }

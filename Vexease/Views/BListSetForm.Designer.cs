@@ -34,35 +34,35 @@
             System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("快走开");
             System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("诶嘿嘿");
             System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("C:/jbhkausbdhasbdk");
-            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("C:/jbhkausbdhasbdk");
             System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("百度云");
             System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("360");
             System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("2345浏览器");
             System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("快走开");
             System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("诶嘿嘿");
+            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("C:/jbhkausbdhasbdk");
             this.SplBandWList = new System.Windows.Forms.SplitContainer();
             this.TabCtrlBList = new System.Windows.Forms.TabControl();
             this.PageBByName = new System.Windows.Forms.TabPage();
+            this.BtnBResetByName = new System.Windows.Forms.Button();
+            this.BtnBCancelByName = new System.Windows.Forms.Button();
+            this.BtnBAddByName = new System.Windows.Forms.Button();
+            this.LvBByName = new System.Windows.Forms.ListView();
             this.PageBByPath = new System.Windows.Forms.TabPage();
+            this.BtnBAddByPath = new System.Windows.Forms.Button();
+            this.BtnBCancelByPath = new System.Windows.Forms.Button();
+            this.BtnBResetByPath = new System.Windows.Forms.Button();
+            this.LvBByPath = new System.Windows.Forms.ListView();
             this.TabCtrlWList = new System.Windows.Forms.TabControl();
             this.PageWByName = new System.Windows.Forms.TabPage();
-            this.PageWByPath = new System.Windows.Forms.TabPage();
-            this.LvBByName = new System.Windows.Forms.ListView();
-            this.BtnBAddByName = new System.Windows.Forms.Button();
-            this.BtnBCancelByName = new System.Windows.Forms.Button();
-            this.BtnBResetByName = new System.Windows.Forms.Button();
-            this.LvBByPath = new System.Windows.Forms.ListView();
-            this.BtnBResetByPath = new System.Windows.Forms.Button();
-            this.BtnBCancelByPath = new System.Windows.Forms.Button();
-            this.BtnBAddByPath = new System.Windows.Forms.Button();
-            this.LvWByPath = new System.Windows.Forms.ListView();
-            this.BtnWResetByPath = new System.Windows.Forms.Button();
-            this.BtnWCancelByPath = new System.Windows.Forms.Button();
-            this.BtnWAddByPath = new System.Windows.Forms.Button();
             this.BtnWResetByName = new System.Windows.Forms.Button();
             this.BtnWCancelByName = new System.Windows.Forms.Button();
             this.button3BtnWAddByName = new System.Windows.Forms.Button();
             this.LvWByName = new System.Windows.Forms.ListView();
+            this.PageWByPath = new System.Windows.Forms.TabPage();
+            this.BtnWResetByPath = new System.Windows.Forms.Button();
+            this.BtnWCancelByPath = new System.Windows.Forms.Button();
+            this.BtnWAddByPath = new System.Windows.Forms.Button();
+            this.LvWByPath = new System.Windows.Forms.ListView();
             this.BtnOk = new System.Windows.Forms.Button();
             this.BtnCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.SplBandWList)).BeginInit();
@@ -120,6 +120,48 @@
             this.PageBByName.Text = "通过名称添加黑名单";
             this.PageBByName.UseVisualStyleBackColor = true;
             // 
+            // BtnBResetByName
+            // 
+            this.BtnBResetByName.Location = new System.Drawing.Point(367, 368);
+            this.BtnBResetByName.Name = "BtnBResetByName";
+            this.BtnBResetByName.Size = new System.Drawing.Size(75, 23);
+            this.BtnBResetByName.TabIndex = 3;
+            this.BtnBResetByName.Text = "重置";
+            this.BtnBResetByName.UseVisualStyleBackColor = true;
+            // 
+            // BtnBCancelByName
+            // 
+            this.BtnBCancelByName.Location = new System.Drawing.Point(367, 321);
+            this.BtnBCancelByName.Name = "BtnBCancelByName";
+            this.BtnBCancelByName.Size = new System.Drawing.Size(75, 23);
+            this.BtnBCancelByName.TabIndex = 2;
+            this.BtnBCancelByName.Text = "删除";
+            this.BtnBCancelByName.UseVisualStyleBackColor = true;
+            // 
+            // BtnBAddByName
+            // 
+            this.BtnBAddByName.Location = new System.Drawing.Point(367, 274);
+            this.BtnBAddByName.Name = "BtnBAddByName";
+            this.BtnBAddByName.Size = new System.Drawing.Size(75, 23);
+            this.BtnBAddByName.TabIndex = 1;
+            this.BtnBAddByName.Text = "添加";
+            this.BtnBAddByName.UseVisualStyleBackColor = true;
+            // 
+            // LvBByName
+            // 
+            this.LvBByName.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1,
+            listViewItem2,
+            listViewItem3,
+            listViewItem4,
+            listViewItem5});
+            this.LvBByName.Location = new System.Drawing.Point(30, 40);
+            this.LvBByName.Name = "LvBByName";
+            this.LvBByName.Size = new System.Drawing.Size(300, 350);
+            this.LvBByName.TabIndex = 0;
+            this.LvBByName.UseCompatibleStateImageBehavior = false;
+            this.LvBByName.View = System.Windows.Forms.View.List;
+            // 
             // PageBByPath
             // 
             this.PageBByPath.Controls.Add(this.BtnBAddByPath);
@@ -133,6 +175,44 @@
             this.PageBByPath.TabIndex = 1;
             this.PageBByPath.Text = "通过路径添加黑名单";
             this.PageBByPath.UseVisualStyleBackColor = true;
+            // 
+            // BtnBAddByPath
+            // 
+            this.BtnBAddByPath.Location = new System.Drawing.Point(375, 258);
+            this.BtnBAddByPath.Name = "BtnBAddByPath";
+            this.BtnBAddByPath.Size = new System.Drawing.Size(75, 23);
+            this.BtnBAddByPath.TabIndex = 3;
+            this.BtnBAddByPath.Text = "添加";
+            this.BtnBAddByPath.UseVisualStyleBackColor = true;
+            // 
+            // BtnBCancelByPath
+            // 
+            this.BtnBCancelByPath.Location = new System.Drawing.Point(375, 317);
+            this.BtnBCancelByPath.Name = "BtnBCancelByPath";
+            this.BtnBCancelByPath.Size = new System.Drawing.Size(75, 23);
+            this.BtnBCancelByPath.TabIndex = 2;
+            this.BtnBCancelByPath.Text = "删除";
+            this.BtnBCancelByPath.UseVisualStyleBackColor = true;
+            // 
+            // BtnBResetByPath
+            // 
+            this.BtnBResetByPath.Location = new System.Drawing.Point(375, 366);
+            this.BtnBResetByPath.Name = "BtnBResetByPath";
+            this.BtnBResetByPath.Size = new System.Drawing.Size(75, 23);
+            this.BtnBResetByPath.TabIndex = 1;
+            this.BtnBResetByPath.Text = "重置";
+            this.BtnBResetByPath.UseVisualStyleBackColor = true;
+            // 
+            // LvBByPath
+            // 
+            this.LvBByPath.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem6});
+            this.LvBByPath.Location = new System.Drawing.Point(30, 40);
+            this.LvBByPath.Name = "LvBByPath";
+            this.LvBByPath.Size = new System.Drawing.Size(300, 350);
+            this.LvBByPath.TabIndex = 0;
+            this.LvBByPath.UseCompatibleStateImageBehavior = false;
+            this.LvBByPath.View = System.Windows.Forms.View.List;
             // 
             // TabCtrlWList
             // 
@@ -159,138 +239,6 @@
             this.PageWByName.TabIndex = 0;
             this.PageWByName.Text = "通过名称添加白名单";
             this.PageWByName.UseVisualStyleBackColor = true;
-            // 
-            // PageWByPath
-            // 
-            this.PageWByPath.Controls.Add(this.BtnWResetByPath);
-            this.PageWByPath.Controls.Add(this.BtnWCancelByPath);
-            this.PageWByPath.Controls.Add(this.BtnWAddByPath);
-            this.PageWByPath.Controls.Add(this.LvWByPath);
-            this.PageWByPath.Location = new System.Drawing.Point(4, 25);
-            this.PageWByPath.Name = "PageWByPath";
-            this.PageWByPath.Padding = new System.Windows.Forms.Padding(3);
-            this.PageWByPath.Size = new System.Drawing.Size(484, 419);
-            this.PageWByPath.TabIndex = 1;
-            this.PageWByPath.Text = "通过路径添加白名单";
-            this.PageWByPath.UseVisualStyleBackColor = true;
-            // 
-            // LvBByName
-            // 
-            this.LvBByName.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3,
-            listViewItem4,
-            listViewItem5});
-            this.LvBByName.Location = new System.Drawing.Point(30, 40);
-            this.LvBByName.Name = "LvBByName";
-            this.LvBByName.Size = new System.Drawing.Size(300, 350);
-            this.LvBByName.TabIndex = 0;
-            this.LvBByName.UseCompatibleStateImageBehavior = false;
-            this.LvBByName.View = System.Windows.Forms.View.List;
-            // 
-            // BtnBAddByName
-            // 
-            this.BtnBAddByName.Location = new System.Drawing.Point(367, 274);
-            this.BtnBAddByName.Name = "BtnBAddByName";
-            this.BtnBAddByName.Size = new System.Drawing.Size(75, 23);
-            this.BtnBAddByName.TabIndex = 1;
-            this.BtnBAddByName.Text = "添加";
-            this.BtnBAddByName.UseVisualStyleBackColor = true;
-            // 
-            // BtnBCancelByName
-            // 
-            this.BtnBCancelByName.Location = new System.Drawing.Point(367, 321);
-            this.BtnBCancelByName.Name = "BtnBCancelByName";
-            this.BtnBCancelByName.Size = new System.Drawing.Size(75, 23);
-            this.BtnBCancelByName.TabIndex = 2;
-            this.BtnBCancelByName.Text = "删除";
-            this.BtnBCancelByName.UseVisualStyleBackColor = true;
-            // 
-            // BtnBResetByName
-            // 
-            this.BtnBResetByName.Location = new System.Drawing.Point(367, 368);
-            this.BtnBResetByName.Name = "BtnBResetByName";
-            this.BtnBResetByName.Size = new System.Drawing.Size(75, 23);
-            this.BtnBResetByName.TabIndex = 3;
-            this.BtnBResetByName.Text = "重置";
-            this.BtnBResetByName.UseVisualStyleBackColor = true;
-            // 
-            // LvBByPath
-            // 
-            this.LvBByPath.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem6});
-            this.LvBByPath.Location = new System.Drawing.Point(30, 40);
-            this.LvBByPath.Name = "LvBByPath";
-            this.LvBByPath.Size = new System.Drawing.Size(300, 350);
-            this.LvBByPath.TabIndex = 0;
-            this.LvBByPath.UseCompatibleStateImageBehavior = false;
-            this.LvBByPath.View = System.Windows.Forms.View.List;
-            // 
-            // BtnBResetByPath
-            // 
-            this.BtnBResetByPath.Location = new System.Drawing.Point(375, 366);
-            this.BtnBResetByPath.Name = "BtnBResetByPath";
-            this.BtnBResetByPath.Size = new System.Drawing.Size(75, 23);
-            this.BtnBResetByPath.TabIndex = 1;
-            this.BtnBResetByPath.Text = "重置";
-            this.BtnBResetByPath.UseVisualStyleBackColor = true;
-            // 
-            // BtnBCancelByPath
-            // 
-            this.BtnBCancelByPath.Location = new System.Drawing.Point(375, 317);
-            this.BtnBCancelByPath.Name = "BtnBCancelByPath";
-            this.BtnBCancelByPath.Size = new System.Drawing.Size(75, 23);
-            this.BtnBCancelByPath.TabIndex = 2;
-            this.BtnBCancelByPath.Text = "删除";
-            this.BtnBCancelByPath.UseVisualStyleBackColor = true;
-            // 
-            // BtnBAddByPath
-            // 
-            this.BtnBAddByPath.Location = new System.Drawing.Point(375, 258);
-            this.BtnBAddByPath.Name = "BtnBAddByPath";
-            this.BtnBAddByPath.Size = new System.Drawing.Size(75, 23);
-            this.BtnBAddByPath.TabIndex = 3;
-            this.BtnBAddByPath.Text = "添加";
-            this.BtnBAddByPath.UseVisualStyleBackColor = true;
-            // 
-            // LvWByPath
-            // 
-            this.LvWByPath.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem12});
-            this.LvWByPath.Location = new System.Drawing.Point(30, 40);
-            this.LvWByPath.Name = "LvWByPath";
-            this.LvWByPath.Size = new System.Drawing.Size(300, 350);
-            this.LvWByPath.TabIndex = 1;
-            this.LvWByPath.UseCompatibleStateImageBehavior = false;
-            this.LvWByPath.View = System.Windows.Forms.View.List;
-            // 
-            // BtnWResetByPath
-            // 
-            this.BtnWResetByPath.Location = new System.Drawing.Point(392, 368);
-            this.BtnWResetByPath.Name = "BtnWResetByPath";
-            this.BtnWResetByPath.Size = new System.Drawing.Size(75, 23);
-            this.BtnWResetByPath.TabIndex = 6;
-            this.BtnWResetByPath.Text = "重置";
-            this.BtnWResetByPath.UseVisualStyleBackColor = true;
-            // 
-            // BtnWCancelByPath
-            // 
-            this.BtnWCancelByPath.Location = new System.Drawing.Point(392, 321);
-            this.BtnWCancelByPath.Name = "BtnWCancelByPath";
-            this.BtnWCancelByPath.Size = new System.Drawing.Size(75, 23);
-            this.BtnWCancelByPath.TabIndex = 5;
-            this.BtnWCancelByPath.Text = "删除";
-            this.BtnWCancelByPath.UseVisualStyleBackColor = true;
-            // 
-            // BtnWAddByPath
-            // 
-            this.BtnWAddByPath.Location = new System.Drawing.Point(392, 274);
-            this.BtnWAddByPath.Name = "BtnWAddByPath";
-            this.BtnWAddByPath.Size = new System.Drawing.Size(75, 23);
-            this.BtnWAddByPath.TabIndex = 4;
-            this.BtnWAddByPath.Text = "添加";
-            this.BtnWAddByPath.UseVisualStyleBackColor = true;
             // 
             // BtnWResetByName
             // 
@@ -334,6 +282,58 @@
             this.LvWByName.UseCompatibleStateImageBehavior = false;
             this.LvWByName.View = System.Windows.Forms.View.List;
             // 
+            // PageWByPath
+            // 
+            this.PageWByPath.Controls.Add(this.BtnWResetByPath);
+            this.PageWByPath.Controls.Add(this.BtnWCancelByPath);
+            this.PageWByPath.Controls.Add(this.BtnWAddByPath);
+            this.PageWByPath.Controls.Add(this.LvWByPath);
+            this.PageWByPath.Location = new System.Drawing.Point(4, 25);
+            this.PageWByPath.Name = "PageWByPath";
+            this.PageWByPath.Padding = new System.Windows.Forms.Padding(3);
+            this.PageWByPath.Size = new System.Drawing.Size(484, 419);
+            this.PageWByPath.TabIndex = 1;
+            this.PageWByPath.Text = "通过路径添加白名单";
+            this.PageWByPath.UseVisualStyleBackColor = true;
+            // 
+            // BtnWResetByPath
+            // 
+            this.BtnWResetByPath.Location = new System.Drawing.Point(392, 368);
+            this.BtnWResetByPath.Name = "BtnWResetByPath";
+            this.BtnWResetByPath.Size = new System.Drawing.Size(75, 23);
+            this.BtnWResetByPath.TabIndex = 6;
+            this.BtnWResetByPath.Text = "重置";
+            this.BtnWResetByPath.UseVisualStyleBackColor = true;
+            // 
+            // BtnWCancelByPath
+            // 
+            this.BtnWCancelByPath.Location = new System.Drawing.Point(392, 321);
+            this.BtnWCancelByPath.Name = "BtnWCancelByPath";
+            this.BtnWCancelByPath.Size = new System.Drawing.Size(75, 23);
+            this.BtnWCancelByPath.TabIndex = 5;
+            this.BtnWCancelByPath.Text = "删除";
+            this.BtnWCancelByPath.UseVisualStyleBackColor = true;
+            // 
+            // BtnWAddByPath
+            // 
+            this.BtnWAddByPath.Location = new System.Drawing.Point(392, 274);
+            this.BtnWAddByPath.Name = "BtnWAddByPath";
+            this.BtnWAddByPath.Size = new System.Drawing.Size(75, 23);
+            this.BtnWAddByPath.TabIndex = 4;
+            this.BtnWAddByPath.Text = "添加";
+            this.BtnWAddByPath.UseVisualStyleBackColor = true;
+            // 
+            // LvWByPath
+            // 
+            this.LvWByPath.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem12});
+            this.LvWByPath.Location = new System.Drawing.Point(30, 40);
+            this.LvWByPath.Name = "LvWByPath";
+            this.LvWByPath.Size = new System.Drawing.Size(300, 350);
+            this.LvWByPath.TabIndex = 1;
+            this.LvWByPath.UseCompatibleStateImageBehavior = false;
+            this.LvWByPath.View = System.Windows.Forms.View.List;
+            // 
             // BtnOk
             // 
             this.BtnOk.Location = new System.Drawing.Point(374, 509);
@@ -362,6 +362,7 @@
             this.Controls.Add(this.SplBandWList);
             this.Name = "BandWListSetForm";
             this.Text = "进程黑白名单设置界面";
+            this.Load += new System.EventHandler(this.BandWListSetForm_Load);
             this.SplBandWList.Panel1.ResumeLayout(false);
             this.SplBandWList.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.SplBandWList)).EndInit();

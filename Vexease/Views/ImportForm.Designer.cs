@@ -28,126 +28,126 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem25 = new System.Windows.Forms.ListViewItem("CSDN的手机版的搜索功能有毒啊...");
-            System.Windows.Forms.ListViewItem listViewItem26 = new System.Windows.Forms.ListViewItem("对瑜伽这东西再也没法直视了....知乎真是文盲之友啊");
-            System.Windows.Forms.ListViewItem listViewItem27 = new System.Windows.Forms.ListViewItem("这个世界充满了恶意.......");
-            System.Windows.Forms.ListViewItem listViewItem28 = new System.Windows.Forms.ListViewItem("我明明只是一个菜鸡......");
-            System.Windows.Forms.ListViewItem listViewItem29 = new System.Windows.Forms.ListViewItem(new string[] {
-            "控制台状态",
-            "--",
-            "--"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem30 = new System.Windows.Forms.ListViewItem(new string[] {
-            "注册表状态",
-            "--",
-            "--"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem31 = new System.Windows.Forms.ListViewItem(new string[] {
-            "计划任务状态",
-            "--",
-            "--"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem32 = new System.Windows.Forms.ListViewItem(new string[] {
-            "控制面板状态",
-            "--",
-            "--"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem33 = new System.Windows.Forms.ListViewItem(new string[] {
-            "运行工具状态",
-            "--",
-            "--"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem34 = new System.Windows.Forms.ListViewItem(new string[] {
-            "任务管理器状态",
-            "--",
-            "--"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem35 = new System.Windows.Forms.ListViewItem(new string[] {
-            "命令指示符状态",
-            "--",
-            "--"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem36 = new System.Windows.Forms.ListViewItem(new string[] {
-            "PowerShell状态",
-            "--",
-            "--"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem37 = new System.Windows.Forms.ListViewItem("CSDN的手机版的搜索功能有毒啊...");
-            System.Windows.Forms.ListViewItem listViewItem38 = new System.Windows.Forms.ListViewItem("对瑜伽这东西再也没法直视了....知乎真是文盲之友啊");
-            System.Windows.Forms.ListViewItem listViewItem39 = new System.Windows.Forms.ListViewItem("这个世界充满了恶意.......");
-            System.Windows.Forms.ListViewItem listViewItem40 = new System.Windows.Forms.ListViewItem("我明明只是一个菜鸡......");
-            System.Windows.Forms.ListViewItem listViewItem41 = new System.Windows.Forms.ListViewItem(new string[] {
-            "控制台状态",
-            "--",
-            "--"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem42 = new System.Windows.Forms.ListViewItem(new string[] {
-            "注册表状态",
-            "--",
-            "--"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem43 = new System.Windows.Forms.ListViewItem(new string[] {
-            "计划任务状态",
-            "--",
-            "--"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem44 = new System.Windows.Forms.ListViewItem(new string[] {
-            "控制面板状态",
-            "--",
-            "--"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem45 = new System.Windows.Forms.ListViewItem(new string[] {
-            "运行工具状态",
-            "--",
-            "--"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem46 = new System.Windows.Forms.ListViewItem(new string[] {
-            "任务管理器状态",
-            "--",
-            "--"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem47 = new System.Windows.Forms.ListViewItem(new string[] {
-            "命令指示符状态",
-            "--",
-            "--"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem48 = new System.Windows.Forms.ListViewItem(new string[] {
-            "PowerShell状态",
-            "--",
-            "--"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("CSDN的手机版的搜索功能有毒啊...");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("对瑜伽这东西再也没法直视了....知乎真是文盲之友啊");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ImportForm));
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("这个世界充满了恶意.......");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("我明明只是一个菜鸡......");
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(new string[] {
+            "控制台状态",
+            "--",
+            "--"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem(new string[] {
+            "注册表状态",
+            "--",
+            "--"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem(new string[] {
+            "计划任务状态",
+            "--",
+            "--"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem(new string[] {
+            "控制面板状态",
+            "--",
+            "--"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem(new string[] {
+            "运行工具状态",
+            "--",
+            "--"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem(new string[] {
+            "任务管理器状态",
+            "--",
+            "--"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem(new string[] {
+            "命令指示符状态",
+            "--",
+            "--"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem(new string[] {
+            "PowerShell状态",
+            "--",
+            "--"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem("CSDN的手机版的搜索功能有毒啊...");
+            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("对瑜伽这东西再也没法直视了....知乎真是文盲之友啊");
+            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("这个世界充满了恶意.......");
+            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem("我明明只是一个菜鸡......");
+            System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem(new string[] {
+            "控制台状态",
+            "--",
+            "--"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem(new string[] {
+            "注册表状态",
+            "--",
+            "--"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem19 = new System.Windows.Forms.ListViewItem(new string[] {
+            "计划任务状态",
+            "--",
+            "--"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem20 = new System.Windows.Forms.ListViewItem(new string[] {
+            "控制面板状态",
+            "--",
+            "--"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem21 = new System.Windows.Forms.ListViewItem(new string[] {
+            "运行工具状态",
+            "--",
+            "--"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem22 = new System.Windows.Forms.ListViewItem(new string[] {
+            "任务管理器状态",
+            "--",
+            "--"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem23 = new System.Windows.Forms.ListViewItem(new string[] {
+            "命令指示符状态",
+            "--",
+            "--"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem24 = new System.Windows.Forms.ListViewItem(new string[] {
+            "PowerShell状态",
+            "--",
+            "--"}, -1);
             this.PnlImport = new System.Windows.Forms.Panel();
-            this.PnlWList = new System.Windows.Forms.Panel();
-            this.LvWList = new System.Windows.Forms.ListView();
-            this.TlStrWList = new System.Windows.Forms.ToolStrip();
-            this.PnlBList = new System.Windows.Forms.Panel();
-            this.LvBList = new System.Windows.Forms.ListView();
-            this.TlStrBList = new System.Windows.Forms.ToolStrip();
-            this.LvStatus = new System.Windows.Forms.ListView();
-            this.ColName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ColDflt = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ColNow = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ColButton = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.TlStrStatus = new System.Windows.Forms.ToolStrip();
             this.panel1 = new System.Windows.Forms.Panel();
             this.listView1 = new System.Windows.Forms.ListView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.listView2 = new System.Windows.Forms.ListView();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.listView3 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.toolStrip3 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.PnlWList = new System.Windows.Forms.Panel();
+            this.LvWList = new System.Windows.Forms.ListView();
+            this.TlStrWList = new System.Windows.Forms.ToolStrip();
+            this.TlStrBtnWList = new System.Windows.Forms.ToolStripButton();
+            this.PnlBList = new System.Windows.Forms.Panel();
+            this.LvBList = new System.Windows.Forms.ListView();
+            this.TlStrBList = new System.Windows.Forms.ToolStrip();
+            this.TlStrBtnBList = new System.Windows.Forms.ToolStripButton();
+            this.LvStatus = new System.Windows.Forms.ListView();
+            this.ColName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ColDflt = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ColNow = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ColButton = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.TlStrStatus = new System.Windows.Forms.ToolStrip();
+            this.TlStrBtnStatus = new System.Windows.Forms.ToolStripButton();
             this.LblImport = new System.Windows.Forms.Label();
             this.BtnOk = new System.Windows.Forms.Button();
             this.BtnCancel = new System.Windows.Forms.Button();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-            this.TlStrBtnWList = new System.Windows.Forms.ToolStripButton();
-            this.TlStrBtnBList = new System.Windows.Forms.ToolStripButton();
-            this.TlStrBtnStatus = new System.Windows.Forms.ToolStripButton();
             this.PnlImport.SuspendLayout();
-            this.PnlWList.SuspendLayout();
-            this.TlStrWList.SuspendLayout();
-            this.PnlBList.SuspendLayout();
-            this.TlStrBList.SuspendLayout();
-            this.TlStrStatus.SuspendLayout();
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.toolStrip3.SuspendLayout();
+            this.PnlWList.SuspendLayout();
+            this.TlStrWList.SuspendLayout();
+            this.PnlBList.SuspendLayout();
+            this.TlStrBList.SuspendLayout();
+            this.TlStrStatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // PnlImport
@@ -170,136 +170,6 @@
             this.PnlImport.Size = new System.Drawing.Size(904, 380);
             this.PnlImport.TabIndex = 0;
             // 
-            // PnlWList
-            // 
-            this.PnlWList.Controls.Add(this.LvWList);
-            this.PnlWList.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PnlWList.Location = new System.Drawing.Point(0, 378);
-            this.PnlWList.Name = "PnlWList";
-            this.PnlWList.Size = new System.Drawing.Size(883, 100);
-            this.PnlWList.TabIndex = 12;
-            // 
-            // LvWList
-            // 
-            this.LvWList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LvWList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem25,
-            listViewItem26});
-            this.LvWList.Location = new System.Drawing.Point(0, 0);
-            this.LvWList.Name = "LvWList";
-            this.LvWList.Size = new System.Drawing.Size(883, 100);
-            this.LvWList.TabIndex = 0;
-            this.LvWList.UseCompatibleStateImageBehavior = false;
-            this.LvWList.View = System.Windows.Forms.View.List;
-            // 
-            // TlStrWList
-            // 
-            this.TlStrWList.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.TlStrWList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TlStrBtnWList});
-            this.TlStrWList.Location = new System.Drawing.Point(0, 351);
-            this.TlStrWList.Name = "TlStrWList";
-            this.TlStrWList.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.TlStrWList.Size = new System.Drawing.Size(883, 27);
-            this.TlStrWList.TabIndex = 14;
-            this.TlStrWList.Text = "toolStrip1";
-            // 
-            // PnlBList
-            // 
-            this.PnlBList.Controls.Add(this.LvBList);
-            this.PnlBList.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PnlBList.Location = new System.Drawing.Point(0, 251);
-            this.PnlBList.Name = "PnlBList";
-            this.PnlBList.Size = new System.Drawing.Size(883, 100);
-            this.PnlBList.TabIndex = 11;
-            // 
-            // LvBList
-            // 
-            this.LvBList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LvBList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem27,
-            listViewItem28});
-            this.LvBList.Location = new System.Drawing.Point(0, 0);
-            this.LvBList.Name = "LvBList";
-            this.LvBList.Size = new System.Drawing.Size(883, 100);
-            this.LvBList.TabIndex = 0;
-            this.LvBList.UseCompatibleStateImageBehavior = false;
-            this.LvBList.View = System.Windows.Forms.View.List;
-            // 
-            // TlStrBList
-            // 
-            this.TlStrBList.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.TlStrBList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TlStrBtnBList});
-            this.TlStrBList.Location = new System.Drawing.Point(0, 224);
-            this.TlStrBList.Name = "TlStrBList";
-            this.TlStrBList.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.TlStrBList.Size = new System.Drawing.Size(883, 27);
-            this.TlStrBList.TabIndex = 13;
-            this.TlStrBList.Text = "toolStrip1";
-            // 
-            // LvStatus
-            // 
-            this.LvStatus.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.ColName,
-            this.ColDflt,
-            this.ColNow,
-            this.ColButton});
-            this.LvStatus.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LvStatus.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.LvStatus.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem29,
-            listViewItem30,
-            listViewItem31,
-            listViewItem32,
-            listViewItem33,
-            listViewItem34,
-            listViewItem35,
-            listViewItem36});
-            this.LvStatus.LabelWrap = false;
-            this.LvStatus.Location = new System.Drawing.Point(0, 27);
-            this.LvStatus.Name = "LvStatus";
-            this.LvStatus.OwnerDraw = true;
-            this.LvStatus.Size = new System.Drawing.Size(883, 197);
-            this.LvStatus.TabIndex = 10;
-            this.LvStatus.TabStop = false;
-            this.LvStatus.UseCompatibleStateImageBehavior = false;
-            this.LvStatus.View = System.Windows.Forms.View.Details;
-            // 
-            // ColName
-            // 
-            this.ColName.Text = "名称";
-            this.ColName.Width = 179;
-            // 
-            // ColDflt
-            // 
-            this.ColDflt.Text = "默认状态";
-            this.ColDflt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.ColDflt.Width = 183;
-            // 
-            // ColNow
-            // 
-            this.ColNow.Text = "当前状态";
-            this.ColNow.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.ColNow.Width = 176;
-            // 
-            // ColButton
-            // 
-            this.ColButton.Text = "";
-            this.ColButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.ColButton.Width = 100;
-            // 
-            // TlStrStatus
-            // 
-            this.TlStrStatus.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.TlStrStatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TlStrBtnStatus});
-            this.TlStrStatus.Location = new System.Drawing.Point(0, 0);
-            this.TlStrStatus.Name = "TlStrStatus";
-            this.TlStrStatus.Size = new System.Drawing.Size(883, 27);
-            this.TlStrStatus.TabIndex = 15;
-            this.TlStrStatus.Text = "toolStrip2";
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.listView1);
@@ -313,8 +183,8 @@
             // 
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem37,
-            listViewItem38});
+            listViewItem1,
+            listViewItem2});
             this.listView1.Location = new System.Drawing.Point(0, 0);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(883, 100);
@@ -335,6 +205,27 @@
             this.toolStrip1.TabIndex = 20;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(24, 24);
+            this.toolStripButton1.Text = "设置";
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButton2.AutoSize = false;
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(500, 24);
+            this.toolStripButton2.Text = "<<白名单(n)";
+            this.toolStripButton2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.listView2);
@@ -348,8 +239,8 @@
             // 
             this.listView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView2.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem39,
-            listViewItem40});
+            listViewItem3,
+            listViewItem4});
             this.listView2.Location = new System.Drawing.Point(0, 0);
             this.listView2.Name = "listView2";
             this.listView2.Size = new System.Drawing.Size(883, 100);
@@ -370,6 +261,31 @@
             this.toolStrip2.TabIndex = 19;
             this.toolStrip2.Text = "toolStrip1";
             // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(24, 24);
+            this.toolStripButton3.Text = "设置";
+            this.toolStripButton3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButton4.AutoSize = false;
+            this.toolStripButton4.CheckOnClick = true;
+            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
+            this.toolStripButton4.Size = new System.Drawing.Size(500, 24);
+            this.toolStripButton4.Text = "<<黑名单(n)";
+            this.toolStripButton4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // listView3
             // 
             this.listView3.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -380,14 +296,14 @@
             this.listView3.Dock = System.Windows.Forms.DockStyle.Top;
             this.listView3.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.listView3.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem41,
-            listViewItem42,
-            listViewItem43,
-            listViewItem44,
-            listViewItem45,
-            listViewItem46,
-            listViewItem47,
-            listViewItem48});
+            listViewItem5,
+            listViewItem6,
+            listViewItem7,
+            listViewItem8,
+            listViewItem9,
+            listViewItem10,
+            listViewItem11,
+            listViewItem12});
             this.listView3.LabelWrap = false;
             this.listView3.Location = new System.Drawing.Point(0, 505);
             this.listView3.Name = "listView3";
@@ -432,6 +348,184 @@
             this.toolStrip3.TabIndex = 21;
             this.toolStrip3.Text = "toolStrip2";
             // 
+            // toolStripButton5
+            // 
+            this.toolStripButton5.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButton5.AutoSize = false;
+            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
+            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton5.Name = "toolStripButton5";
+            this.toolStripButton5.Size = new System.Drawing.Size(500, 24);
+            this.toolStripButton5.Text = "<<状态";
+            this.toolStripButton5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // PnlWList
+            // 
+            this.PnlWList.Controls.Add(this.LvWList);
+            this.PnlWList.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PnlWList.Location = new System.Drawing.Point(0, 378);
+            this.PnlWList.Name = "PnlWList";
+            this.PnlWList.Size = new System.Drawing.Size(883, 100);
+            this.PnlWList.TabIndex = 12;
+            // 
+            // LvWList
+            // 
+            this.LvWList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LvWList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem13,
+            listViewItem14});
+            this.LvWList.Location = new System.Drawing.Point(0, 0);
+            this.LvWList.Name = "LvWList";
+            this.LvWList.Size = new System.Drawing.Size(883, 100);
+            this.LvWList.TabIndex = 0;
+            this.LvWList.UseCompatibleStateImageBehavior = false;
+            this.LvWList.View = System.Windows.Forms.View.List;
+            // 
+            // TlStrWList
+            // 
+            this.TlStrWList.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.TlStrWList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TlStrBtnWList});
+            this.TlStrWList.Location = new System.Drawing.Point(0, 351);
+            this.TlStrWList.Name = "TlStrWList";
+            this.TlStrWList.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.TlStrWList.Size = new System.Drawing.Size(883, 27);
+            this.TlStrWList.TabIndex = 14;
+            this.TlStrWList.Text = "toolStrip1";
+            // 
+            // TlStrBtnWList
+            // 
+            this.TlStrBtnWList.AutoSize = false;
+            this.TlStrBtnWList.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.TlStrBtnWList.Image = ((System.Drawing.Image)(resources.GetObject("TlStrBtnWList.Image")));
+            this.TlStrBtnWList.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TlStrBtnWList.Name = "TlStrBtnWList";
+            this.TlStrBtnWList.Size = new System.Drawing.Size(500, 24);
+            this.TlStrBtnWList.Text = "白名单(n)>>";
+            this.TlStrBtnWList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // PnlBList
+            // 
+            this.PnlBList.Controls.Add(this.LvBList);
+            this.PnlBList.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PnlBList.Location = new System.Drawing.Point(0, 251);
+            this.PnlBList.Name = "PnlBList";
+            this.PnlBList.Size = new System.Drawing.Size(883, 100);
+            this.PnlBList.TabIndex = 11;
+            // 
+            // LvBList
+            // 
+            this.LvBList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LvBList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem15,
+            listViewItem16});
+            this.LvBList.Location = new System.Drawing.Point(0, 0);
+            this.LvBList.Name = "LvBList";
+            this.LvBList.Size = new System.Drawing.Size(883, 100);
+            this.LvBList.TabIndex = 0;
+            this.LvBList.UseCompatibleStateImageBehavior = false;
+            this.LvBList.View = System.Windows.Forms.View.List;
+            // 
+            // TlStrBList
+            // 
+            this.TlStrBList.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.TlStrBList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TlStrBtnBList});
+            this.TlStrBList.Location = new System.Drawing.Point(0, 224);
+            this.TlStrBList.Name = "TlStrBList";
+            this.TlStrBList.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.TlStrBList.Size = new System.Drawing.Size(883, 27);
+            this.TlStrBList.TabIndex = 13;
+            this.TlStrBList.Text = "toolStrip1";
+            // 
+            // TlStrBtnBList
+            // 
+            this.TlStrBtnBList.AutoSize = false;
+            this.TlStrBtnBList.CheckOnClick = true;
+            this.TlStrBtnBList.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.TlStrBtnBList.Image = ((System.Drawing.Image)(resources.GetObject("TlStrBtnBList.Image")));
+            this.TlStrBtnBList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.TlStrBtnBList.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TlStrBtnBList.Name = "TlStrBtnBList";
+            this.TlStrBtnBList.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
+            this.TlStrBtnBList.Size = new System.Drawing.Size(500, 24);
+            this.TlStrBtnBList.Text = "黑名单(n)>>";
+            this.TlStrBtnBList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // LvStatus
+            // 
+            this.LvStatus.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ColName,
+            this.ColDflt,
+            this.ColNow,
+            this.ColButton});
+            this.LvStatus.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LvStatus.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.LvStatus.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem17,
+            listViewItem18,
+            listViewItem19,
+            listViewItem20,
+            listViewItem21,
+            listViewItem22,
+            listViewItem23,
+            listViewItem24});
+            this.LvStatus.LabelWrap = false;
+            this.LvStatus.Location = new System.Drawing.Point(0, 27);
+            this.LvStatus.Name = "LvStatus";
+            this.LvStatus.OwnerDraw = true;
+            this.LvStatus.Size = new System.Drawing.Size(883, 197);
+            this.LvStatus.TabIndex = 10;
+            this.LvStatus.TabStop = false;
+            this.LvStatus.UseCompatibleStateImageBehavior = false;
+            this.LvStatus.View = System.Windows.Forms.View.Details;
+            // 
+            // ColName
+            // 
+            this.ColName.Text = "名称";
+            this.ColName.Width = 179;
+            // 
+            // ColDflt
+            // 
+            this.ColDflt.Text = "默认状态";
+            this.ColDflt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ColDflt.Width = 183;
+            // 
+            // ColNow
+            // 
+            this.ColNow.Text = "当前状态";
+            this.ColNow.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ColNow.Width = 176;
+            // 
+            // ColButton
+            // 
+            this.ColButton.Text = "";
+            this.ColButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ColButton.Width = 100;
+            // 
+            // TlStrStatus
+            // 
+            this.TlStrStatus.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.TlStrStatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TlStrBtnStatus});
+            this.TlStrStatus.Location = new System.Drawing.Point(0, 0);
+            this.TlStrStatus.Name = "TlStrStatus";
+            this.TlStrStatus.Size = new System.Drawing.Size(883, 27);
+            this.TlStrStatus.TabIndex = 15;
+            this.TlStrStatus.Text = "toolStrip2";
+            // 
+            // TlStrBtnStatus
+            // 
+            this.TlStrBtnStatus.AutoSize = false;
+            this.TlStrBtnStatus.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.TlStrBtnStatus.Image = ((System.Drawing.Image)(resources.GetObject("TlStrBtnStatus.Image")));
+            this.TlStrBtnStatus.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TlStrBtnStatus.Name = "TlStrBtnStatus";
+            this.TlStrBtnStatus.Size = new System.Drawing.Size(500, 24);
+            this.TlStrBtnStatus.Text = "状态>>";
+            this.TlStrBtnStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // LblImport
             // 
             this.LblImport.AutoSize = true;
@@ -460,100 +554,6 @@
             this.BtnCancel.UseVisualStyleBackColor = true;
             this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(24, 24);
-            this.toolStripButton1.Text = "设置";
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButton2.AutoSize = false;
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(500, 24);
-            this.toolStripButton2.Text = "<<白名单(n)";
-            this.toolStripButton2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // toolStripButton3
-            // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(24, 24);
-            this.toolStripButton3.Text = "设置";
-            this.toolStripButton3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // toolStripButton4
-            // 
-            this.toolStripButton4.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButton4.AutoSize = false;
-            this.toolStripButton4.CheckOnClick = true;
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
-            this.toolStripButton4.Size = new System.Drawing.Size(500, 24);
-            this.toolStripButton4.Text = "<<黑名单(n)";
-            this.toolStripButton4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // toolStripButton5
-            // 
-            this.toolStripButton5.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButton5.AutoSize = false;
-            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
-            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(500, 24);
-            this.toolStripButton5.Text = "<<状态";
-            this.toolStripButton5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // TlStrBtnWList
-            // 
-            this.TlStrBtnWList.AutoSize = false;
-            this.TlStrBtnWList.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.TlStrBtnWList.Image = ((System.Drawing.Image)(resources.GetObject("TlStrBtnWList.Image")));
-            this.TlStrBtnWList.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.TlStrBtnWList.Name = "TlStrBtnWList";
-            this.TlStrBtnWList.Size = new System.Drawing.Size(500, 24);
-            this.TlStrBtnWList.Text = "白名单(n)>>";
-            this.TlStrBtnWList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // TlStrBtnBList
-            // 
-            this.TlStrBtnBList.AutoSize = false;
-            this.TlStrBtnBList.CheckOnClick = true;
-            this.TlStrBtnBList.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.TlStrBtnBList.Image = ((System.Drawing.Image)(resources.GetObject("TlStrBtnBList.Image")));
-            this.TlStrBtnBList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.TlStrBtnBList.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.TlStrBtnBList.Name = "TlStrBtnBList";
-            this.TlStrBtnBList.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
-            this.TlStrBtnBList.Size = new System.Drawing.Size(500, 24);
-            this.TlStrBtnBList.Text = "黑名单(n)>>";
-            this.TlStrBtnBList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // TlStrBtnStatus
-            // 
-            this.TlStrBtnStatus.AutoSize = false;
-            this.TlStrBtnStatus.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.TlStrBtnStatus.Image = ((System.Drawing.Image)(resources.GetObject("TlStrBtnStatus.Image")));
-            this.TlStrBtnStatus.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.TlStrBtnStatus.Name = "TlStrBtnStatus";
-            this.TlStrBtnStatus.Size = new System.Drawing.Size(500, 24);
-            this.TlStrBtnStatus.Text = "状态>>";
-            this.TlStrBtnStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // ImportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -565,16 +565,9 @@
             this.Controls.Add(this.PnlImport);
             this.Name = "ImportForm";
             this.Text = "ImportForm";
+            this.Load += new System.EventHandler(this.ImportForm_Load);
             this.PnlImport.ResumeLayout(false);
             this.PnlImport.PerformLayout();
-            this.PnlWList.ResumeLayout(false);
-            this.TlStrWList.ResumeLayout(false);
-            this.TlStrWList.PerformLayout();
-            this.PnlBList.ResumeLayout(false);
-            this.TlStrBList.ResumeLayout(false);
-            this.TlStrBList.PerformLayout();
-            this.TlStrStatus.ResumeLayout(false);
-            this.TlStrStatus.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -583,6 +576,14 @@
             this.toolStrip2.PerformLayout();
             this.toolStrip3.ResumeLayout(false);
             this.toolStrip3.PerformLayout();
+            this.PnlWList.ResumeLayout(false);
+            this.TlStrWList.ResumeLayout(false);
+            this.TlStrWList.PerformLayout();
+            this.PnlBList.ResumeLayout(false);
+            this.TlStrBList.ResumeLayout(false);
+            this.TlStrBList.PerformLayout();
+            this.TlStrStatus.ResumeLayout(false);
+            this.TlStrStatus.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

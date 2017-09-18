@@ -27,6 +27,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
+
         {
             this.TLPUser = new System.Windows.Forms.TableLayoutPanel();
             this.LblPwSNow = new System.Windows.Forms.Label();
@@ -451,7 +452,7 @@
             this.Controls.Add(this.TLPUser);
             this.Name = "UserForm";
             this.Text = "用户界面";
-            this.Load += new System.EventHandler(this.User_Load);
+            this.Load += new System.EventHandler(this.UserForm_Load);
             this.TLPUser.ResumeLayout(false);
             this.TLPUser.PerformLayout();
             this.ResumeLayout(false);

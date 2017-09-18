@@ -13,12 +13,18 @@ namespace Vexease.Views
     {
         public SetIPForm()
         {
+            StartPosition = FormStartPosition.CenterParent;
             InitializeComponent();
         }
 
         private void BtnTest_Click(object sender, EventArgs e)
         {
             //下面还有一个BtnOk
+        }
+
+        private void SetIPForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

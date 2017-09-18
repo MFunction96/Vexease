@@ -13,6 +13,7 @@ namespace Vexease.Views
     {
         public AdmForm()
         {
+            StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
             TabSet();
 
@@ -71,7 +72,7 @@ namespace Vexease.Views
 
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
+        private void ToolStripButton1_Click(object sender, EventArgs e)
         {
             if (LvStatus.Height == 0)
             {

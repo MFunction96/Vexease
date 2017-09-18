@@ -13,7 +13,13 @@ namespace Vexease.Views
     {
         public BandWListSetForm()
         {
+            StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
+        }
+
+        private void BandWListSetForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -79,6 +79,7 @@
             this.BtnCancel.TabIndex = 5;
             this.BtnCancel.Text = "取消";
             this.BtnCancel.UseVisualStyleBackColor = true;
+            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // TxtPwd
             // 

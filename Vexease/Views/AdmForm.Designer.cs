@@ -496,7 +496,7 @@ namespace Vexease.Views
             this.TlStrBtnStatus.Size = new System.Drawing.Size(500, 24);
             this.TlStrBtnStatus.Text = "<<状态";
             this.TlStrBtnStatus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.TlStrBtnStatus.Click += new System.EventHandler(this.toolStripButton1_Click);
+            this.TlStrBtnStatus.Click += new System.EventHandler(this.ToolStripButton1_Click);
             // 
             // TabOptimization
             // 

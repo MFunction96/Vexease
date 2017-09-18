@@ -13,12 +13,18 @@ namespace Vexease.Views
     {
         public ExportForm()
         {
+            StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void ExportForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
