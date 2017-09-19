@@ -20,8 +20,6 @@ namespace Vexease.Views
         private void BtnCancel_Click(object sender, EventArgs e)
         {
             Close();
-            var admForm = new AdmForm();
-            admForm.Show();
         }
 
         private void ExportForm_Load(object sender, EventArgs e)
@@ -37,8 +35,6 @@ namespace Vexease.Views
         private void BtnOk_Click(object sender, EventArgs e)
         {
             Close();
-            var admForm = new AdmForm();
-            admForm.Show();
         }
     }
 }

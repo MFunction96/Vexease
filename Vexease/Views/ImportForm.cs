@@ -20,8 +20,7 @@ namespace Vexease.Views
         private void BtnCancel_Click(object sender, EventArgs e)
         {
             Close();
-            var admForm = new AdmForm();
-            admForm.Show();
+           
         }
 
 
@@ -38,8 +37,7 @@ namespace Vexease.Views
         private void BtnOk_Click(object sender, EventArgs e)
         {
             Close();
-            var admForm = new AdmForm();
-            admForm.Show();
+           
         }
     }
 }

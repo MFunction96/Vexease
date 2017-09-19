@@ -16,9 +16,7 @@ namespace Vexease.Views
             StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
             TabSet();
-
         }
-
         
 
         private void AdmForm_Load(object sender, EventArgs e)
@@ -29,8 +27,56 @@ namespace Vexease.Views
             //ControlBox = false;//上面三个按钮隐藏,以后用...
             ShowInTaskbar = false;
             FormBorderStyle = FormBorderStyle.FixedSingle;//不可调整大小。可包括控件菜单栏、标题栏、“最大化”按钮和“最小化”按钮。只能使用“最大化”和“最小化”按钮改变大小。创建单线边框。
+                                                          //隐藏标签,改成设置Itemsize为（1,1）了
+                                                          /*TabCtrlAdm.Region = new Region(new RectangleF(PageCtrlPnl.Left,
+                                                            PageCtrlPnl.Top, PageCtrlPnl.Width, PageCtrlPnl.Height));*/
+            TlStrBtnBList.Width = PageAbout.Width - 100;
+            TlStrBtnWList.Width = PageAbout.Width - 100;
+            // LvCmd.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            colwidth(LvCmd);
+            colwidth(LvConsole);
+            colwidth(LvCtrlPnl);
+            colwidth(LvPlanningTask);
+            colwidth(LvPS);
+            colwidth(LvRegustry);
+            colwidth(LvRunTool);
+            colwidth(LvTaskMgr);
+            }
 
+        private void colwidth(ListView listview)
+        {
+            foreach (ColumnHeader item in listview.Columns)
+            {
+                switch (item.Text)
+                {
+                    case "默认状态":
+                        item.Width = listview.Width / 3 - 2;
+                        break;
+                    case "当前状态":
+                        item.Width = listview.Width / 3 - 2;
+                        break;
+                    case "自定义":
+                        item.Width = listview.Width / 3 - 2;
+                        break;
+                    default:
+                        item.Width = -2;
+                        break;
+                }
+            }
         }
+
+        //Tab 可以切换TabControl中的页，可以通过捕捉按键消息屏蔽 组合键
+        /* protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+         {
+             switch (keyData)
+             {
+                 case (Keys.Tab | Keys.Control):
+                     return true;
+                 default:
+                     break;
+             }
+             return base.ProcessCmdKey(ref msg, keyData);
+         }*/
         protected override void OnClosing(CancelEventArgs e)
         {
             e.Cancel = true;
@@ -59,33 +105,30 @@ namespace Vexease.Views
         {
             int n = 0;//给个名单内名字的个数吧..
 
-            if (PnlBList.Height == 0) { PnlBList.Height = 180; } else { PnlBList.Height = 0; }
+            if (PnlBList.Height == 0) { PnlBList.Height = 90; } else { PnlBList.Height = 0; }
         }
 
         private void TlStrBtnWList_Click(object sender, EventArgs e)
         {
             int n = 0;//给个名单内名字的个数吧..
 
-            if (PnlWList.Height == 0) { PnlWList.Height = 180; } else { PnlWList.Height = 0; }
+            if (PnlWList.Height == 0) { PnlWList.Height = 90; } else { PnlWList.Height = 0; }
         }
 
         private void TlStrBtnBListSet_Click(object sender, EventArgs e)
         {
-            Hide();
             var bListSetForm = new BandWListSetForm();
             bListSetForm.Show();
         }
 
         private void TlStrBtnWListSet_Click(object sender, EventArgs e)
         {
-            Hide();
             var wListSetForm = new BandWListSetForm();
             wListSetForm.Show();
         }
 
         private void MenuSetIP_Click(object sender, EventArgs e)
         {
-            Hide();
             var setIPForm = new SetIPForm();
             setIPForm.Show();
             
@@ -101,17 +144,7 @@ namespace Vexease.Views
 
         }
 
-        private void ToolStripButton1_Click(object sender, EventArgs e)
-        {
-            if (LvStatus.Height == 0)
-            {
-                LvStatus.Height = 180;
-            }
-            else
-            {
-                LvStatus.Height = 0;
-            }
-        }
+       
 
         private void MenuFileImport_Click(object sender, EventArgs e)
         {
@@ -129,5 +162,69 @@ namespace Vexease.Views
         {
 
         }
+
+        private void TabConfigure_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FlwLytPnlUser_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        
+        private void LblStatus_DoubleClick(object sender,EventArgs e)
+        {
+                if (BtnConsole.Height == 0)
+                {
+                    BtnConsole.Height = BtnRegustry.Height =
+                        BtnPlanningTask.Height = BtnCtrlPnl.Height =
+                        BtnRunTool.Height = BtnTaskMgr.Height =
+                        BtnCmd.Height = BtnPS.Height = 30;
+                }
+                else
+                {
+                    BtnConsole.Height = BtnRegustry.Height =
+                        BtnPlanningTask.Height = BtnCtrlPnl.Height =
+                        BtnRunTool.Height = BtnTaskMgr.Height =
+                        BtnCmd.Height = BtnPS.Height = 0;
+                }
+            
+        }
+        private void LblOptimization_DoubleClick(object sender, EventArgs e)
+        {
+            if (Btnyouhua.Height == 0)
+            {
+                Btnyouhua.Height  = 30;
+            }
+            else
+            {
+                Btnyouhua.Height  = 0;
+            }
+
+        }
+        private void LblStatus_Click(object sender, EventArgs e) => TabCtrlAdm.SelectedTab = PageAbout;
+
+        private void LblOptimization_Click(object sender, EventArgs e) => TabCtrlAdm.SelectedTab = PageAbout;
+
+        private void BtnConsole_Click(object sender, EventArgs e) => TabCtrlAdm.SelectedTab = PageConsole;
+
+        private void BtnRegustry_Click(object sender, EventArgs e) => TabCtrlAdm.SelectedTab = PageRegustry;
+
+        private void BtnPlanningTask_Click(object sender, EventArgs e) => TabCtrlAdm.SelectedTab = PagePlanningTask;
+
+        private void BtnCtrlPnl_Click(object sender, EventArgs e) => TabCtrlAdm.SelectedTab = PageCtrlPnl;
+
+        private void BtnRunTool_Click(object sender, EventArgs e) => TabCtrlAdm.SelectedTab = PageRunTool;
+
+        private void BtnTaskMgr_Click(object sender, EventArgs e) => TabCtrlAdm.SelectedTab = PageTaskMgr;
+
+        private void BtnCmd_Click(object sender, EventArgs e) => TabCtrlAdm.SelectedTab = PageCmd;
+
+        private void BtnPS_Click(object sender, EventArgs e) => TabCtrlAdm.SelectedTab = PagePS;
+
+        private void Btnyouhua_Click(object sender, EventArgs e) => TabCtrlAdm.SelectedTab = PageOptimization;
+
+        
     }
 }

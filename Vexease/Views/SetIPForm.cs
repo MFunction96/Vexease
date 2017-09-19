@@ -27,5 +27,10 @@ namespace Vexease.Views
         {
 
         }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
