@@ -40,7 +40,7 @@
             // LblIP
             // 
             this.LblIP.AutoSize = true;
-            this.LblIP.Location = new System.Drawing.Point(184, 70);
+            this.LblIP.Location = new System.Drawing.Point(149, 71);
             this.LblIP.Name = "LblIP";
             this.LblIP.Size = new System.Drawing.Size(68, 15);
             this.LblIP.TabIndex = 0;
@@ -49,7 +49,7 @@
             // LblIPNow
             // 
             this.LblIPNow.AutoSize = true;
-            this.LblIPNow.Location = new System.Drawing.Point(258, 70);
+            this.LblIPNow.Location = new System.Drawing.Point(223, 71);
             this.LblIPNow.Name = "LblIPNow";
             this.LblIPNow.Size = new System.Drawing.Size(53, 15);
             this.LblIPNow.TabIndex = 1;
@@ -58,7 +58,7 @@
             // LblIPSet
             // 
             this.LblIPSet.AutoSize = true;
-            this.LblIPSet.Location = new System.Drawing.Point(154, 160);
+            this.LblIPSet.Location = new System.Drawing.Point(119, 125);
             this.LblIPSet.Name = "LblIPSet";
             this.LblIPSet.Size = new System.Drawing.Size(98, 15);
             this.LblIPSet.TabIndex = 2;
@@ -66,16 +66,16 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(259, 160);
+            this.textBox1.Location = new System.Drawing.Point(226, 115);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(308, 25);
             this.textBox1.TabIndex = 3;
             // 
             // BtnTest
             // 
-            this.BtnTest.Location = new System.Drawing.Point(187, 268);
+            this.BtnTest.Location = new System.Drawing.Point(187, 198);
             this.BtnTest.Name = "BtnTest";
-            this.BtnTest.Size = new System.Drawing.Size(75, 23);
+            this.BtnTest.Size = new System.Drawing.Size(75, 30);
             this.BtnTest.TabIndex = 4;
             this.BtnTest.Text = "测试";
             this.BtnTest.UseVisualStyleBackColor = true;
@@ -83,9 +83,9 @@
             // 
             // BtnOk
             // 
-            this.BtnOk.Location = new System.Drawing.Point(187, 268);
+            this.BtnOk.Location = new System.Drawing.Point(187, 198);
             this.BtnOk.Name = "BtnOk";
-            this.BtnOk.Size = new System.Drawing.Size(75, 23);
+            this.BtnOk.Size = new System.Drawing.Size(75, 30);
             this.BtnOk.TabIndex = 5;
             this.BtnOk.Text = "确定";
             this.BtnOk.UseVisualStyleBackColor = true;
@@ -93,9 +93,9 @@
             // 
             // BtnCancel
             // 
-            this.BtnCancel.Location = new System.Drawing.Point(416, 268);
+            this.BtnCancel.Location = new System.Drawing.Point(419, 198);
             this.BtnCancel.Name = "BtnCancel";
-            this.BtnCancel.Size = new System.Drawing.Size(75, 23);
+            this.BtnCancel.Size = new System.Drawing.Size(75, 30);
             this.BtnCancel.TabIndex = 6;
             this.BtnCancel.Text = "取消";
             this.BtnCancel.UseVisualStyleBackColor = true;
@@ -105,7 +105,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(747, 380);
+            this.ClientSize = new System.Drawing.Size(682, 253);
             this.Controls.Add(this.BtnTest);
             this.Controls.Add(this.BtnCancel);
             this.Controls.Add(this.BtnOk);

@@ -28,44 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.LblUserName = new System.Windows.Forms.Label();
-            this.LblPwd = new System.Windows.Forms.Label();
             this.TxtUserName = new System.Windows.Forms.TextBox();
             this.BtnOk = new System.Windows.Forms.Button();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.TxtPwd = new System.Windows.Forms.MaskedTextBox();
+            this.LblPwd = new System.Windows.Forms.Label();
+            this.LblUserName = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // LblUserName
-            // 
-            this.LblUserName.AutoSize = true;
-            this.LblUserName.Location = new System.Drawing.Point(54, 74);
-            this.LblUserName.Name = "LblUserName";
-            this.LblUserName.Size = new System.Drawing.Size(67, 15);
-            this.LblUserName.TabIndex = 0;
-            this.LblUserName.Text = "用户名：";
-            // 
-            // LblPwd
-            // 
-            this.LblPwd.AutoSize = true;
-            this.LblPwd.Location = new System.Drawing.Point(57, 128);
-            this.LblPwd.Name = "LblPwd";
-            this.LblPwd.Size = new System.Drawing.Size(52, 15);
-            this.LblPwd.TabIndex = 1;
-            this.LblPwd.Text = "密码：";
             // 
             // TxtUserName
             // 
-            this.TxtUserName.Location = new System.Drawing.Point(139, 74);
+            this.TxtUserName.Location = new System.Drawing.Point(134, 107);
             this.TxtUserName.Name = "TxtUserName";
-            this.TxtUserName.Size = new System.Drawing.Size(371, 25);
+            this.TxtUserName.Size = new System.Drawing.Size(274, 25);
             this.TxtUserName.TabIndex = 2;
             // 
             // BtnOk
             // 
-            this.BtnOk.Location = new System.Drawing.Point(139, 240);
+            this.BtnOk.Location = new System.Drawing.Point(79, 243);
             this.BtnOk.Name = "BtnOk";
-            this.BtnOk.Size = new System.Drawing.Size(75, 23);
+            this.BtnOk.Size = new System.Drawing.Size(90, 30);
             this.BtnOk.TabIndex = 4;
             this.BtnOk.Text = "确认";
             this.BtnOk.UseVisualStyleBackColor = true;
@@ -73,9 +55,9 @@
             // 
             // BtnCancel
             // 
-            this.BtnCancel.Location = new System.Drawing.Point(355, 240);
+            this.BtnCancel.Location = new System.Drawing.Point(318, 243);
             this.BtnCancel.Name = "BtnCancel";
-            this.BtnCancel.Size = new System.Drawing.Size(75, 23);
+            this.BtnCancel.Size = new System.Drawing.Size(90, 30);
             this.BtnCancel.TabIndex = 5;
             this.BtnCancel.Text = "取消";
             this.BtnCancel.UseVisualStyleBackColor = true;
@@ -83,16 +65,34 @@
             // 
             // TxtPwd
             // 
-            this.TxtPwd.Location = new System.Drawing.Point(139, 128);
+            this.TxtPwd.Location = new System.Drawing.Point(134, 158);
             this.TxtPwd.Name = "TxtPwd";
-            this.TxtPwd.Size = new System.Drawing.Size(371, 25);
+            this.TxtPwd.Size = new System.Drawing.Size(274, 25);
             this.TxtPwd.TabIndex = 6;
+            // 
+            // LblPwd
+            // 
+            this.LblPwd.AutoSize = true;
+            this.LblPwd.Location = new System.Drawing.Point(76, 168);
+            this.LblPwd.Name = "LblPwd";
+            this.LblPwd.Size = new System.Drawing.Size(52, 15);
+            this.LblPwd.TabIndex = 1;
+            this.LblPwd.Text = "密码：";
+            // 
+            // LblUserName
+            // 
+            this.LblUserName.AutoSize = true;
+            this.LblUserName.Location = new System.Drawing.Point(61, 117);
+            this.LblUserName.Name = "LblUserName";
+            this.LblUserName.Size = new System.Drawing.Size(67, 15);
+            this.LblUserName.TabIndex = 0;
+            this.LblUserName.Text = "用户名：";
             // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(569, 323);
+            this.ClientSize = new System.Drawing.Size(482, 303);
             this.Controls.Add(this.TxtPwd);
             this.Controls.Add(this.BtnCancel);
             this.Controls.Add(this.BtnOk);
@@ -108,12 +108,11 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label LblUserName;
-        private System.Windows.Forms.Label LblPwd;
         private System.Windows.Forms.TextBox TxtUserName;
         private System.Windows.Forms.Button BtnOk;
         private System.Windows.Forms.Button BtnCancel;
         private System.Windows.Forms.MaskedTextBox TxtPwd;
+        private System.Windows.Forms.Label LblPwd;
+        private System.Windows.Forms.Label LblUserName;
     }
 }

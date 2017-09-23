@@ -78,9 +78,9 @@
             // 
             // BtnOk
             // 
-            this.BtnOk.Location = new System.Drawing.Point(183, 222);
+            this.BtnOk.Location = new System.Drawing.Point(195, 215);
             this.BtnOk.Name = "BtnOk";
-            this.BtnOk.Size = new System.Drawing.Size(75, 23);
+            this.BtnOk.Size = new System.Drawing.Size(75, 30);
             this.BtnOk.TabIndex = 6;
             this.BtnOk.Text = "确定";
             this.BtnOk.UseVisualStyleBackColor = true;

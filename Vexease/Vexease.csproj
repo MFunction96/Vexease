@@ -121,6 +121,12 @@
     <Compile Include="Views\BListSetForm.Designer.cs">
       <DependentUpon>BListSetForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\BtnYorN.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\BtnYorN.Designer.cs">
+      <DependentUpon>BtnYorN.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ExportForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,12 +157,6 @@
     <Compile Include="Views\SetIPForm.Designer.cs">
       <DependentUpon>SetIPForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Temp.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Temp.Designer.cs">
-      <DependentUpon>Temp.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\UserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,6 +179,9 @@
     <EmbeddedResource Include="Views\BListSetForm.resx">
       <DependentUpon>BListSetForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\BtnYorN.resx">
+      <DependentUpon>BtnYorN.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\ExportForm.resx">
       <DependentUpon>ExportForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -193,9 +196,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SetIPForm.resx">
       <DependentUpon>SetIPForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Temp.resx">
-      <DependentUpon>Temp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>
