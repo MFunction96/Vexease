@@ -548,7 +548,7 @@ namespace Vexease.Views
             this.TabCtrlAdm.Controls.Add(this.PageOptimization);
             this.TabCtrlAdm.Dock = System.Windows.Forms.DockStyle.Top;
             this.TabCtrlAdm.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
-            this.TabCtrlAdm.ItemSize = new System.Drawing.Size(14, 10);
+            this.TabCtrlAdm.ItemSize = new System.Drawing.Size(1, 1);
             this.TabCtrlAdm.Location = new System.Drawing.Point(0, 0);
             this.TabCtrlAdm.Name = "TabCtrlAdm";
             this.TabCtrlAdm.SelectedIndex = 0;
