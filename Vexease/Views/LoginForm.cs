@@ -23,7 +23,10 @@ namespace Vexease.Views
             //ControlBox = false;//上面三个按钮隐藏,以后用...
             ShowInTaskbar = false;
             FormBorderStyle = FormBorderStyle.FixedSingle;//不可调整大小。可包括控件菜单栏、标题栏、“最大化”按钮和“最小化”按钮。只能使用“最大化”和“最小化”按钮改变大小。创建单线边框。
-
+            TxtUserName.ForeColor = Color.FromArgb(255,128,128,128);
+            TxtPwd.ForeColor = Color.FromArgb(255,128,128,128);
+            TxtUserName.Text = "请输入用户名";
+            TxtPwd.Text = "请输入密码";
         }
         protected override void OnClosing(CancelEventArgs e)
         {
@@ -58,6 +61,42 @@ namespace Vexease.Views
 
         }
 
-       
+        private void TxtUserName_Enter(object sender, EventArgs e)
+        {
+            if (TxtUserName.Text == "请输入用户名"||TxtUserName.Text=="用户名不能为空！")
+            {
+                TxtUserName.Text = "";
+                TxtUserName.ForeColor = Color.FromArgb(255, 0, 0, 0);
+            }
+
+        }
+
+        private void TxtUserName_Leave(object sender, EventArgs e)
+        {
+            if (TxtUserName.Text == "")
+            {
+                TxtUserName.Text = "用户名不能为空！";
+                TxtUserName.ForeColor = Color.FromArgb(255,240,128,128);
+            }
+        }
+
+        private void TxtPwd_Enter(object sender, EventArgs e)
+        {
+            if (TxtPwd.Text == "请输入密码" || TxtPwd.Text == "密码不能为空！")
+            {
+               
+                TxtPwd.Text = "";
+                TxtPwd.ForeColor = Color.FromArgb(255, 0, 0, 0);
+            }
+        }
+
+        private void TxtPwd_Leave(object sender, EventArgs e)
+        {
+            if (TxtPwd.Text == "")
+            {
+                TxtPwd.Text = "密码不能为空！";
+                TxtPwd.ForeColor=Color.FromArgb(255,240,128,128);
+            }
+        }
     }
 }

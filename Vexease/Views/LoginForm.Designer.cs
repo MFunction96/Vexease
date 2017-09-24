@@ -29,76 +29,97 @@
         private void InitializeComponent()
         {
             this.TxtUserName = new System.Windows.Forms.TextBox();
-            this.BtnOk = new System.Windows.Forms.Button();
-            this.BtnCancel = new System.Windows.Forms.Button();
+            this.BtnLogin = new System.Windows.Forms.Button();
             this.TxtPwd = new System.Windows.Forms.MaskedTextBox();
-            this.LblPwd = new System.Windows.Forms.Label();
-            this.LblUserName = new System.Windows.Forms.Label();
+            this.LblTitle = new System.Windows.Forms.Label();
+            this.LblRegister = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.LblForgetPwd = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // TxtUserName
             // 
-            this.TxtUserName.Location = new System.Drawing.Point(134, 107);
+            this.TxtUserName.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
+            this.TxtUserName.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.TxtUserName.Location = new System.Drawing.Point(100, 108);
             this.TxtUserName.Name = "TxtUserName";
-            this.TxtUserName.Size = new System.Drawing.Size(274, 25);
-            this.TxtUserName.TabIndex = 2;
+            this.TxtUserName.Size = new System.Drawing.Size(300, 28);
+            this.TxtUserName.TabIndex = 0;
+            this.TxtUserName.Enter += new System.EventHandler(this.TxtUserName_Enter);
+            this.TxtUserName.Leave += new System.EventHandler(this.TxtUserName_Leave);
             // 
-            // BtnOk
+            // BtnLogin
             // 
-            this.BtnOk.Location = new System.Drawing.Point(79, 243);
-            this.BtnOk.Name = "BtnOk";
-            this.BtnOk.Size = new System.Drawing.Size(90, 30);
-            this.BtnOk.TabIndex = 4;
-            this.BtnOk.Text = "确认";
-            this.BtnOk.UseVisualStyleBackColor = true;
-            this.BtnOk.Click += new System.EventHandler(this.BtnOk_Click);
-            // 
-            // BtnCancel
-            // 
-            this.BtnCancel.Location = new System.Drawing.Point(318, 243);
-            this.BtnCancel.Name = "BtnCancel";
-            this.BtnCancel.Size = new System.Drawing.Size(90, 30);
-            this.BtnCancel.TabIndex = 5;
-            this.BtnCancel.Text = "取消";
-            this.BtnCancel.UseVisualStyleBackColor = true;
-            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
+            this.BtnLogin.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.BtnLogin.Location = new System.Drawing.Point(100, 201);
+            this.BtnLogin.Name = "BtnLogin";
+            this.BtnLogin.Size = new System.Drawing.Size(300, 30);
+            this.BtnLogin.TabIndex = 4;
+            this.BtnLogin.Text = "立即登录";
+            this.BtnLogin.UseVisualStyleBackColor = true;
+            this.BtnLogin.Click += new System.EventHandler(this.BtnOk_Click);
             // 
             // TxtPwd
             // 
-            this.TxtPwd.Location = new System.Drawing.Point(134, 158);
+            this.TxtPwd.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.TxtPwd.Location = new System.Drawing.Point(100, 156);
             this.TxtPwd.Name = "TxtPwd";
-            this.TxtPwd.Size = new System.Drawing.Size(274, 25);
+            this.TxtPwd.Size = new System.Drawing.Size(300, 28);
             this.TxtPwd.TabIndex = 6;
+            this.TxtPwd.Enter += new System.EventHandler(this.TxtPwd_Enter);
+            this.TxtPwd.Leave += new System.EventHandler(this.TxtPwd_Leave);
             // 
-            // LblPwd
+            // LblTitle
             // 
-            this.LblPwd.AutoSize = true;
-            this.LblPwd.Location = new System.Drawing.Point(76, 168);
-            this.LblPwd.Name = "LblPwd";
-            this.LblPwd.Size = new System.Drawing.Size(52, 15);
-            this.LblPwd.TabIndex = 1;
-            this.LblPwd.Text = "密码：";
+            this.LblTitle.AutoSize = true;
+            this.LblTitle.Font = new System.Drawing.Font("Mistral", 42F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTitle.Location = new System.Drawing.Point(150, 9);
+            this.LblTitle.Name = "LblTitle";
+            this.LblTitle.Size = new System.Drawing.Size(188, 83);
+            this.LblTitle.TabIndex = 7;
+            this.LblTitle.Text = "Vexease";
             // 
-            // LblUserName
+            // LblRegister
             // 
-            this.LblUserName.AutoSize = true;
-            this.LblUserName.Location = new System.Drawing.Point(61, 117);
-            this.LblUserName.Name = "LblUserName";
-            this.LblUserName.Size = new System.Drawing.Size(67, 15);
-            this.LblUserName.TabIndex = 0;
-            this.LblUserName.Text = "用户名：";
+            this.LblRegister.AutoSize = true;
+            this.LblRegister.Font = new System.Drawing.Font("宋体", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LblRegister.Location = new System.Drawing.Point(256, 250);
+            this.LblRegister.Name = "LblRegister";
+            this.LblRegister.Size = new System.Drawing.Size(35, 14);
+            this.LblRegister.TabIndex = 8;
+            this.LblRegister.Text = "注册";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(297, 250);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(15, 15);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "|";
+            // 
+            // LblForgetPwd
+            // 
+            this.LblForgetPwd.AutoSize = true;
+            this.LblForgetPwd.Font = new System.Drawing.Font("宋体", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LblForgetPwd.Location = new System.Drawing.Point(318, 250);
+            this.LblForgetPwd.Name = "LblForgetPwd";
+            this.LblForgetPwd.Size = new System.Drawing.Size(77, 14);
+            this.LblForgetPwd.TabIndex = 10;
+            this.LblForgetPwd.Text = "忘记密码？";
             // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(482, 303);
+            this.Controls.Add(this.LblForgetPwd);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.LblRegister);
+            this.Controls.Add(this.LblTitle);
             this.Controls.Add(this.TxtPwd);
-            this.Controls.Add(this.BtnCancel);
-            this.Controls.Add(this.BtnOk);
+            this.Controls.Add(this.BtnLogin);
             this.Controls.Add(this.TxtUserName);
-            this.Controls.Add(this.LblPwd);
-            this.Controls.Add(this.LblUserName);
             this.Name = "LoginForm";
             this.Text = "登录界面";
             this.Load += new System.EventHandler(this.LoginForm_Load);
@@ -109,10 +130,11 @@
 
         #endregion
         private System.Windows.Forms.TextBox TxtUserName;
-        private System.Windows.Forms.Button BtnOk;
-        private System.Windows.Forms.Button BtnCancel;
+        private System.Windows.Forms.Button BtnLogin;
         private System.Windows.Forms.MaskedTextBox TxtPwd;
-        private System.Windows.Forms.Label LblPwd;
-        private System.Windows.Forms.Label LblUserName;
+        private System.Windows.Forms.Label LblTitle;
+        private System.Windows.Forms.Label LblRegister;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label LblForgetPwd;
     }
 }

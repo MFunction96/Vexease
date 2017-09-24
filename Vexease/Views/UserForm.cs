@@ -28,25 +28,27 @@ namespace Vexease.Views
             FormBorderStyle = FormBorderStyle.FixedSingle;//不可调整大小。可包括控件菜单栏、标题栏、“最大化”按钮和“最小化”按钮。只能使用“最大化”和“最小化”按钮改变大小。创建单线边框。
 
         }
-        
-        protected override void OnClosing(CancelEventArgs e)
-        {
-           
-           // DialogResult result = MessageBox.Show("当前为用户状态，不能自主终止程序，是否隐藏窗口，最小化到系统托盘？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.None);
-            
-            if(MessageBox.Show("当前为用户状态，不能自主终止程序，是否隐藏窗口，最小化到系统托盘？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.None) ==DialogResult.Yes)
-            {
-                e.Cancel = true;
-                WindowState = FormWindowState.Minimized;
-                NotifyIcon.Visible = true;//托盘图标可见
-            }
-            else 
-            {
-                e.Cancel = true;
-            }
-            base.OnClosing(e);
-        }
 
+        /*用户界面可以关闭
+          protected override void OnClosing(CancelEventArgs e)
+         {
+
+            // DialogResult result = MessageBox.Show("当前为用户状态，不能自主终止程序，是否隐藏窗口，最小化到系统托盘？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.None);
+
+             if(MessageBox.Show("当前为用户状态，不能自主终止程序，是否隐藏窗口，最小化到系统托盘？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.None) ==DialogResult.Yes)
+             {
+                 e.Cancel = true;
+                 WindowState = FormWindowState.Minimized;
+                 NotifyIcon.Visible = true;//托盘图标可见
+             }
+             else 
+             {
+                 e.Cancel = true;
+             }
+             base.OnClosing(e);
+         }
+
+              */
 
         private void BtnSwitchToAdmMode_Click(object sender, EventArgs e)
         {

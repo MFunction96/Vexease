@@ -67,7 +67,7 @@ namespace Vexease.Views
              return base.ProcessCmdKey(ref msg, keyData);
          }*/
 
-        /*   protected override void OnClosing(CancelEventArgs e)
+          protected override void OnClosing(CancelEventArgs e)
           {
               e.Cancel = true;
               // DialogResult result = MessageBox.Show("当前为用户状态，不能自主终止程序，是否隐藏窗口，最小化到系统托盘？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.None);
@@ -88,30 +88,7 @@ namespace Vexease.Views
                   Environment.Exit(0);//彻底关掉！
               }
               base.OnClosing(e);
-          }*/
-
-        private void TSMIClose_Click(object sender, EventArgs e)
-        {
-            // DialogResult result = MessageBox.Show("当前为用户状态，不能自主终止程序，是否隐藏窗口，最小化到系统托盘？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.None);
-            var onclosingForm = new OnClosingForm();
-            onclosingForm.ShowDialog();
-            Application.DoEvents();
-            if (onclosingForm.t == 0 && onclosingForm.t != 1)
-            {
-                //t=0,最小化
-
-                WindowState = FormWindowState.Minimized;
-                NotifyIcon.Visible = true;//托盘图标可见
-            }
-            else if (onclosingForm.t == 1 && onclosingForm.t != 1)
-            {
-                //t=1，关闭
-                
-                Environment.Exit(0);//彻底关掉！
-                onclosingForm.Close();
-            }
-        }
-
+          }    
         //
         //Tab转换
         //
@@ -158,11 +135,7 @@ namespace Vexease.Views
             if (PnlWList.Height == 0 && BtnWListYorN.Checked == true) { PnlWList.Height = 90; } else { PnlWList.Height = 0; }
         }
 
-        private void ListTPCtrl_Click(object sender, EventArgs e)
-        {
-            //int n = 0;//给个名单内名字的个数吧..
-            if (LvBandWListP.Height == 0 && BtnListPathYorN.Checked == true) { LvBandWListP.Height = 90; } else { LvBandWListP.Height = 0; }
-        }
+       
 
         private void LblConsole_Click(object sender, EventArgs e)
         {
@@ -247,13 +220,13 @@ namespace Vexease.Views
 
         private void BtnWListSet_Click(object sender, EventArgs e)
         {
-            var wlistset = new BandWListSetForm();
+            var wlistset = new WListSetForm();
             wlistset.Show();
         }
 
         private void BtnListSetP_Click(object sender, EventArgs e)
         {
-            var listByPath = new BandWListSetForm();
+            var listByPath = new ListByPathSetForm();
             listByPath.Show();
         }
         private void TSMIBack_Click(object sender, EventArgs e)
@@ -339,13 +312,7 @@ namespace Vexease.Views
             }
         }
 
-        private void BtnListPathYorN_Load(object sender, EventArgs e)
-        {
-            if (BtnListPathYorN.Checked == false)
-            {
-                LvBandWListP.Height = 0;
-            }
-        }
+       
 
         private void BtnRegustriyYorN_Load(object sender, EventArgs e)
         {
@@ -421,19 +388,7 @@ namespace Vexease.Views
                 PnlWList.Height = 90;
             }
         }
-
-        private void BtnListPathYorNStatus_MouseUp(object sender, MouseEventArgs e)
-        {
-            if (BtnListPathYorN.Checked == false)
-            {
-                LvBandWListP.Height = 0;
-            }
-            else
-            {
-                LvBandWListP.Height = 90;
-            }
-        }
-
+           
         private void BtnTaskMgrYorN_Load(object sender, EventArgs e)
         {
             if (BtnTaskMgrYorN.Checked == false)
