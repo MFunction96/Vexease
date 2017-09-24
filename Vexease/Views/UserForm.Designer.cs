@@ -437,7 +437,7 @@
             // 
             // BtnSwitchToAdmMode
             // 
-            this.BtnSwitchToAdmMode.Location = new System.Drawing.Point(359, 441);
+            this.BtnSwitchToAdmMode.Location = new System.Drawing.Point(363, 432);
             this.BtnSwitchToAdmMode.Name = "BtnSwitchToAdmMode";
             this.BtnSwitchToAdmMode.Size = new System.Drawing.Size(154, 30);
             this.BtnSwitchToAdmMode.TabIndex = 1;
@@ -458,7 +458,7 @@
             this.Controls.Add(this.BtnSwitchToAdmMode);
             this.Controls.Add(this.TLPUser);
             this.Name = "UserForm";
-            this.Text = "用户界面";
+            this.Text = "用户模式";
             this.Load += new System.EventHandler(this.UserForm_Load);
             this.TLPUser.ResumeLayout(false);
             this.TLPUser.PerformLayout();

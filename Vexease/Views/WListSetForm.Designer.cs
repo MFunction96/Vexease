@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem(new string[] {
             "第一项变量",
             "C:第一项的值"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("idonotknow");
+            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("idonotknow");
             this.BtnCancel = new System.Windows.Forms.Button();
             this.BtnOk = new System.Windows.Forms.Button();
             this.GBWListByName = new System.Windows.Forms.GroupBox();
@@ -113,8 +113,8 @@
             this.LvWListByName.FullRowSelect = true;
             this.LvWListByName.GridLines = true;
             this.LvWListByName.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem7,
-            listViewItem8});
+            listViewItem9,
+            listViewItem10});
             this.LvWListByName.LabelEdit = true;
             this.LvWListByName.LabelWrap = false;
             this.LvWListByName.Location = new System.Drawing.Point(3, 21);
@@ -138,7 +138,7 @@
             this.Controls.Add(this.BtnOk);
             this.Controls.Add(this.GBWListByName);
             this.Name = "WListSetForm";
-            this.Text = "WListSetForm";
+            this.Text = "进程白名单（名称）设置";
             this.Load += new System.EventHandler(this.WListSetForm_Load);
             this.GBWListByName.ResumeLayout(false);
             this.ResumeLayout(false);

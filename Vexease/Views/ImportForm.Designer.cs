@@ -565,7 +565,7 @@
             this.Controls.Add(this.LblImport);
             this.Controls.Add(this.PnlImport);
             this.Name = "ImportForm";
-            this.Text = "ImportForm";
+            this.Text = "导入文件";
             this.Load += new System.EventHandler(this.ImportForm_Load);
             this.PnlImport.ResumeLayout(false);
             this.PnlImport.PerformLayout();

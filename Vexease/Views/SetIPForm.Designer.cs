@@ -114,7 +114,7 @@
             this.Controls.Add(this.LblIPNow);
             this.Controls.Add(this.LblIP);
             this.Name = "SetIPForm";
-            this.Text = "管理终端设置界面";
+            this.Text = "管理终端设置";
             this.Load += new System.EventHandler(this.SetIPForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -565,7 +565,7 @@
             this.Controls.Add(this.LblExport);
             this.Controls.Add(this.PnlExport);
             this.Name = "ExportForm";
-            this.Text = "ExportForm";
+            this.Text = "导出文件";
             this.Load += new System.EventHandler(this.ExportForm_Load);
             this.PnlExport.ResumeLayout(false);
             this.PnlExport.PerformLayout();

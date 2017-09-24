@@ -98,5 +98,25 @@ namespace Vexease.Views
                 TxtPwd.ForeColor=Color.FromArgb(255,240,128,128);
             }
         }
+        //“注册”点击事件
+        private void LblRegister_Click(object sender, EventArgs e)
+        {
+
+        }
+        //“忘记密码？”点击事件
+        private void LblForgetPwd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnCancel_Click_1(object sender, EventArgs e)
+        {
+            var userForm = new UserForm()
+            {
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            userForm.ShowIcon = true;
+            userForm.Show();
+        }
     }
 }

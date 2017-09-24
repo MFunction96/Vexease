@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(new string[] {
             "第一项变量",
             "C:第一项的值"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem(new string[] {
             "第一项变量",
             "C:第一项的值"}, -1);
             this.GBBListSetByPath = new System.Windows.Forms.GroupBox();
@@ -107,7 +107,7 @@
             this.LvBListByPath.FullRowSelect = true;
             this.LvBListByPath.GridLines = true;
             this.LvBListByPath.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3});
+            listViewItem5});
             this.LvBListByPath.LabelEdit = true;
             this.LvBListByPath.LabelWrap = false;
             this.LvBListByPath.Location = new System.Drawing.Point(3, 21);
@@ -181,7 +181,7 @@
             this.LvWListByPath.FullRowSelect = true;
             this.LvWListByPath.GridLines = true;
             this.LvWListByPath.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem4});
+            listViewItem6});
             this.LvWListByPath.LabelEdit = true;
             this.LvWListByPath.LabelWrap = false;
             this.LvWListByPath.Location = new System.Drawing.Point(3, 21);
@@ -232,7 +232,7 @@
             this.Controls.Add(this.GBWListByPath);
             this.Controls.Add(this.GBBListSetByPath);
             this.Name = "ListByPathSetForm";
-            this.Text = "WListSetForm";
+            this.Text = "进程黑白名单（路径）设置";
             this.Load += new System.EventHandler(this.WListSetForm_Load);
             this.GBBListSetByPath.ResumeLayout(false);
             this.GBWListByPath.ResumeLayout(false);
