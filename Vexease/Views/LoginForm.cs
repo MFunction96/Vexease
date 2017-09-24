@@ -21,12 +21,14 @@ namespace Vexease.Views
             MaximizeBox = false;//最大化不可用
             MinimizeBox = false;//最小化不可用
             //ControlBox = false;//上面三个按钮隐藏,以后用...
-            ShowInTaskbar = false;
+          
             FormBorderStyle = FormBorderStyle.FixedSingle;//不可调整大小。可包括控件菜单栏、标题栏、“最大化”按钮和“最小化”按钮。只能使用“最大化”和“最小化”按钮改变大小。创建单线边框。
+            BtnLogin.Focus();
             TxtUserName.ForeColor = Color.FromArgb(255,128,128,128);
             TxtPwd.ForeColor = Color.FromArgb(255,128,128,128);
             TxtUserName.Text = "请输入用户名";
             TxtPwd.Text = "请输入密码";
+            
         }
         protected override void OnClosing(CancelEventArgs e)
         {
@@ -117,6 +119,16 @@ namespace Vexease.Views
             };
             userForm.ShowIcon = true;
             userForm.Show();
+        }
+
+        private void TxtUserName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtUserName_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+
         }
     }
 }

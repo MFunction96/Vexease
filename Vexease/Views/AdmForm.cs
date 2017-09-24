@@ -17,8 +17,8 @@ using System.Windows.Forms;
 //     ┃　　　　　　　┣┓
 //     ┃　　　　　　　┏┛
 //     ┗┓┓┏━┳┓┏┛
-//         ┃┫┫　┃┫┫
-//         ┗┻┛　┗┻┛
+//       ┃┫┫　┃┫┫
+//       ┗┻┛　┗┻┛
 namespace Vexease.Views
 {
     public partial class AdmForm : Form
@@ -35,7 +35,7 @@ namespace Vexease.Views
             MaximizeBox = false;//最大化不可用
             MinimizeBox = false;//最小化不可用
             //ControlBox = false;//上面三个按钮隐藏
-            ShowInTaskbar = false;
+           // ShowInTaskbar = false;
             FormBorderStyle = FormBorderStyle.FixedSingle;//不可调整大小。可包括控件菜单栏、标题栏、“最大化”按钮和“最小化”按钮。只能使用“最大化”和“最小化”按钮改变大小。创建单线边框。
                                                           //隐藏标签,改成设置Itemsize为（1,1）了
                                                           /*TabCtrlAdm.Region = new Region(new RectangleF(PageCtrlPnl.Left,
@@ -74,14 +74,14 @@ namespace Vexease.Views
               var onclosingForm = new OnClosingForm();
               onclosingForm.ShowDialog();
               Application.DoEvents();
-             if (onclosingForm.t==0&&onclosingForm.t!=1)
+             if (onclosingForm.t==0)
               {
                   //t=0,最小化
 
                   WindowState = FormWindowState.Minimized;
                   NotifyIcon.Visible = true;//托盘图标可见
               }
-              else if(onclosingForm.t==1&&onclosingForm.t!=1)
+              else if(onclosingForm.t==1)
               {
                   //t=1，关闭
                   e.Cancel = false;
@@ -202,16 +202,14 @@ namespace Vexease.Views
 
         private void MenuSetIP_Click(object sender, EventArgs e)
         {
-            var setIPForm = new SetIPForm();
+            var setIPForm = new SetIPForm {
+                StartPosition = FormStartPosition.CenterScreen,
+                ShowIcon = true
+            };
+
             setIPForm.Show();
         }
-
-        private void MenuFileImport_Click(object sender, EventArgs e)
-        {
-            var importForm = new ImportForm();
-            importForm.Show();
-        }
-
+                
         private void MenuFileExport_Click(object sender, EventArgs e)
         {
             var exportForm = new ExportForm();

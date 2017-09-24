@@ -284,7 +284,7 @@ namespace Vexease.Views
             TSMIREflesh.Name = "TSMIREflesh";
             TSMIREflesh.Size = new System.Drawing.Size(181, 26);
             TSMIREflesh.Text = "刷新";
-            TSMIREflesh.Click += new System.EventHandler(this.MenuFileImport_Click);
+          
             // 
             // MenuStripAdm
             // 

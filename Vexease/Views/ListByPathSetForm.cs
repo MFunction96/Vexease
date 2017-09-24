@@ -27,6 +27,7 @@ namespace Vexease.Views
                                                           /*TabCtrlAdm.Region = new Region(new RectangleF(PageCtrlPnl.Left,
                                                             PageCtrlPnl.Top, PageCtrlPnl.Width, PageCtrlPnl.Height));*/
             Colwidth(LvBListByPath);
+            Colwidth(LvWListByPath);
 
         }
         //

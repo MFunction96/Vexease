@@ -46,8 +46,10 @@
             this.TxtUserName.Name = "TxtUserName";
             this.TxtUserName.Size = new System.Drawing.Size(300, 28);
             this.TxtUserName.TabIndex = 0;
+            this.TxtUserName.TextChanged += new System.EventHandler(this.TxtUserName_TextChanged);
             this.TxtUserName.Enter += new System.EventHandler(this.TxtUserName_Enter);
             this.TxtUserName.Leave += new System.EventHandler(this.TxtUserName_Leave);
+            this.TxtUserName.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.TxtUserName_PreviewKeyDown);
             // 
             // BtnLogin
             // 

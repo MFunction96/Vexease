@@ -33,13 +33,13 @@
             "C:第一项的值"}, -1);
             System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("idonotknow");
             this.GBBListByName = new System.Windows.Forms.GroupBox();
-            this.LvBListByName = new System.Windows.Forms.ListView();
-            this.BtnNewBItem = new System.Windows.Forms.Button();
-            this.BtnCancelBItem = new System.Windows.Forms.Button();
             this.BtnEditBitem = new System.Windows.Forms.Button();
+            this.BtnCancelBItem = new System.Windows.Forms.Button();
+            this.BtnNewBItem = new System.Windows.Forms.Button();
+            this.LvBListByName = new System.Windows.Forms.ListView();
+            this.ColBListByName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.BtnOk = new System.Windows.Forms.Button();
             this.BtnCancel = new System.Windows.Forms.Button();
-            this.ColBListByName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.GBBListByName.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,6 +55,33 @@
             this.GBBListByName.TabIndex = 3;
             this.GBBListByName.TabStop = false;
             this.GBBListByName.Text = "黑名单（名称）";
+            // 
+            // BtnEditBitem
+            // 
+            this.BtnEditBitem.Location = new System.Drawing.Point(624, 169);
+            this.BtnEditBitem.Name = "BtnEditBitem";
+            this.BtnEditBitem.Size = new System.Drawing.Size(90, 30);
+            this.BtnEditBitem.TabIndex = 4;
+            this.BtnEditBitem.Text = "编辑";
+            this.BtnEditBitem.UseVisualStyleBackColor = true;
+            // 
+            // BtnCancelBItem
+            // 
+            this.BtnCancelBItem.Location = new System.Drawing.Point(624, 205);
+            this.BtnCancelBItem.Name = "BtnCancelBItem";
+            this.BtnCancelBItem.Size = new System.Drawing.Size(90, 30);
+            this.BtnCancelBItem.TabIndex = 3;
+            this.BtnCancelBItem.Text = "删除";
+            this.BtnCancelBItem.UseVisualStyleBackColor = true;
+            // 
+            // BtnNewBItem
+            // 
+            this.BtnNewBItem.Location = new System.Drawing.Point(624, 133);
+            this.BtnNewBItem.Name = "BtnNewBItem";
+            this.BtnNewBItem.Size = new System.Drawing.Size(90, 30);
+            this.BtnNewBItem.TabIndex = 2;
+            this.BtnNewBItem.Text = "新建";
+            this.BtnNewBItem.UseVisualStyleBackColor = true;
             // 
             // LvBListByName
             // 
@@ -78,32 +105,9 @@
             this.LvBListByName.UseCompatibleStateImageBehavior = false;
             this.LvBListByName.View = System.Windows.Forms.View.List;
             // 
-            // BtnNewBItem
+            // ColBListByName
             // 
-            this.BtnNewBItem.Location = new System.Drawing.Point(624, 133);
-            this.BtnNewBItem.Name = "BtnNewBItem";
-            this.BtnNewBItem.Size = new System.Drawing.Size(90, 30);
-            this.BtnNewBItem.TabIndex = 2;
-            this.BtnNewBItem.Text = "新建";
-            this.BtnNewBItem.UseVisualStyleBackColor = true;
-            // 
-            // BtnCancelBItem
-            // 
-            this.BtnCancelBItem.Location = new System.Drawing.Point(624, 205);
-            this.BtnCancelBItem.Name = "BtnCancelBItem";
-            this.BtnCancelBItem.Size = new System.Drawing.Size(90, 30);
-            this.BtnCancelBItem.TabIndex = 3;
-            this.BtnCancelBItem.Text = "删除";
-            this.BtnCancelBItem.UseVisualStyleBackColor = true;
-            // 
-            // BtnEditBitem
-            // 
-            this.BtnEditBitem.Location = new System.Drawing.Point(624, 169);
-            this.BtnEditBitem.Name = "BtnEditBitem";
-            this.BtnEditBitem.Size = new System.Drawing.Size(90, 30);
-            this.BtnEditBitem.TabIndex = 4;
-            this.BtnEditBitem.Text = "编辑";
-            this.BtnEditBitem.UseVisualStyleBackColor = true;
+            this.ColBListByName.Width = 604;
             // 
             // BtnOk
             // 
@@ -113,6 +117,7 @@
             this.BtnOk.TabIndex = 4;
             this.BtnOk.Text = "确定";
             this.BtnOk.UseVisualStyleBackColor = true;
+            this.BtnOk.Click += new System.EventHandler(this.BtnOk_Click);
             // 
             // BtnCancel
             // 
@@ -122,10 +127,6 @@
             this.BtnCancel.TabIndex = 5;
             this.BtnCancel.Text = "取消";
             this.BtnCancel.UseVisualStyleBackColor = true;
-            // 
-            // ColBListByName
-            // 
-            this.ColBListByName.Width = 604;
             // 
             // BandWListSetForm
             // 
