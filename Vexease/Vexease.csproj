@@ -109,6 +109,11 @@
     <Compile Include="Models\Registrys\RegStore.cs" />
     <Compile Include="Models\Structures\SECURITY_ATTRIBUTES.cs" />
     <Compile Include="Controllers\Status\RegStatus.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Views\AdmForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,14 +182,9 @@
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Views\AdmForm.resx">
       <DependentUpon>AdmForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -243,6 +243,12 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\CheckBtnClose.png" />
+    <None Include="Resources\CheckBtnClose1.png" />
+    <Content Include="Resources\CheckBtnOpen.png" />
+    <None Include="Resources\CheckBtnOpen1.png" />
+    <Content Include="Resources\Icon.ico" />
+    <None Include="Resources\Set.png" />
     <None Include="Resources\black.png" />
     <Content Include="Resources\btn1.png" />
     <Content Include="Resources\btn2.png" />

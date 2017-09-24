@@ -32,6 +32,7 @@
             "第一项变量",
             "C:第一项的值"}, -1);
             System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("idonotknow");
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BandWListSetForm));
             this.GBBListByName = new System.Windows.Forms.GroupBox();
             this.BtnEditBitem = new System.Windows.Forms.Button();
             this.BtnCancelBItem = new System.Windows.Forms.Button();
@@ -127,6 +128,7 @@
             this.BtnCancel.TabIndex = 5;
             this.BtnCancel.Text = "取消";
             this.BtnCancel.UseVisualStyleBackColor = true;
+            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // BandWListSetForm
             // 
@@ -136,6 +138,7 @@
             this.Controls.Add(this.BtnCancel);
             this.Controls.Add(this.BtnOk);
             this.Controls.Add(this.GBBListByName);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "BandWListSetForm";
             this.Text = "进程黑名单（名称）设置";
             this.Load += new System.EventHandler(this.BandWListSetForm_Load);

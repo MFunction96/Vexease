@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.TxtUserName = new System.Windows.Forms.TextBox();
             this.BtnLogin = new System.Windows.Forms.Button();
             this.TxtPwd = new System.Windows.Forms.MaskedTextBox();
@@ -46,10 +47,8 @@
             this.TxtUserName.Name = "TxtUserName";
             this.TxtUserName.Size = new System.Drawing.Size(300, 28);
             this.TxtUserName.TabIndex = 0;
-            this.TxtUserName.TextChanged += new System.EventHandler(this.TxtUserName_TextChanged);
             this.TxtUserName.Enter += new System.EventHandler(this.TxtUserName_Enter);
             this.TxtUserName.Leave += new System.EventHandler(this.TxtUserName_Leave);
-            this.TxtUserName.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.TxtUserName_PreviewKeyDown);
             // 
             // BtnLogin
             // 
@@ -122,7 +121,7 @@
             this.BtnCancel.TabIndex = 11;
             this.BtnCancel.Text = "取消";
             this.BtnCancel.UseVisualStyleBackColor = true;
-            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click_1);
+            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // LoginForm
             // 
@@ -137,8 +136,10 @@
             this.Controls.Add(this.TxtPwd);
             this.Controls.Add(this.BtnLogin);
             this.Controls.Add(this.TxtUserName);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LoginForm";
             this.Text = "登录";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LoginForm_FormClosed);
             this.Load += new System.EventHandler(this.LoginForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

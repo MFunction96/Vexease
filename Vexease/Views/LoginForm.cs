@@ -11,6 +11,7 @@ namespace Vexease.Views
 {
     public partial class LoginForm : Form
     {
+        int t = 0;
         public LoginForm()
         {
             StartPosition = FormStartPosition.CenterScreen;
@@ -32,34 +33,29 @@ namespace Vexease.Views
         }
         protected override void OnClosing(CancelEventArgs e)
         {
-            var userForm = new UserForm()
+            if (t == 0)
             {
-                StartPosition = FormStartPosition.CenterScreen
-            };
-            userForm.ShowIcon = true;
-            userForm.Show();
+                var userForm = new UserForm();
+                userForm.Show();
+            }
+            
             base.OnClosing(e);
         }
+
         private void BtnOk_Click(object sender, EventArgs e)
         {
-            Close();
-            var admform = new AdmForm
-            {
-                StartPosition = FormStartPosition.CenterScreen,
-                ShowIcon = true
-            };
+            t = 1;
+            var admform = new AdmForm();            
             admform.Show();
+            Close();
+           
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {
+
             Close();
-            var userForm = new UserForm()
-            {
-                StartPosition = FormStartPosition.CenterScreen
-            };
-            userForm.ShowIcon = true;
-            userForm.Show();
+            
 
         }
 
@@ -111,22 +107,7 @@ namespace Vexease.Views
 
         }
 
-        private void BtnCancel_Click_1(object sender, EventArgs e)
-        {
-            var userForm = new UserForm()
-            {
-                StartPosition = FormStartPosition.CenterScreen
-            };
-            userForm.ShowIcon = true;
-            userForm.Show();
-        }
-
-        private void TxtUserName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TxtUserName_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
         {
 
         }

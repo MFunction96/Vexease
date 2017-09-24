@@ -63,8 +63,8 @@ using static System.Windows.Forms.ControlStyles;
  
              if (_checkStyle == CheckStyle.Style1)
              {
-                 bitMapOn = Properties.Resources.btn1;
-                 bitMapOff = Properties.Resources.btn2;
+                 bitMapOn = Properties.Resources.CheckBtnOpen;
+                 bitMapOff = Properties.Resources.CheckBtnClose;
              }
              else if (_checkStyle == CheckStyle.Style2)
              {

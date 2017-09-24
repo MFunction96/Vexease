@@ -52,13 +52,10 @@ namespace Vexease.Views
 
         private void BtnSwitchToAdmMode_Click(object sender, EventArgs e)
         {
-            Hide();
-            var loginform = new LoginForm
-            {
-                ShowIcon = true
-            };
+
+            var loginform = new LoginForm();            
             loginform.Show();
-            
+            Hide();
         }
 
        

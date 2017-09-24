@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OnClosingForm));
             this.LblOnClosing = new System.Windows.Forms.Label();
             this.RdoMin = new System.Windows.Forms.RadioButton();
             this.RdoClose = new System.Windows.Forms.RadioButton();
@@ -96,6 +97,7 @@
             this.Controls.Add(this.RdoClose);
             this.Controls.Add(this.RdoMin);
             this.Controls.Add(this.LblOnClosing);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OnClosingForm";
             this.Text = "关闭提示";
             this.Load += new System.EventHandler(this.OnClosingForm_Load);

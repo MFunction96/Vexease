@@ -121,11 +121,8 @@
   <data name="half2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\half2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="half" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\half.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btn1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btn1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="black" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="背景" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\背景.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -133,7 +130,19 @@
   <data name="btn2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btn2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="black" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btn1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btn1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="half" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\half.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Set" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Set.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CheckBtnClose" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CheckBtnClose1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CheckBtnOpen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CheckBtnOpen1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

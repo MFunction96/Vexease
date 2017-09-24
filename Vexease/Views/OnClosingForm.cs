@@ -40,8 +40,7 @@ namespace Vexease.Views
             else if (RdoClose.Checked == true)
             {
                 t = 1;
-               
-                Hide();
+                               Hide();
             }      
         }
     }

@@ -76,10 +76,11 @@ namespace Vexease.Views
               Application.DoEvents();
              if (onclosingForm.t==0)
               {
-                  //t=0,最小化
+                //t=0,最小化
 
-                  WindowState = FormWindowState.Minimized;
+                Hide();
                   NotifyIcon.Visible = true;//托盘图标可见
+                onclosingForm.Close();
               }
               else if(onclosingForm.t==1)
               {
@@ -540,6 +541,9 @@ namespace Vexease.Views
             }
         }
 
-       
+        private void NotifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Show();
+        }
     }
 }

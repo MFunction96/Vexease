@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetIPForm));
             this.LblIP = new System.Windows.Forms.Label();
             this.LblIPNow = new System.Windows.Forms.Label();
             this.LblIPSet = new System.Windows.Forms.Label();
@@ -113,6 +114,7 @@
             this.Controls.Add(this.LblIPSet);
             this.Controls.Add(this.LblIPNow);
             this.Controls.Add(this.LblIP);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SetIPForm";
             this.Text = "管理终端设置";
             this.Load += new System.EventHandler(this.SetIPForm_Load);

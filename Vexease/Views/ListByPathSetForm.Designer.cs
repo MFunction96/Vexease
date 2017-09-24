@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             "第一项变量",
             "C:第一项的值"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
             "第一项变量",
             "C:第一项的值"}, -1);
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListByPathSetForm));
             this.GBBListSetByPath = new System.Windows.Forms.GroupBox();
             this.BtnEditBItem = new System.Windows.Forms.Button();
             this.BtnCancelBItm = new System.Windows.Forms.Button();
@@ -107,7 +108,7 @@
             this.LvBListByPath.FullRowSelect = true;
             this.LvBListByPath.GridLines = true;
             this.LvBListByPath.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem5});
+            listViewItem1});
             this.LvBListByPath.LabelEdit = true;
             this.LvBListByPath.LabelWrap = false;
             this.LvBListByPath.Location = new System.Drawing.Point(3, 21);
@@ -181,7 +182,7 @@
             this.LvWListByPath.FullRowSelect = true;
             this.LvWListByPath.GridLines = true;
             this.LvWListByPath.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem6});
+            listViewItem2});
             this.LvWListByPath.LabelEdit = true;
             this.LvWListByPath.LabelWrap = false;
             this.LvWListByPath.Location = new System.Drawing.Point(3, 21);
@@ -231,6 +232,7 @@
             this.Controls.Add(this.BtnOk);
             this.Controls.Add(this.GBWListByPath);
             this.Controls.Add(this.GBBListSetByPath);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ListByPathSetForm";
             this.Text = "进程黑白名单（路径）设置";
             this.Load += new System.EventHandler(this.WListSetForm_Load);
