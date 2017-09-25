@@ -29,26 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
-            this.TxtUserName = new System.Windows.Forms.TextBox();
             this.BtnLogin = new System.Windows.Forms.Button();
             this.TxtPwd = new System.Windows.Forms.MaskedTextBox();
             this.LblTitle = new System.Windows.Forms.Label();
-            this.LblRegister = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.LblForgetPwd = new System.Windows.Forms.Label();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // TxtUserName
-            // 
-            this.TxtUserName.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.TxtUserName.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.TxtUserName.Location = new System.Drawing.Point(100, 108);
-            this.TxtUserName.Name = "TxtUserName";
-            this.TxtUserName.Size = new System.Drawing.Size(300, 28);
-            this.TxtUserName.TabIndex = 0;
-            this.TxtUserName.Enter += new System.EventHandler(this.TxtUserName_Enter);
-            this.TxtUserName.Leave += new System.EventHandler(this.TxtUserName_Leave);
             // 
             // BtnLogin
             // 
@@ -81,37 +66,6 @@
             this.LblTitle.TabIndex = 7;
             this.LblTitle.Text = "Vexease";
             // 
-            // LblRegister
-            // 
-            this.LblRegister.AutoSize = true;
-            this.LblRegister.Font = new System.Drawing.Font("宋体", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.LblRegister.Location = new System.Drawing.Point(261, 280);
-            this.LblRegister.Name = "LblRegister";
-            this.LblRegister.Size = new System.Drawing.Size(35, 14);
-            this.LblRegister.TabIndex = 8;
-            this.LblRegister.Text = "注册";
-            this.LblRegister.Click += new System.EventHandler(this.LblRegister_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(302, 280);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(15, 15);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "|";
-            // 
-            // LblForgetPwd
-            // 
-            this.LblForgetPwd.AutoSize = true;
-            this.LblForgetPwd.Font = new System.Drawing.Font("宋体", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.LblForgetPwd.Location = new System.Drawing.Point(323, 280);
-            this.LblForgetPwd.Name = "LblForgetPwd";
-            this.LblForgetPwd.Size = new System.Drawing.Size(77, 14);
-            this.LblForgetPwd.TabIndex = 10;
-            this.LblForgetPwd.Text = "忘记密码？";
-            this.LblForgetPwd.Click += new System.EventHandler(this.LblForgetPwd_Click);
-            // 
             // BtnCancel
             // 
             this.BtnCancel.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -129,13 +83,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(482, 303);
             this.Controls.Add(this.BtnCancel);
-            this.Controls.Add(this.LblForgetPwd);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.LblRegister);
             this.Controls.Add(this.LblTitle);
             this.Controls.Add(this.TxtPwd);
             this.Controls.Add(this.BtnLogin);
-            this.Controls.Add(this.TxtUserName);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LoginForm";
             this.Text = "登录";
@@ -147,13 +97,9 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox TxtUserName;
         private System.Windows.Forms.Button BtnLogin;
         private System.Windows.Forms.MaskedTextBox TxtPwd;
         private System.Windows.Forms.Label LblTitle;
-        private System.Windows.Forms.Label LblRegister;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label LblForgetPwd;
         private System.Windows.Forms.Button BtnCancel;
     }
 }
