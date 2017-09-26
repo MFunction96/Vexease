@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Vexease.Controllers.Cryptography
+namespace AESCrypt
 {
     /// <summary>
     /// AESCrypt Controller

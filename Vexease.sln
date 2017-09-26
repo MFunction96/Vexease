@@ -1,9 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.3
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vexease", "Vexease\Vexease.csproj", "{A36892E7-0EB7-44E3-A031-99CF522D30ED}"
+	ProjectSection(ProjectDependencies) = postProject
+		{521C1271-C3F0-499A-849E-61B43549C448} = {521C1271-C3F0-499A-849E-61B43549C448}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AESCrypt", "AESCrypt\AESCrypt.csproj", "{521C1271-C3F0-499A-849E-61B43549C448}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperVexease", "SuperVexease\SuperVexease.csproj", "{9567FA7D-6F3F-4DBD-9361-BFA7B7E9EF04}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +22,14 @@ Global
 		{A36892E7-0EB7-44E3-A031-99CF522D30ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A36892E7-0EB7-44E3-A031-99CF522D30ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A36892E7-0EB7-44E3-A031-99CF522D30ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{521C1271-C3F0-499A-849E-61B43549C448}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{521C1271-C3F0-499A-849E-61B43549C448}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{521C1271-C3F0-499A-849E-61B43549C448}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{521C1271-C3F0-499A-849E-61B43549C448}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9567FA7D-6F3F-4DBD-9361-BFA7B7E9EF04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9567FA7D-6F3F-4DBD-9361-BFA7B7E9EF04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9567FA7D-6F3F-4DBD-9361-BFA7B7E9EF04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9567FA7D-6F3F-4DBD-9361-BFA7B7E9EF04}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

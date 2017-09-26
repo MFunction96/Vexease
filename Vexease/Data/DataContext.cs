@@ -15,6 +15,12 @@ namespace Vexease.Data
     /// </summary>
     public class DataContext
     {
+        // {1BB077CA-FEC5-479F-AA85-11CDFBFA4042}
+        public static Guid GUID => new Guid("1BB077CA-FEC5-479F-AA85-11CDFBFA4042");
+        /// <summary>
+        /// 程序密码信息
+        /// </summary>
+        public static RegKey Password { get; private set; }
         /// <summary>
         /// 进程路径限制注册表信息。
         /// On为启动限制。
@@ -277,6 +283,10 @@ namespace Vexease.Data
             offreg[1] = new RegStore(regp, RegistryValueKind.String, str, false);
             return new RegStatus(onreg, offreg);
         }
+        private static RegKey InitPwd()
+        {
+            return RegCtrl.RegGetValue(new RegPath(REG_ROOT_KEY.HKEY_CLASSES_ROOT, @"CLSID\{1BB077CA-FEC5-479F-AA85-11CDFBFA4042}", AESCrypt.AESCrypt.Encrypt(@"Password")));
+        }
         /// <summary>
         /// 刷新当前注册表记录状态。
         /// </summary>
@@ -297,6 +307,7 @@ namespace Vexease.Data
             CtrlPal = InitCtrlPal();
             Mmc = InitMmc();
             PwrShell = InitPwrShell();
+            Password = InitPwd();
         }
         /// <summary>
         /// 获取进程信息注册表路径。

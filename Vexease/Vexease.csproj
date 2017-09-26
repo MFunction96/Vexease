@@ -60,6 +60,13 @@
   <PropertyGroup>
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CSkin">
       <HintPath>Resources\CSkin.dll</HintPath>
@@ -82,7 +89,6 @@
   <ItemGroup>
     <Compile Include="Controllers\Comparer\NameComparer.cs" />
     <Compile Include="Controllers\Comparer\PathComparer.cs" />
-    <Compile Include="Controllers\Cryptography\AESCrypt.cs" />
     <Compile Include="Controllers\DismCtrl\DismCtrl.cs" />
     <Compile Include="Controllers\ListCtrl\ListCtrl.cs" />
     <Compile Include="Controllers\TaskCtrl\TaskCtrl.cs" />
@@ -259,6 +265,11 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\AESCrypt\AESCrypt.csproj">
+      <Project>{521c1271-c3f0-499a-849e-61b43549c448}</Project>
+      <Name>AESCrypt</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

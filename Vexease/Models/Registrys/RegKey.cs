@@ -1,8 +1,8 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Xml;
-using Vexease.Controllers.Cryptography;
 using Vexease.Models.Enums;
+using AESCrypt;
 
 namespace Vexease.Models.Registrys
 {
@@ -100,8 +100,8 @@ namespace Vexease.Models.Registrys
         protected new void MidExport(XmlTextWriter writer, string name)
         {
             base.MidExport(writer, name);
-            writer.WriteAttributeString("lpkind", AESCrypt.Encrypt(LpKind.ToString()));
-            writer.WriteAttributeString("lpvalue", AESCrypt.Encrypt(LpValue.ToString()));
+            writer.WriteAttributeString("lpkind", AESCrypt.AESCrypt.Encrypt(LpKind.ToString()));
+            writer.WriteAttributeString("lpvalue", AESCrypt.AESCrypt.Encrypt(LpValue.ToString()));
         }
         /// <summary>
         /// 获取注册表路径信息。
