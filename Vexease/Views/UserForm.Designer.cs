@@ -370,7 +370,7 @@
             this.LblCmd.Name = "LblCmd";
             this.LblCmd.Size = new System.Drawing.Size(277, 41);
             this.LblCmd.TabIndex = 9;
-            this.LblCmd.Text = "命令指示符状态";
+            this.LblCmd.Text = "命令提示符状态";
             this.LblCmd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.LblCmd.UseCompatibleTextRendering = true;
             // 

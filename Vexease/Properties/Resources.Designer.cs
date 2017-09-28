@@ -123,9 +123,29 @@ namespace Vexease.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap half1 {
+            get {
+                object obj = ResourceManager.GetObject("half1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap half2 {
             get {
                 object obj = ResourceManager.GetObject("half2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap QQ图片20170928165258 {
+            get {
+                object obj = ResourceManager.GetObject("QQ图片20170928165258", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

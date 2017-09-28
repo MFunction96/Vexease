@@ -93,7 +93,7 @@
             "--",
             "--"}, -1);
             System.Windows.Forms.ListViewItem listViewItem23 = new System.Windows.Forms.ListViewItem(new string[] {
-            "命令指示符状态",
+            "命令提示符状态",
             "--",
             "--"}, -1);
             System.Windows.Forms.ListViewItem listViewItem24 = new System.Windows.Forms.ListViewItem(new string[] {

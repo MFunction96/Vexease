@@ -255,17 +255,7 @@ namespace Vexease.Views
             }
         }
 
-        private void LblOptimization_DoubleClick(object sender, EventArgs e)
-        {
-            if (Btnyouhua.Height == 0)
-            {
-                Btnyouhua.Height = 30;
-            }
-            else
-            {
-                Btnyouhua.Height = 0;
-            }
-        }
+      
 
         //
         //方法
@@ -544,6 +534,46 @@ namespace Vexease.Views
         private void NotifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             Show();
+        }
+
+        private void PageInstruction_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LblIcon_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RTxtBoxAbout_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LblCreater1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("explorer.exe", "https://github.com/MFunction96");
+        }
+
+        private void PageAbout_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LblCreater2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("explorer.exe", "https://github.com/hlys");
+        }
+
+        private void LblCreater3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("explorer.exe", "https://github.com/ChrisYoung96");
         }
     }
 }

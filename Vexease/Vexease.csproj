@@ -250,6 +250,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\CheckBtnClose.png" />
+    <None Include="Resources\QQ图片20170928165258.png" />
     <None Include="Resources\CheckBtnClose1.png" />
     <Content Include="Resources\CheckBtnOpen.png" />
     <None Include="Resources\CheckBtnOpen1.png" />
