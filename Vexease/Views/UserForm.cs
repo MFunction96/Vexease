@@ -26,7 +26,7 @@ namespace Vexease.Views
             //ControlBox = false;//上面三个按钮隐藏,以后用...
             //ShowInTaskbar = false;//不在任务栏上显示
             FormBorderStyle = FormBorderStyle.FixedSingle;//不可调整大小。可包括控件菜单栏、标题栏、“最大化”按钮和“最小化”按钮。只能使用“最大化”和“最小化”按钮改变大小。创建单线边框。
-
+            Colwidth(LvUser);
         }
 
         /*用户界面可以关闭
@@ -57,7 +57,33 @@ namespace Vexease.Views
             loginform.Show();
             Hide();
         }
+        //
+        //方法
+        //
 
-       
+        private void Colwidth(ListView listview)
+        {
+            foreach (ColumnHeader item in listview.Columns)
+            {
+                switch (item.Text)
+                {
+                    case "名称":
+                        item.Width = listview.Width / 3 - 2;
+                        break;
+                    case "默认状态":
+                        item.Width = listview.Width / 3 - 2;
+                        break;
+
+                    case "当前状态":
+                        item.Width = listview.Width / 3- 2;
+                        break;
+
+                    default:
+                        item.Width = -2;
+                        break;
+                }
+            }
+        }
+
     }
 }
