@@ -81,6 +81,8 @@
             // 
             // LvUser
             // 
+            this.LvUser.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.LvUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.LvUser.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ColName,
             this.ColDflt,

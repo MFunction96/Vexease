@@ -28,14 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
-            "第一项变量",
-            "C:第一项的值"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("idonotknow");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Steam.exe");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BandWListSetForm));
             this.GBBListByName = new System.Windows.Forms.GroupBox();
             this.BtnEditBitem = new System.Windows.Forms.Button();
-            this.BtnCancelBItem = new System.Windows.Forms.Button();
+            this.BtnDeleteBItem = new System.Windows.Forms.Button();
             this.BtnNewBItem = new System.Windows.Forms.Button();
             this.LvBListByName = new System.Windows.Forms.ListView();
             this.ColBListByName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -47,7 +44,7 @@
             // GBBListByName
             // 
             this.GBBListByName.Controls.Add(this.BtnEditBitem);
-            this.GBBListByName.Controls.Add(this.BtnCancelBItem);
+            this.GBBListByName.Controls.Add(this.BtnDeleteBItem);
             this.GBBListByName.Controls.Add(this.BtnNewBItem);
             this.GBBListByName.Controls.Add(this.LvBListByName);
             this.GBBListByName.Location = new System.Drawing.Point(40, 40);
@@ -66,14 +63,14 @@
             this.BtnEditBitem.Text = "编辑";
             this.BtnEditBitem.UseVisualStyleBackColor = true;
             // 
-            // BtnCancelBItem
+            // BtnDeleteBItem
             // 
-            this.BtnCancelBItem.Location = new System.Drawing.Point(624, 205);
-            this.BtnCancelBItem.Name = "BtnCancelBItem";
-            this.BtnCancelBItem.Size = new System.Drawing.Size(90, 30);
-            this.BtnCancelBItem.TabIndex = 3;
-            this.BtnCancelBItem.Text = "删除";
-            this.BtnCancelBItem.UseVisualStyleBackColor = true;
+            this.BtnDeleteBItem.Location = new System.Drawing.Point(624, 205);
+            this.BtnDeleteBItem.Name = "BtnDeleteBItem";
+            this.BtnDeleteBItem.Size = new System.Drawing.Size(90, 30);
+            this.BtnDeleteBItem.TabIndex = 3;
+            this.BtnDeleteBItem.Text = "删除";
+            this.BtnDeleteBItem.UseVisualStyleBackColor = true;
             // 
             // BtnNewBItem
             // 
@@ -86,6 +83,7 @@
             // 
             // LvBListByName
             // 
+            this.LvBListByName.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.LvBListByName.Alignment = System.Windows.Forms.ListViewAlignment.Left;
             this.LvBListByName.AllowDrop = true;
             this.LvBListByName.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -94,9 +92,7 @@
             this.LvBListByName.FullRowSelect = true;
             this.LvBListByName.GridLines = true;
             this.LvBListByName.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2});
-            this.LvBListByName.LabelEdit = true;
+            listViewItem1});
             this.LvBListByName.LabelWrap = false;
             this.LvBListByName.Location = new System.Drawing.Point(3, 21);
             this.LvBListByName.MultiSelect = false;
@@ -104,10 +100,11 @@
             this.LvBListByName.Size = new System.Drawing.Size(610, 226);
             this.LvBListByName.TabIndex = 1;
             this.LvBListByName.UseCompatibleStateImageBehavior = false;
-            this.LvBListByName.View = System.Windows.Forms.View.List;
+            this.LvBListByName.View = System.Windows.Forms.View.Details;
             // 
             // ColBListByName
             // 
+            this.ColBListByName.Text = "名称";
             this.ColBListByName.Width = 604;
             // 
             // BtnOk
@@ -151,7 +148,7 @@
         private System.Windows.Forms.GroupBox GBBListByName;
         private System.Windows.Forms.ListView LvBListByName;
         private System.Windows.Forms.Button BtnEditBitem;
-        private System.Windows.Forms.Button BtnCancelBItem;
+        private System.Windows.Forms.Button BtnDeleteBItem;
         private System.Windows.Forms.Button BtnNewBItem;
         private System.Windows.Forms.Button BtnOk;
         private System.Windows.Forms.Button BtnCancel;

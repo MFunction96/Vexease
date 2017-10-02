@@ -52,9 +52,9 @@
             this.LblIPNow.AutoSize = true;
             this.LblIPNow.Location = new System.Drawing.Point(223, 71);
             this.LblIPNow.Name = "LblIPNow";
-            this.LblIPNow.Size = new System.Drawing.Size(53, 15);
+            this.LblIPNow.Size = new System.Drawing.Size(119, 15);
             this.LblIPNow.TabIndex = 1;
-            this.LblIPNow.Text = "暂无IP";
+            this.LblIPNow.Text = "121.194.80.191";
             // 
             // LblIPSet
             // 
@@ -74,7 +74,7 @@
             // 
             // BtnTest
             // 
-            this.BtnTest.Location = new System.Drawing.Point(187, 198);
+            this.BtnTest.Location = new System.Drawing.Point(226, 198);
             this.BtnTest.Name = "BtnTest";
             this.BtnTest.Size = new System.Drawing.Size(75, 30);
             this.BtnTest.TabIndex = 4;
@@ -84,13 +84,14 @@
             // 
             // BtnOk
             // 
-            this.BtnOk.Location = new System.Drawing.Point(187, 198);
+            this.BtnOk.Location = new System.Drawing.Point(226, 198);
             this.BtnOk.Name = "BtnOk";
             this.BtnOk.Size = new System.Drawing.Size(75, 30);
             this.BtnOk.TabIndex = 5;
             this.BtnOk.Text = "确定";
             this.BtnOk.UseVisualStyleBackColor = true;
             this.BtnOk.Visible = false;
+            this.BtnOk.Click += new System.EventHandler(this.BtnOk_Click);
             // 
             // BtnCancel
             // 

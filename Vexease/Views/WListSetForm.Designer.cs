@@ -29,15 +29,14 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
-            "第一项变量",
+            "cloudmusic.exe",
             "C:第一项的值"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("idonotknow");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WListSetForm));
             this.BtnCancel = new System.Windows.Forms.Button();
             this.BtnOk = new System.Windows.Forms.Button();
             this.GBWListByName = new System.Windows.Forms.GroupBox();
             this.BtnEditWItem = new System.Windows.Forms.Button();
-            this.BtnCancelWItem = new System.Windows.Forms.Button();
+            this.BtnDeleteWItem = new System.Windows.Forms.Button();
             this.BtnNewWItem = new System.Windows.Forms.Button();
             this.LvWListByName = new System.Windows.Forms.ListView();
             this.ColBListByName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -67,7 +66,7 @@
             // GBWListByName
             // 
             this.GBWListByName.Controls.Add(this.BtnEditWItem);
-            this.GBWListByName.Controls.Add(this.BtnCancelWItem);
+            this.GBWListByName.Controls.Add(this.BtnDeleteWItem);
             this.GBWListByName.Controls.Add(this.BtnNewWItem);
             this.GBWListByName.Controls.Add(this.LvWListByName);
             this.GBWListByName.Location = new System.Drawing.Point(31, 26);
@@ -86,14 +85,14 @@
             this.BtnEditWItem.Text = "编辑";
             this.BtnEditWItem.UseVisualStyleBackColor = true;
             // 
-            // BtnCancelWItem
+            // BtnDeleteWItem
             // 
-            this.BtnCancelWItem.Location = new System.Drawing.Point(624, 205);
-            this.BtnCancelWItem.Name = "BtnCancelWItem";
-            this.BtnCancelWItem.Size = new System.Drawing.Size(90, 30);
-            this.BtnCancelWItem.TabIndex = 3;
-            this.BtnCancelWItem.Text = "删除";
-            this.BtnCancelWItem.UseVisualStyleBackColor = true;
+            this.BtnDeleteWItem.Location = new System.Drawing.Point(624, 205);
+            this.BtnDeleteWItem.Name = "BtnDeleteWItem";
+            this.BtnDeleteWItem.Size = new System.Drawing.Size(90, 30);
+            this.BtnDeleteWItem.TabIndex = 3;
+            this.BtnDeleteWItem.Text = "删除";
+            this.BtnDeleteWItem.UseVisualStyleBackColor = true;
             // 
             // BtnNewWItem
             // 
@@ -114,8 +113,7 @@
             this.LvWListByName.FullRowSelect = true;
             this.LvWListByName.GridLines = true;
             this.LvWListByName.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2});
+            listViewItem1});
             this.LvWListByName.LabelEdit = true;
             this.LvWListByName.LabelWrap = false;
             this.LvWListByName.Location = new System.Drawing.Point(3, 21);
@@ -124,10 +122,11 @@
             this.LvWListByName.Size = new System.Drawing.Size(610, 226);
             this.LvWListByName.TabIndex = 1;
             this.LvWListByName.UseCompatibleStateImageBehavior = false;
-            this.LvWListByName.View = System.Windows.Forms.View.List;
+            this.LvWListByName.View = System.Windows.Forms.View.Details;
             // 
             // ColBListByName
             // 
+            this.ColBListByName.Text = "名称";
             this.ColBListByName.Width = 604;
             // 
             // WListSetForm
@@ -153,7 +152,7 @@
         private System.Windows.Forms.Button BtnOk;
         private System.Windows.Forms.GroupBox GBWListByName;
         private System.Windows.Forms.Button BtnEditWItem;
-        private System.Windows.Forms.Button BtnCancelWItem;
+        private System.Windows.Forms.Button BtnDeleteWItem;
         private System.Windows.Forms.Button BtnNewWItem;
         private System.Windows.Forms.ListView LvWListByName;
         private System.Windows.Forms.ColumnHeader ColBListByName;

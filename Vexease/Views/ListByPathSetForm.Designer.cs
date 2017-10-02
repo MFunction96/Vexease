@@ -29,22 +29,22 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
-            "第一项变量",
-            "C:第一项的值"}, -1);
+            "OneDrive",
+            "C:\\Users\\HLYS\\OneDrive"}, -1);
             System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
-            "第一项变量",
-            "C:第一项的值"}, -1);
+            "videocutter.exe",
+            "D:\\cci\\视频剪切合并器"}, -1);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListByPathSetForm));
             this.GBBListSetByPath = new System.Windows.Forms.GroupBox();
             this.BtnEditBItem = new System.Windows.Forms.Button();
-            this.BtnCancelBItm = new System.Windows.Forms.Button();
+            this.BtnDeleteBItem = new System.Windows.Forms.Button();
             this.BtnNewBItem = new System.Windows.Forms.Button();
             this.LvBListByPath = new System.Windows.Forms.ListView();
             this.ColBListVar = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ColBListValue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.GBWListByPath = new System.Windows.Forms.GroupBox();
             this.BtnEditWItem = new System.Windows.Forms.Button();
-            this.BtnCancelWItem = new System.Windows.Forms.Button();
+            this.BtnDeleteWItem = new System.Windows.Forms.Button();
             this.BtnNewWItem = new System.Windows.Forms.Button();
             this.LvWListByPath = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -60,7 +60,7 @@
             this.GBBListSetByPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.GBBListSetByPath.Controls.Add(this.BtnEditBItem);
-            this.GBBListSetByPath.Controls.Add(this.BtnCancelBItm);
+            this.GBBListSetByPath.Controls.Add(this.BtnDeleteBItem);
             this.GBBListSetByPath.Controls.Add(this.BtnNewBItem);
             this.GBBListSetByPath.Controls.Add(this.LvBListByPath);
             this.GBBListSetByPath.Location = new System.Drawing.Point(40, 40);
@@ -79,14 +79,14 @@
             this.BtnEditBItem.Text = "编辑";
             this.BtnEditBItem.UseVisualStyleBackColor = true;
             // 
-            // BtnCancelBItm
+            // BtnDeleteBItem
             // 
-            this.BtnCancelBItm.Location = new System.Drawing.Point(614, 255);
-            this.BtnCancelBItm.Name = "BtnCancelBItm";
-            this.BtnCancelBItm.Size = new System.Drawing.Size(90, 30);
-            this.BtnCancelBItm.TabIndex = 2;
-            this.BtnCancelBItm.Text = "删除";
-            this.BtnCancelBItm.UseVisualStyleBackColor = true;
+            this.BtnDeleteBItem.Location = new System.Drawing.Point(614, 255);
+            this.BtnDeleteBItem.Name = "BtnDeleteBItem";
+            this.BtnDeleteBItem.Size = new System.Drawing.Size(90, 30);
+            this.BtnDeleteBItem.TabIndex = 2;
+            this.BtnDeleteBItem.Text = "删除";
+            this.BtnDeleteBItem.UseVisualStyleBackColor = true;
             // 
             // BtnNewBItem
             // 
@@ -134,7 +134,7 @@
             this.GBWListByPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.GBWListByPath.Controls.Add(this.BtnEditWItem);
-            this.GBWListByPath.Controls.Add(this.BtnCancelWItem);
+            this.GBWListByPath.Controls.Add(this.BtnDeleteWItem);
             this.GBWListByPath.Controls.Add(this.BtnNewWItem);
             this.GBWListByPath.Controls.Add(this.LvWListByPath);
             this.GBWListByPath.Location = new System.Drawing.Point(40, 380);
@@ -153,14 +153,14 @@
             this.BtnEditWItem.Text = "编辑";
             this.BtnEditWItem.UseVisualStyleBackColor = true;
             // 
-            // BtnCancelWItem
+            // BtnDeleteWItem
             // 
-            this.BtnCancelWItem.Location = new System.Drawing.Point(614, 255);
-            this.BtnCancelWItem.Name = "BtnCancelWItem";
-            this.BtnCancelWItem.Size = new System.Drawing.Size(90, 30);
-            this.BtnCancelWItem.TabIndex = 2;
-            this.BtnCancelWItem.Text = "删除";
-            this.BtnCancelWItem.UseVisualStyleBackColor = true;
+            this.BtnDeleteWItem.Location = new System.Drawing.Point(614, 255);
+            this.BtnDeleteWItem.Name = "BtnDeleteWItem";
+            this.BtnDeleteWItem.Size = new System.Drawing.Size(90, 30);
+            this.BtnDeleteWItem.TabIndex = 2;
+            this.BtnDeleteWItem.Text = "删除";
+            this.BtnDeleteWItem.UseVisualStyleBackColor = true;
             // 
             // BtnNewWItem
             // 
@@ -249,11 +249,11 @@
         private System.Windows.Forms.ColumnHeader ColBListVar;
         private System.Windows.Forms.ColumnHeader ColBListValue;
         private System.Windows.Forms.Button BtnEditBItem;
-        private System.Windows.Forms.Button BtnCancelBItm;
+        private System.Windows.Forms.Button BtnDeleteBItem;
         private System.Windows.Forms.Button BtnNewBItem;
         private System.Windows.Forms.GroupBox GBWListByPath;
         private System.Windows.Forms.Button BtnEditWItem;
-        private System.Windows.Forms.Button BtnCancelWItem;
+        private System.Windows.Forms.Button BtnDeleteWItem;
         private System.Windows.Forms.Button BtnNewWItem;
         private System.Windows.Forms.ListView LvWListByPath;
         private System.Windows.Forms.ColumnHeader columnHeader1;

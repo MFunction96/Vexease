@@ -131,7 +131,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAABI
-        CAAAAk1TRnQBSQFMAgEBAgEAAQgBBAEIAQQBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        CAAAAk1TRnQBSQFMAgEBAgEAATgBBAE4AQQBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAARADAAEBAQABCAYAAQQYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -867,29 +867,17 @@
     <value>注册表（Registry，繁体中文版Windows操作系统称之为登录档）
 	是Microsoft Windows中的一个重要的数据库，用于存储系统和应用程序的设置信息。早在Windows 3.0推出OLE技术的时候，注册表就已经出现。随后推出的Windows NT是第一个从系统级别广泛使用注册表的操作系统。但是，从Microsoft Windows 95操作系统开始，注册表才真正成为Windows用户经常接触的内容，并在其后的操作系统中继续沿用至今。</value>
   </data>
-  <data name="richTextBox4.Text" xml:space="preserve">
+  <data name="RTxtBoxTaskMgr.Text" xml:space="preserve">
     <value>Windows任务管理器
 	提供了有关计算机性能的信息，并显示了计算机上所运行的程序和进程的详细信息；如果连接到网络，那么还可以查看网络状态并迅速了解网络是如何工作的。它的用户界面提供了文件、选项、查看、窗口、关机、帮助等六大菜单项，其下还有应用程序、进程、性能、联网、用户等五个标签页，窗口底部则是状态栏，从这里可以查看到当前系统的进程数、CPU使用比率、更改的内存&lt;容量等数据，默认设置下系统每隔两秒钟对数据进行1次自动更新，也可以点击“查看→更新速度”菜单重新设置。</value>
   </data>
-  <data name="richTextBox5.Text" xml:space="preserve">
+  <data name="RTxtBoxCMD.Text" xml:space="preserve">
     <value>命令提示符
 	是在操作系统中，提示进行命令输入的一种工作提示符。在不同的操作系统环境下，命令提示符各不相同。在windows环境下，命令行程序为cmd.exe，是一个32位的命令行程序，微软Windows系统基于Windows上的命令解释程序，类似于微软的DOS操作系统。输入一些命令，cmd.exe可以执行，比如输入shutdown -s就会在30秒后关机。总之，它非常有用。打开方法：开始-所有程序-附件 或 开始-寻找-输入：cmd/cmd.exe 回车。它也可以执行BAT文件。</value>
   </data>
-  <data name="richTextBox6.Text" xml:space="preserve">
+  <data name="RTxtBoxPS.Text" xml:space="preserve">
     <value>Windows PowerShell 
 	是一种命令行外壳程序和脚本环境，使命令行用户和脚本编写者可以利用 .NET Framework的强大功能。它引入了许多非常有用的新概念，从而进一步扩展了您在 Windows 命令提示符和 Windows Script Host 环境中获得的知识和创建的脚本。Windows PowerShell v3将伴随着Microsoft Hyper-V 3.0和Windows Server 2012发布。PowerShell v3是一个Windows任务自动化的框架，它由一个命令行shell和内置在这个.NET框架上的编程语言组成。PowerShell v3采用新的cmdlet让管理员能够更深入到系统进程中，这些进程可以制作成可执行的文件或脚本（script）。一条cmdlet是一条轻量命令，Windows PowerShell运行时间在自动化脚本的环境里调用它。Cmdlet包括显示当前目录的Get-Location，访问文件内容的Get-Content和结束运行进程的Stop-Process。PowerShell v3在Windows Server 8中装载了Windows Management Framework 3.0。PowerShell运行时间也能嵌入到其它应用。</value>
-  </data>
-  <data name="richTextBox7.Text" xml:space="preserve">
-    <value>黑名单
-	在网络SEO优化当中，搜索引擎或者义务用户收集的搜索引擎拉圾制造者列表，可以用于从搜索引擎封杀这些垃圾制造者，或者抵制他们。
-白名单
-	概念与“黑名单”相对应。例如：在电脑系统里，有很多软件都应用到了黑白名单规则，操作系统、防火墙、杀毒软件、邮件系统、应用软件等，凡是涉及到控制方面几乎都应用了黑白名单规则。黑名单启用后，被列入到黑名单的用户（或IP地址、IP包、邮件、病毒等）不能通过。如果设立了白名单，则在白名单中的用户（或IP地址、IP包、邮件等）会优先通过，不会被当成垃圾邮件拒收，安全性和快捷性都大大提高。将其含义扩展一步，那么凡有黑名单功能的应用，就会有白名单功能与其对应。
-黑名单（名称）
-	即通过增删程序名称的方式更改黑名单。
-白名单（名称）
-	即通过增删程序名称的方式更改白名单。
-黑白名单（路径）
-	即通过增删文件路径（Path）的方式更改黑白名单。</value>
   </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>
