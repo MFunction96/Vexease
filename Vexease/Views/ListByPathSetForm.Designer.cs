@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
-            "OneDrive",
-            "C:\\Users\\HLYS\\OneDrive"}, -1);
+            "QQScLauncher.exe",
+            "‪D:\\cci\\Bin\\QQScLauncher.exe"}, -1);
             System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
             "videocutter.exe",
             "D:\\cci\\视频剪切合并器"}, -1);
@@ -76,6 +76,7 @@
             this.BtnEditBItem.Name = "BtnEditBItem";
             this.BtnEditBItem.Size = new System.Drawing.Size(90, 30);
             this.BtnEditBItem.TabIndex = 3;
+            this.BtnEditBItem.TabStop = false;
             this.BtnEditBItem.Text = "编辑";
             this.BtnEditBItem.UseVisualStyleBackColor = true;
             // 
@@ -85,6 +86,7 @@
             this.BtnDeleteBItem.Name = "BtnDeleteBItem";
             this.BtnDeleteBItem.Size = new System.Drawing.Size(90, 30);
             this.BtnDeleteBItem.TabIndex = 2;
+            this.BtnDeleteBItem.TabStop = false;
             this.BtnDeleteBItem.Text = "删除";
             this.BtnDeleteBItem.UseVisualStyleBackColor = true;
             // 
@@ -94,6 +96,7 @@
             this.BtnNewBItem.Name = "BtnNewBItem";
             this.BtnNewBItem.Size = new System.Drawing.Size(90, 30);
             this.BtnNewBItem.TabIndex = 1;
+            this.BtnNewBItem.TabStop = false;
             this.BtnNewBItem.Text = "新建";
             this.BtnNewBItem.UseVisualStyleBackColor = true;
             // 
@@ -150,6 +153,7 @@
             this.BtnEditWItem.Name = "BtnEditWItem";
             this.BtnEditWItem.Size = new System.Drawing.Size(90, 30);
             this.BtnEditWItem.TabIndex = 3;
+            this.BtnEditWItem.TabStop = false;
             this.BtnEditWItem.Text = "编辑";
             this.BtnEditWItem.UseVisualStyleBackColor = true;
             // 
@@ -159,6 +163,7 @@
             this.BtnDeleteWItem.Name = "BtnDeleteWItem";
             this.BtnDeleteWItem.Size = new System.Drawing.Size(90, 30);
             this.BtnDeleteWItem.TabIndex = 2;
+            this.BtnDeleteWItem.TabStop = false;
             this.BtnDeleteWItem.Text = "删除";
             this.BtnDeleteWItem.UseVisualStyleBackColor = true;
             // 
@@ -168,6 +173,7 @@
             this.BtnNewWItem.Name = "BtnNewWItem";
             this.BtnNewWItem.Size = new System.Drawing.Size(90, 30);
             this.BtnNewWItem.TabIndex = 1;
+            this.BtnNewWItem.TabStop = false;
             this.BtnNewWItem.Text = "新建";
             this.BtnNewWItem.UseVisualStyleBackColor = true;
             // 
@@ -209,6 +215,7 @@
             this.BtnOk.Name = "BtnOk";
             this.BtnOk.Size = new System.Drawing.Size(90, 30);
             this.BtnOk.TabIndex = 2;
+            this.BtnOk.TabStop = false;
             this.BtnOk.Text = "确定";
             this.BtnOk.UseVisualStyleBackColor = true;
             this.BtnOk.Click += new System.EventHandler(this.BtnOk_Click);
@@ -219,6 +226,7 @@
             this.BtnCancel.Name = "BtnCancel";
             this.BtnCancel.Size = new System.Drawing.Size(90, 30);
             this.BtnCancel.TabIndex = 3;
+            this.BtnCancel.TabStop = false;
             this.BtnCancel.Text = "取消";
             this.BtnCancel.UseVisualStyleBackColor = true;
             this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);

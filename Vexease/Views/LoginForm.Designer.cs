@@ -42,6 +42,7 @@
             this.BtnLogin.Name = "BtnLogin";
             this.BtnLogin.Size = new System.Drawing.Size(300, 30);
             this.BtnLogin.TabIndex = 4;
+            this.BtnLogin.TabStop = false;
             this.BtnLogin.Text = "立即登录";
             this.BtnLogin.UseVisualStyleBackColor = true;
             this.BtnLogin.Click += new System.EventHandler(this.BtnOk_Click);
@@ -52,7 +53,7 @@
             this.TxtPwd.Location = new System.Drawing.Point(100, 156);
             this.TxtPwd.Name = "TxtPwd";
             this.TxtPwd.Size = new System.Drawing.Size(300, 28);
-            this.TxtPwd.TabIndex = 6;
+            this.TxtPwd.TabIndex = 1;
             this.TxtPwd.Enter += new System.EventHandler(this.TxtPwd_Enter);
             this.TxtPwd.Leave += new System.EventHandler(this.TxtPwd_Leave);
             // 
@@ -73,6 +74,7 @@
             this.BtnCancel.Name = "BtnCancel";
             this.BtnCancel.Size = new System.Drawing.Size(300, 30);
             this.BtnCancel.TabIndex = 11;
+            this.BtnCancel.TabStop = false;
             this.BtnCancel.Text = "取消";
             this.BtnCancel.UseVisualStyleBackColor = true;
             this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);

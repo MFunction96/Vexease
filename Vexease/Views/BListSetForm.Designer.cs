@@ -60,6 +60,7 @@
             this.BtnEditBitem.Name = "BtnEditBitem";
             this.BtnEditBitem.Size = new System.Drawing.Size(90, 30);
             this.BtnEditBitem.TabIndex = 4;
+            this.BtnEditBitem.TabStop = false;
             this.BtnEditBitem.Text = "编辑";
             this.BtnEditBitem.UseVisualStyleBackColor = true;
             // 
@@ -69,6 +70,7 @@
             this.BtnDeleteBItem.Name = "BtnDeleteBItem";
             this.BtnDeleteBItem.Size = new System.Drawing.Size(90, 30);
             this.BtnDeleteBItem.TabIndex = 3;
+            this.BtnDeleteBItem.TabStop = false;
             this.BtnDeleteBItem.Text = "删除";
             this.BtnDeleteBItem.UseVisualStyleBackColor = true;
             // 
@@ -78,6 +80,7 @@
             this.BtnNewBItem.Name = "BtnNewBItem";
             this.BtnNewBItem.Size = new System.Drawing.Size(90, 30);
             this.BtnNewBItem.TabIndex = 2;
+            this.BtnNewBItem.TabStop = false;
             this.BtnNewBItem.Text = "新建";
             this.BtnNewBItem.UseVisualStyleBackColor = true;
             // 
@@ -113,6 +116,7 @@
             this.BtnOk.Name = "BtnOk";
             this.BtnOk.Size = new System.Drawing.Size(90, 40);
             this.BtnOk.TabIndex = 4;
+            this.BtnOk.TabStop = false;
             this.BtnOk.Text = "确定";
             this.BtnOk.UseVisualStyleBackColor = true;
             this.BtnOk.Click += new System.EventHandler(this.BtnOk_Click);
@@ -123,6 +127,7 @@
             this.BtnCancel.Name = "BtnCancel";
             this.BtnCancel.Size = new System.Drawing.Size(90, 40);
             this.BtnCancel.TabIndex = 5;
+            this.BtnCancel.TabStop = false;
             this.BtnCancel.Text = "取消";
             this.BtnCancel.UseVisualStyleBackColor = true;
             this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);

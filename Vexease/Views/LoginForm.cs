@@ -24,7 +24,8 @@ namespace Vexease.Views
             //ControlBox = false;//上面三个按钮隐藏,以后用...
           
             FormBorderStyle = FormBorderStyle.FixedSingle;//不可调整大小。可包括控件菜单栏、标题栏、“最大化”按钮和“最小化”按钮。只能使用“最大化”和“最小化”按钮改变大小。创建单线边框。
-            BtnLogin.Focus();
+            TxtPwd.Focus();
+            // BtnLogin.Focus();
           //  TxtUserName.ForeColor = Color.FromArgb(255,128,128,128);
             TxtPwd.ForeColor = Color.FromArgb(255,128,128,128);
          //   TxtUserName.Text = "请输入用户名";

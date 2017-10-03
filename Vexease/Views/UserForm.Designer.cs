@@ -75,6 +75,7 @@
             this.BtnSwitchToAdmMode.Name = "BtnSwitchToAdmMode";
             this.BtnSwitchToAdmMode.Size = new System.Drawing.Size(154, 30);
             this.BtnSwitchToAdmMode.TabIndex = 1;
+            this.BtnSwitchToAdmMode.TabStop = false;
             this.BtnSwitchToAdmMode.Text = "切换至管理员模式";
             this.BtnSwitchToAdmMode.UseVisualStyleBackColor = true;
             this.BtnSwitchToAdmMode.Click += new System.EventHandler(this.BtnSwitchToAdmMode_Click);

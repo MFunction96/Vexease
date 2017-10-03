@@ -83,6 +83,7 @@
             this.BtnOk.Name = "BtnOk";
             this.BtnOk.Size = new System.Drawing.Size(75, 30);
             this.BtnOk.TabIndex = 6;
+            this.BtnOk.TabStop = false;
             this.BtnOk.Text = "确定";
             this.BtnOk.UseVisualStyleBackColor = true;
             this.BtnOk.Click += new System.EventHandler(this.BtnOk_Click);

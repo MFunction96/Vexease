@@ -119,7 +119,7 @@ using static System.Windows.Forms.ControlStyles;
  
          private void BtnYorN_Load(object sender, EventArgs e)
          {
- 
+            TabStop = false;
          }
      }
  }

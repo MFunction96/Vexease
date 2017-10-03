@@ -78,6 +78,7 @@
             this.BtnTest.Name = "BtnTest";
             this.BtnTest.Size = new System.Drawing.Size(75, 30);
             this.BtnTest.TabIndex = 4;
+            this.BtnTest.TabStop = false;
             this.BtnTest.Text = "测试";
             this.BtnTest.UseVisualStyleBackColor = true;
             this.BtnTest.Click += new System.EventHandler(this.BtnTest_Click);
@@ -88,6 +89,7 @@
             this.BtnOk.Name = "BtnOk";
             this.BtnOk.Size = new System.Drawing.Size(75, 30);
             this.BtnOk.TabIndex = 5;
+            this.BtnOk.TabStop = false;
             this.BtnOk.Text = "确定";
             this.BtnOk.UseVisualStyleBackColor = true;
             this.BtnOk.Visible = false;
@@ -99,6 +101,7 @@
             this.BtnCancel.Name = "BtnCancel";
             this.BtnCancel.Size = new System.Drawing.Size(75, 30);
             this.BtnCancel.TabIndex = 6;
+            this.BtnCancel.TabStop = false;
             this.BtnCancel.Text = "取消";
             this.BtnCancel.UseVisualStyleBackColor = true;
             this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
