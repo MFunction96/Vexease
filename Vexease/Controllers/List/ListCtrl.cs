@@ -4,7 +4,7 @@ using System.Linq;
 using Vexease.Data;
 using Vexease.Models.Enums;
 
-namespace Vexease.Controllers.ListCtrl
+namespace Vexease.Controllers.List
 {
     /// <summary>
     /// 列表控制器

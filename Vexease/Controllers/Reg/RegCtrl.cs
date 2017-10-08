@@ -7,7 +7,7 @@ using Vexease.Controllers.PInvoke;
 using Vexease.Models.Enums;
 using Vexease.Models.Registrys;
 
-namespace Vexease.Controllers.RegCtrl
+namespace Vexease.Controllers.Reg
 {
     /// <summary>
     /// 注册表控制器。

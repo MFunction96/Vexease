@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Vexease.Controllers.Reg;
 using Vexease.Data;
 using Vexease.Models.Enums;
 using Vexease.Models.Registrys;
@@ -71,13 +72,13 @@ namespace Vexease.Controllers.Status
                         }
                         else
                         {
-                            var regs = RegCtrl.RegCtrl.RegEnumValue(regStore.GetRegPath());
+                            var regs = RegCtrl.RegEnumValue(regStore.GetRegPath());
                             if (regs.All(reg => reg.LpValue != regStore.LpValue)) return RegOn = false;
                         }
                     }
                     else
                     {
-                        var reg = RegCtrl.RegCtrl.RegGetValue(regStore.GetRegPath());
+                        var reg = RegCtrl.RegGetValue(regStore.GetRegPath());
                         if (reg.LpValue != regStore.LpValue) return RegOn = false;
                     }
                 }
@@ -103,11 +104,11 @@ namespace Vexease.Controllers.Status
                 if (!reg.IsNecessary) continue;
                 if (reg.IsNull)
                 {
-                    RegCtrl.RegCtrl.RegDelKey(reg.GetRegPath());
+                    RegCtrl.RegDelKey(reg.GetRegPath());
                 }
                 else
                 {
-                    RegCtrl.RegCtrl.RegSetValue(reg.GetRegKey());
+                    RegCtrl.RegSetValue(reg.GetRegKey());
                 }
             }
             return RegOn = !RegOn;

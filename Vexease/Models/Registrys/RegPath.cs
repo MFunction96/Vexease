@@ -3,6 +3,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml;
+using Vexease.Controllers.Crypt;
 using Vexease.Models.Enums;
 
 namespace Vexease.Models.Registrys
@@ -107,9 +108,9 @@ namespace Vexease.Models.Registrys
         protected void MidExport(XmlTextWriter writer, string name)
         {
             writer.WriteStartElement(name, Guid.ToString());
-            writer.WriteAttributeString("hkey", AESCrypt.AESCrypt.Encrypt(HKey.ToString()));
-            writer.WriteAttributeString("lpsubkey", AESCrypt.AESCrypt.Encrypt(LpSubKey));
-            writer.WriteAttributeString("lpvaluename", AESCrypt.AESCrypt.Encrypt(LpValueName));
+            writer.WriteAttributeString("hkey", AESCrypt.Encrypt(HKey.ToString()));
+            writer.WriteAttributeString("lpsubkey", AESCrypt.Encrypt(LpSubKey));
+            writer.WriteAttributeString("lpvaluename", AESCrypt.Encrypt(LpValueName));
         }
         /// <summary>
         /// 导出注册表信息到XML。

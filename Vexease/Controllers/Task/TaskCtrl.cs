@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 using Vexease.Controllers.PInvoke;
 using Vexease.Models.Structures;
 
-namespace Vexease.Controllers.TaskCtrl
+namespace Vexease.Controllers.Task
 {
     /// <summary>
     /// 进程控制器，用于启动或终止进程。

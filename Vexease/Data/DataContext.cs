@@ -3,7 +3,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Vexease.Controllers.Comparer;
-using Vexease.Controllers.RegCtrl;
+using Vexease.Controllers.Crypt;
+using Vexease.Controllers.Reg;
 using Vexease.Controllers.Status;
 using Vexease.Models.Enums;
 using Vexease.Models.Registrys;
@@ -285,7 +286,7 @@ namespace Vexease.Data
         }
         private static RegKey InitPwd()
         {
-            return RegCtrl.RegGetValue(new RegPath(REG_ROOT_KEY.HKEY_CLASSES_ROOT, @"CLSID\{1BB077CA-FEC5-479F-AA85-11CDFBFA4042}", AESCrypt.AESCrypt.Encrypt(@"Password")));
+            return RegCtrl.RegGetValue(new RegPath(REG_ROOT_KEY.HKEY_CLASSES_ROOT, @"CLSID\{1BB077CA-FEC5-479F-AA85-11CDFBFA4042}", AESCrypt.Encrypt(@"Password")));
         }
         /// <summary>
         /// 刷新当前注册表记录状态。
