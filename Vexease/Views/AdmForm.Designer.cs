@@ -545,7 +545,7 @@ namespace Vexease.Views
             // 
             // TabCtrlAdm
             // 
-            this.TabCtrlAdm.Controls.Add(this.PageInstruction);
+          
             this.TabCtrlAdm.Controls.Add(this.PageAbout);
             this.TabCtrlAdm.Controls.Add(this.PageConsole);
             this.TabCtrlAdm.Controls.Add(this.PageRegustry);
@@ -557,6 +557,7 @@ namespace Vexease.Views
             this.TabCtrlAdm.Controls.Add(this.PagePS);
             this.TabCtrlAdm.Controls.Add(this.PageProcCtrl);
             this.TabCtrlAdm.Controls.Add(this.PageOptimization);
+            this.TabCtrlAdm.Controls.Add(this.PageInstruction);
             this.TabCtrlAdm.Dock = System.Windows.Forms.DockStyle.Top;
             this.TabCtrlAdm.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.TabCtrlAdm.ItemSize = new System.Drawing.Size(1, 1);
