@@ -45,6 +45,7 @@
             // 
             // BtnCancel
             // 
+            this.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCancel.Location = new System.Drawing.Point(642, 286);
             this.BtnCancel.Name = "BtnCancel";
             this.BtnCancel.Size = new System.Drawing.Size(90, 40);
@@ -56,6 +57,7 @@
             // 
             // BtnOk
             // 
+            this.BtnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnOk.Location = new System.Drawing.Point(531, 286);
             this.BtnOk.Name = "BtnOk";
             this.BtnOk.Size = new System.Drawing.Size(90, 40);
@@ -80,6 +82,7 @@
             // 
             // BtnEditWItem
             // 
+            this.BtnEditWItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnEditWItem.Location = new System.Drawing.Point(624, 169);
             this.BtnEditWItem.Name = "BtnEditWItem";
             this.BtnEditWItem.Size = new System.Drawing.Size(90, 30);
@@ -90,6 +93,7 @@
             // 
             // BtnDeleteWItem
             // 
+            this.BtnDeleteWItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnDeleteWItem.Location = new System.Drawing.Point(624, 205);
             this.BtnDeleteWItem.Name = "BtnDeleteWItem";
             this.BtnDeleteWItem.Size = new System.Drawing.Size(90, 30);
@@ -100,6 +104,7 @@
             // 
             // BtnNewWItem
             // 
+            this.BtnNewWItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnNewWItem.Location = new System.Drawing.Point(624, 133);
             this.BtnNewWItem.Name = "BtnNewWItem";
             this.BtnNewWItem.Size = new System.Drawing.Size(90, 30);
@@ -138,6 +143,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(782, 353);
             this.Controls.Add(this.BtnCancel);
             this.Controls.Add(this.BtnOk);

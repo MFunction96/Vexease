@@ -72,6 +72,7 @@
             // 
             // BtnEditBItem
             // 
+            this.BtnEditBItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnEditBItem.Location = new System.Drawing.Point(518, 255);
             this.BtnEditBItem.Name = "BtnEditBItem";
             this.BtnEditBItem.Size = new System.Drawing.Size(90, 30);
@@ -82,6 +83,7 @@
             // 
             // BtnDeleteBItem
             // 
+            this.BtnDeleteBItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnDeleteBItem.Location = new System.Drawing.Point(614, 255);
             this.BtnDeleteBItem.Name = "BtnDeleteBItem";
             this.BtnDeleteBItem.Size = new System.Drawing.Size(90, 30);
@@ -92,6 +94,7 @@
             // 
             // BtnNewBItem
             // 
+            this.BtnNewBItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnNewBItem.Location = new System.Drawing.Point(422, 255);
             this.BtnNewBItem.Name = "BtnNewBItem";
             this.BtnNewBItem.Size = new System.Drawing.Size(90, 30);
@@ -149,6 +152,7 @@
             // 
             // BtnEditWItem
             // 
+            this.BtnEditWItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnEditWItem.Location = new System.Drawing.Point(518, 255);
             this.BtnEditWItem.Name = "BtnEditWItem";
             this.BtnEditWItem.Size = new System.Drawing.Size(90, 30);
@@ -159,6 +163,7 @@
             // 
             // BtnDeleteWItem
             // 
+            this.BtnDeleteWItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnDeleteWItem.Location = new System.Drawing.Point(614, 255);
             this.BtnDeleteWItem.Name = "BtnDeleteWItem";
             this.BtnDeleteWItem.Size = new System.Drawing.Size(90, 30);
@@ -169,6 +174,7 @@
             // 
             // BtnNewWItem
             // 
+            this.BtnNewWItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnNewWItem.Location = new System.Drawing.Point(422, 255);
             this.BtnNewWItem.Name = "BtnNewWItem";
             this.BtnNewWItem.Size = new System.Drawing.Size(90, 30);
@@ -211,6 +217,7 @@
             // 
             // BtnOk
             // 
+            this.BtnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnOk.Location = new System.Drawing.Point(558, 711);
             this.BtnOk.Name = "BtnOk";
             this.BtnOk.Size = new System.Drawing.Size(90, 30);
@@ -222,6 +229,7 @@
             // 
             // BtnCancel
             // 
+            this.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCancel.Location = new System.Drawing.Point(654, 711);
             this.BtnCancel.Name = "BtnCancel";
             this.BtnCancel.Size = new System.Drawing.Size(90, 30);
@@ -235,6 +243,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(782, 753);
             this.Controls.Add(this.BtnCancel);
             this.Controls.Add(this.BtnOk);

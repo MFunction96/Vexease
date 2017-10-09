@@ -37,6 +37,7 @@
             // 
             // BtnLogin
             // 
+            this.BtnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnLogin.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.BtnLogin.Location = new System.Drawing.Point(100, 201);
             this.BtnLogin.Name = "BtnLogin";
@@ -69,6 +70,7 @@
             // 
             // BtnCancel
             // 
+            this.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCancel.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.BtnCancel.Location = new System.Drawing.Point(100, 237);
             this.BtnCancel.Name = "BtnCancel";
@@ -83,6 +85,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(482, 303);
             this.Controls.Add(this.BtnCancel);
             this.Controls.Add(this.LblTitle);

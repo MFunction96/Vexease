@@ -244,14 +244,14 @@ namespace Vexease.Views
                 BtnConsole.Height = BtnRegustry.Height =
                     BtnPlanningTask.Height = BtnCtrlPnl.Height =
                     BtnRunTool.Height = BtnTaskMgr.Height =
-                    BtnCmd.Height = BtnPS.Height = 30;
+                    BtnCmd.Height = BtnPS.Height =BtnProcCtrl.Height= 30;
             }
             else
             {
                 BtnConsole.Height = BtnRegustry.Height =
                     BtnPlanningTask.Height = BtnCtrlPnl.Height =
                     BtnRunTool.Height = BtnTaskMgr.Height =
-                    BtnCmd.Height = BtnPS.Height = 0;
+                    BtnCmd.Height = BtnPS.Height =BtnProcCtrl.Height= 0;
             }
         }
 
@@ -576,9 +576,274 @@ namespace Vexease.Views
             System.Diagnostics.Process.Start("explorer.exe", "https://github.com/ChrisYoung96");
         }
 
-        private void PnlEmpty_Paint(object sender, PaintEventArgs e)
+       
+        private void Btn_MouseEnter(object sender, EventArgs e)
+        {
+             BtnConsole.BackColor =System.Drawing.Color.LightSkyBlue;
+        }
+
+        private void Btn_MouseLeave(object sender, EventArgs e)
+        {
+            BtnConsole.BackColor = System.Drawing.Color.White;
+        }
+
+        private void Btn_MouseDown(object sender, MouseEventArgs e)
+        {
+            BtnConsole.BackColor = System.Drawing.Color.DeepSkyBlue;
+        }
+
+        private void Btn_MouseUp(object sender, MouseEventArgs e)
+        {
+            BtnConsole.BackColor = System.Drawing.Color.White;
+        }
+        //
+        private void BtnRegustry_MouseDown(object sender, MouseEventArgs e)
+        {
+            BtnRegustry.BackColor = System.Drawing.Color.DeepSkyBlue;
+        }
+
+        private void BtnRegustry_MouseEnter(object sender, EventArgs e)
+        {
+            BtnRegustry.BackColor = System.Drawing.Color.LightSkyBlue;
+        }
+
+        private void BtnRegustry_MouseLeave(object sender, EventArgs e)
+        {
+            BtnRegustry.BackColor = System.Drawing.Color.White;
+        }
+
+        private void BtnRegustry_MouseUp(object sender, MouseEventArgs e)
+        {
+            BtnRegustry.BackColor = System.Drawing.Color.White;
+        }
+
+        private void BtnPlanningTask_MouseDown(object sender, MouseEventArgs e)
+        {
+            BtnPlanningTask.BackColor = System.Drawing.Color.DeepSkyBlue;
+        }
+
+        private void BtnPlanningTask_MouseEnter(object sender, EventArgs e)
+        {
+            BtnPlanningTask.BackColor = System.Drawing.Color.LightSkyBlue;
+        }
+
+        private void BtnPlanningTask_MouseLeave(object sender, EventArgs e)
+        {
+            BtnPlanningTask.BackColor = System.Drawing.Color.White;
+        }
+
+        private void BtnPlanningTask_MouseUp(object sender, MouseEventArgs e)
+        {
+            BtnPlanningTask.BackColor = System.Drawing.Color.White;
+        }
+
+        private void BtnCtrlPnl_MouseEnter(object sender, EventArgs e)
+        {
+            BtnCtrlPnl.BackColor = System.Drawing.Color.LightSkyBlue;
+        }
+
+        private void BtnCtrlPnl_MouseDown(object sender, MouseEventArgs e)
+        {
+            BtnCtrlPnl.BackColor = System.Drawing.Color.DeepSkyBlue;
+        }
+
+        private void BtnCtrlPnl_MouseUp(object sender, MouseEventArgs e)
+        {
+            BtnCtrlPnl.BackColor = System.Drawing.Color.White;
+        }
+
+        private void BtnCtrlPnl_MouseLeave(object sender, EventArgs e)
+        {
+            BtnCtrlPnl.BackColor = System.Drawing.Color.White;
+        }
+        //
+        private void BtnRunTool_MouseDown(object sender, MouseEventArgs e)
         {
 
+            BtnRunTool.BackColor = System.Drawing.Color.DeepSkyBlue;
         }
+
+        private void BtnRunTool_MouseEnter(object sender, EventArgs e)
+        {
+
+            BtnRunTool.BackColor = System.Drawing.Color.LightSkyBlue;
+        }
+
+        private void BtnRunTool_MouseLeave(object sender, EventArgs e)
+        {
+            BtnRunTool.BackColor = System.Drawing.Color.White;
+        }
+
+        private void BtnRunTool_MouseUp(object sender, MouseEventArgs e)
+        {
+            BtnRunTool.BackColor = System.Drawing.Color.White;
+        }
+
+        private void BtnTaskMgr_MouseDown(object sender, MouseEventArgs e)
+        {
+            BtnTaskMgr.BackColor = System.Drawing.Color.DeepSkyBlue;
+        }
+
+        private void BtnTaskMgr_MouseEnter(object sender, EventArgs e)
+        {
+            BtnTaskMgr.BackColor = System.Drawing.Color.LightSkyBlue;
+        }
+
+        private void BtnTaskMgr_MouseLeave(object sender, EventArgs e)
+        {
+            BtnTaskMgr.BackColor = System.Drawing.Color.White;
+        }
+
+        private void BtnTaskMgr_MouseUp(object sender, MouseEventArgs e)
+        {
+            BtnTaskMgr.BackColor = System.Drawing.Color.White;
+        }
+
+        private void BtnCmd_MouseDown(object sender, MouseEventArgs e)
+        {
+            BtnCmd.BackColor = System.Drawing.Color.DeepSkyBlue;
+        }
+
+        private void BtnCmd_MouseEnter(object sender, EventArgs e)
+        {
+            BtnCmd.BackColor = System.Drawing.Color.LightSkyBlue;
+        }
+
+        private void BtnCmd_MouseLeave(object sender, EventArgs e)
+        {
+            BtnCmd.BackColor = System.Drawing.Color.White;
+        }
+
+        private void BtnCmd_MouseUp(object sender, MouseEventArgs e)
+        {
+            BtnCmd.BackColor = System.Drawing.Color.White;
+        }
+
+        private void BtnPS_MouseDown(object sender, MouseEventArgs e)
+        {
+            BtnPS.BackColor = System.Drawing.Color.DeepSkyBlue;
+        }
+
+        private void BtnPS_MouseEnter(object sender, EventArgs e)
+        {
+            BtnPS.BackColor = System.Drawing.Color.LightSkyBlue;
+        }
+
+        private void BtnPS_MouseUp(object sender, MouseEventArgs e)
+        {
+            BtnPS.BackColor = System.Drawing.Color.White;
+        }
+
+        private void BtnPS_MouseLeave(object sender, EventArgs e)
+        {
+            BtnPS.BackColor = System.Drawing.Color.White;
+        }
+
+        private void BtnProcCtrl_MouseDown(object sender, MouseEventArgs e)
+        {
+            BtnProcCtrl.BackColor = System.Drawing.Color.DeepSkyBlue;
+        }
+
+        private void BtnProcCtrl_MouseEnter(object sender, EventArgs e)
+        {
+            BtnProcCtrl.BackColor = System.Drawing.Color.LightSkyBlue;
+        }
+
+        private void BtnProcCtrl_MouseLeave(object sender, EventArgs e)
+        {
+            BtnProcCtrl.BackColor = System.Drawing.Color.White;
+        }
+
+        private void BtnProcCtrl_MouseUp(object sender, MouseEventArgs e)
+        {
+            BtnProcCtrl.BackColor = System.Drawing.Color.White;
+        }
+
+        private void BtnIm_MouseDown(object sender, MouseEventArgs e)
+        {
+            BtnIm.BackColor = System.Drawing.Color.DeepSkyBlue;
+        }
+
+        private void BtnIm_MouseEnter(object sender, EventArgs e)
+        {
+            BtnIm.BackColor = System.Drawing.Color.LightSkyBlue;
+        }
+
+        private void BtnIm_MouseLeave(object sender, EventArgs e)
+        {
+            BtnIm.BackColor = System.Drawing.Color.White;
+        }
+
+        private void BtnIm_MouseUp(object sender, MouseEventArgs e)
+        {
+            BtnIm.BackColor = System.Drawing.Color.White;
+        }
+
+        private void BtnEx_MouseDown(object sender, MouseEventArgs e)
+        {
+            BtnEx.BackColor = System.Drawing.Color.DeepSkyBlue;
+        }
+
+        private void BtnEx_MouseEnter(object sender, EventArgs e)
+        {
+            BtnEx.BackColor = System.Drawing.Color.LightSkyBlue;
+        }
+
+        private void BtnEx_MouseLeave(object sender, EventArgs e)
+        {
+            BtnEx.BackColor = System.Drawing.Color.White;
+        }
+
+        private void BtnEx_MouseUp(object sender, MouseEventArgs e)
+        {
+            BtnEx.BackColor = System.Drawing.Color.White;
+        }
+
+        private void LblOptimization_MouseDown(object sender, MouseEventArgs e)
+        {
+            LblOptimization.BackColor = System.Drawing.Color.DeepSkyBlue;
+        }
+
+        private void LblOptimization_MouseEnter(object sender, EventArgs e)
+        {
+            LblOptimization.BackColor = System.Drawing.Color.LightSkyBlue;
+        }
+
+        private void LblOptimization_MouseLeave(object sender, EventArgs e)
+        {
+            LblOptimization.BackColor = System.Drawing.Color.DodgerBlue;
+        }
+
+        private void LblOptimization_MouseUp(object sender, MouseEventArgs e)
+        {
+            LblOptimization.BackColor = System.Drawing.Color.DodgerBlue;
+        }
+
+        private void LblStatus_MouseDown(object sender, MouseEventArgs e)
+        {
+            LblStatus.BackColor = System.Drawing.Color.DeepSkyBlue;
+        }
+
+        private void LblStatus_MouseEnter(object sender, EventArgs e)
+        {
+            LblStatus.BackColor = System.Drawing.Color.LightSkyBlue;
+        }
+
+        private void LblStatus_MouseUp(object sender, MouseEventArgs e)
+        {
+            LblStatus.BackColor = System.Drawing.Color.DodgerBlue;
+        }
+
+        private void LblStatus_MouseLeave(object sender, EventArgs e)
+        {
+            LblStatus.BackColor = System.Drawing.Color.DodgerBlue;
+        }
+
+        private void SplAdm_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+            SplAdm.BorderStyle = BorderStyle.FixedSingle;
+        }
+        //
+
     }
 }

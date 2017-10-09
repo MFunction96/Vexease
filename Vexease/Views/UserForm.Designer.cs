@@ -71,6 +71,7 @@
             // 
             // BtnSwitchToAdmMode
             // 
+            this.BtnSwitchToAdmMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnSwitchToAdmMode.Location = new System.Drawing.Point(306, 311);
             this.BtnSwitchToAdmMode.Name = "BtnSwitchToAdmMode";
             this.BtnSwitchToAdmMode.Size = new System.Drawing.Size(154, 30);
@@ -122,10 +123,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(782, 353);
             this.Controls.Add(this.LvUser);
             this.Controls.Add(this.BtnSwitchToAdmMode);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "UserForm";
             this.Text = "用户模式";
             this.Load += new System.EventHandler(this.UserForm_Load);

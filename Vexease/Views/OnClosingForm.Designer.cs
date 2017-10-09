@@ -79,6 +79,7 @@
             // 
             // BtnOk
             // 
+            this.BtnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnOk.Location = new System.Drawing.Point(195, 215);
             this.BtnOk.Name = "BtnOk";
             this.BtnOk.Size = new System.Drawing.Size(75, 30);
@@ -92,6 +93,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(282, 253);
             this.Controls.Add(this.BtnOk);
             this.Controls.Add(this.ChkNoNotify);
