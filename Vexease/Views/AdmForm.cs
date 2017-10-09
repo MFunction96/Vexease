@@ -575,5 +575,10 @@ namespace Vexease.Views
         {
             System.Diagnostics.Process.Start("explorer.exe", "https://github.com/ChrisYoung96");
         }
+
+        private void PnlEmpty_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
