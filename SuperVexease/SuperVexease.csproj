@@ -77,10 +77,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AESCrypt\AESCrypt.csproj">
-      <Project>{521c1271-c3f0-499a-849e-61b43549c448}</Project>
-      <Name>AESCrypt</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Vexease\Vexease.csproj">
       <Project>{a36892e7-0eb7-44e3-a031-99cf522d30ed}</Project>
       <Name>Vexease</Name>

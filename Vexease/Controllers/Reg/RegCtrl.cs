@@ -7,7 +7,7 @@ using Vexease.Controllers.PInvoke;
 using Vexease.Models.Enums;
 using Vexease.Models.Registrys;
 
-namespace Vexease.Controllers.RegCtrl
+namespace Vexease.Controllers.Reg
 {
     /// <summary>
     /// 注册表控制器。
@@ -184,20 +184,20 @@ namespace Vexease.Controllers.RegCtrl
                 var sb = new StringBuilder(0x7FFF);
                 var size = 0x7FFF;
                 var lpcbdata = 0;
-                var renenumvaluetmp = NativeMethods.RegEnumValue(phkresult, index, sb, ref size, IntPtr.Zero, out var lpkind,
+                var regenumvaluetmp = NativeMethods.RegEnumValue(phkresult, index, sb, ref size, IntPtr.Zero, out var lpkind,
                               IntPtr.Zero, ref lpcbdata);
-                if (renenumvaluetmp == (int)ERROR_CODE.ERROR_NO_MORE_ITEMS) break;
-                if (renenumvaluetmp != (int)ERROR_CODE.ERROR_SUCCESS)
-                {
-                    throw new Exception(@"注册表键值枚举失败" + '\n' + renenumvaluetmp + '\n' + nameof(RegEnumValue));
-                }
+                if (regenumvaluetmp == (int)ERROR_CODE.ERROR_NO_MORE_ITEMS) break;
+                if (regenumvaluetmp == (int)ERROR_CODE.ERROR_FILE_NOT_FOUND)
+                    throw new NullReferenceException(@"注册表键值枚举失败" + '\n' + regenumvaluetmp + '\n' + nameof(RegEnumValue));
+                if (regenumvaluetmp != (int)ERROR_CODE.ERROR_SUCCESS)
+                    throw new Exception(@"注册表键值枚举失败" + '\n' + regenumvaluetmp + '\n' + nameof(RegEnumValue));
                 var lpdata = Marshal.AllocHGlobal(lpcbdata);
-                renenumvaluetmp = NativeMethods.RegEnumValue(phkresult, index, sb, ref size, IntPtr.Zero, out lpkind,
+                regenumvaluetmp = NativeMethods.RegEnumValue(phkresult, index, sb, ref size, IntPtr.Zero, out lpkind,
                     lpdata, ref lpcbdata);
-                if (renenumvaluetmp == (int)ERROR_CODE.ERROR_NO_MORE_ITEMS) break;
-                if (renenumvaluetmp != (int)ERROR_CODE.ERROR_SUCCESS)
+                if (regenumvaluetmp == (int)ERROR_CODE.ERROR_NO_MORE_ITEMS) break;
+                if (regenumvaluetmp != (int)ERROR_CODE.ERROR_SUCCESS)
                 {
-                    throw new Exception(@"注册表键值枚举失败" + '\n' + renenumvaluetmp + '\n' + nameof(RegEnumValue));
+                    throw new Exception(@"注册表键值枚举失败" + '\n' + regenumvaluetmp + '\n' + nameof(RegEnumValue));
                 }
                 list.Add(ConvertData(new RegPath(regPath.HKey, regPath.LpSubKey, sb.ToString().Trim()), lpkind, lpdata,
                     lpcbdata));

@@ -1,7 +1,8 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Windows.Forms;
-using Vexease.Controllers.RegCtrl;
+using Vexease.Controllers.Crypt;
+using Vexease.Controllers.Reg;
 using Vexease.Models.Registrys;
 using Vexease.Models.Enums;
 
@@ -23,7 +24,7 @@ namespace SuperVexease
             if (TBSetPwd.Text != string.Empty && TBSetPwd.Text == TBConfirmPwd.Text)
             {
                 RegCtrl.RegSetValue(new RegKey(Password.HKey, Password.LpSubKey, string.Empty, RegistryValueKind.String, @"Vexease"));
-                RegCtrl.RegSetValue(new RegKey(Password.GetRegPath(), RegistryValueKind.String, AESCrypt.AESCrypt.Encrypt(TBSetPwd.Text)));
+                RegCtrl.RegSetValue(new RegKey(Password.GetRegPath(), RegistryValueKind.String, AESCrypt.Encrypt(TBSetPwd.Text)));
                 RefrushPwd();
                 return;
             }
@@ -42,14 +43,14 @@ namespace SuperVexease
 
         private void RefrushPwd()
         {
-            Password = RegCtrl.RegGetValue(new RegPath(REG_ROOT_KEY.HKEY_CLASSES_ROOT, @"CLSID\{1BB077CA-FEC5-479F-AA85-11CDFBFA4042}", AESCrypt.AESCrypt.Encrypt(@"Password")));
+            Password = RegCtrl.RegGetValue(new RegPath(REG_ROOT_KEY.HKEY_CLASSES_ROOT, @"CLSID\{1BB077CA-FEC5-479F-AA85-11CDFBFA4042}", AESCrypt.Encrypt(@"Password")));
             string pwd = Password.LpValue as string;
             if (pwd is null) LblCurrentPwd.Text = string.Empty;
             else
             {
                 try
                 {
-                    LblCurrentPwd.Text = AESCrypt.AESCrypt.Decrypt(pwd);
+                    LblCurrentPwd.Text = AESCrypt.Decrypt(pwd);
                 }
                 catch
                 {

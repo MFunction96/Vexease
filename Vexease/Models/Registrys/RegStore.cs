@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Win32;
 using System.Xml;
+using Vexease.Controllers.Crypt;
 using Vexease.Models.Enums;
 
 namespace Vexease.Models.Registrys
@@ -139,8 +140,8 @@ namespace Vexease.Models.Registrys
         protected new void MidExport(XmlTextWriter writer, string name)
         {
             base.MidExport(writer, name);
-            writer.WriteAttributeString("isnull", AESCrypt.AESCrypt.Encrypt(IsNull.ToString()));
-            writer.WriteAttributeString("isnecessary", AESCrypt.AESCrypt.Encrypt(IsNecessary.ToString()));
+            writer.WriteAttributeString("isnull", AESCrypt.Encrypt(IsNull.ToString()));
+            writer.WriteAttributeString("isnecessary", AESCrypt.Encrypt(IsNecessary.ToString()));
         }
         /// <summary>
         /// 获取注册表键信息。

@@ -1,4 +1,4 @@
-﻿namespace Vexease.Controllers.DismCtrl
+﻿namespace Vexease.Controllers.Dism
 {
     /// <summary>
     /// Dism控制器
