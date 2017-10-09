@@ -96,6 +96,7 @@
     <Compile Include="Controllers\Crypt\AESCrypt.cs" />
     <Compile Include="Controllers\Dism\DismCtrl.cs" />
     <Compile Include="Controllers\List\ListCtrl.cs" />
+    <Compile Include="Controllers\Status\Status.cs" />
     <Compile Include="Controllers\Task\TaskCtrl.cs" />
     <Compile Include="Models\Enums\DISM_LOG_LEVEL.cs" />
     <Compile Include="Models\Enums\FACILITY_CODE.cs" />
