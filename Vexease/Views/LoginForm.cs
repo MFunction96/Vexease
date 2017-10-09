@@ -48,14 +48,15 @@ namespace Vexease.Views
 
         private void BtnOk_Click(object sender, EventArgs e)
         {
-            if (AESCrypt.Encrypt(TxtPwd.Text) == DataContext.Password.LpValue.ToString())
+            /*
+             if (AESCrypt.Encrypt(TxtPwd.Text) == DataContext.Password.LpValue.ToString())
             {
                 
             }
             else
             {
                 
-            }
+            }*/
             t = 1;
             var admform = new AdmForm();            
             admform.Show();

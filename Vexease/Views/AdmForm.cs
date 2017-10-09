@@ -592,10 +592,7 @@ namespace Vexease.Views
             BtnConsole.BackColor = System.Drawing.Color.DeepSkyBlue;
         }
 
-        private void Btn_MouseUp(object sender, MouseEventArgs e)
-        {
-            BtnConsole.BackColor = System.Drawing.Color.White;
-        }
+       
         //
         private void BtnRegustry_MouseDown(object sender, MouseEventArgs e)
         {
@@ -612,10 +609,7 @@ namespace Vexease.Views
             BtnRegustry.BackColor = System.Drawing.Color.White;
         }
 
-        private void BtnRegustry_MouseUp(object sender, MouseEventArgs e)
-        {
-            BtnRegustry.BackColor = System.Drawing.Color.White;
-        }
+      
 
         private void BtnPlanningTask_MouseDown(object sender, MouseEventArgs e)
         {
@@ -632,10 +626,7 @@ namespace Vexease.Views
             BtnPlanningTask.BackColor = System.Drawing.Color.White;
         }
 
-        private void BtnPlanningTask_MouseUp(object sender, MouseEventArgs e)
-        {
-            BtnPlanningTask.BackColor = System.Drawing.Color.White;
-        }
+       
 
         private void BtnCtrlPnl_MouseEnter(object sender, EventArgs e)
         {
@@ -647,12 +638,7 @@ namespace Vexease.Views
             BtnCtrlPnl.BackColor = System.Drawing.Color.DeepSkyBlue;
         }
 
-        private void BtnCtrlPnl_MouseUp(object sender, MouseEventArgs e)
-        {
-            BtnCtrlPnl.BackColor = System.Drawing.Color.White;
-        }
-
-        private void BtnCtrlPnl_MouseLeave(object sender, EventArgs e)
+               private void BtnCtrlPnl_MouseLeave(object sender, EventArgs e)
         {
             BtnCtrlPnl.BackColor = System.Drawing.Color.White;
         }
@@ -673,12 +659,7 @@ namespace Vexease.Views
         {
             BtnRunTool.BackColor = System.Drawing.Color.White;
         }
-
-        private void BtnRunTool_MouseUp(object sender, MouseEventArgs e)
-        {
-            BtnRunTool.BackColor = System.Drawing.Color.White;
-        }
-
+        
         private void BtnTaskMgr_MouseDown(object sender, MouseEventArgs e)
         {
             BtnTaskMgr.BackColor = System.Drawing.Color.DeepSkyBlue;
@@ -694,12 +675,7 @@ namespace Vexease.Views
             BtnTaskMgr.BackColor = System.Drawing.Color.White;
         }
 
-        private void BtnTaskMgr_MouseUp(object sender, MouseEventArgs e)
-        {
-            BtnTaskMgr.BackColor = System.Drawing.Color.White;
-        }
-
-        private void BtnCmd_MouseDown(object sender, MouseEventArgs e)
+               private void BtnCmd_MouseDown(object sender, MouseEventArgs e)
         {
             BtnCmd.BackColor = System.Drawing.Color.DeepSkyBlue;
         }
@@ -714,11 +690,6 @@ namespace Vexease.Views
             BtnCmd.BackColor = System.Drawing.Color.White;
         }
 
-        private void BtnCmd_MouseUp(object sender, MouseEventArgs e)
-        {
-            BtnCmd.BackColor = System.Drawing.Color.White;
-        }
-
         private void BtnPS_MouseDown(object sender, MouseEventArgs e)
         {
             BtnPS.BackColor = System.Drawing.Color.DeepSkyBlue;
@@ -727,11 +698,6 @@ namespace Vexease.Views
         private void BtnPS_MouseEnter(object sender, EventArgs e)
         {
             BtnPS.BackColor = System.Drawing.Color.LightSkyBlue;
-        }
-
-        private void BtnPS_MouseUp(object sender, MouseEventArgs e)
-        {
-            BtnPS.BackColor = System.Drawing.Color.White;
         }
 
         private void BtnPS_MouseLeave(object sender, EventArgs e)
@@ -754,11 +720,6 @@ namespace Vexease.Views
             BtnProcCtrl.BackColor = System.Drawing.Color.White;
         }
 
-        private void BtnProcCtrl_MouseUp(object sender, MouseEventArgs e)
-        {
-            BtnProcCtrl.BackColor = System.Drawing.Color.White;
-        }
-
         private void BtnIm_MouseDown(object sender, MouseEventArgs e)
         {
             BtnIm.BackColor = System.Drawing.Color.DeepSkyBlue;
@@ -770,11 +731,6 @@ namespace Vexease.Views
         }
 
         private void BtnIm_MouseLeave(object sender, EventArgs e)
-        {
-            BtnIm.BackColor = System.Drawing.Color.White;
-        }
-
-        private void BtnIm_MouseUp(object sender, MouseEventArgs e)
         {
             BtnIm.BackColor = System.Drawing.Color.White;
         }
@@ -794,11 +750,6 @@ namespace Vexease.Views
             BtnEx.BackColor = System.Drawing.Color.White;
         }
 
-        private void BtnEx_MouseUp(object sender, MouseEventArgs e)
-        {
-            BtnEx.BackColor = System.Drawing.Color.White;
-        }
-
         private void LblOptimization_MouseDown(object sender, MouseEventArgs e)
         {
             LblOptimization.BackColor = System.Drawing.Color.DeepSkyBlue;
@@ -814,11 +765,6 @@ namespace Vexease.Views
             LblOptimization.BackColor = System.Drawing.Color.DodgerBlue;
         }
 
-        private void LblOptimization_MouseUp(object sender, MouseEventArgs e)
-        {
-            LblOptimization.BackColor = System.Drawing.Color.DodgerBlue;
-        }
-
         private void LblStatus_MouseDown(object sender, MouseEventArgs e)
         {
             LblStatus.BackColor = System.Drawing.Color.DeepSkyBlue;
@@ -827,11 +773,6 @@ namespace Vexease.Views
         private void LblStatus_MouseEnter(object sender, EventArgs e)
         {
             LblStatus.BackColor = System.Drawing.Color.LightSkyBlue;
-        }
-
-        private void LblStatus_MouseUp(object sender, MouseEventArgs e)
-        {
-            LblStatus.BackColor = System.Drawing.Color.DodgerBlue;
         }
 
         private void LblStatus_MouseLeave(object sender, EventArgs e)

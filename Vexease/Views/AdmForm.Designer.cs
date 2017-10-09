@@ -406,7 +406,7 @@ namespace Vexease.Views
             this.BtnEx.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnEx_MouseDown);
             this.BtnEx.MouseEnter += new System.EventHandler(this.BtnEx_MouseEnter);
             this.BtnEx.MouseLeave += new System.EventHandler(this.BtnEx_MouseLeave);
-            this.BtnEx.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BtnEx_MouseUp);
+          
             // 
             // BtnIm
             // 
@@ -424,7 +424,7 @@ namespace Vexease.Views
             this.BtnIm.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnIm_MouseDown);
             this.BtnIm.MouseEnter += new System.EventHandler(this.BtnIm_MouseEnter);
             this.BtnIm.MouseLeave += new System.EventHandler(this.BtnIm_MouseLeave);
-            this.BtnIm.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BtnIm_MouseUp);
+           
             // 
             // PnlEmpty
             // 
@@ -451,7 +451,7 @@ namespace Vexease.Views
             this.LblOptimization.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LblOptimization_MouseDown);
             this.LblOptimization.MouseEnter += new System.EventHandler(this.LblOptimization_MouseEnter);
             this.LblOptimization.MouseLeave += new System.EventHandler(this.LblOptimization_MouseLeave);
-            this.LblOptimization.MouseUp += new System.Windows.Forms.MouseEventHandler(this.LblOptimization_MouseUp);
+            
             // 
             // BtnProcCtrl
             // 
@@ -470,7 +470,7 @@ namespace Vexease.Views
             this.BtnProcCtrl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnProcCtrl_MouseDown);
             this.BtnProcCtrl.MouseEnter += new System.EventHandler(this.BtnProcCtrl_MouseEnter);
             this.BtnProcCtrl.MouseLeave += new System.EventHandler(this.BtnProcCtrl_MouseLeave);
-            this.BtnProcCtrl.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BtnProcCtrl_MouseUp);
+            
             // 
             // BtnPS
             // 
@@ -489,7 +489,7 @@ namespace Vexease.Views
             this.BtnPS.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnPS_MouseDown);
             this.BtnPS.MouseEnter += new System.EventHandler(this.BtnPS_MouseEnter);
             this.BtnPS.MouseLeave += new System.EventHandler(this.BtnPS_MouseLeave);
-            this.BtnPS.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BtnPS_MouseUp);
+            
             // 
             // BtnCmd
             // 
@@ -508,7 +508,7 @@ namespace Vexease.Views
             this.BtnCmd.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnCmd_MouseDown);
             this.BtnCmd.MouseEnter += new System.EventHandler(this.BtnCmd_MouseEnter);
             this.BtnCmd.MouseLeave += new System.EventHandler(this.BtnCmd_MouseLeave);
-            this.BtnCmd.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BtnCmd_MouseUp);
+           
             // 
             // BtnTaskMgr
             // 
@@ -527,7 +527,7 @@ namespace Vexease.Views
             this.BtnTaskMgr.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnTaskMgr_MouseDown);
             this.BtnTaskMgr.MouseEnter += new System.EventHandler(this.BtnTaskMgr_MouseEnter);
             this.BtnTaskMgr.MouseLeave += new System.EventHandler(this.BtnTaskMgr_MouseLeave);
-            this.BtnTaskMgr.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BtnTaskMgr_MouseUp);
+           
             // 
             // BtnRunTool
             // 
@@ -546,7 +546,7 @@ namespace Vexease.Views
             this.BtnRunTool.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnRunTool_MouseDown);
             this.BtnRunTool.MouseEnter += new System.EventHandler(this.BtnRunTool_MouseEnter);
             this.BtnRunTool.MouseLeave += new System.EventHandler(this.BtnRunTool_MouseLeave);
-            this.BtnRunTool.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BtnRunTool_MouseUp);
+            
             // 
             // BtnCtrlPnl
             // 
@@ -565,7 +565,7 @@ namespace Vexease.Views
             this.BtnCtrlPnl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnCtrlPnl_MouseDown);
             this.BtnCtrlPnl.MouseEnter += new System.EventHandler(this.BtnCtrlPnl_MouseEnter);
             this.BtnCtrlPnl.MouseLeave += new System.EventHandler(this.BtnCtrlPnl_MouseLeave);
-            this.BtnCtrlPnl.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BtnCtrlPnl_MouseUp);
+           
             // 
             // BtnPlanningTask
             // 
@@ -584,7 +584,7 @@ namespace Vexease.Views
             this.BtnPlanningTask.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnPlanningTask_MouseDown);
             this.BtnPlanningTask.MouseEnter += new System.EventHandler(this.BtnPlanningTask_MouseEnter);
             this.BtnPlanningTask.MouseLeave += new System.EventHandler(this.BtnPlanningTask_MouseLeave);
-            this.BtnPlanningTask.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BtnPlanningTask_MouseUp);
+            
             // 
             // BtnRegustry
             // 
@@ -603,7 +603,7 @@ namespace Vexease.Views
             this.BtnRegustry.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnRegustry_MouseDown);
             this.BtnRegustry.MouseEnter += new System.EventHandler(this.BtnRegustry_MouseEnter);
             this.BtnRegustry.MouseLeave += new System.EventHandler(this.BtnRegustry_MouseLeave);
-            this.BtnRegustry.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BtnRegustry_MouseUp);
+           
             // 
             // BtnConsole
             // 
@@ -624,7 +624,7 @@ namespace Vexease.Views
             this.BtnConsole.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Btn_MouseDown);
             this.BtnConsole.MouseEnter += new System.EventHandler(this.Btn_MouseEnter);
             this.BtnConsole.MouseLeave += new System.EventHandler(this.Btn_MouseLeave);
-            this.BtnConsole.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Btn_MouseUp);
+            
             // 
             // LblStatus
             // 
@@ -644,7 +644,7 @@ namespace Vexease.Views
             this.LblStatus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LblStatus_MouseDown);
             this.LblStatus.MouseEnter += new System.EventHandler(this.LblStatus_MouseEnter);
             this.LblStatus.MouseLeave += new System.EventHandler(this.LblStatus_MouseLeave);
-            this.LblStatus.MouseUp += new System.Windows.Forms.MouseEventHandler(this.LblStatus_MouseUp);
+           
             // 
             // TabCtrlAdm
             // 
