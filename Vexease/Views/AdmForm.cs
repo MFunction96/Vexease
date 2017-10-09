@@ -66,8 +66,25 @@ namespace Vexease.Views
              }
              return base.ProcessCmdKey(ref msg, keyData);
          }*/
+         //
+         //双击图标显示
+         //
+        private void NotifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Show();
+        }
 
-          protected override void OnClosing(CancelEventArgs e)
+        //
+        //画边框
+        //
+        private void SplAdm_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+            SplAdm.BorderStyle = BorderStyle.FixedSingle;
+        }
+        //
+        //关闭显示“关闭提示”
+        //
+        protected override void OnClosing(CancelEventArgs e)
           {
               e.Cancel = true;
               // DialogResult result = MessageBox.Show("当前为用户状态，不能自主终止程序，是否隐藏窗口，最小化到系统托盘？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.None);
@@ -134,9 +151,7 @@ namespace Vexease.Views
             // int n = 0;//给个名单内名字的个数吧..
 
             if (PnlWList.Height == 0 && BtnWListYorN.Checked == true) { PnlWList.Height = 90; } else { PnlWList.Height = 0; }
-        }
-
-       
+        }       
 
         private void LblConsole_Click(object sender, EventArgs e)
         {
@@ -235,7 +250,7 @@ namespace Vexease.Views
             userForm.Show();
         }
         //
-        //
+        //大标题的双击
         //
         private void LblStatus_DoubleClick(object sender, EventArgs e)
         {
@@ -258,7 +273,7 @@ namespace Vexease.Views
       
 
         //
-        //方法
+        //方法-列表的宽度计算
         //
 
         private void Colwidth(ListView listview)
@@ -268,11 +283,11 @@ namespace Vexease.Views
                 switch (item.Text)
                 {
                     case "默认状态":
-                        item.Width = listview.Width / 2 - 2;
+                        item.Width = listview.Width / 2 - 5;
                         break;
 
                     case "当前状态":
-                        item.Width = listview.Width / 2 - 2;
+                        item.Width = listview.Width / 2 - 5;
                         break;
 
                     default:
@@ -283,7 +298,7 @@ namespace Vexease.Views
         }
 
         //
-        //checkbutton
+        //checkbutton-状态列表的收缩
         //
         private void BtnBListYorN_Load(object sender, EventArgs e)
         {
@@ -300,9 +315,33 @@ namespace Vexease.Views
                 PnlWList.Height = 0;
             }
         }
-
        
+        private void BtnWListYorNStatus_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (BtnWListYorN.Checked == false)
+            {
+                PnlWList.Height = 0;
+            }
+            else
+            {
+                PnlWList.Height = 90;
+            }
+        }
 
+        private void BtnBListYorNStatus_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (BtnBListYorN.Checked == false)
+            {
+                PnlBList.Height = 0;
+            }
+            else
+            {
+                PnlBList.Height = 90;
+            }
+        }
+        //
+        //状态显示跟随开关改变
+        //
         private void BtnRegustriyYorN_Load(object sender, EventArgs e)
         {
             if (BtnRegustriyYorN.Checked == false)
@@ -365,19 +404,7 @@ namespace Vexease.Views
                 LvRunTool.Items[1].SubItems[1].Text = "启用中";
             }
         }
-
-        private void BtnWListYorNStatus_MouseUp(object sender, MouseEventArgs e)
-        {
-            if (BtnWListYorN.Checked == false)
-            {
-                PnlWList.Height = 0;
-            }
-            else
-            {
-                PnlWList.Height = 90;
-            }
-        }
-           
+                
         private void BtnTaskMgrYorN_Load(object sender, EventArgs e)
         {
             if (BtnTaskMgrYorN.Checked == false)
@@ -414,19 +441,7 @@ namespace Vexease.Views
             {
                 LvPS.Items[1].SubItems[1].Text = "启用中";
             }
-        }
-
-        private void BtnBListYorNStatus_MouseUp(object sender, MouseEventArgs e)
-        {
-            if (BtnBListYorN.Checked == false)
-            {
-                PnlBList.Height = 0;
-            }
-            else
-            {
-                PnlBList.Height = 90;
-            }
-        }
+        }      
 
         private void BtnConsoleYorN_MouseUp(object sender, MouseEventArgs e)
         {
@@ -530,42 +545,14 @@ namespace Vexease.Views
                 LvPS.Items[1].SubItems[1].Text = "启用中";
             }
         }
-
-        private void NotifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            Show();
-        }
-
-        private void PageInstruction_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LblIcon_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void RTxtBoxAbout_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        //
+        //项目成员名跳转github主页
+        //
         private void LblCreater1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("explorer.exe", "https://github.com/MFunction96");
         }
-
-        private void PageAbout_Click(object sender, EventArgs e)
-        {
-
-        }
-
+             
         private void LblCreater2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("explorer.exe", "https://github.com/hlys");
@@ -576,7 +563,9 @@ namespace Vexease.Views
             System.Diagnostics.Process.Start("explorer.exe", "https://github.com/ChrisYoung96");
         }
 
-       
+       //
+       //左侧栏点击颜色变化
+       //
         private void Btn_MouseEnter(object sender, EventArgs e)
         {
              BtnConsole.BackColor =System.Drawing.Color.LightSkyBlue;
@@ -591,8 +580,6 @@ namespace Vexease.Views
         {
             BtnConsole.BackColor = System.Drawing.Color.DeepSkyBlue;
         }
-
-       
         //
         private void BtnRegustry_MouseDown(object sender, MouseEventArgs e)
         {
@@ -779,12 +766,6 @@ namespace Vexease.Views
         {
             LblStatus.BackColor = System.Drawing.Color.DodgerBlue;
         }
-
-        private void SplAdm_Panel1_Paint(object sender, PaintEventArgs e)
-        {
-            SplAdm.BorderStyle = BorderStyle.FixedSingle;
-        }
-        //
 
     }
 }
