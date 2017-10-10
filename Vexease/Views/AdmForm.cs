@@ -767,5 +767,10 @@ namespace Vexease.Views
             LblStatus.BackColor = System.Drawing.Color.DodgerBlue;
         }
 
+        private void MenuPwdChange_Click(object sender, EventArgs e)
+        {
+            var pwdchangeform = new PwdChangeForm();
+            pwdchangeform.Show();
+        }
     }
 }
