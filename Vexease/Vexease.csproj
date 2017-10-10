@@ -91,6 +91,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Account\PwdCtrl.cs" />
     <Compile Include="Controllers\Comparer\NameComparer.cs" />
     <Compile Include="Controllers\Comparer\PathComparer.cs" />
     <Compile Include="Controllers\Crypt\AESCrypt.cs" />

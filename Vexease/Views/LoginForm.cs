@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using Vexease.Controllers.Crypt;
-using Vexease.Data;
+using Vexease.Controllers.Account;
 
 namespace Vexease.Views
 {
@@ -48,15 +43,10 @@ namespace Vexease.Views
 
         private void BtnOk_Click(object sender, EventArgs e)
         {
-            /*
-             if (AESCrypt.Encrypt(TxtPwd.Text) == DataContext.Password.LpValue.ToString())
+            if (PwdCtrl.Verify(TxtPwd.Text))
             {
                 
             }
-            else
-            {
-                
-            }*/
             t = 1;
             var admform = new AdmForm();            
             admform.Show();

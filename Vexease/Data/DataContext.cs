@@ -293,8 +293,8 @@ namespace Vexease.Data
         /// </summary>
         public static void RefrushData()
         {
-            RestrictTaskNames = InitTask(TASK_TYPE_FLAGS.DISALLOW_TASK_NAME);
-            DisallowTaskNames = InitTask(TASK_TYPE_FLAGS.RESTRICT_TASK_NAME);
+            RestrictTaskNames = InitTask(TASK_TYPE_FLAGS.RESTRICT_TASK_NAME);
+            DisallowTaskNames = InitTask(TASK_TYPE_FLAGS.DISALLOW_TASK_NAME);
             RestrictTaskPaths = InitTask(TASK_TYPE_FLAGS.RESTRICT_TASK_PATH);
             DisallowTaskPaths = InitTask(TASK_TYPE_FLAGS.DISALLOW_TASK_PATH);
             LimitTaskPath = InitLimitTaskPath();
@@ -384,7 +384,7 @@ namespace Vexease.Data
             {
                 try
                 {
-                    var regs = RegCtrl.RegEnumValue(path, new NameComparer());
+                    var regs = RegCtrl.RegEnumValue(path, false ,new NameComparer());
                     foreach (var reg in regs)
                     {
                         list.AddLast(reg);

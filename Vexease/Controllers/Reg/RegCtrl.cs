@@ -171,11 +171,12 @@ namespace Vexease.Controllers.Reg
         /// <param name="regPath">
         /// 待枚举注册表键信息
         /// </param>
+        /// <param name="defaultReg"></param>
         /// <param name="comparer"></param>
         /// <returns>
         /// 枚举得到的注册表键名信息
         /// </returns>
-        public static RegKey[] RegEnumValue(RegPath regPath, IComparer comparer = null)
+        public static RegKey[] RegEnumValue(RegPath regPath, bool defaultReg = false ,IComparer comparer = null)
         {
             var phkresult = RegOpenKey(regPath);
             var list = new ArrayList();
@@ -186,6 +187,7 @@ namespace Vexease.Controllers.Reg
                 var lpcbdata = 0;
                 var regenumvaluetmp = NativeMethods.RegEnumValue(phkresult, index, sb, ref size, IntPtr.Zero, out var lpkind,
                               IntPtr.Zero, ref lpcbdata);
+                size += 2;
                 if (regenumvaluetmp == (int)ERROR_CODE.ERROR_NO_MORE_ITEMS) break;
                 if (regenumvaluetmp == (int)ERROR_CODE.ERROR_FILE_NOT_FOUND)
                     throw new NullReferenceException(@"注册表键值枚举失败" + '\n' + regenumvaluetmp + '\n' + nameof(RegEnumValue));
@@ -194,13 +196,11 @@ namespace Vexease.Controllers.Reg
                 var lpdata = Marshal.AllocHGlobal(lpcbdata);
                 regenumvaluetmp = NativeMethods.RegEnumValue(phkresult, index, sb, ref size, IntPtr.Zero, out lpkind,
                     lpdata, ref lpcbdata);
-                if (regenumvaluetmp == (int)ERROR_CODE.ERROR_NO_MORE_ITEMS) break;
                 if (regenumvaluetmp != (int)ERROR_CODE.ERROR_SUCCESS)
-                {
                     throw new Exception(@"注册表键值枚举失败" + '\n' + regenumvaluetmp + '\n' + nameof(RegEnumValue));
-                }
-                list.Add(ConvertData(new RegPath(regPath.HKey, regPath.LpSubKey, sb.ToString().Trim()), lpkind, lpdata,
-                    lpcbdata));
+                var str = sb.ToString().Trim();
+                if (defaultReg || str != string.Empty)
+                    list.Add(ConvertData(new RegPath(regPath.HKey, regPath.LpSubKey, str), lpkind, lpdata, lpcbdata));
             }
             NativeMethods.RegCloseKey(phkresult);
             var regkeys = list.ToArray(typeof(RegKey)) as RegKey[];

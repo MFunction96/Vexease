@@ -319,7 +319,7 @@ namespace Vexease.Controllers.PInvoke
         public static extern int RegEnumKeyEx(
             IntPtr hKey,
             int dwIndex,
-            StringBuilder lpName,
+            [MarshalAs(UnmanagedType.LPWStr)] StringBuilder lpName,
             ref int lpcName,
             IntPtr lpReserved,
             IntPtr lpClass,
@@ -355,7 +355,7 @@ namespace Vexease.Controllers.PInvoke
         public static extern int RegEnumValue(
             IntPtr hKey,
             int dwIndex,
-            StringBuilder lpValueName,
+            [MarshalAs(UnmanagedType.LPWStr)] StringBuilder lpValueName,
             ref int lpcchValueName,
             IntPtr lpReserved,
             out RegistryValueKind lpType,
