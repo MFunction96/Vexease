@@ -169,6 +169,12 @@
     <Compile Include="Views\OnClosingForm.Designer.cs">
       <DependentUpon>OnClosingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\PwdChangeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PwdChangeForm.Designer.cs">
+      <DependentUpon>PwdChangeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\SetIPForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -218,6 +224,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\OnClosingForm.resx">
       <DependentUpon>OnClosingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PwdChangeForm.resx">
+      <DependentUpon>PwdChangeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SetIPForm.resx">
       <DependentUpon>SetIPForm.cs</DependentUpon>

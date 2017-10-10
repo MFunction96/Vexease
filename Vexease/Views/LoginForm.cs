@@ -117,5 +117,11 @@ namespace Vexease.Views
         {
 
         }
+
+        private void BtnPwdChange_Click(object sender, EventArgs e)
+        {
+            var pwdchangeform = new PwdChangeForm();
+            pwdchangeform.Show();
+        }
     }
 }

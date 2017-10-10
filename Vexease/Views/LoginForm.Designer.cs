@@ -33,13 +33,14 @@
             this.TxtPwd = new System.Windows.Forms.MaskedTextBox();
             this.LblTitle = new System.Windows.Forms.Label();
             this.BtnCancel = new System.Windows.Forms.Button();
+            this.BtnPwdChange = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BtnLogin
             // 
             this.BtnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnLogin.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.BtnLogin.Location = new System.Drawing.Point(100, 201);
+            this.BtnLogin.Location = new System.Drawing.Point(100, 190);
             this.BtnLogin.Name = "BtnLogin";
             this.BtnLogin.Size = new System.Drawing.Size(300, 30);
             this.BtnLogin.TabIndex = 4;
@@ -51,7 +52,7 @@
             // TxtPwd
             // 
             this.TxtPwd.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.TxtPwd.Location = new System.Drawing.Point(100, 156);
+            this.TxtPwd.Location = new System.Drawing.Point(100, 138);
             this.TxtPwd.Name = "TxtPwd";
             this.TxtPwd.Size = new System.Drawing.Size(300, 28);
             this.TxtPwd.TabIndex = 1;
@@ -72,7 +73,7 @@
             // 
             this.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCancel.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.BtnCancel.Location = new System.Drawing.Point(100, 237);
+            this.BtnCancel.Location = new System.Drawing.Point(100, 261);
             this.BtnCancel.Name = "BtnCancel";
             this.BtnCancel.Size = new System.Drawing.Size(300, 30);
             this.BtnCancel.TabIndex = 11;
@@ -81,12 +82,26 @@
             this.BtnCancel.UseVisualStyleBackColor = true;
             this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
+            // BtnPwdChange
+            // 
+            this.BtnPwdChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnPwdChange.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.BtnPwdChange.Location = new System.Drawing.Point(100, 225);
+            this.BtnPwdChange.Name = "BtnPwdChange";
+            this.BtnPwdChange.Size = new System.Drawing.Size(300, 30);
+            this.BtnPwdChange.TabIndex = 12;
+            this.BtnPwdChange.TabStop = false;
+            this.BtnPwdChange.Text = "修改密码";
+            this.BtnPwdChange.UseVisualStyleBackColor = true;
+            this.BtnPwdChange.Click += new System.EventHandler(this.BtnPwdChange_Click);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(482, 303);
+            this.Controls.Add(this.BtnPwdChange);
             this.Controls.Add(this.BtnCancel);
             this.Controls.Add(this.LblTitle);
             this.Controls.Add(this.TxtPwd);
@@ -106,5 +121,6 @@
         private System.Windows.Forms.MaskedTextBox TxtPwd;
         private System.Windows.Forms.Label LblTitle;
         private System.Windows.Forms.Button BtnCancel;
+        private System.Windows.Forms.Button BtnPwdChange;
     }
 }
