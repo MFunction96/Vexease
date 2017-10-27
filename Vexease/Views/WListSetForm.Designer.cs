@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
-            "cloudmusic.exe",
-            "C:第一项的值"}, -1);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WListSetForm));
             this.BtnCancel = new System.Windows.Forms.Button();
             this.BtnOk = new System.Windows.Forms.Button();
@@ -122,8 +119,6 @@
             this.LvWListByName.Dock = System.Windows.Forms.DockStyle.Left;
             this.LvWListByName.FullRowSelect = true;
             this.LvWListByName.GridLines = true;
-            this.LvWListByName.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
             this.LvWListByName.LabelEdit = true;
             this.LvWListByName.LabelWrap = false;
             this.LvWListByName.Location = new System.Drawing.Point(3, 21);

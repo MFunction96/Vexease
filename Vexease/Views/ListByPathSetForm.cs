@@ -26,33 +26,11 @@ namespace Vexease.Views
                                                           //隐藏标签,改成设置Itemsize为（1,1）了
                                                           /*TabCtrlAdm.Region = new Region(new RectangleF(PageCtrlPnl.Left,
                                                             PageCtrlPnl.Top, PageCtrlPnl.Width, PageCtrlPnl.Height));*/
-            Colwidth(LvBListByPath);
-            Colwidth(LvWListByPath);
+           
 
         }
-        //
-        //
-        //
-        private void Colwidth(ListView listview)
-        {
-            foreach (ColumnHeader item in listview.Columns)
-            {
-                switch (item.Text)
-                {
-                    case "变量":
-                        item.Width = 100;
-                        break;
-
-                    case "值":
-                        item.Width = (listview.Width - 100)/2-1;
-                        break;
-
-                    default:
-                        item.Width = -2;
-                        break;
-                }
-            }
-        }
+      
+       
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {

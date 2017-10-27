@@ -31,17 +31,8 @@ namespace Vexease.Views
 
         private void BtnOk_Click(object sender, EventArgs e)
         {
-           
-            if (RdoMin.Checked == true)
-            {
-                t = 0;
-                Hide();
-            }
-            else if (RdoClose.Checked == true)
-            {
-                t = 1;
-                               Hide();
-            }      
+
+            Hide();   
         }
     }
 }

@@ -58,6 +58,7 @@
             this.LblTitle.Size = new System.Drawing.Size(188, 83);
             this.LblTitle.TabIndex = 14;
             this.LblTitle.Text = "Vexease";
+            this.LblTitle.Click += new System.EventHandler(this.LblTitle_Click);
             // 
             // TxtRe
             // 
@@ -66,6 +67,7 @@
             this.TxtRe.Name = "TxtRe";
             this.TxtRe.Size = new System.Drawing.Size(300, 28);
             this.TxtRe.TabIndex = 12;
+            this.TxtRe.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.TxtRe_MaskInputRejected);
             this.TxtRe.Enter += new System.EventHandler(this.TxtRe_Enter);
             this.TxtRe.Leave += new System.EventHandler(this.TxtRe_Leave);
             // 

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Steam.exe");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BandWListSetForm));
             this.GBBListByName = new System.Windows.Forms.GroupBox();
             this.BtnEditBitem = new System.Windows.Forms.Button();
@@ -97,8 +96,6 @@
             this.LvBListByName.Dock = System.Windows.Forms.DockStyle.Left;
             this.LvBListByName.FullRowSelect = true;
             this.LvBListByName.GridLines = true;
-            this.LvBListByName.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
             this.LvBListByName.LabelWrap = false;
             this.LvBListByName.Location = new System.Drawing.Point(3, 21);
             this.LvBListByName.MultiSelect = false;

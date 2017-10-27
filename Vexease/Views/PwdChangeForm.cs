@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Vexease.Controllers.Windows;
 
 namespace Vexease.Views
 {
@@ -27,45 +28,29 @@ namespace Vexease.Views
             BtnOk.Focus();
             TxtNewPwd.ForeColor = Color.FromArgb(255, 128, 128, 128);
             TxtRe.ForeColor = Color.FromArgb(255, 128, 128, 128);
-            TxtNewPwd.Text = "请输入新密码！";
+            TxtNewPwd.Text = "请输入密码！";
             TxtRe.Text = "请再次输入密码！";
 
         }
 
         private void TxtNewPwd_Enter(object sender, EventArgs e)
         {
-            if (TxtNewPwd.Text == "请输入新密码！"||TxtNewPwd.Text=="密码不能为空！")
-            {
-                TxtNewPwd.Text = "";
-                TxtNewPwd.ForeColor = Color.FromArgb(255, 0, 0, 0);
-            }
+            ViewMethod.PwdSet(TxtNewPwd, "NewEnter");
         }
 
         private void TxtRe_Enter(object sender, EventArgs e)
         {
-            if (TxtRe.Text == "两次输入不一致！" ||TxtRe.Text == "请再次输入密码！")
-            {
-                TxtRe.Text = "";
-                TxtRe.ForeColor = Color.FromArgb(255, 0, 0, 0);
-            }
+            ViewMethod.PwdSet(TxtRe, "ReEnter");
         }
 
         private void TxtRe_Leave(object sender, EventArgs e)
         {
-            if (TxtRe.Text != TxtNewPwd.Text)
-            {
-                TxtRe.ForeColor = Color.FromArgb(255, 128, 128, 128);
-                TxtRe.Text = "两次输入不一致！";
-            }
+            ViewMethod.PwdSet(TxtRe, "ReLeave");
         }
 
         private void TxtNewPwd_Leave(object sender, EventArgs e)
         {
-            if (TxtNewPwd.Text == "")
-            {
-                TxtNewPwd.ForeColor = Color.FromArgb(255, 128, 128, 128);
-                TxtNewPwd.Text = "密码不能为空！";
-            }
+            ViewMethod.PwdSet(TxtNewPwd, "NewLeave");
         }
 
         private void BtnLogin_Click(object sender, EventArgs e)
@@ -76,6 +61,16 @@ namespace Vexease.Views
         private void BtnCancel_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void LblTitle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtRe_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
         }
     }
 }

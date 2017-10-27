@@ -99,6 +99,7 @@
     <Compile Include="Controllers\List\ListCtrl.cs" />
     <Compile Include="Controllers\Status\Status.cs" />
     <Compile Include="Controllers\Task\TaskCtrl.cs" />
+    <Compile Include="Controllers\Windows\ViewMethod.cs" />
     <Compile Include="Models\Enums\DISM_LOG_LEVEL.cs" />
     <Compile Include="Models\Enums\FACILITY_CODE.cs" />
     <Compile Include="Models\Enums\FILE_CACHE_FLAGS.cs" />
@@ -283,5 +284,6 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

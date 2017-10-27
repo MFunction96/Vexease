@@ -41,9 +41,9 @@
             this.LblOnClosing.AutoSize = true;
             this.LblOnClosing.Location = new System.Drawing.Point(10, 36);
             this.LblOnClosing.Name = "LblOnClosing";
-            this.LblOnClosing.Size = new System.Drawing.Size(262, 15);
+            this.LblOnClosing.Size = new System.Drawing.Size(127, 15);
             this.LblOnClosing.TabIndex = 1;
-            this.LblOnClosing.Text = "当前为管理员模式，点击关闭按钮时：";
+            this.LblOnClosing.Text = "点击关闭按钮时：";
             // 
             // RdoMin
             // 
@@ -111,8 +111,8 @@
 
         #endregion
         private System.Windows.Forms.Label LblOnClosing;
-        private System.Windows.Forms.RadioButton RdoMin;
-        private System.Windows.Forms.RadioButton RdoClose;
+        public System.Windows.Forms.RadioButton RdoMin;
+        public System.Windows.Forms.RadioButton RdoClose;
         private System.Windows.Forms.CheckBox ChkNoNotify;
         private System.Windows.Forms.Button BtnOk;
     }
