@@ -1,46 +1,50 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Vexease.Data;
 using Vexease.Models.Enums;
 
 namespace Vexease.Controllers.List
 {
     /// <summary>
-    /// 列表控制器
+    /// 列表控制器。
     /// </summary>
     public class ListCtrl
     {
         /// <summary>
-        /// 增加的进程信息
+        /// 增加的进程信息。
         /// </summary>
-        private static LinkedList<string> AddList { get; }
+        private LinkedList<string> AddList { get; }
         /// <summary>
-        /// 删除的进程信息
+        /// 删除的进程信息。
         /// </summary>
-        private static LinkedList<string> DelList { get; }
+        private LinkedList<string> DelList { get; }
         /// <summary>
-        /// 初始化进程信息
+        /// 原始进程信息。
         /// </summary>
-        static ListCtrl()
+        private string[] OriginList { get; }
+        /// <summary>
+        /// 初始化进程信息。
+        /// </summary>
+        public ListCtrl(string[] originList)
         {
             AddList = new LinkedList<string>();
             DelList = new LinkedList<string>();
+            OriginList = originList;
         }
         /// <summary>
-        /// 增加进程信息
+        /// 增加进程信息。
         /// </summary>
         /// <param name="task">
-        /// 进程信息
+        /// 进程信息。
         /// </param>
         /// <param name="taskType">
-        /// 进程信息类型
+        /// 进程信息类型。
         /// </param>
         /// <returns>
-        /// True为添加成功
-        /// False为添加失败
+        /// True为添加成功。
+        /// False为添加失败。
         /// </returns>
-        public static bool AddTask(string task, TASK_TYPE_FLAGS taskType)
+        public bool AddTask(string task, TASK_TYPE_FLAGS taskType)
         {
             if (AddList.Any(tmp => string.Equals(tmp, task, StringComparison.CurrentCultureIgnoreCase))) return false;
             if (DelList.Any(tmp => string.Equals(tmp, task, StringComparison.CurrentCultureIgnoreCase)))
@@ -48,63 +52,63 @@ namespace Vexease.Controllers.List
                 DelList.Remove(task);
                 return true;
             }
-            if (DataContext.GetTaskList(taskType).Any(tmp =>
-                string.Equals(tmp.LpValue.ToString().ToLower(), task.ToLower(), StringComparison.CurrentCultureIgnoreCase)))
+            if (OriginList.Any(tmp =>
+                string.Equals(tmp, task, StringComparison.CurrentCultureIgnoreCase)))
                 return false;
             AddList.AddLast(task);
             return true;
         }
         /// <summary>
-        /// 修改进程信息
+        /// 修改进程信息。
         /// </summary>
         /// <param name="frmTask">
-        /// 需修改的进程信息
+        /// 需修改的进程信息。
         /// </param>
         /// <param name="nowTask">
-        /// 修改为的进程信息
+        /// 修改为的进程信息。
         /// </param>
         /// <param name="taskType">
-        /// 进程信息类型
+        /// 进程信息类型。
         /// </param>
         /// <returns>
-        /// True为修改成功
-        /// False为修改失败
+        /// True为修改成功。
+        /// False为修改失败。
         /// </returns>
-        public static bool ModifyTask(string frmTask, string nowTask, TASK_TYPE_FLAGS taskType)
+        public bool ModifyTask(string frmTask, string nowTask, TASK_TYPE_FLAGS taskType)
         {
             if (AddList.Any(tmp => string.Equals(tmp, nowTask, StringComparison.CurrentCultureIgnoreCase))) return false;
-            if (DelList.Any(tmp => string.Equals(tmp.ToLower(), nowTask.ToLower(), StringComparison.CurrentCultureIgnoreCase)))
+            if (DelList.Any(tmp => string.Equals(tmp, nowTask, StringComparison.CurrentCultureIgnoreCase)))
             {
                 DelList.AddLast(frmTask);
                 DelList.Remove(nowTask);
                 return true;
             }
-            if (DataContext.GetTaskList(taskType).Any(tmp =>
-                string.Equals(tmp.LpValue.ToString(), nowTask, StringComparison.CurrentCultureIgnoreCase)))
+            if (OriginList.Any(tmp =>
+                string.Equals(tmp, nowTask, StringComparison.CurrentCultureIgnoreCase)))
                 return false;
             DelList.AddLast(frmTask);
             AddList.AddLast(nowTask);
             return true;
         }
         /// <summary>
-        /// 删除进程信息
+        /// 删除进程信息。
         /// </summary>
         /// <param name="task">
-        /// 进程信息
+        /// 进程信息。
         /// </param>
         /// <param name="taskType">
-        /// 进程信息类型
+        /// 进程信息类型。
         /// </param>
-        public static void DelTask(string task, TASK_TYPE_FLAGS taskType)
+        public void DelTask(string task, TASK_TYPE_FLAGS taskType)
         {
             if (AddList.Any(tmp => string.Equals(tmp, task, StringComparison.CurrentCultureIgnoreCase)))
                 AddList.Remove(task);
             DelList.AddLast(task);
         }
         /// <summary>
-        /// 重置列表状态
+        /// 重置列表状态。
         /// </summary>
-        public static void Reset()
+        public void Reset()
         {
             AddList.Clear();
             DelList.Clear();

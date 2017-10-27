@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Linq;
 using Vexease.Controllers.Reg;
-using Vexease.Data;
-using Vexease.Models.Enums;
 using Vexease.Models.Registrys;
 
 namespace Vexease.Controllers.Status
@@ -50,34 +47,8 @@ namespace Vexease.Controllers.Status
                 if (!regStore.IsNecessary) continue;
                 try
                 {
-                    if (regStore.LpValueName is null)
-                    {
-                        if (regStore.HKey == REG_ROOT_KEY.HKEY_CURRENT_USER)
-                        {
-                            if (regStore.LpSubKey ==
-                                @"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\RestrictRun")
-                            {
-                                var list = DataContext.GetTaskList(TASK_TYPE_FLAGS.RESTRICT_TASK_NAME);
-                                if (list.All(tmp => tmp.LpValue != regStore.LpValue)) return State = false;
-                            }
-                            else if (regStore.LpSubKey == 
-                                @"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun")
-                            {
-                                var list = DataContext.GetTaskList(TASK_TYPE_FLAGS.DISALLOW_TASK_NAME);
-                                if (list.All(tmp => tmp.LpValue != regStore.LpValue)) return State = false;
-                            }
-                        }
-                        else
-                        {
-                            var regs = RegCtrl.RegEnumValue(regStore.GetRegPath());
-                            if (regs.All(reg => reg.LpValue != regStore.LpValue)) return State = false;
-                        }
-                    }
-                    else
-                    {
-                        var reg = RegCtrl.RegGetValue(regStore.GetRegPath());
-                        if (reg.LpValue != regStore.LpValue) return State = false;
-                    }
+                    var reg = RegCtrl.RegGetValue(regStore.GetRegPath());
+                    if (reg.LpValue != regStore.LpValue) return State = false;
                 }
                 catch (Exception e)
                 {
@@ -100,14 +71,8 @@ namespace Vexease.Controllers.Status
             foreach (var reg in regStores)
             {
                 if (!reg.IsNecessary) continue;
-                if (reg.IsNull)
-                {
-                    RegCtrl.RegDelKey(reg.GetRegPath());
-                }
-                else
-                {
-                    RegCtrl.RegSetValue(reg.GetRegKey());
-                }
+                if (reg.IsNull) RegCtrl.RegDelKey(reg.GetRegPath());
+                else RegCtrl.RegSetValue(reg.GetRegKey());
             }
             return base.SwapStatus();
         }

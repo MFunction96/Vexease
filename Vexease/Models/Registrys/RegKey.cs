@@ -80,7 +80,7 @@ namespace Vexease.Models.Registrys
         /// 注册表键信息类复制构造函数。
         /// </summary>
         /// <param name="regKey">
-        /// 注册表键信息类
+        /// 注册表键信息类。
         /// </param>
         public RegKey(RegKey regKey) :
             base(regKey.HKey, regKey.LpSubKey, regKey.LpValueName)
