@@ -1,7 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using Vexease.Controllers.Comparer;
 using Vexease.Controllers.Crypt;
 using Vexease.Controllers.Reg;
@@ -51,7 +50,7 @@ namespace Vexease.Data
         /// On为启用控制台。
         /// Off为禁用控制台。
         /// </summary>
-        public static RegStatus Mmc { get; private set; }
+        public static TaskStatus Mmc { get; private set; }
         /// <summary>
         /// 注册表状态注册表信息。
         /// On为启用注册表。
@@ -87,23 +86,23 @@ namespace Vexease.Data
         /// On为启用Powershell。
         /// Off为禁用Powershell。
         /// </summary>
-        public static RegStatus PwrShell { get; private set; }
+        public static TaskStatus PwrShell { get; private set; }
         /// <summary>
         /// 进程名称白名单。
         /// </summary>
-        private static LinkedList<RegKey> RestrictTaskNames { get; set; }
+        private static RegKey[] RestrictTaskNames { get; set; }
         /// <summary>
         /// 进程名称黑名单。
         /// </summary>
-        private static LinkedList<RegKey> DisallowTaskNames { get; set; }
+        private static RegKey[] DisallowTaskNames { get; set; }
         /// <summary>
         /// 进程路径白名单。
         /// </summary>
-        private static LinkedList<RegKey> RestrictTaskPaths { get; set; }
+        private static RegKey[] RestrictTaskPaths { get; set; }
         /// <summary>
         /// 进程路径黑名单。
         /// </summary>
-        private static LinkedList<RegKey> DisallowTaskPaths { get; set; }
+        private static RegKey[] DisallowTaskPaths { get; set; }
         /// <summary>
         /// 初始化全局数据。
         /// </summary>
@@ -252,18 +251,9 @@ namespace Vexease.Data
         /// <returns>
         /// 控制台状态注册表信息。
         /// </returns>
-        private static RegStatus InitMmc()
+        private static TaskStatus InitMmc()
         {
-            var regp = new RegPath(REG_ROOT_KEY.HKEY_CURRENT_USER, @"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer", @"DisallowRun");
-            var onreg = new RegStore[2];
-            var offreg = new RegStore[2];
-            onreg[0] = new RegStore(regp, RegistryValueKind.DWord, 0x0);
-            offreg[0] = new RegStore(regp, RegistryValueKind.DWord, 0x1, false);
-            regp = new RegPath(REG_ROOT_KEY.HKEY_CURRENT_USER, @"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun");
-            const string str = @"mmc.exe";
-            onreg[1] = new RegStore(regp, RegistryValueKind.String, str, true, false);
-            offreg[1] = new RegStore(regp, RegistryValueKind.String, str, false);
-            return new RegStatus(onreg, offreg);
+            return new TaskStatus(@"mmc.exe", TASK_TYPE_FLAGS.DISALLOW_TASK_NAME);
         }
         /// <summary>
         /// 初始化Powershell状态。
@@ -271,18 +261,9 @@ namespace Vexease.Data
         /// <returns>
         /// Powershell状态注册表信息。
         /// </returns>
-        private static RegStatus InitPwrShell()
+        private static TaskStatus InitPwrShell()
         {
-            var regp = new RegPath(REG_ROOT_KEY.HKEY_CURRENT_USER, @"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer", @"DisallowRun");
-            var onreg = new RegStore[2];
-            var offreg = new RegStore[2];
-            onreg[0] = new RegStore(regp, RegistryValueKind.DWord, 0x0);
-            offreg[0] = new RegStore(regp, RegistryValueKind.DWord, 0x1, false);
-            regp = new RegPath(REG_ROOT_KEY.HKEY_CURRENT_USER, @"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun");
-            const string str = @"powershell.exe";
-            onreg[1] = new RegStore(regp, RegistryValueKind.String, str, true, false);
-            offreg[1] = new RegStore(regp, RegistryValueKind.String, str, false);
-            return new RegStatus(onreg, offreg);
+            return new TaskStatus(@"powershell.exe", TASK_TYPE_FLAGS.DISALLOW_TASK_NAME);
         }
         private static RegKey InitPwd()
         {
@@ -351,10 +332,9 @@ namespace Vexease.Data
         /// <returns>
         /// 进程信息注册表信息。
         /// </returns>
-        private static LinkedList<RegKey> InitTask(TASK_TYPE_FLAGS taskType)
+        private static RegKey[] InitTask(TASK_TYPE_FLAGS taskType)
         {
             var path = GetRegPath(taskType);
-            var list = new LinkedList<RegKey>();
             if ((int) taskType >> 1 > 0)
             {
                 var array = new ArrayList();
@@ -368,12 +348,9 @@ namespace Vexease.Data
                         array.Add(RegCtrl.RegGetValue(new RegPath(str, true)));
                     }
                     array.Sort(new PathComparer());
-                    foreach (var reg in array)
-                    {
-                        var tmp = reg as RegKey;
-                        if (tmp is null) throw new NotSupportedException();
-                        list.AddLast(tmp);
-                    }
+                    var regkeys = array.ToArray() as RegKey[];
+                    if (regkeys is null) throw new NullReferenceException();
+                    return regkeys;
                 }
                 catch (Exception e)
                 {
@@ -384,18 +361,14 @@ namespace Vexease.Data
             {
                 try
                 {
-                    var regs = RegCtrl.RegEnumValue(path, false ,new NameComparer());
-                    foreach (var reg in regs)
-                    {
-                        list.AddLast(reg);
-                    }
+                    return RegCtrl.RegEnumValue(path, false ,new NameComparer());
                 }
                 catch (Exception e)
                 {
                     if (e.GetType() != typeof(NullReferenceException)) throw;
                 }
             }
-            return list;
+            return null;
         }
         /// <summary>
         /// 获取进程信息。
@@ -406,13 +379,29 @@ namespace Vexease.Data
         /// <returns>
         /// 相应类型的进程信息注册表信息。
         /// </returns>
-        public static LinkedList<RegKey> GetTaskList(TASK_TYPE_FLAGS taskType)
+        public static string[] GetTaskList(TASK_TYPE_FLAGS taskType)
         {
-            LinkedList<RegKey> list;
-            if (taskType == TASK_TYPE_FLAGS.RESTRICT_TASK_NAME) list = RestrictTaskNames;
-            else if (taskType == TASK_TYPE_FLAGS.DISALLOW_TASK_NAME) list = DisallowTaskNames;
-            else if (taskType == TASK_TYPE_FLAGS.RESTRICT_TASK_PATH) list = RestrictTaskPaths;
-            else list = DisallowTaskPaths;
+            string[] list;
+            if (taskType == TASK_TYPE_FLAGS.RESTRICT_TASK_NAME)
+            {
+                list = new string[RestrictTaskNames.Length];
+                for (var i = 0; i < RestrictTaskNames.Length; i++) list[i] = RestrictTaskNames[i].LpValue.ToString();
+            }
+            else if (taskType == TASK_TYPE_FLAGS.DISALLOW_TASK_NAME)
+            {
+                list = new string[DisallowTaskNames.Length];
+                for (var i = 0; i < DisallowTaskNames.Length; i++) list[i] = DisallowTaskNames[i].LpValue.ToString();
+            }
+            else if (taskType == TASK_TYPE_FLAGS.RESTRICT_TASK_PATH)
+            {
+                list = new string[RestrictTaskPaths.Length];
+                for (var i = 0; i < RestrictTaskPaths.Length; i++) list[i] = RestrictTaskPaths[i].LpValue.ToString();
+            }
+            else
+            {
+                list = new string[DisallowTaskPaths.Length];
+                for (var i = 0; i < DisallowTaskPaths.Length; i++) list[i] = DisallowTaskPaths[i].LpValue.ToString();
+            }
             return list;
         }
     }
