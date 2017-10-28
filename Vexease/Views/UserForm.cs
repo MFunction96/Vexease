@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using Vexease.Controllers.Windows;
+using Vexease.Controllers.ViewCtrl;
 namespace Vexease.Views
 {
     public partial class UserForm : Form

@@ -66,7 +66,7 @@ namespace Vexease.Controllers.Status
                 var regkey = regs.FirstOrDefault(reg =>
                     string.Equals(reg, TaskName, StringComparison.CurrentCultureIgnoreCase));
                 if (regkey is null) throw new NullReferenceException(nameof(TaskStatus));
-
+                buffer.DelTask(regkey, TaskType);
 
 
             }

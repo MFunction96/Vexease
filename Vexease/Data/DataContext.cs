@@ -90,19 +90,19 @@ namespace Vexease.Data
         /// <summary>
         /// 进程名称白名单。
         /// </summary>
-        private static RegKey[] RestrictTaskNames { get; set; }
+        private static string[] RestrictTaskNames { get; set; }
         /// <summary>
         /// 进程名称黑名单。
         /// </summary>
-        private static RegKey[] DisallowTaskNames { get; set; }
+        private static string[] DisallowTaskNames { get; set; }
         /// <summary>
         /// 进程路径白名单。
         /// </summary>
-        private static RegKey[] RestrictTaskPaths { get; set; }
+        private static string[] RestrictTaskPaths { get; set; }
         /// <summary>
         /// 进程路径黑名单。
         /// </summary>
-        private static RegKey[] DisallowTaskPaths { get; set; }
+        private static string[] DisallowTaskPaths { get; set; }
         /// <summary>
         /// 初始化全局数据。
         /// </summary>
@@ -332,43 +332,42 @@ namespace Vexease.Data
         /// <returns>
         /// 进程信息注册表信息。
         /// </returns>
-        private static RegKey[] InitTask(TASK_TYPE_FLAGS taskType)
+        private static string[] InitTask(TASK_TYPE_FLAGS taskType)
         {
             var path = GetRegPath(taskType);
-            if ((int) taskType >> 1 > 0)
+            string[] regkeys;
+            var list = new ArrayList();
+            try
             {
-                var array = new ArrayList();
-                try
+                if ((int) taskType >> 1 > 0)
                 {
                     var regs = RegCtrl.RegEnumKey(path);
                     foreach (var reg in regs)
                     {
                         var tmp = RegCtrl.RegGetValue(new RegPath(reg.HKey, reg.LpSubKey, @"ItemData"));
-                        var str = tmp.LpValue as string;
-                        array.Add(RegCtrl.RegGetValue(new RegPath(str, true)));
+                        var str = tmp.LpValue.ToString();
+                        if (tmp.LpKind == RegistryValueKind.ExpandString)
+                            str = RegCtrl.RegGetValue(new RegPath(str, true)).LpValue.ToString();
+                        list.Add(str);
                     }
-                    array.Sort(new PathComparer());
-                    var regkeys = array.ToArray() as RegKey[];
-                    if (regkeys is null) throw new NullReferenceException();
-                    return regkeys;
                 }
-                catch (Exception e)
+                else
                 {
-                    if (e.GetType() != typeof(NullReferenceException)) throw;
+                    var regs = RegCtrl.RegEnumValue(path);
+                    foreach (var reg in regs) list.Add(reg.LpValue.ToString());
                 }
             }
-            else
+            catch (Exception e)
             {
-                try
-                {
-                    return RegCtrl.RegEnumValue(path, false ,new NameComparer());
-                }
-                catch (Exception e)
-                {
-                    if (e.GetType() != typeof(NullReferenceException)) throw;
-                }
+                if (e.GetType() != typeof(NullReferenceException)) throw;
             }
-            return null;
+            finally
+            {
+                list.Sort();
+                regkeys = list.ToArray() as string[];
+                if (regkeys is null) throw new NullReferenceException();
+            }
+            return regkeys;
         }
         /// <summary>
         /// 获取进程信息。
@@ -381,28 +380,9 @@ namespace Vexease.Data
         /// </returns>
         public static string[] GetTaskList(TASK_TYPE_FLAGS taskType)
         {
-            string[] list;
-            if (taskType == TASK_TYPE_FLAGS.RESTRICT_TASK_NAME)
-            {
-                list = new string[RestrictTaskNames.Length];
-                for (var i = 0; i < RestrictTaskNames.Length; i++) list[i] = RestrictTaskNames[i].LpValue.ToString();
-            }
-            else if (taskType == TASK_TYPE_FLAGS.DISALLOW_TASK_NAME)
-            {
-                list = new string[DisallowTaskNames.Length];
-                for (var i = 0; i < DisallowTaskNames.Length; i++) list[i] = DisallowTaskNames[i].LpValue.ToString();
-            }
-            else if (taskType == TASK_TYPE_FLAGS.RESTRICT_TASK_PATH)
-            {
-                list = new string[RestrictTaskPaths.Length];
-                for (var i = 0; i < RestrictTaskPaths.Length; i++) list[i] = RestrictTaskPaths[i].LpValue.ToString();
-            }
-            else
-            {
-                list = new string[DisallowTaskPaths.Length];
-                for (var i = 0; i < DisallowTaskPaths.Length; i++) list[i] = DisallowTaskPaths[i].LpValue.ToString();
-            }
-            return list;
+            if (taskType == TASK_TYPE_FLAGS.RESTRICT_TASK_NAME) return RestrictTaskNames;
+            if (taskType == TASK_TYPE_FLAGS.DISALLOW_TASK_NAME) return DisallowTaskNames;
+            return taskType == TASK_TYPE_FLAGS.RESTRICT_TASK_PATH ? RestrictTaskPaths : DisallowTaskPaths;
         }
     }
 }

@@ -19,7 +19,7 @@ using System.Windows.Forms;
 //     ┗┓┓┏━┳┓┏┛
 //       ┃┫┫　┃┫┫
 //       ┗┻┛　┗┻┛
-namespace Vexease.Controllers.Windows
+namespace Vexease.Controllers.ViewCtrl
 {
 
     /// <summary>

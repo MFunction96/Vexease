@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Vexease.Models.Enums;
@@ -21,7 +22,7 @@ namespace Vexease.Controllers.List
         /// <summary>
         /// 原始进程信息。
         /// </summary>
-        private string[] OriginList { get; }
+        private string[] OriginList { get; set; }
         /// <summary>
         /// 初始化进程信息。
         /// </summary>
@@ -112,6 +113,20 @@ namespace Vexease.Controllers.List
         {
             AddList.Clear();
             DelList.Clear();
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Apply()
+        {
+            var list = new ArrayList();
+            foreach (var s in OriginList)
+            {
+                if (DelList.Any(tmp => tmp == s)) continue;
+                list.Add(s);
+            }
+            foreach (var s in AddList) list.Add(s);
+            OriginList = list.ToArray() as string[];
         }
     }
 }

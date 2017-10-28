@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 using Vexease.Controllers.Account;
-using Vexease.Controllers.Windows;
+using Vexease.Controllers.ViewCtrl;
 namespace Vexease.Views
 {
    
