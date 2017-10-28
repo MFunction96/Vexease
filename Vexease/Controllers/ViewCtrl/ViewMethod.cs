@@ -175,49 +175,25 @@ namespace Vexease.Controllers.ViewCtrl
             if (DataContext.SysDriver.CheckStatus())
                 listView.Items[3].SubItems[2].Text = "已禁用";
             else listView.Items[3].SubItems[2].Text = "启用中";
-
-            if (DataContext.SysDriver.SwapStatus())
-                listView.Items[3].SubItems[2].Text = "已禁用";
-            else listView.Items[3].SubItems[2].Text = "启用中";
-
+                       
             if (DataContext.Registry.CheckStatus())
-                listView.Items[2].SubItems[2].Text = "已禁用";
-            else listView.Items[2].SubItems[2].Text = "启用中";
-
-            if (DataContext.Registry.SwapStatus())
                 listView.Items[2].SubItems[2].Text = "已禁用";
             else listView.Items[2].SubItems[2].Text = "启用中";
 
             if (DataContext.CtrlPal.CheckStatus())
                 listView.Items[4].SubItems[2].Text = "已禁用";
             else listView.Items[4].SubItems[2].Text = "启用中";
-
-            if (DataContext.CtrlPal.SwapStatus())
-                listView.Items[4].SubItems[2].Text = "已禁用";
-            else listView.Items[4].SubItems[2].Text = "启用中";
-
+            
             if (DataContext.Launcher.CheckStatus()) listView.Items[5].SubItems[2].Text = "已禁用";
-            else listView.Items[5].SubItems[2].Text = "启用中";
-
-            if (DataContext.Launcher.SwapStatus()) listView.Items[5].SubItems[2].Text = "已禁用";
             else listView.Items[5].SubItems[2].Text = "启用中";
 
             if (DataContext.Cmd.CheckStatus()) listView.Items[7].SubItems[2].Text = "已禁用";
             else listView.Items[7].SubItems[2].Text = "启用中";
 
-            if (DataContext.Cmd.SwapStatus()) listView.Items[7].SubItems[2].Text = "已禁用";
-            else listView.Items[7].SubItems[2].Text = "启用中";
-
             if (DataContext.Taskmgr.CheckStatus()) listView.Items[6].SubItems[2].Text = "已禁用";
             else listView.Items[6].SubItems[2].Text = "启用中";
-
-            if (DataContext.Taskmgr.SwapStatus()) listView.Items[6].SubItems[2].Text = "已禁用";
-            else listView.Items[6].SubItems[2].Text = "启用中";
-
+                    
             if (DataContext.PwrShell.CheckStatus()) listView.Items[8].SubItems[2].Text = "已禁用";
-            else listView.Items[8].SubItems[2].Text = "启用中";
-
-            if (DataContext.PwrShell.SwapStatus()) listView.Items[8].SubItems[2].Text = "已禁用";
             else listView.Items[8].SubItems[2].Text = "启用中";
 
         }

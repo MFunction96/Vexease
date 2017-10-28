@@ -27,7 +27,8 @@ namespace Vexease.Controllers.ViewCtrl
             }
             if (s == "P_Clicked")
             {
-                if (DataContext.LimitTaskPath.SwapStatus()) btnYorN.Checked = true;
+                DataContext.LimitTaskPath.SwapStatus();
+                if (DataContext.LimitTaskPath.CheckStatus()) btnYorN.Checked = true;
                 else btnYorN.Checked = false;
             }
             if (s == "W_Load")
@@ -37,7 +38,8 @@ namespace Vexease.Controllers.ViewCtrl
             }
             if (s == "W_Clicked")
             {
-                if (DataContext.RestrictTask.SwapStatus()) btnYorN.Checked = true;
+                DataContext.RestrictTask.SwapStatus();
+                if (DataContext.RestrictTask.CheckStatus()) btnYorN.Checked = true;
                 else btnYorN.Checked = false;
             }
             if (s == "B_Load")
@@ -47,7 +49,8 @@ namespace Vexease.Controllers.ViewCtrl
             }
             if (s == "B_Clicked")
             {
-                if (DataContext.DisallowTask.SwapStatus()) btnYorN.Checked = true;
+                DataContext.DisallowTask.SwapStatus();
+                if (DataContext.DisallowTask.CheckStatus()) btnYorN.Checked = true;
                 else btnYorN.Checked = false;
             }
             if (s=="Sys_Load")
@@ -57,7 +60,8 @@ namespace Vexease.Controllers.ViewCtrl
             }
             if (s == "Sys_Clicked")
             {
-                if (DataContext.SysDriver.SwapStatus()) btnYorN.Checked = true;
+                DataContext.SysDriver.SwapStatus();
+                if (DataContext.SysDriver.CheckStatus()) btnYorN.Checked = true;
                 else btnYorN.Checked = false;
             }
             if (s== "Mmc_Load")
@@ -75,7 +79,8 @@ namespace Vexease.Controllers.ViewCtrl
             }
             if (s == "Registry_Clicked")
             {
-                if (DataContext.Registry.SwapStatus()) btnYorN.Checked = true;
+                DataContext.Registry.SwapStatus();
+                if (DataContext.Registry.CheckStatus()) btnYorN.Checked = true;
                 else btnYorN.Checked = false;
             }
             if (s == "CtrlPnl_Load")
@@ -85,7 +90,8 @@ namespace Vexease.Controllers.ViewCtrl
             }
             if (s == "CtrlPnl_Clicked")
             {
-                if (DataContext.CtrlPal.SwapStatus()) btnYorN.Checked = true;
+                DataContext.CtrlPal.SwapStatus();
+                if (DataContext.CtrlPal.CheckStatus()) btnYorN.Checked = true;
                 else btnYorN.Checked = false;
             }
             if (s == "RunTool_Load")
@@ -95,7 +101,8 @@ namespace Vexease.Controllers.ViewCtrl
             }
             if (s == "RunTool_Clicked")
             {
-                if (DataContext.Launcher.SwapStatus()) btnYorN.Checked = true;
+                DataContext.Launcher.SwapStatus();
+                if (DataContext.Launcher.CheckStatus()) btnYorN.Checked = true;
                 else btnYorN.Checked = false;
             }
             if (s == "Cmd_Load")
@@ -105,7 +112,8 @@ namespace Vexease.Controllers.ViewCtrl
             }
             if (s == "Cmd_Clicked")
             {
-                if (DataContext.Cmd.SwapStatus()) btnYorN.Checked = true;
+                DataContext.Cmd.SwapStatus();
+                if (DataContext.Cmd.CheckStatus()) btnYorN.Checked = true;
                 else btnYorN.Checked = false;
             }
             if (s == "Taskmgr_Load")
@@ -115,7 +123,8 @@ namespace Vexease.Controllers.ViewCtrl
             }
             if (s == "Taskmgr_Clicked")
             {
-                if (DataContext.Taskmgr.SwapStatus()) btnYorN.Checked = true;
+                DataContext.Taskmgr.SwapStatus();
+                if (DataContext.Taskmgr.CheckStatus()) btnYorN.Checked = true;
                 else btnYorN.Checked = false;
             }
             if (s == "PwrShell_Load")
@@ -125,7 +134,8 @@ namespace Vexease.Controllers.ViewCtrl
             }
             if (s == "PwrShell_Clicked")
             {
-                if (DataContext.PwrShell.SwapStatus()) btnYorN.Checked = true;
+                DataContext.PwrShell.SwapStatus();
+                if (DataContext.PwrShell.CheckStatus()) btnYorN.Checked = true;
                 else btnYorN.Checked = false;
             }
            
