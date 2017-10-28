@@ -79,8 +79,8 @@ namespace Vexease.Controllers.Status
         public override bool CheckStatus()
         {
             var regs = DataContext.GetTaskList(TaskType);
-            return regs.Any(reg => 
-                string.Equals(reg, TaskName, StringComparison.CurrentCultureIgnoreCase));
+            return !(regs is null) && regs.Any(reg => 
+                       string.Equals(reg, TaskName, StringComparison.CurrentCultureIgnoreCase));
         }
         /// <inheritdoc />
         /// <summary>
