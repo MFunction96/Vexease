@@ -27,6 +27,7 @@ namespace Vexease.Views
             //ShowInTaskbar = false;//不在任务栏上显示
             FormBorderStyle = FormBorderStyle.FixedSingle;//不可调整大小。可包括控件菜单栏、标题栏、“最大化”按钮和“最小化”按钮。只能使用“最大化”和“最小化”按钮改变大小。创建单线边框。
             ViewMethod.Colwidth3(LvUser);
+            ViewMethod.StatusChange(LvUser);
         }
 
         protected override void OnClosing(CancelEventArgs e)
@@ -47,6 +48,7 @@ namespace Vexease.Views
             Hide();
            
         }
+
 
       
     }

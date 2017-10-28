@@ -100,6 +100,7 @@
     <Compile Include="Controllers\Status\Status.cs" />
     <Compile Include="Controllers\Status\TaskStatus.cs" />
     <Compile Include="Controllers\Task\TaskCtrl.cs" />
+    <Compile Include="Controllers\ViewCtrl\BtnYorNCtrl.cs" />
     <Compile Include="Controllers\ViewCtrl\ViewMethod.cs" />
     <Compile Include="Models\Enums\DISM_LOG_LEVEL.cs" />
     <Compile Include="Models\Enums\FACILITY_CODE.cs" />

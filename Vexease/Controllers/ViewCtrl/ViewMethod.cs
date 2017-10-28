@@ -1,24 +1,8 @@
 ﻿using System;
-using System.Linq;
 using Vexease.Views;
 using System.Windows.Forms;
-// ┏┓　　　┏┓
-// ┏┛┻━━━┛┻┓
-// ┃　　　　　　　┃ 　
-// ┃　　　━　　　┃
-// ┃　┳┛　┗┳　┃
-// ┃　　　　　　　┃
-// ┃　　　┻　　　┃
-// ┃　　　　　　　┃
-// ┗━┓　　　┏━┛
-//     ┃　　　┃ 神兽保佑　　　　　　　　
-//     ┃　　　┃ 永无BUG！
-//     ┃　　　┗━━━┓
-//     ┃　　　　　　　┣┓
-//     ┃　　　　　　　┏┛
-//     ┗┓┓┏━┳┓┏┛
-//       ┃┫┫　┃┫┫
-//       ┗┻┛　┗┻┛
+using Vexease.Controllers.ViewCtrl;
+using Vexease.Data;
 namespace Vexease.Controllers.ViewCtrl
 {
 
@@ -27,10 +11,7 @@ namespace Vexease.Controllers.ViewCtrl
     /// </summary>
     public class ViewMethod
     {
-        public T Foo<T>(T value)
-        {
-            return value;
-        }
+       
         /// <summary>
         /// 名单.Height
         /// </summary>
@@ -40,15 +21,10 @@ namespace Vexease.Controllers.ViewCtrl
         public static void ListHeight(ListView listView) {//获取信息长度
         }
         ///<summary>
-        ///名单收放
-        /// </summary>
-        /// <param name="listView">
-        /// 名单信息
-        /// </param>
-        /// <param name="btnYorN">
-        /// 对应的滑动条
-        /// </param>
-        public static void ContracAndAmplifica(ListView listView,BtnYorN btnYorN) {
+        ///通过点击checkbutton控制名单(listView)收放
+        /// </summary>       
+        public static void ContracAndAmplifica(ListView listView,BtnYorN btnYorN,String yorN) {
+            BtnYorNCtrl.CheckYorN(btnYorN, yorN);
             switch (listView.Height)
             {
                 case 0 when btnYorN.Checked == true:
@@ -59,23 +35,37 @@ namespace Vexease.Controllers.ViewCtrl
                     break;
             }
         }
-        public static void ContracAndAmplifica(Panel listView,BtnYorN btnYorN)
+        /// <summary>
+        /// 通过点击checkbutton控制名单(Panel)收放
+        /// </summary>
+        /// <param name="panel"></param>
+        /// <param name="btnYorN"></param>
+        public static void ContracAndAmplifica(Panel panel,BtnYorN btnYorN,String yorN)
         {
-            switch (listView.Height)
+            BtnYorNCtrl.CheckYorN(btnYorN, yorN);
+            switch (panel.Height)
             {
                 case 0 when btnYorN.Checked == true:
-                    listView.Height = 90;//ListHeight
+                    panel.Height = 90;//ListHeight
                     break;
                 default:
-                    listView.Height = 0;
+                    panel.Height = 0;
                     break;
             }
         }
+        /// <summary>
+        /// 通过点击标题控制名单（listView）收放
+        /// </summary>
+        /// <param name="listView"></param>
         public static void ContracAndAmplifica(ListView listView)
         {
             if (listView.Height == 0) listView.Height = 90;//ListHeight
             else listView.Height = 0;
         }
+        /// <summary>
+        /// 通过点击标题控制名单（panel）收放
+        /// </summary>
+        /// <param name="panel"></param>
         public static void ContracAndAmplifica(Panel panel)
         {
             if (panel.Height == 0) panel.Height = 90;//ListHeight
@@ -102,11 +92,8 @@ namespace Vexease.Controllers.ViewCtrl
             }
         }
         /// <summary>
-        /// 列表宽度的计算
+        /// 两列列表宽度的计算
         /// </summary>
-        /// <param name="listview">
-        /// 求宽度的两列的列表
-        /// </param>
         public static void Colwidth2(ListView listview)
         {
             foreach (ColumnHeader item in listview.Columns)
@@ -127,6 +114,10 @@ namespace Vexease.Controllers.ViewCtrl
                 }
             }
         }
+        /// <summary>
+        /// 三列列表宽度结算
+        /// </summary>
+        /// <param name="listview"></param>
         public static void Colwidth3(ListView listview)
         {
             foreach (ColumnHeader item in listview.Columns)
@@ -150,19 +141,23 @@ namespace Vexease.Controllers.ViewCtrl
                 }
             }
         }
+      
         ///<summary>
         ///checkbutton控制的状态列表的收缩
         /// </summary>
-        public static void Contraction(BtnYorN btnYorN,Panel panel)
+        public static void Contraction(BtnYorN btnYorN,Panel panel,String yorN)
         {
+            BtnYorNCtrl.CheckYorN(btnYorN, yorN);
             if (btnYorN.Checked == false)
                 panel.Height = 0;
         }
         ///<summary>
         ///状态显示更新
         /// </summary>
-        public static void StatusChange(BtnYorN btnYorN,ListView listView)
+        public static void StatusChange(BtnYorN btnYorN,ListView listView,String yorN)
         {
+
+            BtnYorNCtrl.CheckYorN(btnYorN, yorN);
             if (btnYorN.Checked == false)
             {
                 listView.Items[1].SubItems[1].Text = "已禁用";
@@ -171,6 +166,59 @@ namespace Vexease.Controllers.ViewCtrl
             {
                 listView.Items[1].SubItems[1].Text = "启用中";
             }
+        }
+        public static void StatusChange(ListView listView)
+        {
+            DataContext.RefrushData();
+            /*缺一个Mmc*/
+                if (DataContext.SysDriver.CheckStatus())
+                listView.Items[3].SubItems[2].Text = "已禁用";
+                else listView.Items[3].SubItems[2].Text = "启用中";
+                       
+                if (DataContext.SysDriver.SwapStatus())
+                listView.Items[3].SubItems[2].Text = "已禁用";
+                else listView.Items[3].SubItems[2].Text = "启用中";
+           
+                if (DataContext.Registry.CheckStatus())
+                listView.Items[2].SubItems[2].Text = "已禁用";
+                else listView.Items[2].SubItems[2].Text = "启用中";
+           
+                if (DataContext.Registry.SwapStatus())
+                listView.Items[2].SubItems[2].Text = "已禁用";
+                else listView.Items[2].SubItems[2].Text = "启用中";
+            
+                if (DataContext.CtrlPal.CheckStatus())
+                listView.Items[4].SubItems[2].Text = "已禁用";
+                else listView.Items[4].SubItems[2].Text = "启用中";
+           
+                if (DataContext.CtrlPal.SwapStatus())
+                listView.Items[4].SubItems[2].Text = "已禁用";
+                else listView.Items[4].SubItems[2].Text = "启用中";
+            
+                if (DataContext.Launcher.CheckStatus()) listView.Items[5].SubItems[2].Text = "已禁用";
+                else listView.Items[5].SubItems[2].Text = "启用中";
+           
+                if (DataContext.Launcher.SwapStatus()) listView.Items[5].SubItems[2].Text = "已禁用";
+                else listView.Items[5].SubItems[2].Text = "启用中";
+
+                if (DataContext.Cmd.CheckStatus()) listView.Items[7].SubItems[2].Text = "已禁用";
+                else listView.Items[7].SubItems[2].Text = "启用中";
+           
+                if (DataContext.Cmd.SwapStatus()) listView.Items[7].SubItems[2].Text = "已禁用";
+                else listView.Items[7].SubItems[2].Text = "启用中";
+           
+                if (DataContext.Taskmgr.CheckStatus()) listView.Items[6].SubItems[2].Text = "已禁用";
+                else listView.Items[6].SubItems[2].Text = "启用中";
+           
+                if (DataContext.Taskmgr.SwapStatus()) listView.Items[6].SubItems[2].Text = "已禁用";
+                else listView.Items[6].SubItems[2].Text = "启用中";
+           
+                if (DataContext.PwrShell.CheckStatus()) listView.Items[8].SubItems[2].Text = "已禁用";
+                else listView.Items[8].SubItems[2].Text = "启用中";
+            
+                if (DataContext.PwrShell.SwapStatus()) listView.Items[8].SubItems[2].Text = "已禁用";
+                else listView.Items[8].SubItems[2].Text = "启用中";
+            
         }
         ///<summary>
         ///左侧标题栏颜色响应
@@ -248,6 +296,7 @@ namespace Vexease.Controllers.ViewCtrl
                 }
             }
         }
+
     }
     public abstract class ViewStatus
     {

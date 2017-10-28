@@ -114,8 +114,8 @@ namespace Vexease.Views
         private  void BtnYorN_Click(object sender,EventArgs e)
         {
             BtnYorN btnYorN = sender as BtnYorN;          
-            if (btnYorN == BtnBListYorN){ ViewMethod.ContracAndAmplifica(PnlBList, BtnBListYorN); }
-            if (btnYorN == BtnWListYorN) { ViewMethod.ContracAndAmplifica(PnlWList, BtnWListYorN); }
+            if (btnYorN == BtnBListYorN){ ViewMethod.ContracAndAmplifica(PnlBList, BtnBListYorN,"B_Clicked"); }
+            if (btnYorN == BtnWListYorN) { ViewMethod.ContracAndAmplifica(PnlWList, BtnWListYorN,"W_Clicked"); }
 
            
         }
@@ -198,15 +198,15 @@ namespace Vexease.Views
         private void BtnYorN_Load(object sender,EventArgs e)
         {
             BtnYorN btnYorN = sender as BtnYorN;
-            if (btnYorN == BtnBListYorN) ViewMethod.Contraction(BtnBListYorN,PnlBList);
-            if (btnYorN == BtnWListYorN) ViewMethod.Contraction(BtnWListYorN, PnlWList);
+            if (btnYorN == BtnBListYorN) ViewMethod.Contraction(BtnBListYorN,PnlBList,"B_Load");
+            if (btnYorN == BtnWListYorN) ViewMethod.Contraction(BtnWListYorN, PnlWList,"W_Load");
         }
               
         private void BtnYorN_MouseUp(object sender,MouseEventArgs e)
         {
             BtnYorN btnYorN = new BtnYorN();
-            if (btnYorN == BtnWListYorN) ViewMethod.ContracAndAmplifica(PnlWList,BtnWListYorN);
-            if (btnYorN == BtnBListYorN) ViewMethod.ContracAndAmplifica(PnlBList, BtnBListYorN);
+            if (btnYorN == BtnWListYorN) ViewMethod.ContracAndAmplifica(PnlWList,BtnWListYorN,"W_Clicked");
+            if (btnYorN == BtnBListYorN) ViewMethod.ContracAndAmplifica(PnlBList, BtnBListYorN,"B_Clicked");
         }
        
         //
@@ -215,27 +215,27 @@ namespace Vexease.Views
         private void BtnYorNStatus_Load(object sender,EventArgs e)
         {
             BtnYorN btnYorN = sender as BtnYorN;
-            if (btnYorN == BtnRegustriyYorN) ViewMethod.StatusChange(btnYorN, LvRegustry);
-            if (btnYorN == BtnConsoleYorN) ViewMethod.StatusChange(btnYorN, LvConsole);
-            if (btnYorN == BtnPlanningTaskYorN) ViewMethod.StatusChange(BtnPlanningTaskYorN, LvPlanningTask);
-            if (btnYorN == BtnCtrlPnlYorN) ViewMethod.StatusChange(BtnCtrlPnlYorN, LvCtrlPnl);
-            if (btnYorN == BtnRunToolYorN) ViewMethod.StatusChange(BtnRunToolYorN, LvRunTool);
-            if (btnYorN == BtnTaskMgrYorN) ViewMethod.StatusChange(BtnTaskMgrYorN, LvTaskMgr);
-            if (btnYorN == BtnCmdYorN) ViewMethod.StatusChange(BtnCmdYorN, LvCmd);
-            if (btnYorN == BtnPSYorN) ViewMethod.StatusChange(BtnPSYorN, LvPS);
+            if (btnYorN == BtnRegustriyYorN) ViewMethod.StatusChange(btnYorN, LvRegustry, "Registry_Load");
+            if (btnYorN == BtnConsoleYorN) ViewMethod.StatusChange(btnYorN, LvConsole,"Mmc_Load");
+            if (btnYorN == BtnPlanningTaskYorN) ViewMethod.StatusChange(BtnPlanningTaskYorN, LvPlanningTask,"Sys_Load");
+            if (btnYorN == BtnCtrlPnlYorN) ViewMethod.StatusChange(BtnCtrlPnlYorN, LvCtrlPnl,"CtrlPnl_Load");
+            if (btnYorN == BtnRunToolYorN) ViewMethod.StatusChange(BtnRunToolYorN, LvRunTool,"RunTool_Load");
+            if (btnYorN == BtnTaskMgrYorN) ViewMethod.StatusChange(BtnTaskMgrYorN, LvTaskMgr,"Taskmgr_Load");
+            if (btnYorN == BtnCmdYorN) ViewMethod.StatusChange(BtnCmdYorN, LvCmd,"Cmd_Load");
+            if (btnYorN == BtnPSYorN) ViewMethod.StatusChange(BtnPSYorN, LvPS,"PwrShell_Load");
         }
    
         private void BtnYorNStatus_MouseUp(object sender,MouseEventArgs e)
         {
             BtnYorN btnYorN = sender as BtnYorN;
-            if (btnYorN == BtnRegustriyYorN) ViewMethod.StatusChange(btnYorN, LvRegustry);
-            if (btnYorN == BtnConsoleYorN) ViewMethod.StatusChange(btnYorN, LvConsole);
-            if (btnYorN == BtnPlanningTaskYorN) ViewMethod.StatusChange(BtnPlanningTaskYorN, LvPlanningTask);
-            if (btnYorN == BtnCtrlPnlYorN) ViewMethod.StatusChange(BtnCtrlPnlYorN, LvCtrlPnl);
-            if (btnYorN == BtnRunToolYorN) ViewMethod.StatusChange(BtnRunToolYorN, LvRunTool);
-            if (btnYorN == BtnTaskMgrYorN) ViewMethod.StatusChange(BtnTaskMgrYorN, LvTaskMgr);
-            if (btnYorN == BtnCmdYorN) ViewMethod.StatusChange(BtnCmdYorN, LvCmd);
-            if (btnYorN == BtnPSYorN) ViewMethod.StatusChange(BtnPSYorN, LvPS);
+            if (btnYorN == BtnRegustriyYorN) ViewMethod.StatusChange(btnYorN, LvRegustry, "Registry_Clicked");
+            if (btnYorN == BtnConsoleYorN) ViewMethod.StatusChange(btnYorN, LvConsole, "Mmc_Clicked");
+            if (btnYorN == BtnPlanningTaskYorN) ViewMethod.StatusChange(BtnPlanningTaskYorN, LvPlanningTask, "Sys_Clicked");
+            if (btnYorN == BtnCtrlPnlYorN) ViewMethod.StatusChange(BtnCtrlPnlYorN, LvCtrlPnl, "CtrlPnl_Clicked");
+            if (btnYorN == BtnRunToolYorN) ViewMethod.StatusChange(BtnRunToolYorN, LvRunTool, "RunTool_Clicked");
+            if (btnYorN == BtnTaskMgrYorN) ViewMethod.StatusChange(BtnTaskMgrYorN, LvTaskMgr, "Taskmgr_Clicked");
+            if (btnYorN == BtnCmdYorN) ViewMethod.StatusChange(BtnCmdYorN, LvCmd, "Cmd_Clicked");
+            if (btnYorN == BtnPSYorN) ViewMethod.StatusChange(BtnPSYorN, LvPS, "PwrShell_Clicked");
         }
 
        
