@@ -11,24 +11,26 @@ namespace Vexease.Controllers.ViewCtrl
     /// </summary>
     public class ViewMethod
     {
-       
+
         /// <summary>
         /// 名单.Height
         /// </summary>
         /// <param name="listView">
         /// 名单信息
         /// </param>
-        public static void ListHeight(ListView listView) {//获取信息长度
+        public static void ListHeight(ListView listView)
+        {//获取信息长度
         }
         ///<summary>
         ///通过点击checkbutton控制名单(listView)收放
         /// </summary>       
-        public static void ContracAndAmplifica(ListView listView,BtnYorN btnYorN,String yorN) {
+        public static void ContracAndAmplifica(ListView listView, BtnYorN btnYorN, String yorN)
+        {
             BtnYorNCtrl.CheckYorN(btnYorN, yorN);
             switch (listView.Height)
             {
                 case 0 when btnYorN.Checked == true:
-                    listView.Height =90;//ListHeight
+                    listView.Height = 90;//ListHeight
                     break;
                 default:
                     listView.Height = 0;
@@ -40,7 +42,7 @@ namespace Vexease.Controllers.ViewCtrl
         /// </summary>
         /// <param name="panel"></param>
         /// <param name="btnYorN"></param>
-        public static void ContracAndAmplifica(Panel panel,BtnYorN btnYorN,String yorN)
+        public static void ContracAndAmplifica(Panel panel, BtnYorN btnYorN, String yorN)
         {
             BtnYorNCtrl.CheckYorN(btnYorN, yorN);
             switch (panel.Height)
@@ -74,7 +76,7 @@ namespace Vexease.Controllers.ViewCtrl
         ///<summary>
         ///双击大标题
         /// </summary>
-        public static void DoubleCliclLbl(Button BtnConsole, Button BtnRegustry,Button BtnPlanningTask, Button BtnCtrlPnl, Button BtnRunTool, Button BtnTaskMgr, Button BtnCmd, Button BtnPS,Button BtnProcCtrl)
+        public static void DoubleCliclLbl(Button BtnConsole, Button BtnRegustry, Button BtnPlanningTask, Button BtnCtrlPnl, Button BtnRunTool, Button BtnTaskMgr, Button BtnCmd, Button BtnPS, Button BtnProcCtrl)
         {
             if (BtnConsole.Height == 0)
             {
@@ -141,11 +143,11 @@ namespace Vexease.Controllers.ViewCtrl
                 }
             }
         }
-      
+
         ///<summary>
         ///checkbutton控制的状态列表的收缩
         /// </summary>
-        public static void Contraction(BtnYorN btnYorN,Panel panel,String yorN)
+        public static void Contraction(BtnYorN btnYorN, Panel panel, String yorN)
         {
             BtnYorNCtrl.CheckYorN(btnYorN, yorN);
             if (btnYorN.Checked == false)
@@ -154,7 +156,7 @@ namespace Vexease.Controllers.ViewCtrl
         ///<summary>
         ///状态显示更新
         /// </summary>
-        public static void StatusChange(BtnYorN btnYorN,ListView listView,String yorN)
+        public static void StatusChange(BtnYorN btnYorN, ListView listView, String yorN)
         {
 
             BtnYorNCtrl.CheckYorN(btnYorN, yorN);
@@ -169,61 +171,60 @@ namespace Vexease.Controllers.ViewCtrl
         }
         public static void StatusChange(ListView listView)
         {
-            DataContext.RefrushData();
             /*缺一个Mmc*/
-                if (DataContext.SysDriver.CheckStatus())
+            if (DataContext.SysDriver.CheckStatus())
                 listView.Items[3].SubItems[2].Text = "已禁用";
-                else listView.Items[3].SubItems[2].Text = "启用中";
-                       
-                if (DataContext.SysDriver.SwapStatus())
-                listView.Items[3].SubItems[2].Text = "已禁用";
-                else listView.Items[3].SubItems[2].Text = "启用中";
-           
-                if (DataContext.Registry.CheckStatus())
-                listView.Items[2].SubItems[2].Text = "已禁用";
-                else listView.Items[2].SubItems[2].Text = "启用中";
-           
-                if (DataContext.Registry.SwapStatus())
-                listView.Items[2].SubItems[2].Text = "已禁用";
-                else listView.Items[2].SubItems[2].Text = "启用中";
-            
-                if (DataContext.CtrlPal.CheckStatus())
-                listView.Items[4].SubItems[2].Text = "已禁用";
-                else listView.Items[4].SubItems[2].Text = "启用中";
-           
-                if (DataContext.CtrlPal.SwapStatus())
-                listView.Items[4].SubItems[2].Text = "已禁用";
-                else listView.Items[4].SubItems[2].Text = "启用中";
-            
-                if (DataContext.Launcher.CheckStatus()) listView.Items[5].SubItems[2].Text = "已禁用";
-                else listView.Items[5].SubItems[2].Text = "启用中";
-           
-                if (DataContext.Launcher.SwapStatus()) listView.Items[5].SubItems[2].Text = "已禁用";
-                else listView.Items[5].SubItems[2].Text = "启用中";
+            else listView.Items[3].SubItems[2].Text = "启用中";
 
-                if (DataContext.Cmd.CheckStatus()) listView.Items[7].SubItems[2].Text = "已禁用";
-                else listView.Items[7].SubItems[2].Text = "启用中";
-           
-                if (DataContext.Cmd.SwapStatus()) listView.Items[7].SubItems[2].Text = "已禁用";
-                else listView.Items[7].SubItems[2].Text = "启用中";
-           
-                if (DataContext.Taskmgr.CheckStatus()) listView.Items[6].SubItems[2].Text = "已禁用";
-                else listView.Items[6].SubItems[2].Text = "启用中";
-           
-                if (DataContext.Taskmgr.SwapStatus()) listView.Items[6].SubItems[2].Text = "已禁用";
-                else listView.Items[6].SubItems[2].Text = "启用中";
-           
-                if (DataContext.PwrShell.CheckStatus()) listView.Items[8].SubItems[2].Text = "已禁用";
-                else listView.Items[8].SubItems[2].Text = "启用中";
-            
-                if (DataContext.PwrShell.SwapStatus()) listView.Items[8].SubItems[2].Text = "已禁用";
-                else listView.Items[8].SubItems[2].Text = "启用中";
-            
+            if (DataContext.SysDriver.SwapStatus())
+                listView.Items[3].SubItems[2].Text = "已禁用";
+            else listView.Items[3].SubItems[2].Text = "启用中";
+
+            if (DataContext.Registry.CheckStatus())
+                listView.Items[2].SubItems[2].Text = "已禁用";
+            else listView.Items[2].SubItems[2].Text = "启用中";
+
+            if (DataContext.Registry.SwapStatus())
+                listView.Items[2].SubItems[2].Text = "已禁用";
+            else listView.Items[2].SubItems[2].Text = "启用中";
+
+            if (DataContext.CtrlPal.CheckStatus())
+                listView.Items[4].SubItems[2].Text = "已禁用";
+            else listView.Items[4].SubItems[2].Text = "启用中";
+
+            if (DataContext.CtrlPal.SwapStatus())
+                listView.Items[4].SubItems[2].Text = "已禁用";
+            else listView.Items[4].SubItems[2].Text = "启用中";
+
+            if (DataContext.Launcher.CheckStatus()) listView.Items[5].SubItems[2].Text = "已禁用";
+            else listView.Items[5].SubItems[2].Text = "启用中";
+
+            if (DataContext.Launcher.SwapStatus()) listView.Items[5].SubItems[2].Text = "已禁用";
+            else listView.Items[5].SubItems[2].Text = "启用中";
+
+            if (DataContext.Cmd.CheckStatus()) listView.Items[7].SubItems[2].Text = "已禁用";
+            else listView.Items[7].SubItems[2].Text = "启用中";
+
+            if (DataContext.Cmd.SwapStatus()) listView.Items[7].SubItems[2].Text = "已禁用";
+            else listView.Items[7].SubItems[2].Text = "启用中";
+
+            if (DataContext.Taskmgr.CheckStatus()) listView.Items[6].SubItems[2].Text = "已禁用";
+            else listView.Items[6].SubItems[2].Text = "启用中";
+
+            if (DataContext.Taskmgr.SwapStatus()) listView.Items[6].SubItems[2].Text = "已禁用";
+            else listView.Items[6].SubItems[2].Text = "启用中";
+
+            if (DataContext.PwrShell.CheckStatus()) listView.Items[8].SubItems[2].Text = "已禁用";
+            else listView.Items[8].SubItems[2].Text = "启用中";
+
+            if (DataContext.PwrShell.SwapStatus()) listView.Items[8].SubItems[2].Text = "已禁用";
+            else listView.Items[8].SubItems[2].Text = "启用中";
+
         }
         ///<summary>
         ///左侧标题栏颜色响应
         /// </summary>
-        public static void ColorChange(Button button,String color)
+        public static void ColorChange(Button button, String color)
         {
             if (color == "E") button.BackColor = System.Drawing.Color.LightSkyBlue;
             if (color == "L") button.BackColor = System.Drawing.Color.White;
@@ -231,7 +232,7 @@ namespace Vexease.Controllers.ViewCtrl
         }
         public static void ColorChange(Label lbl, String color)
         {
-            if (color == "E") lbl.BackColor = System.Drawing.Color.LightSkyBlue;           
+            if (color == "E") lbl.BackColor = System.Drawing.Color.LightSkyBlue;
             if (color == "D") lbl.BackColor = System.Drawing.Color.DeepSkyBlue;
             if (color == "L") lbl.BackColor = System.Drawing.Color.DodgerBlue;
         }
@@ -244,21 +245,21 @@ namespace Vexease.Controllers.ViewCtrl
             onclosingForm.ShowDialog();
             Application.DoEvents();
             if (onclosingForm.RdoMin.Checked == true)
-            {      
+            {
                 Form.Hide();
                 onclosingForm.Close();
             }
-            else if (onclosingForm.RdoClose.Checked== true)
-            {                               
+            else if (onclosingForm.RdoClose.Checked == true)
+            {
                 Environment.Exit(0);//彻底关掉！
             }
         }
-        
-        
+
+
         ///<summary>
         ///密码输入框设置
         /// </summary>
-        public static void PwdSet(MaskedTextBox textBox,String status)
+        public static void PwdSet(MaskedTextBox textBox, String status)
         {
             if (status == "NewEnter")
             {
@@ -268,7 +269,7 @@ namespace Vexease.Controllers.ViewCtrl
                     textBox.ForeColor = System.Drawing.Color.FromArgb(255, 0, 0, 0);
                 }
             }
-            if(status=="ReEnter")
+            if (status == "ReEnter")
             {
                 textBox.PasswordChar = '*';
                 if (textBox.Text == "两次输入不一致！" || textBox.Text == "请再次输入密码！")
@@ -300,6 +301,6 @@ namespace Vexease.Controllers.ViewCtrl
     }
     public abstract class ViewStatus
     {
-       
+
     }
 }

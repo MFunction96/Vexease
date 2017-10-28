@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.Win32;
 using Vexease.Controllers.List;
 using Vexease.Controllers.Reg;
 using Vexease.Data;
@@ -53,7 +53,8 @@ namespace Vexease.Controllers.Status
                 foreach (var task in taskList)
                 {
                     RegCtrl.RegSetValue(
-                        new RegKey(path.HKey, $"{path.LpSubKey}\\{{{new Guid()}}}", @"ItemData",RegistryValueKind.String,task));
+                        new RegKey(path.HKey, $"{path.LpSubKey}\\{{{new Guid()}}}", @"ItemData",
+                            RegistryValueKind.String, task));
                 }
             }
             else

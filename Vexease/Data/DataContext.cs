@@ -1,7 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections;
-using Vexease.Controllers.Comparer;
 using Vexease.Controllers.Crypt;
 using Vexease.Controllers.Reg;
 using Vexease.Controllers.Status;
@@ -359,13 +358,12 @@ namespace Vexease.Data
             }
             catch (Exception e)
             {
-                if (e.GetType() != typeof(NullReferenceException)) throw;
+                if (e.GetType() != typeof(NullReferenceException)) throw new Exception(nameof(InitTask));
             }
             finally
             {
                 list.Sort();
                 regkeys = list.ToArray() as string[];
-                if (regkeys is null) throw new NullReferenceException();
             }
             return regkeys;
         }
