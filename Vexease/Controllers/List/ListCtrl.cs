@@ -22,7 +22,7 @@ namespace Vexease.Controllers.List
         /// <summary>
         /// 原始进程信息。
         /// </summary>
-        private string[] OriginList { get; set; }
+        public string[] OriginList { get; private set; }
         /// <summary>
         /// 初始化进程信息。
         /// </summary>
@@ -117,7 +117,7 @@ namespace Vexease.Controllers.List
         /// <summary>
         /// 
         /// </summary>
-        public void Apply()
+        public string[] Apply()
         {
             var list = new ArrayList();
             foreach (var s in OriginList)
@@ -126,7 +126,8 @@ namespace Vexease.Controllers.List
                 list.Add(s);
             }
             foreach (var s in AddList) list.Add(s);
-            OriginList = list.ToArray() as string[];
+            list.Sort();
+            return OriginList = list.ToArray() as string[];
         }
     }
 }

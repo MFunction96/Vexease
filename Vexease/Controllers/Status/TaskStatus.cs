@@ -1,8 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using Microsoft.Win32;
 using Vexease.Controllers.List;
+using Vexease.Controllers.Reg;
 using Vexease.Data;
 using Vexease.Models.Enums;
+using Vexease.Models.Registrys;
 
 namespace Vexease.Controllers.Status
 {
@@ -33,6 +37,35 @@ namespace Vexease.Controllers.Status
         {
             TaskName = taskName;
             TaskType = taskType;
+        }
+        /// <summary>
+        /// 应用进程列表变更。
+        /// </summary>
+        /// <param name="taskList">
+        /// 将应用的进程列表。
+        /// </param>
+        private void ApplyTaskList(IEnumerable<string> taskList)
+        {
+            var path = DataContext.GetRegPath(TaskType);
+            RegCtrl.RegDelKey(path);
+            if ((int)TaskType >> 1 > 0)
+            {
+                foreach (var task in taskList)
+                {
+                    RegCtrl.RegSetValue(
+                        new RegKey(path.HKey, $"{path.LpSubKey}\\{{{new Guid()}}}", @"ItemData",RegistryValueKind.String,task));
+                }
+            }
+            else
+            {
+                var i = 1;
+                foreach (var task in taskList)
+                {
+                    RegCtrl.RegSetValue(
+                        new RegKey(path.HKey, path.LpSubKey, i++.ToString(), RegistryValueKind.String, task));
+                }
+            }
+            DataContext.RefrushData();
         }
         /// <inheritdoc />
         /// <summary>
@@ -67,27 +100,11 @@ namespace Vexease.Controllers.Status
                     string.Equals(reg, TaskName, StringComparison.CurrentCultureIgnoreCase));
                 if (regkey is null) throw new NullReferenceException(nameof(TaskStatus));
                 buffer.DelTask(regkey, TaskType);
-
-
             }
-            else
-            {
-                
-            }
+            else buffer.AddTask(TaskName, TaskType);
+            buffer.Apply();
+            ApplyTaskList(buffer.OriginList);
             return base.SwapStatus();
-        }
-
-        /// <summary>
-        /// 插入进程至指定列表。
-        /// </summary>
-        /// <param name="delTask"></param>
-        /// <param name="taskType">
-        /// 
-        /// </param>
-        /// <param name="addTask"></param>
-        public void ModifyTask(string addTask, string delTask, TASK_TYPE_FLAGS taskType)
-        {
-            
         }
     }
 }
