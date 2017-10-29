@@ -61,41 +61,41 @@ namespace Vexease.Views
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.ToolStripMenuItem TSMIREflesh;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdmForm));
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem51 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem52 = new System.Windows.Forms.ListViewItem(new string[] {
             "禁用",
             "已禁用",
             "此处添加button"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem53 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem54 = new System.Windows.Forms.ListViewItem(new string[] {
             "禁用",
             "已启用"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem49 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem50 = new System.Windows.Forms.ListViewItem(new string[] {
             "禁用",
             "已禁用"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem55 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem56 = new System.Windows.Forms.ListViewItem(new string[] {
             "禁用",
             "已禁用",
             "此处添加button"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem57 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem58 = new System.Windows.Forms.ListViewItem(new string[] {
             "禁用",
             "已禁用",
             "此处添加button"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem59 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem60 = new System.Windows.Forms.ListViewItem(new string[] {
             "禁用",
             "已启用",
             "此处添加button"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem61 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem62 = new System.Windows.Forms.ListViewItem(new string[] {
             "禁用",
             "已禁用",
             "此处添加button"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem63 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem64 = new System.Windows.Forms.ListViewItem(new string[] {
             "禁用",
             "已禁用"}, -1);
             this.MenuStripAdm = new System.Windows.Forms.MenuStrip();
@@ -118,9 +118,9 @@ namespace Vexease.Views
             this.BtnTaskMgr = new System.Windows.Forms.Button();
             this.BtnRunTool = new System.Windows.Forms.Button();
             this.BtnCtrlPnl = new System.Windows.Forms.Button();
-            this.BtnPlanningTask = new System.Windows.Forms.Button();
             this.BtnRegustry = new System.Windows.Forms.Button();
             this.BtnConsole = new System.Windows.Forms.Button();
+            this.BtnSys = new System.Windows.Forms.Button();
             this.LblStatus = new System.Windows.Forms.Label();
             this.TabCtrlAdm = new System.Windows.Forms.TabControl();
             this.PageAbout = new System.Windows.Forms.TabPage();
@@ -157,12 +157,12 @@ namespace Vexease.Views
             this.RTxtBoxPlanningTask = new System.Windows.Forms.RichTextBox();
             this.PnlPlanningTaskBtns = new System.Windows.Forms.Panel();
             this.BtnPlanningTaskRe = new System.Windows.Forms.Button();
-            this.LvPlanningTask = new System.Windows.Forms.ListView();
+            this.LvSys = new System.Windows.Forms.ListView();
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.PnlPlanningTask = new System.Windows.Forms.Panel();
-            this.LblPlanningTask = new System.Windows.Forms.Label();
-            this.BtnPlanningTaskYorN = new Vexease.Views.BtnYorN();
+            this.LblSys = new System.Windows.Forms.Label();
+            this.BtnSysYorN = new Vexease.Views.BtnYorN();
             this.PageCtrlPnl = new System.Windows.Forms.TabPage();
             this.RTxtBoxCtrlPnl = new System.Windows.Forms.RichTextBox();
             this.PnlCtrlPnlBtns = new System.Windows.Forms.Panel();
@@ -381,9 +381,9 @@ namespace Vexease.Views
             this.SplAdm.Panel1.Controls.Add(this.BtnTaskMgr);
             this.SplAdm.Panel1.Controls.Add(this.BtnRunTool);
             this.SplAdm.Panel1.Controls.Add(this.BtnCtrlPnl);
-            this.SplAdm.Panel1.Controls.Add(this.BtnPlanningTask);
             this.SplAdm.Panel1.Controls.Add(this.BtnRegustry);
             this.SplAdm.Panel1.Controls.Add(this.BtnConsole);
+            this.SplAdm.Panel1.Controls.Add(this.BtnSys);
             this.SplAdm.Panel1.Controls.Add(this.LblStatus);
             this.SplAdm.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.SplAdm_Panel1_Paint);
             // 
@@ -552,31 +552,13 @@ namespace Vexease.Views
             this.BtnCtrlPnl.MouseEnter += new System.EventHandler(this.BtnColor_MouseEnter);
             this.BtnCtrlPnl.MouseLeave += new System.EventHandler(this.BtnColor_MouseLeave);
             // 
-            // BtnPlanningTask
-            // 
-            this.BtnPlanningTask.BackColor = System.Drawing.Color.White;
-            this.BtnPlanningTask.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnPlanningTask.FlatAppearance.BorderSize = 0;
-            this.BtnPlanningTask.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnPlanningTask.Location = new System.Drawing.Point(0, 110);
-            this.BtnPlanningTask.Name = "BtnPlanningTask";
-            this.BtnPlanningTask.Size = new System.Drawing.Size(200, 30);
-            this.BtnPlanningTask.TabIndex = 3;
-            this.BtnPlanningTask.TabStop = false;
-            this.BtnPlanningTask.Text = "计划任务";
-            this.BtnPlanningTask.UseVisualStyleBackColor = false;
-            this.BtnPlanningTask.Click += new System.EventHandler(this.BtnPlanningTask_Click);
-            this.BtnPlanningTask.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnColor_MouseDown);
-            this.BtnPlanningTask.MouseEnter += new System.EventHandler(this.BtnColor_MouseEnter);
-            this.BtnPlanningTask.MouseLeave += new System.EventHandler(this.BtnColor_MouseLeave);
-            // 
             // BtnRegustry
             // 
             this.BtnRegustry.BackColor = System.Drawing.Color.White;
             this.BtnRegustry.Dock = System.Windows.Forms.DockStyle.Top;
             this.BtnRegustry.FlatAppearance.BorderSize = 0;
             this.BtnRegustry.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnRegustry.Location = new System.Drawing.Point(0, 80);
+            this.BtnRegustry.Location = new System.Drawing.Point(0, 110);
             this.BtnRegustry.Name = "BtnRegustry";
             this.BtnRegustry.Size = new System.Drawing.Size(200, 30);
             this.BtnRegustry.TabIndex = 2;
@@ -596,7 +578,7 @@ namespace Vexease.Views
             this.BtnConsole.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DeepSkyBlue;
             this.BtnConsole.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.BtnConsole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnConsole.Location = new System.Drawing.Point(0, 50);
+            this.BtnConsole.Location = new System.Drawing.Point(0, 80);
             this.BtnConsole.Name = "BtnConsole";
             this.BtnConsole.Size = new System.Drawing.Size(200, 30);
             this.BtnConsole.TabIndex = 1;
@@ -607,6 +589,24 @@ namespace Vexease.Views
             this.BtnConsole.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnColor_MouseDown);
             this.BtnConsole.MouseEnter += new System.EventHandler(this.BtnColor_MouseEnter);
             this.BtnConsole.MouseLeave += new System.EventHandler(this.BtnColor_MouseLeave);
+            // 
+            // BtnSys
+            // 
+            this.BtnSys.BackColor = System.Drawing.Color.White;
+            this.BtnSys.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnSys.FlatAppearance.BorderSize = 0;
+            this.BtnSys.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnSys.Location = new System.Drawing.Point(0, 50);
+            this.BtnSys.Name = "BtnSys";
+            this.BtnSys.Size = new System.Drawing.Size(200, 30);
+            this.BtnSys.TabIndex = 3;
+            this.BtnSys.TabStop = false;
+            this.BtnSys.Text = "系统盘管控";
+            this.BtnSys.UseVisualStyleBackColor = false;
+            this.BtnSys.Click += new System.EventHandler(this.BtnPlanningTask_Click);
+            this.BtnSys.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnColor_MouseDown);
+            this.BtnSys.MouseEnter += new System.EventHandler(this.BtnColor_MouseEnter);
+            this.BtnSys.MouseLeave += new System.EventHandler(this.BtnColor_MouseLeave);
             // 
             // LblStatus
             // 
@@ -643,7 +643,7 @@ namespace Vexease.Views
             this.TabCtrlAdm.Controls.Add(this.PageInstruction);
             this.TabCtrlAdm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TabCtrlAdm.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
-            this.TabCtrlAdm.ItemSize = new System.Drawing.Size(1, 1);
+            this.TabCtrlAdm.ItemSize = new System.Drawing.Size(41, 41);
             this.TabCtrlAdm.Location = new System.Drawing.Point(0, 0);
             this.TabCtrlAdm.Name = "TabCtrlAdm";
             this.TabCtrlAdm.SelectedIndex = 0;
@@ -832,11 +832,11 @@ namespace Vexease.Views
             this.columnHeader23});
             this.LvConsole.Dock = System.Windows.Forms.DockStyle.Top;
             this.LvConsole.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            listViewItem2.Checked = true;
-            listViewItem2.StateImageIndex = 1;
+            listViewItem52.Checked = true;
+            listViewItem52.StateImageIndex = 1;
             this.LvConsole.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2});
+            listViewItem51,
+            listViewItem52});
             this.LvConsole.Location = new System.Drawing.Point(3, 33);
             this.LvConsole.Name = "LvConsole";
             this.LvConsole.ShowItemToolTips = true;
@@ -884,12 +884,14 @@ namespace Vexease.Views
             this.BtnConsoleYorN.CheckStyleX = Vexease.Views.CheckStyle.Style1;
             this.BtnConsoleYorN.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnConsoleYorN.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnConsoleYorN.Enabled = false;
             this.BtnConsoleYorN.Location = new System.Drawing.Point(717, 0);
             this.BtnConsoleYorN.Name = "BtnConsoleYorN";
             this.BtnConsoleYorN.Size = new System.Drawing.Size(50, 30);
             this.BtnConsoleYorN.TabIndex = 13;
             this.BtnConsoleYorN.TabStop = false;
             this.BtnConsoleYorN.Load += new System.EventHandler(this.BtnYorNStatus_Load);
+            this.BtnConsoleYorN.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BtnYorN_MouseUp);
             // 
             // PageRegustry
             // 
@@ -950,11 +952,11 @@ namespace Vexease.Views
             this.LvRegustry.Dock = System.Windows.Forms.DockStyle.Top;
             this.LvRegustry.FullRowSelect = true;
             this.LvRegustry.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            listViewItem4.Checked = true;
-            listViewItem4.StateImageIndex = 1;
+            listViewItem54.Checked = true;
+            listViewItem54.StateImageIndex = 1;
             this.LvRegustry.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3,
-            listViewItem4});
+            listViewItem53,
+            listViewItem54});
             this.LvRegustry.Location = new System.Drawing.Point(0, 30);
             this.LvRegustry.Name = "LvRegustry";
             this.LvRegustry.ShowItemToolTips = true;
@@ -1008,12 +1010,13 @@ namespace Vexease.Views
             this.BtnRegustriyYorN.TabIndex = 13;
             this.BtnRegustriyYorN.TabStop = false;
             this.BtnRegustriyYorN.Load += new System.EventHandler(this.BtnYorNStatus_Load);
+            this.BtnRegustriyYorN.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BtnYorNStatus_MouseUp);
             // 
             // PagePlanningTask
             // 
             this.PagePlanningTask.Controls.Add(this.RTxtBoxPlanningTask);
             this.PagePlanningTask.Controls.Add(this.PnlPlanningTaskBtns);
-            this.PagePlanningTask.Controls.Add(this.LvPlanningTask);
+            this.PagePlanningTask.Controls.Add(this.LvSys);
             this.PagePlanningTask.Controls.Add(this.PnlPlanningTask);
             this.PagePlanningTask.Location = new System.Drawing.Point(4, 45);
             this.PagePlanningTask.Name = "PagePlanningTask";
@@ -1034,8 +1037,7 @@ namespace Vexease.Views
             this.RTxtBoxPlanningTask.ReadOnly = true;
             this.RTxtBoxPlanningTask.Size = new System.Drawing.Size(773, 283);
             this.RTxtBoxPlanningTask.TabIndex = 19;
-            this.RTxtBoxPlanningTask.Text = "计划任务\n\t可以完成以下任务：1.计划让任务在每天、每星期、每月或某些时刻（例如系统启动时）运行。2.更改任务的计划。3.停止计划的任务。4.自定义任务在计划时刻" +
-    "的运行方式。\n\t禁用时，不能打开任务计划，从而添加修改计算机的计划。";
+            this.RTxtBoxPlanningTask.Text = "系统盘\n\t即C盘。";
             // 
             // PnlPlanningTaskBtns
             // 
@@ -1058,27 +1060,28 @@ namespace Vexease.Views
             this.BtnPlanningTaskRe.Text = "刷新";
             this.BtnPlanningTaskRe.UseVisualStyleBackColor = false;
             // 
-            // LvPlanningTask
+            // LvSys
             // 
-            this.LvPlanningTask.Alignment = System.Windows.Forms.ListViewAlignment.Default;
-            this.LvPlanningTask.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.LvSys.Alignment = System.Windows.Forms.ListViewAlignment.Default;
+            this.LvSys.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader4,
             this.columnHeader5});
-            this.LvPlanningTask.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LvPlanningTask.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            listViewItem6.Checked = true;
-            listViewItem6.StateImageIndex = 1;
-            this.LvPlanningTask.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem5,
-            listViewItem6});
-            this.LvPlanningTask.Location = new System.Drawing.Point(0, 30);
-            this.LvPlanningTask.Name = "LvPlanningTask";
-            this.LvPlanningTask.ShowItemToolTips = true;
-            this.LvPlanningTask.Size = new System.Drawing.Size(773, 110);
-            this.LvPlanningTask.TabIndex = 11;
-            this.LvPlanningTask.TabStop = false;
-            this.LvPlanningTask.UseCompatibleStateImageBehavior = false;
-            this.LvPlanningTask.View = System.Windows.Forms.View.Details;
+            this.LvSys.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LvSys.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            listViewItem50.Checked = true;
+            listViewItem50.StateImageIndex = 1;
+            this.LvSys.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem49,
+            listViewItem50});
+            this.LvSys.Location = new System.Drawing.Point(0, 30);
+            this.LvSys.Name = "LvSys";
+            this.LvSys.ShowItemToolTips = true;
+            this.LvSys.Size = new System.Drawing.Size(773, 110);
+            this.LvSys.TabIndex = 11;
+            this.LvSys.TabStop = false;
+            this.LvSys.UseCompatibleStateImageBehavior = false;
+            this.LvSys.View = System.Windows.Forms.View.Details;
+            this.LvSys.SelectedIndexChanged += new System.EventHandler(this.LvPlanningTask_SelectedIndexChanged);
             // 
             // columnHeader4
             // 
@@ -1092,38 +1095,39 @@ namespace Vexease.Views
             // 
             // PnlPlanningTask
             // 
-            this.PnlPlanningTask.Controls.Add(this.LblPlanningTask);
-            this.PnlPlanningTask.Controls.Add(this.BtnPlanningTaskYorN);
+            this.PnlPlanningTask.Controls.Add(this.LblSys);
+            this.PnlPlanningTask.Controls.Add(this.BtnSysYorN);
             this.PnlPlanningTask.Dock = System.Windows.Forms.DockStyle.Top;
             this.PnlPlanningTask.Location = new System.Drawing.Point(0, 0);
             this.PnlPlanningTask.Name = "PnlPlanningTask";
             this.PnlPlanningTask.Size = new System.Drawing.Size(773, 30);
             this.PnlPlanningTask.TabIndex = 16;
             // 
-            // LblPlanningTask
+            // LblSys
             // 
-            this.LblPlanningTask.Dock = System.Windows.Forms.DockStyle.Left;
-            this.LblPlanningTask.Location = new System.Drawing.Point(0, 0);
-            this.LblPlanningTask.Name = "LblPlanningTask";
-            this.LblPlanningTask.Size = new System.Drawing.Size(600, 30);
-            this.LblPlanningTask.TabIndex = 15;
-            this.LblPlanningTask.Text = "计划任务状态————————";
-            this.LblPlanningTask.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.LblPlanningTask.Click += new System.EventHandler(this.Label_Click);
+            this.LblSys.Dock = System.Windows.Forms.DockStyle.Left;
+            this.LblSys.Location = new System.Drawing.Point(0, 0);
+            this.LblSys.Name = "LblSys";
+            this.LblSys.Size = new System.Drawing.Size(600, 30);
+            this.LblSys.TabIndex = 15;
+            this.LblSys.Text = "系统盘状态————————";
+            this.LblSys.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LblSys.Click += new System.EventHandler(this.Label_Click);
             // 
-            // BtnPlanningTaskYorN
+            // BtnSysYorN
             // 
-            this.BtnPlanningTaskYorN.BackColor = System.Drawing.Color.Transparent;
-            this.BtnPlanningTaskYorN.Checked = false;
-            this.BtnPlanningTaskYorN.CheckStyleX = Vexease.Views.CheckStyle.Style1;
-            this.BtnPlanningTaskYorN.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnPlanningTaskYorN.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnPlanningTaskYorN.Location = new System.Drawing.Point(723, 0);
-            this.BtnPlanningTaskYorN.Name = "BtnPlanningTaskYorN";
-            this.BtnPlanningTaskYorN.Size = new System.Drawing.Size(50, 30);
-            this.BtnPlanningTaskYorN.TabIndex = 13;
-            this.BtnPlanningTaskYorN.TabStop = false;
-            this.BtnPlanningTaskYorN.Load += new System.EventHandler(this.BtnYorNStatus_Load);
+            this.BtnSysYorN.BackColor = System.Drawing.Color.Transparent;
+            this.BtnSysYorN.Checked = false;
+            this.BtnSysYorN.CheckStyleX = Vexease.Views.CheckStyle.Style1;
+            this.BtnSysYorN.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnSysYorN.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnSysYorN.Location = new System.Drawing.Point(723, 0);
+            this.BtnSysYorN.Name = "BtnSysYorN";
+            this.BtnSysYorN.Size = new System.Drawing.Size(50, 30);
+            this.BtnSysYorN.TabIndex = 13;
+            this.BtnSysYorN.TabStop = false;
+            this.BtnSysYorN.Load += new System.EventHandler(this.BtnYorNStatus_Load);
+            this.BtnSysYorN.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BtnYorNStatus_MouseUp);
             // 
             // PageCtrlPnl
             // 
@@ -1182,11 +1186,11 @@ namespace Vexease.Views
             this.columnHeader8});
             this.LvCtrlPnl.Dock = System.Windows.Forms.DockStyle.Top;
             this.LvCtrlPnl.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            listViewItem8.Checked = true;
-            listViewItem8.StateImageIndex = 1;
+            listViewItem56.Checked = true;
+            listViewItem56.StateImageIndex = 1;
             this.LvCtrlPnl.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem7,
-            listViewItem8});
+            listViewItem55,
+            listViewItem56});
             this.LvCtrlPnl.Location = new System.Drawing.Point(0, 30);
             this.LvCtrlPnl.Name = "LvCtrlPnl";
             this.LvCtrlPnl.ShowItemToolTips = true;
@@ -1240,6 +1244,7 @@ namespace Vexease.Views
             this.BtnCtrlPnlYorN.TabIndex = 13;
             this.BtnCtrlPnlYorN.TabStop = false;
             this.BtnCtrlPnlYorN.Load += new System.EventHandler(this.BtnYorNStatus_Load);
+            this.BtnCtrlPnlYorN.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BtnYorNStatus_MouseUp);
             // 
             // PageRunTool
             // 
@@ -1298,11 +1303,11 @@ namespace Vexease.Views
             this.columnHeader11});
             this.LvRunTool.Dock = System.Windows.Forms.DockStyle.Top;
             this.LvRunTool.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            listViewItem10.Checked = true;
-            listViewItem10.StateImageIndex = 1;
+            listViewItem58.Checked = true;
+            listViewItem58.StateImageIndex = 1;
             this.LvRunTool.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem9,
-            listViewItem10});
+            listViewItem57,
+            listViewItem58});
             this.LvRunTool.Location = new System.Drawing.Point(0, 30);
             this.LvRunTool.Name = "LvRunTool";
             this.LvRunTool.ShowItemToolTips = true;
@@ -1356,6 +1361,7 @@ namespace Vexease.Views
             this.BtnRunToolYorN.TabIndex = 13;
             this.BtnRunToolYorN.TabStop = false;
             this.BtnRunToolYorN.Load += new System.EventHandler(this.BtnYorNStatus_Load);
+            this.BtnRunToolYorN.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BtnYorNStatus_MouseUp);
             // 
             // PageTaskMgr
             // 
@@ -1414,11 +1420,11 @@ namespace Vexease.Views
             this.columnHeader14});
             this.LvTaskMgr.Dock = System.Windows.Forms.DockStyle.Top;
             this.LvTaskMgr.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            listViewItem12.Checked = true;
-            listViewItem12.StateImageIndex = 1;
+            listViewItem60.Checked = true;
+            listViewItem60.StateImageIndex = 1;
             this.LvTaskMgr.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem11,
-            listViewItem12});
+            listViewItem59,
+            listViewItem60});
             this.LvTaskMgr.Location = new System.Drawing.Point(0, 30);
             this.LvTaskMgr.Name = "LvTaskMgr";
             this.LvTaskMgr.ShowItemToolTips = true;
@@ -1472,6 +1478,7 @@ namespace Vexease.Views
             this.BtnTaskMgrYorN.TabIndex = 13;
             this.BtnTaskMgrYorN.TabStop = false;
             this.BtnTaskMgrYorN.Load += new System.EventHandler(this.BtnYorNStatus_Load);
+            this.BtnTaskMgrYorN.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BtnYorNStatus_MouseUp);
             // 
             // PageCmd
             // 
@@ -1530,11 +1537,11 @@ namespace Vexease.Views
             this.columnHeader17});
             this.LvCmd.Dock = System.Windows.Forms.DockStyle.Top;
             this.LvCmd.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            listViewItem14.Checked = true;
-            listViewItem14.StateImageIndex = 1;
+            listViewItem62.Checked = true;
+            listViewItem62.StateImageIndex = 1;
             this.LvCmd.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem13,
-            listViewItem14});
+            listViewItem61,
+            listViewItem62});
             this.LvCmd.Location = new System.Drawing.Point(0, 30);
             this.LvCmd.Name = "LvCmd";
             this.LvCmd.ShowItemToolTips = true;
@@ -1588,6 +1595,7 @@ namespace Vexease.Views
             this.BtnCmdYorN.TabIndex = 13;
             this.BtnCmdYorN.TabStop = false;
             this.BtnCmdYorN.Load += new System.EventHandler(this.BtnYorNStatus_Load);
+            this.BtnCmdYorN.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BtnYorNStatus_MouseUp);
             // 
             // PagePS
             // 
@@ -1646,11 +1654,11 @@ namespace Vexease.Views
             this.columnHeader20});
             this.LvPS.Dock = System.Windows.Forms.DockStyle.Top;
             this.LvPS.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            listViewItem16.Checked = true;
-            listViewItem16.StateImageIndex = 1;
+            listViewItem64.Checked = true;
+            listViewItem64.StateImageIndex = 1;
             this.LvPS.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem15,
-            listViewItem16});
+            listViewItem63,
+            listViewItem64});
             this.LvPS.Location = new System.Drawing.Point(0, 30);
             this.LvPS.Name = "LvPS";
             this.LvPS.ShowItemToolTips = true;
@@ -1704,6 +1712,7 @@ namespace Vexease.Views
             this.BtnPSYorN.TabIndex = 13;
             this.BtnPSYorN.TabStop = false;
             this.BtnPSYorN.Load += new System.EventHandler(this.BtnYorNStatus_Load);
+            this.BtnPSYorN.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BtnYorNStatus_MouseUp);
             // 
             // PageProcCtrl
             // 
@@ -1758,6 +1767,8 @@ namespace Vexease.Views
             this.BtnListPathYorN.Size = new System.Drawing.Size(50, 30);
             this.BtnListPathYorN.TabIndex = 16;
             this.BtnListPathYorN.TabStop = false;
+            this.BtnListPathYorN.Load += new System.EventHandler(this.BtnYorN_Load);
+            this.BtnListPathYorN.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BtnYorN_MouseUp);
             // 
             // BtnListSetP
             // 
@@ -2081,7 +2092,7 @@ namespace Vexease.Views
         private Button BtnTaskMgr;
         private Button BtnRunTool;
         private Button BtnCtrlPnl;
-        private Button BtnPlanningTask;
+        private Button BtnSys;
         private Button BtnRegustry;
         private Button BtnConsole;
         private TabPage PageRegustry;
@@ -2094,7 +2105,7 @@ namespace Vexease.Views
         private ListView LvRegustry;
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
-        private ListView LvPlanningTask;
+        private ListView LvSys;
         private ColumnHeader columnHeader4;
         private ColumnHeader columnHeader5;
         private ListView LvCtrlPnl;
@@ -2143,8 +2154,8 @@ namespace Vexease.Views
         private Label LblRegustriy;
         private BtnYorN BtnRegustriyYorN;
         private Panel PnlPlanningTask;
-        private Label LblPlanningTask;
-        private BtnYorN BtnPlanningTaskYorN;
+        private Label LblSys;
+        private BtnYorN BtnSysYorN;
         private Panel PnlCtrlPnl;
         private Label LblCtrlPnl;
         private BtnYorN BtnCtrlPnlYorN;

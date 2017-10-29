@@ -49,11 +49,6 @@ namespace Vexease.Views
            
         }
 
-        private void LblTest_Click(object sender, EventArgs e)
-        {
-            var form = new TestForm();
-            form.Show();
-            Close();
-        }
+        
     }
 }

@@ -184,12 +184,6 @@
     <Compile Include="Views\SetIPForm.Designer.cs">
       <DependentUpon>SetIPForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\TestForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\TestForm.Designer.cs">
-      <DependentUpon>TestForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\UserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -239,9 +233,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SetIPForm.resx">
       <DependentUpon>SetIPForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\TestForm.resx">
-      <DependentUpon>TestForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>

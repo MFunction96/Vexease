@@ -30,15 +30,15 @@
 
         {
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
-            "控制台状态",
+            "系统盘状态",
             "禁用",
             "已启用"}, -1);
             System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
-            "注册表状态",
+            "控制台状态",
             "禁用",
-            "已启用"}, -1);
+            "启用中"}, -1);
             System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
-            "计划任务状态",
+            "注册表状态",
             "禁用",
             "已启用"}, -1);
             System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
@@ -67,7 +67,6 @@
             this.ColName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ColDflt = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ColNow = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.LblTest = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // BtnSwitchToAdmMode
@@ -120,23 +119,12 @@
             this.ColNow.Text = "当前状态";
             this.ColNow.Width = 141;
             // 
-            // LblTest
-            // 
-            this.LblTest.AutoSize = true;
-            this.LblTest.Location = new System.Drawing.Point(61, 326);
-            this.LblTest.Name = "LblTest";
-            this.LblTest.Size = new System.Drawing.Size(67, 15);
-            this.LblTest.TabIndex = 3;
-            this.LblTest.Text = "测试界面";
-            this.LblTest.Click += new System.EventHandler(this.LblTest_Click);
-            // 
             // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(782, 353);
-            this.Controls.Add(this.LblTest);
             this.Controls.Add(this.LvUser);
             this.Controls.Add(this.BtnSwitchToAdmMode);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -146,7 +134,6 @@
             this.Text = "用户模式";
             this.Load += new System.EventHandler(this.UserForm_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -156,6 +143,5 @@
         private System.Windows.Forms.ColumnHeader ColName;
         private System.Windows.Forms.ColumnHeader ColDflt;
         private System.Windows.Forms.ColumnHeader ColNow;
-        private System.Windows.Forms.Label LblTest;
     }
 }

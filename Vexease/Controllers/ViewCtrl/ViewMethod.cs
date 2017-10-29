@@ -26,16 +26,11 @@ namespace Vexease.Controllers.ViewCtrl
         /// </summary>       
         public static void ContracAndAmplifica(ListView listView, BtnYorN btnYorN, String yorN)
         {
-            BtnYorNCtrl.CheckYorN(btnYorN, yorN);
-            switch (listView.Height)
-            {
-                case 0 when btnYorN.Checked == true:
-                    listView.Height = 90;//ListHeight
-                    break;
-                default:
-                    listView.Height = 0;
-                    break;
-            }
+
+            if (btnYorN.Checked == true)
+                listView.Height = 90;
+            else
+                listView.Height = 0;
         }
         /// <summary>
         /// 通过点击checkbutton控制名单(Panel)收放
@@ -44,16 +39,10 @@ namespace Vexease.Controllers.ViewCtrl
         /// <param name="btnYorN"></param>
         public static void ContracAndAmplifica(Panel panel, BtnYorN btnYorN, String yorN)
         {
-            BtnYorNCtrl.CheckYorN(btnYorN, yorN);
-            switch (panel.Height)
-            {
-                case 0 when btnYorN.Checked == true:
-                    panel.Height = 90;//ListHeight
-                    break;
-                default:
-                    panel.Height = 0;
-                    break;
-            }
+            if (btnYorN.Checked == true)
+                panel.Height = 90;
+            else
+                panel.Height = 0;
         }
         /// <summary>
         /// 通过点击标题控制名单（listView）收放
@@ -160,7 +149,11 @@ namespace Vexease.Controllers.ViewCtrl
         {
 
             BtnYorNCtrl.CheckYorN(btnYorN, yorN);
-            if (btnYorN.Checked == false)
+            if (yorN == "Mmc_Load" || yorN == "Mmc_Clicked")
+            {
+                listView.Items[1].SubItems[1].Text = "暂不可用";
+            }
+            else if (btnYorN.Checked == false)
             {
                 listView.Items[1].SubItems[1].Text = "已禁用";
             }
@@ -171,19 +164,20 @@ namespace Vexease.Controllers.ViewCtrl
         }
         public static void StatusChange(ListView listView)
         {
+            if (DataContext.SysDriver.CheckStatus())
+                listView.Items[0].SubItems[2].Text = "已禁用";
+            else listView.Items[0].SubItems[2].Text = "启用中";
+
             /*Mmc
             if (DataContext.Registry.CheckStatus())
-                listView.Items[0].SubItems[2].Text = "已禁用";
-            else listView.Items[0].SubItems[2].Text = "启用中";*/
+                listView.Items[1].SubItems[2].Text = "已禁用";
+            else listView.Items[1].SubItems[2].Text = "启用中";*/
 
             if (DataContext.Registry.CheckStatus())
-                listView.Items[1].SubItems[2].Text = "已禁用";
-            else listView.Items[1].SubItems[2].Text = "启用中";
-
-            if (DataContext.SysDriver.CheckStatus())
                 listView.Items[2].SubItems[2].Text = "已禁用";
-            else listView.Items[2].SubItems[2].Text = "启用中";                     
-           
+            else listView.Items[2].SubItems[2].Text = "启用中";
+
+            
             if (DataContext.CtrlPal.CheckStatus())
                 listView.Items[3].SubItems[2].Text = "已禁用";
             else listView.Items[3].SubItems[2].Text = "启用中";

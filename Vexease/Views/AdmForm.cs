@@ -44,7 +44,7 @@ namespace Vexease.Views
             ViewMethod.Colwidth2(LvCmd);
             ViewMethod.Colwidth2(LvConsole);
             ViewMethod.Colwidth2(LvCtrlPnl);
-            ViewMethod.Colwidth2(LvPlanningTask);
+            ViewMethod.Colwidth2(LvSys);
             ViewMethod.Colwidth2(LvPS);
             ViewMethod.Colwidth2(LvRegustry);
             ViewMethod.Colwidth2(LvRunTool);
@@ -114,8 +114,11 @@ namespace Vexease.Views
         private  void BtnYorN_Click(object sender,EventArgs e)
         {
             BtnYorN btnYorN = sender as BtnYorN;          
-            if (btnYorN == BtnBListYorN){ ViewMethod.ContracAndAmplifica(PnlBList, BtnBListYorN,"B_Clicked"); }
-            if (btnYorN == BtnWListYorN) { ViewMethod.ContracAndAmplifica(PnlWList, BtnWListYorN,"W_Clicked"); }
+            if (btnYorN == BtnBListYorN){
+                BtnYorNCtrl.CheckYorN(BtnBListYorN,"B_Clicked");
+                ViewMethod.ContracAndAmplifica(PnlBList, BtnBListYorN,"B_Clicked"); }
+            if (btnYorN == BtnWListYorN) { BtnYorNCtrl.CheckYorN(BtnWListYorN,"W_Clicked"); ViewMethod.ContracAndAmplifica(PnlWList, BtnWListYorN,"W_Clicked"); }
+            if (btnYorN == BtnListPathYorN) { BtnYorNCtrl.CheckYorN(BtnListPathYorN, "P_Clicked"); }
 
            
         }
@@ -124,7 +127,7 @@ namespace Vexease.Views
             Label lbl = sender as Label;
             if (lbl == LblConsole) { ViewMethod.ContracAndAmplifica(LvConsole); }
             if (lbl == LblRegustriy) { ViewMethod.ContracAndAmplifica(LvRegustry); }
-            if (lbl == LblPlanningTask) { ViewMethod.ContracAndAmplifica(LvPlanningTask); }
+            if (lbl == LblSys) { ViewMethod.ContracAndAmplifica(LvSys); }
             if (lbl == LblCtrlPnl) { ViewMethod.ContracAndAmplifica(LvCtrlPnl); }
             if (lbl == LblRunTool) { ViewMethod.ContracAndAmplifica(LvRunTool); }
             if (lbl == LblTaskMgr) { ViewMethod.ContracAndAmplifica(LvTaskMgr); }
@@ -189,7 +192,7 @@ namespace Vexease.Views
         private void LblStatus_DoubleClick(object sender, EventArgs e)
         {
            
-            ViewMethod.DoubleCliclLbl(BtnConsole, BtnRegustry, BtnPlanningTask, BtnCtrlPnl, BtnRunTool, BtnTaskMgr, BtnCmd,  BtnPS,  BtnProcCtrl);
+            ViewMethod.DoubleCliclLbl(BtnConsole, BtnRegustry, BtnSys, BtnCtrlPnl, BtnRunTool, BtnTaskMgr, BtnCmd,  BtnPS,  BtnProcCtrl);
         }
 
         //
@@ -198,15 +201,26 @@ namespace Vexease.Views
         private void BtnYorN_Load(object sender,EventArgs e)
         {
             BtnYorN btnYorN = sender as BtnYorN;
-            if (btnYorN == BtnBListYorN) ViewMethod.Contraction(BtnBListYorN,PnlBList,"B_Load");
-            if (btnYorN == BtnWListYorN) ViewMethod.Contraction(BtnWListYorN, PnlWList,"W_Load");
+            if (btnYorN == BtnBListYorN)
+            {
+                BtnYorNCtrl.CheckYorN(BtnBListYorN, "B_Load");
+                ViewMethod.Contraction(BtnBListYorN, PnlBList, "B_Load"); }
+            if (btnYorN == BtnWListYorN) {
+                BtnYorNCtrl.CheckYorN(BtnWListYorN, "W_Load");
+                ViewMethod.Contraction(BtnWListYorN, PnlWList, "W_Load"); }
+            if (btnYorN == BtnListPathYorN)
+                BtnYorNCtrl.CheckYorN(BtnListPathYorN,"P_Load");
         }
               
         private void BtnYorN_MouseUp(object sender,MouseEventArgs e)
         {
             BtnYorN btnYorN = new BtnYorN();
-            if (btnYorN == BtnWListYorN) ViewMethod.ContracAndAmplifica(PnlWList,BtnWListYorN,"W_Clicked");
-            if (btnYorN == BtnBListYorN) ViewMethod.ContracAndAmplifica(PnlBList, BtnBListYorN,"B_Clicked");
+            if (btnYorN == BtnWListYorN)
+                ViewMethod.ContracAndAmplifica(PnlWList,BtnWListYorN,"W_Clicked");
+            if (btnYorN == BtnBListYorN)
+                ViewMethod.ContracAndAmplifica(PnlBList, BtnBListYorN,"B_Clicked");
+            if (btnYorN == BtnListPathYorN)
+                BtnYorNCtrl.CheckYorN(BtnListPathYorN, "P_Load");
         }
        
         //
@@ -217,7 +231,7 @@ namespace Vexease.Views
             BtnYorN btnYorN = sender as BtnYorN;
             if (btnYorN == BtnRegustriyYorN) ViewMethod.StatusChange(btnYorN, LvRegustry, "Registry_Load");
             if (btnYorN == BtnConsoleYorN) ViewMethod.StatusChange(btnYorN, LvConsole,"Mmc_Load");
-            if (btnYorN == BtnPlanningTaskYorN) ViewMethod.StatusChange(BtnPlanningTaskYorN, LvPlanningTask,"Sys_Load");
+            if (btnYorN == BtnSysYorN) ViewMethod.StatusChange(BtnSysYorN, LvSys,"Sys_Load");
             if (btnYorN == BtnCtrlPnlYorN) ViewMethod.StatusChange(BtnCtrlPnlYorN, LvCtrlPnl,"CtrlPnl_Load");
             if (btnYorN == BtnRunToolYorN) ViewMethod.StatusChange(BtnRunToolYorN, LvRunTool,"RunTool_Load");
             if (btnYorN == BtnTaskMgrYorN) ViewMethod.StatusChange(BtnTaskMgrYorN, LvTaskMgr,"Taskmgr_Load");
@@ -230,7 +244,7 @@ namespace Vexease.Views
             BtnYorN btnYorN = sender as BtnYorN;
             if (btnYorN == BtnRegustriyYorN) ViewMethod.StatusChange(btnYorN, LvRegustry, "Registry_Clicked");
             if (btnYorN == BtnConsoleYorN) ViewMethod.StatusChange(btnYorN, LvConsole, "Mmc_Clicked");
-            if (btnYorN == BtnPlanningTaskYorN) ViewMethod.StatusChange(BtnPlanningTaskYorN, LvPlanningTask, "Sys_Clicked");
+            if (btnYorN == BtnSysYorN) ViewMethod.StatusChange(BtnSysYorN, LvSys, "Sys_Clicked");
             if (btnYorN == BtnCtrlPnlYorN) ViewMethod.StatusChange(BtnCtrlPnlYorN, LvCtrlPnl, "CtrlPnl_Clicked");
             if (btnYorN == BtnRunToolYorN) ViewMethod.StatusChange(BtnRunToolYorN, LvRunTool, "RunTool_Clicked");
             if (btnYorN == BtnTaskMgrYorN) ViewMethod.StatusChange(BtnTaskMgrYorN, LvTaskMgr, "Taskmgr_Clicked");
@@ -269,7 +283,7 @@ namespace Vexease.Views
             if (button == BtnPS) ViewMethod.ColorChange(BtnPS, "D");
             if (button == BtnCtrlPnl) ViewMethod.ColorChange(BtnCtrlPnl, "D");
             if (button == BtnTaskMgr) ViewMethod.ColorChange(BtnTaskMgr, "D");
-            if (button == BtnPlanningTask) ViewMethod.ColorChange(BtnPlanningTask, "D");
+            if (button == BtnSys) ViewMethod.ColorChange(BtnSys, "D");
             if (button == BtnRunTool) ViewMethod.ColorChange(BtnRunTool, "D");
             if (button == BtnProcCtrl) ViewMethod.ColorChange(BtnProcCtrl, "D");
             if (button == BtnIm) ViewMethod.ColorChange(BtnIm, "D");
@@ -299,7 +313,7 @@ namespace Vexease.Views
                 if (button == BtnPS) ViewMethod.ColorChange(BtnPS, "L");
                 if (button == BtnCtrlPnl) ViewMethod.ColorChange(BtnCtrlPnl, "L");
                 if (button == BtnTaskMgr) ViewMethod.ColorChange(BtnTaskMgr, "L");
-                if (button == BtnPlanningTask) ViewMethod.ColorChange(BtnPlanningTask, "L");
+                if (button == BtnSys) ViewMethod.ColorChange(BtnSys, "L");
                 if (button == BtnRunTool) ViewMethod.ColorChange(BtnRunTool, "L");
                 if (button == BtnProcCtrl) ViewMethod.ColorChange(BtnProcCtrl, "L");
             if (button == BtnIm) ViewMethod.ColorChange(BtnIm, "L");
@@ -315,7 +329,7 @@ namespace Vexease.Views
             if (button == BtnPS) ViewMethod.ColorChange(BtnPS, "E");
             if (button == BtnCtrlPnl) ViewMethod.ColorChange(BtnCtrlPnl, "E");
             if (button == BtnTaskMgr) ViewMethod.ColorChange(BtnTaskMgr, "E");
-            if (button == BtnPlanningTask) ViewMethod.ColorChange(BtnPlanningTask, "E");
+            if (button == BtnSys) ViewMethod.ColorChange(BtnSys, "E");
             if (button == BtnRunTool) ViewMethod.ColorChange(BtnRunTool, "E");
             if (button == BtnProcCtrl) ViewMethod.ColorChange(BtnProcCtrl, "E");
             if (button == BtnIm) ViewMethod.ColorChange(BtnIm, "E");
@@ -345,6 +359,13 @@ namespace Vexease.Views
         {
 
         }
+
+        private void LvPlanningTask_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 
 }
