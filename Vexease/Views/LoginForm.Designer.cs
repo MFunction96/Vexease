@@ -57,6 +57,7 @@
             this.TxtPwd.TabIndex = 10;
             this.TxtPwd.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.TxtPwd_MaskInputRejected);
             this.TxtPwd.Enter += new System.EventHandler(this.TxtPwd_Enter);
+            this.TxtPwd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtPwd_KeyDown);
             this.TxtPwd.Leave += new System.EventHandler(this.TxtPwd_Leave);
             // 
             // LblTitle
@@ -95,7 +96,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LoginForm";
             this.Text = "登录";
-         //   this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LoginForm_FormClosed);
             this.Load += new System.EventHandler(this.LoginForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

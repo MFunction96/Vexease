@@ -23,8 +23,8 @@ namespace Vexease.Controllers.ViewCtrl
             if (s == "P_Load")
             {
                 if (DataContext.LimitTaskPath.CheckStatus())
-                    btnYorN.Checked = false;
-                else btnYorN.Checked = true;
+                    btnYorN.Checked = true;
+                else btnYorN.Checked = false;
             }
             if (s == "P_Clicked")
             {
@@ -32,8 +32,8 @@ namespace Vexease.Controllers.ViewCtrl
             }
             if (s == "W_Load")
             {
-                if (DataContext.RestrictTask.CheckStatus()) btnYorN.Checked = false;
-                else btnYorN.Checked = true;
+                if (DataContext.RestrictTask.CheckStatus()) btnYorN.Checked = true;
+                else btnYorN.Checked = false;
             }
             if (s == "W_Clicked")
             {
@@ -41,8 +41,8 @@ namespace Vexease.Controllers.ViewCtrl
             }
             if (s == "B_Load")
             {
-                if (DataContext.DisallowTask.CheckStatus()) btnYorN.Checked = false;
-                else btnYorN.Checked = true;
+                if (DataContext.DisallowTask.CheckStatus()) btnYorN.Checked = true;
+                else btnYorN.Checked = false;
             }
             if (s == "B_Clicked")
             {

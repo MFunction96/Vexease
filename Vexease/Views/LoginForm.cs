@@ -70,5 +70,10 @@ namespace Vexease.Views
         {
 
         }
+
+        private void TxtPwd_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
     }
 }
