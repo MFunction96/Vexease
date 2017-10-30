@@ -61,41 +61,41 @@ namespace Vexease.Views
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.ToolStripMenuItem TSMIREflesh;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdmForm));
-            System.Windows.Forms.ListViewItem listViewItem51 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem52 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
             "禁用",
             "已禁用",
             "此处添加button"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem53 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem54 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
             "禁用",
             "已启用"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem49 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem50 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem(new string[] {
             "禁用",
             "已禁用"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem55 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem56 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem(new string[] {
             "禁用",
             "已禁用",
             "此处添加button"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem57 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem58 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem(new string[] {
             "禁用",
             "已禁用",
             "此处添加button"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem59 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem60 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem(new string[] {
             "禁用",
             "已启用",
             "此处添加button"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem61 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem62 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem(new string[] {
             "禁用",
             "已禁用",
             "此处添加button"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem63 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem64 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem(new string[] {
             "禁用",
             "已禁用"}, -1);
             this.MenuStripAdm = new System.Windows.Forms.MenuStrip();
@@ -832,11 +832,11 @@ namespace Vexease.Views
             this.columnHeader23});
             this.LvConsole.Dock = System.Windows.Forms.DockStyle.Top;
             this.LvConsole.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            listViewItem52.Checked = true;
-            listViewItem52.StateImageIndex = 1;
+            listViewItem2.Checked = true;
+            listViewItem2.StateImageIndex = 1;
             this.LvConsole.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem51,
-            listViewItem52});
+            listViewItem1,
+            listViewItem2});
             this.LvConsole.Location = new System.Drawing.Point(3, 33);
             this.LvConsole.Name = "LvConsole";
             this.LvConsole.ShowItemToolTips = true;
@@ -952,11 +952,11 @@ namespace Vexease.Views
             this.LvRegustry.Dock = System.Windows.Forms.DockStyle.Top;
             this.LvRegustry.FullRowSelect = true;
             this.LvRegustry.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            listViewItem54.Checked = true;
-            listViewItem54.StateImageIndex = 1;
+            listViewItem4.Checked = true;
+            listViewItem4.StateImageIndex = 1;
             this.LvRegustry.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem53,
-            listViewItem54});
+            listViewItem3,
+            listViewItem4});
             this.LvRegustry.Location = new System.Drawing.Point(0, 30);
             this.LvRegustry.Name = "LvRegustry";
             this.LvRegustry.ShowItemToolTips = true;
@@ -1068,11 +1068,11 @@ namespace Vexease.Views
             this.columnHeader5});
             this.LvSys.Dock = System.Windows.Forms.DockStyle.Top;
             this.LvSys.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            listViewItem50.Checked = true;
-            listViewItem50.StateImageIndex = 1;
+            listViewItem6.Checked = true;
+            listViewItem6.StateImageIndex = 1;
             this.LvSys.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem49,
-            listViewItem50});
+            listViewItem5,
+            listViewItem6});
             this.LvSys.Location = new System.Drawing.Point(0, 30);
             this.LvSys.Name = "LvSys";
             this.LvSys.ShowItemToolTips = true;
@@ -1186,11 +1186,11 @@ namespace Vexease.Views
             this.columnHeader8});
             this.LvCtrlPnl.Dock = System.Windows.Forms.DockStyle.Top;
             this.LvCtrlPnl.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            listViewItem56.Checked = true;
-            listViewItem56.StateImageIndex = 1;
+            listViewItem8.Checked = true;
+            listViewItem8.StateImageIndex = 1;
             this.LvCtrlPnl.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem55,
-            listViewItem56});
+            listViewItem7,
+            listViewItem8});
             this.LvCtrlPnl.Location = new System.Drawing.Point(0, 30);
             this.LvCtrlPnl.Name = "LvCtrlPnl";
             this.LvCtrlPnl.ShowItemToolTips = true;
@@ -1303,11 +1303,11 @@ namespace Vexease.Views
             this.columnHeader11});
             this.LvRunTool.Dock = System.Windows.Forms.DockStyle.Top;
             this.LvRunTool.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            listViewItem58.Checked = true;
-            listViewItem58.StateImageIndex = 1;
+            listViewItem10.Checked = true;
+            listViewItem10.StateImageIndex = 1;
             this.LvRunTool.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem57,
-            listViewItem58});
+            listViewItem9,
+            listViewItem10});
             this.LvRunTool.Location = new System.Drawing.Point(0, 30);
             this.LvRunTool.Name = "LvRunTool";
             this.LvRunTool.ShowItemToolTips = true;
@@ -1420,11 +1420,11 @@ namespace Vexease.Views
             this.columnHeader14});
             this.LvTaskMgr.Dock = System.Windows.Forms.DockStyle.Top;
             this.LvTaskMgr.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            listViewItem60.Checked = true;
-            listViewItem60.StateImageIndex = 1;
+            listViewItem12.Checked = true;
+            listViewItem12.StateImageIndex = 1;
             this.LvTaskMgr.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem59,
-            listViewItem60});
+            listViewItem11,
+            listViewItem12});
             this.LvTaskMgr.Location = new System.Drawing.Point(0, 30);
             this.LvTaskMgr.Name = "LvTaskMgr";
             this.LvTaskMgr.ShowItemToolTips = true;
@@ -1537,11 +1537,11 @@ namespace Vexease.Views
             this.columnHeader17});
             this.LvCmd.Dock = System.Windows.Forms.DockStyle.Top;
             this.LvCmd.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            listViewItem62.Checked = true;
-            listViewItem62.StateImageIndex = 1;
+            listViewItem14.Checked = true;
+            listViewItem14.StateImageIndex = 1;
             this.LvCmd.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem61,
-            listViewItem62});
+            listViewItem13,
+            listViewItem14});
             this.LvCmd.Location = new System.Drawing.Point(0, 30);
             this.LvCmd.Name = "LvCmd";
             this.LvCmd.ShowItemToolTips = true;
@@ -1654,11 +1654,11 @@ namespace Vexease.Views
             this.columnHeader20});
             this.LvPS.Dock = System.Windows.Forms.DockStyle.Top;
             this.LvPS.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            listViewItem64.Checked = true;
-            listViewItem64.StateImageIndex = 1;
+            listViewItem16.Checked = true;
+            listViewItem16.StateImageIndex = 1;
             this.LvPS.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem63,
-            listViewItem64});
+            listViewItem15,
+            listViewItem16});
             this.LvPS.Location = new System.Drawing.Point(0, 30);
             this.LvPS.Name = "LvPS";
             this.LvPS.ShowItemToolTips = true;
@@ -1768,6 +1768,7 @@ namespace Vexease.Views
             this.BtnListPathYorN.TabIndex = 16;
             this.BtnListPathYorN.TabStop = false;
             this.BtnListPathYorN.Load += new System.EventHandler(this.BtnYorN_Load);
+            this.BtnListPathYorN.Click += new System.EventHandler(this.BtnYorN_Click);
             this.BtnListPathYorN.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BtnYorN_MouseUp);
             // 
             // BtnListSetP
