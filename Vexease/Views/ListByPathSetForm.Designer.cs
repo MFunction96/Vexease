@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("C:\\Windows");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("C:\\Program Files");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("C:\\Program Files (x86)");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListByPathSetForm));
             this.GBBListSetByPath = new System.Windows.Forms.GroupBox();
             this.BtnEditBItem = new System.Windows.Forms.Button();
@@ -176,6 +179,10 @@
             this.LvWListByPath.Dock = System.Windows.Forms.DockStyle.Top;
             this.LvWListByPath.FullRowSelect = true;
             this.LvWListByPath.GridLines = true;
+            this.LvWListByPath.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1,
+            listViewItem2,
+            listViewItem3});
             this.LvWListByPath.LabelEdit = true;
             this.LvWListByPath.LabelWrap = false;
             this.LvWListByPath.Location = new System.Drawing.Point(3, 21);
@@ -189,7 +196,7 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "值";
-            this.columnHeader2.Width = 649;
+            this.columnHeader2.Width = 700;
             // 
             // BtnOk
             // 
