@@ -1,5 +1,7 @@
 # Vexease
 
+[![Build status](https://ci.appveyor.com/api/projects/status/c81hncq3h29yqxq0?svg=true)](https://ci.appveyor.com/project/MFunction96/vexease)
+
 ## 项目简介
 
 Vexease为[*公共计算机设备应用监管系统*](https://github.com/MFunction96/Vexease/blob/master/CONTRIBUTING.md)的项目**产品**。

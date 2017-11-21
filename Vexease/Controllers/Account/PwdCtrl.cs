@@ -1,4 +1,6 @@
-﻿using Microsoft.Win32;
+﻿using System;
+using System.Windows.Forms;
+using Microsoft.Win32;
 using Vexease.Controllers.Crypt;
 using Vexease.Controllers.Reg;
 using Vexease.Data;
@@ -23,7 +25,15 @@ namespace Vexease.Controllers.Account
         /// </returns>
         public static bool Verify(string pwd)
         {
-            return true;//AESCrypt.Encrypt(pwd) == DataContext.Password.LpValue.ToString();
+            try
+            {
+                return AESCrypt.Encrypt(pwd) == DataContext.Password.LpValue.ToString();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.StackTrace);
+                return false;
+            }
         }
         /// <summary>
         /// 修改密码。
