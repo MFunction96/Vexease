@@ -277,8 +277,5 @@ namespace Vexease.Controllers.ViewCtrl
         }
 
     }
-    public abstract class ViewStatus
-    {
-
-    }
+   
 }

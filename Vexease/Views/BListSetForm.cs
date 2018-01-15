@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+#pragma warning disable 1591
+
 namespace Vexease.Views
 {
     public partial class BandWListSetForm : Form
