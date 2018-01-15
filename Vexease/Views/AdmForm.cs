@@ -2,34 +2,30 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 using Vexease.Controllers.ViewCtrl;
-// ┏┓　　　┏┓
-// ┏┛┻━━━┛┻┓
-// ┃　　　　　　　┃ 　
-// ┃　　　━　　　┃
-// ┃　┳┛　┗┳　┃
-// ┃　　　　　　　┃
-// ┃　　　┻　　　┃
-// ┃　　　　　　　┃
-// ┗━┓　　　┏━┛
-//     ┃　　　┃ 神兽保佑　　　　　　　　
-//     ┃　　　┃ 永无BUG！
-//     ┃　　　┗━━━┓
-//     ┃　　　　　　　┣┓
-//     ┃　　　　　　　┏┛
-//     ┗┓┓┏━┳┓┏┛
-//       ┃┫┫　┃┫┫
-//       ┗┻┛　┗┻┛
+#pragma warning disable 1591 //缺少对公共可见类型或成员的xml注释
+
+//神兽已死
+//节哀
+//
+
 namespace Vexease.Views
 {
     public partial class AdmForm : Form
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public AdmForm()
         {
             StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
             TabSet();
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AdmForm_Load(object sender, EventArgs e)
         {
             MaximizeBox = false;//最大化不可用
@@ -41,6 +37,7 @@ namespace Vexease.Views
 
             PnlWListTN.Width = PageAbout.Width - 100;
             // LvCmd.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            
             ViewMethod.Colwidth2(LvCmd);
             ViewMethod.Colwidth2(LvConsole);
             ViewMethod.Colwidth2(LvCtrlPnl);
@@ -51,25 +48,30 @@ namespace Vexease.Views
             ViewMethod.Colwidth2(LvTaskMgr);
         }
 
-       
-         //
-         //双击图标显示
-         //
+
+        /// <summary>
+        /// 双击图标显示
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void NotifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             Show();
         }
 
-        //
-        //画边框
-        //
+        /// <summary>
+        /// 画边框
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SplAdm_Panel1_Paint(object sender, PaintEventArgs e)
         {
             SplAdm.BorderStyle = BorderStyle.FixedSingle;
         }
-        //
-        //关闭显示“关闭提示”
-        //
+        /// <summary>
+        /// 关闭显示“关闭提示”
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnClosing(CancelEventArgs e)
           {
               e.Cancel = true;
@@ -78,10 +80,12 @@ namespace Vexease.Views
               Application.DoEvents();
             ViewMethod.CloseTips(this);
               base.OnClosing(e);
-          }    
-        //
-        //Tab转换
-        //
+          }
+        /// <summary>
+        /// Tab转换
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LblStatus_Click(object sender, EventArgs e) => TabCtrlAdm.SelectedTab = PageAbout;
 
         private void LblOptimization_Click(object sender, EventArgs e) => TabCtrlAdm.SelectedTab = PageAbout;
@@ -108,10 +112,12 @@ namespace Vexease.Views
 
         private void BtnProcCtrl_Click(object sender, EventArgs e) => TabCtrlAdm.SelectedTab = PageProcCtrl;
 
-        //
-        //收放
-        //
-        private  void BtnYorN_Click(object sender,EventArgs e)
+        /// <summary>
+        /// 列表的收缩与扩展
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnYorN_Click(object sender,EventArgs e)
         {
             BtnYorN btnYorN = sender as BtnYorN;          
             if (btnYorN == BtnBListYorN){
