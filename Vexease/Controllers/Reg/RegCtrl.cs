@@ -92,8 +92,7 @@ namespace Vexease.Controllers.Reg
                 regKey.LpKind == RegistryValueKind.MultiString ||
                 regKey.LpKind == RegistryValueKind.ExpandString)
             {
-                var lpdatastr = regKey.LpValue as string;
-                if (lpdatastr is null) throw new NullReferenceException();
+                if (!(regKey.LpValue is string lpdatastr)) throw new NullReferenceException();
                 lpcbData = lpdatastr.Length + 1 << 1;
                 lpdata = Marshal.StringToHGlobalUni(lpdatastr);
             }
@@ -111,8 +110,7 @@ namespace Vexease.Controllers.Reg
             }
             else if (regKey.LpKind == RegistryValueKind.Binary)
             {
-                var lpdatabin = regKey.LpValue as byte[];
-                if (lpdatabin is null) throw new NullReferenceException();
+                if (!(regKey.LpValue is byte[] lpdatabin)) throw new NullReferenceException();
                 lpcbData = lpdatabin.Length;
                 lpdata = Marshal.AllocHGlobal(lpcbData);
                 Marshal.Copy(lpdatabin, 0, lpdata, lpcbData);
@@ -203,8 +201,7 @@ namespace Vexease.Controllers.Reg
                     list.Add(ConvertData(new RegPath(regPath.HKey, regPath.LpSubKey, str), lpkind, lpdata, lpcbdata));
             }
             NativeMethods.RegCloseKey(phkresult);
-            var regkeys = list.ToArray(typeof(RegKey)) as RegKey[];
-            if (regkeys is null) throw new NullReferenceException();
+            if (!(list.ToArray(typeof(RegKey)) is RegKey[] regkeys)) throw new NullReferenceException();
             if (comparer is null) Array.Sort(regkeys);
             else Array.Sort(regkeys, comparer);
             return regkeys;
@@ -241,8 +238,7 @@ namespace Vexease.Controllers.Reg
                 list.Add(new RegPath(regPath.HKey,regPath.LpSubKey + @"\" + sb));
             }
             NativeMethods.RegCloseKey(phkresult);
-            var regpaths = list.ToArray(typeof(RegPath)) as RegPath[];
-            if (regpaths is null) throw new NullReferenceException();
+            if (!(list.ToArray(typeof(RegPath)) is RegPath[] regpaths)) throw new NullReferenceException();
             if (comparer is null) Array.Sort(regpaths);
             else Array.Sort(regpaths, comparer);
             return regpaths;

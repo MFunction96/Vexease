@@ -1,8 +1,11 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.Win32;
+using Vexease.Controllers.Reg;
+using Vexease.Data;
 using Vexease.Models.Enums;
+using Vexease.Models.Registrys;
 
 namespace Vexease.Controllers.List
 {
@@ -12,122 +15,70 @@ namespace Vexease.Controllers.List
     public class ListCtrl
     {
         /// <summary>
-        /// 增加的进程信息。
-        /// </summary>
-        private LinkedList<string> AddList { get; }
-        /// <summary>
-        /// 删除的进程信息。
-        /// </summary>
-        private LinkedList<string> DelList { get; }
-        /// <summary>
         /// 原始进程信息。
         /// </summary>
-        public string[] OriginList { get; private set; }
+        private IEnumerable<string> OriginList { get; }
+        private TASK_TYPE_FLAGS TaskType { get; }
         /// <summary>
         /// 初始化进程信息。
         /// </summary>
-        public ListCtrl(string[] originList)
+        public ListCtrl(IEnumerable<string> originList, TASK_TYPE_FLAGS taskType)
         {
-            AddList = new LinkedList<string>();
-            DelList = new LinkedList<string>();
             OriginList = originList;
-        }
-        /// <summary>
-        /// 增加进程信息。
-        /// </summary>
-        /// <param name="task">
-        /// 进程信息。
-        /// </param>
-        /// <param name="taskType">
-        /// 进程信息类型。
-        /// </param>
-        /// <returns>
-        /// True为添加成功。
-        /// False为添加失败。
-        /// </returns>
-        public bool AddTask(string task, TASK_TYPE_FLAGS taskType)
-        {
-            if (AddList.Any(tmp => string.Equals(tmp, task, StringComparison.CurrentCultureIgnoreCase))) return false;
-            if (DelList.Any(tmp => string.Equals(tmp, task, StringComparison.CurrentCultureIgnoreCase)))
-            {
-                DelList.Remove(task);
-                return true;
-            }
-            if (OriginList.Any(tmp =>
-                string.Equals(tmp, task, StringComparison.CurrentCultureIgnoreCase)))
-                return false;
-            AddList.AddLast(task);
-            return true;
-        }
-        /// <summary>
-        /// 修改进程信息。
-        /// </summary>
-        /// <param name="frmTask">
-        /// 需修改的进程信息。
-        /// </param>
-        /// <param name="nowTask">
-        /// 修改为的进程信息。
-        /// </param>
-        /// <param name="taskType">
-        /// 进程信息类型。
-        /// </param>
-        /// <returns>
-        /// True为修改成功。
-        /// False为修改失败。
-        /// </returns>
-        public bool ModifyTask(string frmTask, string nowTask, TASK_TYPE_FLAGS taskType)
-        {
-            if (AddList.Any(tmp => string.Equals(tmp, nowTask, StringComparison.CurrentCultureIgnoreCase))) return false;
-            if (DelList.Any(tmp => string.Equals(tmp, nowTask, StringComparison.CurrentCultureIgnoreCase)))
-            {
-                DelList.AddLast(frmTask);
-                DelList.Remove(nowTask);
-                return true;
-            }
-            if (OriginList.Any(tmp =>
-                string.Equals(tmp, nowTask, StringComparison.CurrentCultureIgnoreCase)))
-                return false;
-            DelList.AddLast(frmTask);
-            AddList.AddLast(nowTask);
-            return true;
-        }
-        /// <summary>
-        /// 删除进程信息。
-        /// </summary>
-        /// <param name="task">
-        /// 进程信息。
-        /// </param>
-        /// <param name="taskType">
-        /// 进程信息类型。
-        /// </param>
-        public void DelTask(string task, TASK_TYPE_FLAGS taskType)
-        {
-            if (AddList.Any(tmp => string.Equals(tmp, task, StringComparison.CurrentCultureIgnoreCase)))
-                AddList.Remove(task);
-            DelList.AddLast(task);
-        }
-        /// <summary>
-        /// 重置列表状态。
-        /// </summary>
-        public void Reset()
-        {
-            AddList.Clear();
-            DelList.Clear();
+            TaskType = taskType;
         }
         /// <summary>
         /// 
         /// </summary>
-        public string[] Apply()
+        /// <param name="currentList"></param>
+        /// <returns></returns>
+        public (IEnumerable<string>, IEnumerable<string>) Compare(IEnumerable<string> currentList)
         {
-            var list = new ArrayList();
-            foreach (var s in OriginList)
+            var add = currentList.Except(OriginList);
+            var del = OriginList.Except(currentList);
+            return (add, del);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="currentList"></param>
+        public void Apply(IEnumerable<string> currentList)
+        {
+            var regpath = DataContext.GetRegPath(TaskType);
+            if ((int)TaskType >> 1 > 0)
             {
-                if (DelList.Any(tmp => tmp == s)) continue;
-                list.Add(s);
+                var regs = RegCtrl.RegEnumKey(regpath);
+                foreach (var reg in regs)
+                {
+                    RegCtrl.RegDelKey(reg);
+                }
+                foreach (var task in currentList)
+                {
+                    var guid = Guid.NewGuid();
+                    var tmp = new RegKey(regpath.HKey, $"{regpath.LpSubKey}\\{{{guid}}}", @"ItemData", RegistryValueKind.String, task);
+                    RegCtrl.RegSetValue(tmp);
+                    tmp = new RegKey(regpath.HKey, $"{regpath.LpSubKey}\\{{{guid}}}", @"SaferFlags", RegistryValueKind.DWord, 0x0);
+                    RegCtrl.RegSetValue(tmp);
+                    tmp = new RegKey(regpath.HKey, $"{regpath.LpSubKey}\\{{{guid}}}", @"Description", RegistryValueKind.DWord, 0x0);
+                    RegCtrl.RegSetValue(tmp);
+                    tmp = new RegKey(regpath.HKey, $"{regpath.LpSubKey}\\{{{guid}}}", @"LastModified", RegistryValueKind.DWord, 0x0);
+                    RegCtrl.RegSetValue(tmp);
+                }
             }
-            foreach (var s in AddList) list.Add(s);
-            list.Sort();
-            return OriginList = list.ToArray() as string[];
+            else
+            {
+                var regs = RegCtrl.RegEnumValue(regpath);
+                foreach (var reg in regs)
+                {
+                    RegCtrl.RegDelKey(reg);
+                }
+                var index = 1;
+                foreach (var task in currentList)
+                {
+                    var tmp = new RegKey(regpath.HKey, regpath.LpSubKey, index++.ToString(), RegistryValueKind.String, task);
+                    RegCtrl.RegSetValue(tmp);
+                }
+            }
         }
     }
 }
