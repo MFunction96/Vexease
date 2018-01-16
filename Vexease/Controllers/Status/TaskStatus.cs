@@ -38,36 +38,6 @@ namespace Vexease.Controllers.Status
             TaskName = taskName;
             TaskType = taskType;
         }
-        /// <summary>
-        /// 应用进程列表变更。
-        /// </summary>
-        /// <param name="taskList">
-        /// 将应用的进程列表。
-        /// </param>
-        private void ApplyTaskList(IEnumerable<string> taskList)
-        {
-            var path = DataContext.GetRegPath(TaskType);
-            RegCtrl.RegDelKey(path);
-            if ((int)TaskType >> 1 > 0)
-            {
-                foreach (var task in taskList)
-                {
-                    RegCtrl.RegSetValue(
-                        new RegKey(path.HKey, $"{path.LpSubKey}\\{{{new Guid()}}}", @"ItemData",
-                            RegistryValueKind.String, task));
-                }
-            }
-            else
-            {
-                var i = 1;
-                foreach (var task in taskList)
-                {
-                    RegCtrl.RegSetValue(
-                        new RegKey(path.HKey, path.LpSubKey, i++.ToString(), RegistryValueKind.String, task));
-                }
-            }
-            DataContext.RefrushData();
-        }
         /// <inheritdoc />
         /// <summary>
         /// 检查进程状态。
@@ -93,18 +63,18 @@ namespace Vexease.Controllers.Status
         /// </returns>
         public override bool SwapStatus()
         {
-            var buffer = new ListCtrl(DataContext.GetTaskList(TaskType));
+            var list = new LinkedList<string>(DataContext.GetTaskList(TaskType));
+            var buffer = new ListCtrl(list, TaskType);
             if (State)
             {
                 var regs = DataContext.GetTaskList(TaskType);
                 var regkey = regs.FirstOrDefault(reg =>
                     string.Equals(reg, TaskName, StringComparison.CurrentCultureIgnoreCase));
                 if (regkey is null) throw new NullReferenceException(nameof(TaskStatus));
-                buffer.DelTask(regkey, TaskType);
+                list.Remove(regkey);
             }
-            else buffer.AddTask(TaskName, TaskType);
-            buffer.Apply();
-            ApplyTaskList(buffer.OriginList);
+            else list.AddLast(TaskName);
+            buffer.Apply(list);
             return base.SwapStatus();
         }
     }
