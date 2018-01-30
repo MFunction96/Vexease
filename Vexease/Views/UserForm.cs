@@ -12,11 +12,15 @@ namespace Vexease.Views
 {
     public partial class UserForm : Form
     {
+      //  private readonly Form _form;
+        private UserFormCtrl Controller { get; }
        
         public UserForm()
         {
             StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
+          //  _form = form;
+            Controller = new UserFormCtrl();
            
         }
         private void UserForm_Load(object sender, EventArgs e)
@@ -36,14 +40,14 @@ namespace Vexease.Views
             // DialogResult result = MessageBox.Show("当前为用户状态，不能自主终止程序，是否隐藏窗口，最小化到系统托盘？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.None);
 
             Application.DoEvents();
-            ViewMethod.CloseTips(this);
+            UserFormCtrl.CloseForm(this);
             base.OnClosing(e);
         }
 
         private void BtnSwitchToAdmMode_Click(object sender, EventArgs e)
         {
 
-            var loginform = new LoginForm();            
+            var loginform = new LoginForm(this);            
             loginform.Show();
             Hide();
            
