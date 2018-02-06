@@ -74,8 +74,11 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CSkin">
-      <HintPath>Resources\CSkin.dll</HintPath>
+    <Reference Include="CSkin, Version=16.1.14.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\cskin.16.1.14.3\lib\net40\CSkin.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -96,6 +99,7 @@
     <Compile Include="Controllers\Account\PwdCtrl.cs" />
     <Compile Include="Controllers\Comparer\NameComparer.cs" />
     <Compile Include="Controllers\Comparer\PathComparer.cs" />
+    <Compile Include="Controllers\Config\Configure.cs" />
     <Compile Include="Controllers\Crypt\AESCrypt.cs" />
     <Compile Include="Controllers\Dism\DismCtrl.cs" />
     <Compile Include="Controllers\List\ListCtrl.cs" />
@@ -104,6 +108,7 @@
     <Compile Include="Controllers\Task\TaskCtrl.cs" />
     <Compile Include="Controllers\ViewCtrl\BtnYorNCtrl.cs" />
     <Compile Include="Controllers\ViewCtrl\ViewMethod.cs" />
+    <Compile Include="Models\Config\Configuration.cs" />
     <Compile Include="Models\Enums\DISM_LOG_LEVEL.cs" />
     <Compile Include="Models\Enums\FACILITY_CODE.cs" />
     <Compile Include="Models\Enums\FILE_CACHE_FLAGS.cs" />
