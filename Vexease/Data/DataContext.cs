@@ -14,10 +14,13 @@ namespace Vexease.Data
     /// </summary>
     public class DataContext
     {
+        /// <summary>
+        /// 
+        /// </summary>
         // {1BB077CA-FEC5-479F-AA85-11CDFBFA4042}
         public static Guid MyGuid => new Guid("1BB077CA-FEC5-479F-AA85-11CDFBFA4042");
         /// <summary>
-        /// 程序密码信息
+        /// 程序密码信息。
         /// </summary>
         public static RegKey Password { get; private set; }
         /// <summary>
