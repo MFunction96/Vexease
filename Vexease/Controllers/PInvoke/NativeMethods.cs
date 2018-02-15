@@ -430,5 +430,30 @@ namespace Vexease.Controllers.PInvoke
             int stMinimumFileCacheSize,
             int stMaximumFileCacheSize,
             FILE_CACHE_FLAGS dwFlags);
+
+
+
+        //主验证功能
+        // @return
+        // - 0 授权成功
+        // - 2 未授权但处于验证中
+        [DllImport("Trial.dll", EntryPoint = "ReadSettingsStr", CharSet = CharSet.Ansi)]
+        public static extern uint InitTrial(String aKeyCode, IntPtr aHWnd);
+
+        // 此函数一直持续运行但不会杀死程序
+        //
+        // @return
+        // - 0 授权成功
+        // - 2 未授权但处于验证中
+        // - 未授权或授权过期将返回一个>=4的值
+        [DllImport("Trial.dll", EntryPoint = "ReadSettingsRetStr", CharSet = CharSet.Ansi)]
+        public static extern uint InitTrialReturn(String aKeyCode, IntPtr aHWnd);
+
+        // 使用给定的注册码注册软件
+        [DllImport("Trial.dll", EntryPoint = "DisplayRegistrationStr", CharSet = CharSet.Ansi)]
+        public static extern uint DisplayRegistration(String aKeyCode, IntPtr aHWnd);
+
+        [DllImport("Trial.dll", EntryPoint = "GetPropertyValue", CharSet = CharSet.Unicode)]
+        public static extern uint GetPropertyValue(String aPropName, StringBuilder aResult, ref UInt32 aResultLen);
     }
 }
