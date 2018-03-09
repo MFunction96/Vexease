@@ -1,17 +1,21 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 using Vexease.Controllers.Account;
 using Vexease.Controllers.ViewCtrl;
+using Vexease.Properties;
+
 namespace Vexease.Views
 {
-
+    /// <inheritdoc />
+    /// <summary />
     public partial class LoginForm : Form
     {
         private readonly Form _form;
-        private LoginFormCtrl Controller;
+        private LoginFormCtrl Controller { get; }
 
+        /// <summary />
+        /// <param name="form"></param>
         public LoginForm(Form form)
         {
             StartPosition = FormStartPosition.CenterScreen;
@@ -23,11 +27,10 @@ namespace Vexease.Views
         {
             ControlBox = false;
             FormBorderStyle = FormBorderStyle.FixedSingle;//不可调整大小。可包括控件菜单栏、标题栏、“最大化”按钮和“最小化”按钮。只能使用“最大化”和“最小化”按钮改变大小。创建单线边框。
-            TxtPwd.ForeColor = Color.FromArgb(255, 128, 128, 128);
-            TxtPwd.Text = "请输入密码！";
+            TxtPwd.ForeColor = Color.Gray;
+            TxtPwd.Text = Resources.LoginForm_TxtPwd_input_;
 
         }
-
 
         private void BtnOk_Click(object sender, EventArgs e)
         {
@@ -36,7 +39,7 @@ namespace Vexease.Views
 
             }
 
-            var admform = new AdmForm();
+            var admform = new AdmForm(this);
             admform.Show();
             Close();
         }
@@ -50,19 +53,15 @@ namespace Vexease.Views
 
         private void TxtPwd_Enter(object sender, EventArgs e)
         {
-            ViewMethod.PwdSet(TxtPwd, "NewEnter");
+            Controller.PwdSet(TxtPwd, "NewEnter");
         }
 
         private void TxtPwd_Leave(object sender, EventArgs e)
         {
-            ViewMethod.PwdSet(TxtPwd, "NewLeave");
+            Controller.PwdSet(TxtPwd, "NewLeave");
         }
 
-        private void LblTitle_Click(object sender, EventArgs e)
-        {
+       
 
-        }
-
-        //“忘记密码？”点击事件
     }
 }

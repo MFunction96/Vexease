@@ -61,6 +61,105 @@ namespace Vexease.Properties {
         }
         
         /// <summary>
+        ///   查找类似 命令提示符 的本地化字符串。
+        /// </summary>
+        internal static string AdmFormCtrl_BtnCmd {
+            get {
+                return ResourceManager.GetString("AdmFormCtrl_BtnCmd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 控制台 的本地化字符串。
+        /// </summary>
+        internal static string AdmFormCtrl_BtnConsole {
+            get {
+                return ResourceManager.GetString("AdmFormCtrl_BtnConsole", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 控制面板 的本地化字符串。
+        /// </summary>
+        internal static string AdmFormCtrl_BtnCtrlPnl {
+            get {
+                return ResourceManager.GetString("AdmFormCtrl_BtnCtrlPnl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 进程管控 的本地化字符串。
+        /// </summary>
+        internal static string AdmFormCtrl_BtnProcCtrl {
+            get {
+                return ResourceManager.GetString("AdmFormCtrl_BtnProcCtrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 PowerShell 的本地化字符串。
+        /// </summary>
+        internal static string AdmFormCtrl_BtnPS {
+            get {
+                return ResourceManager.GetString("AdmFormCtrl_BtnPS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 注册表 的本地化字符串。
+        /// </summary>
+        internal static string AdmFormCtrl_BtnRegustry {
+            get {
+                return ResourceManager.GetString("AdmFormCtrl_BtnRegustry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 运行工具 的本地化字符串。
+        /// </summary>
+        internal static string AdmFormCtrl_BtnRunTool {
+            get {
+                return ResourceManager.GetString("AdmFormCtrl_BtnRunTool", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 系统盘管控 的本地化字符串。
+        /// </summary>
+        internal static string AdmFormCtrl_BtnSys {
+            get {
+                return ResourceManager.GetString("AdmFormCtrl_BtnSys", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 任务管理器 的本地化字符串。
+        /// </summary>
+        internal static string AdmFormCtrl_BtnTaskMgr {
+            get {
+                return ResourceManager.GetString("AdmFormCtrl_BtnTaskMgr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 配置管理 的本地化字符串。
+        /// </summary>
+        internal static string AdmFormCtrl_LblOptimization {
+            get {
+                return ResourceManager.GetString("AdmFormCtrl_LblOptimization", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 系统状态 的本地化字符串。
+        /// </summary>
+        internal static string AdmFormCtrl_LblStatus {
+            get {
+                return ResourceManager.GetString("AdmFormCtrl_LblStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
         internal static System.Drawing.Bitmap black {
@@ -141,6 +240,69 @@ namespace Vexease.Properties {
         }
         
         /// <summary>
+        ///   查找类似 请输入密码！ 的本地化字符串。
+        /// </summary>
+        internal static string LoginForm_LoginForm_Load_ {
+            get {
+                return ResourceManager.GetString("LoginForm_LoginForm_Load_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 请输入密码！ 的本地化字符串。
+        /// </summary>
+        internal static string LoginForm_TxtPwd_input_ {
+            get {
+                return ResourceManager.GetString("LoginForm_TxtPwd_input_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 密码不能为空！ 的本地化字符串。
+        /// </summary>
+        internal static string LoginFormCtrl_PwdSet_BeNull {
+            get {
+                return ResourceManager.GetString("LoginFormCtrl_PwdSet_BeNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 请再次输入密码！ 的本地化字符串。
+        /// </summary>
+        internal static string LoginFormCtrl_PwdSet_InputAgain {
+            get {
+                return ResourceManager.GetString("LoginFormCtrl_PwdSet_InputAgain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 两次输入不一致！ 的本地化字符串。
+        /// </summary>
+        internal static string LoginFormCtrl_PwdSet_NotSimible {
+            get {
+                return ResourceManager.GetString("LoginFormCtrl_PwdSet_NotSimible", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 请输入密码！ 的本地化字符串。
+        /// </summary>
+        internal static string PwdChangeForm_PwdChangeForm_Input {
+            get {
+                return ResourceManager.GetString("PwdChangeForm_PwdChangeForm_Input", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 请再次输入密码！ 的本地化字符串。
+        /// </summary>
+        internal static string PwdChangeForm_PwdChangeForm_InputAgain {
+            get {
+                return ResourceManager.GetString("PwdChangeForm_PwdChangeForm_InputAgain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
         internal static System.Drawing.Bitmap QQ图片20170928165258 {
@@ -157,6 +319,24 @@ namespace Vexease.Properties {
             get {
                 object obj = ResourceManager.GetObject("Set", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 启用中 的本地化字符串。
+        /// </summary>
+        internal static string UserFormCtrl_StatusChange_启用中 {
+            get {
+                return ResourceManager.GetString("UserFormCtrl_StatusChange_启用中", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 已禁用 的本地化字符串。
+        /// </summary>
+        internal static string UserFormCtrl_StatusChange_已禁用 {
+            get {
+                return ResourceManager.GetString("UserFormCtrl_StatusChange_已禁用", resourceCulture);
             }
         }
         

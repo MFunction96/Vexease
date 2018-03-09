@@ -2,6 +2,9 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 using Vexease.Controllers.ViewCtrl;
+using  System.Collections.Generic;
+using System.Diagnostics;
+
 #pragma warning disable 1591 //缺少对公共可见类型或成员的xml注释
 
 //神兽已死
@@ -12,14 +15,19 @@ namespace Vexease.Views
 {
     public partial class AdmForm : Form
     {
+        private readonly Form _form;
+        private  AdmFormCtrl Controller { get; }
+        /// <inheritdoc />
         /// <summary>
-        /// 
+        /// 管理员控制界面
         /// </summary>
-        public AdmForm()
+        public AdmForm(Form form)
         {
             StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
             TabSet();
+            _form = form;
+            Controller = new AdmFormCtrl();
         }
         /// <summary>
         /// 
@@ -34,18 +42,24 @@ namespace Vexease.Views
                                                           //隐藏标签,改成设置Itemsize为（1,1）了
                                                           /*TabCtrlAdm.Region = new Region(new RectangleF(PageCtrlPnl.Left,
                                                             PageCtrlPnl.Top, PageCtrlPnl.Width, PageCtrlPnl.Height));*/
-
             PnlWListTN.Width = PageAbout.Width - 100;
-            // LvCmd.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-            
-            ViewMethod.Colwidth2(LvCmd);
-            ViewMethod.Colwidth2(LvConsole);
-            ViewMethod.Colwidth2(LvCtrlPnl);
-            ViewMethod.Colwidth2(LvSys);
-            ViewMethod.Colwidth2(LvPS);
-            ViewMethod.Colwidth2(LvRegustry);
-            ViewMethod.Colwidth2(LvRunTool);
-            ViewMethod.Colwidth2(LvTaskMgr);
+            foreach (var pair in Controller.LvDictionary)
+            {
+                 var value = pair.Value;
+                var c = Controls.Find(value, true);
+                Controller.Colwidth2((ListView)c[0]);
+            }
+            /*
+             * Controller.Colwidth2(LvCmd);
+              Controller.Colwidth2(LvConsole);
+              Controller.Colwidth2(LvCtrlPnl);
+              Controller.Colwidth2(LvSys);
+              Controller.Colwidth2(LvPS);
+              Controller.Colwidth2(LvRegustry);
+              Controller.Colwidth2(LvRunTool);
+              Controller.Colwidth2(LvTaskMgr);
+             *
+             */
         }
 
 
@@ -78,39 +92,19 @@ namespace Vexease.Views
               // DialogResult result = MessageBox.Show("当前为用户状态，不能自主终止程序，是否隐藏窗口，最小化到系统托盘？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.None);
                             
               Application.DoEvents();
-            ViewMethod.CloseTips(this);
+            Controller.CloseTips(this);
               base.OnClosing(e);
           }
+
         /// <summary>
         /// Tab转换
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void LblStatus_Click(object sender, EventArgs e) => TabCtrlAdm.SelectedTab = PageAbout;
-
-        private void LblOptimization_Click(object sender, EventArgs e) => TabCtrlAdm.SelectedTab = PageAbout;
-
-        private void BtnConsole_Click(object sender, EventArgs e) => TabCtrlAdm.SelectedTab = PageConsole;
-
-        private void BtnRegustry_Click(object sender, EventArgs e) => TabCtrlAdm.SelectedTab = PageRegustry;
-
-        private void BtnPlanningTask_Click(object sender, EventArgs e) => TabCtrlAdm.SelectedTab = PagePlanningTask;
-
-        private void BtnCtrlPnl_Click(object sender, EventArgs e) => TabCtrlAdm.SelectedTab = PageCtrlPnl;
-
-        private void BtnRunTool_Click(object sender, EventArgs e) => TabCtrlAdm.SelectedTab = PageRunTool;
-
-        private void BtnTaskMgr_Click(object sender, EventArgs e) => TabCtrlAdm.SelectedTab = PageTaskMgr;
-
-        private void BtnCmd_Click(object sender, EventArgs e) => TabCtrlAdm.SelectedTab = PageCmd;
-
-        private void BtnPS_Click(object sender, EventArgs e) => TabCtrlAdm.SelectedTab = PagePS;
-
-        private void Btnyouhua_Click(object sender, EventArgs e) => TabCtrlAdm.SelectedTab = PageOptimization;
-
-        private void PnlEmpty_Click(object sender, MouseEventArgs e) => TabCtrlAdm.SelectedTab = PageInstruction;
-
-        private void BtnProcCtrl_Click(object sender, EventArgs e) => TabCtrlAdm.SelectedTab = PageProcCtrl;
+        private void Title_Click(object sender, EventArgs e)
+        {
+            Controller.TabChange(TabCtrlAdm,sender);
+        }
 
         /// <summary>
         /// 列表的收缩与扩展
@@ -119,29 +113,42 @@ namespace Vexease.Views
         /// <param name="e"></param>
         private void BtnYorN_Click(object sender,EventArgs e)
         {
-            BtnYorN btnYorN = sender as BtnYorN;          
-            if (btnYorN == BtnBListYorN){
-                BtnYorNCtrl.CheckYorN(BtnBListYorN,"B_Clicked");
-                ViewMethod.ContracAndAmplifica(PnlBList, BtnBListYorN,"B_Clicked"); }
-            if (btnYorN == BtnWListYorN) { BtnYorNCtrl.CheckYorN(BtnWListYorN,"W_Clicked"); ViewMethod.ContracAndAmplifica(PnlWList, BtnWListYorN,"W_Clicked"); }
-            if (btnYorN == BtnListPathYorN) { BtnYorNCtrl.CheckYorN(BtnListPathYorN, "P_Clicked"); }
+            if(!(sender is BtnYorN btnYorN))return;
+           // var s = btnYorN.Name;
+            Controller.YorNLimitDictionary.TryGetValue(btnYorN.Name, out var n);
+            
+            Controller.ClickYorN(n);
 
-           
+            /*if (btnYorN == BtnBListYorN){
+                Controller.CheckYorN(BtnBListYorN,"B_Clicked");
+                Controller.ContracAndAmplifica(PnlBList, BtnBListYorN,"B_Clicked"); }
+            if (btnYorN == BtnWListYorN) { Controller.CheckYorN(BtnWListYorN,"W_Clicked"); Controller.ContracAndAmplifica(PnlWList, BtnWListYorN,"W_Clicked"); }
+            if (btnYorN == BtnListPathYorN) { Controller.CheckYorN(BtnListPathYorN, "P_Clicked"); }
+*/
+
         }
+        /// <summary>
+        /// 名单收放
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Label_Click(object sender,EventArgs e)
         {
-            Label lbl = sender as Label;
-            if (lbl == LblConsole) { ViewMethod.ContracAndAmplifica(LvConsole); }
-            if (lbl == LblRegustriy) { ViewMethod.ContracAndAmplifica(LvRegustry); }
-            if (lbl == LblSys) { ViewMethod.ContracAndAmplifica(LvSys); }
-            if (lbl == LblCtrlPnl) { ViewMethod.ContracAndAmplifica(LvCtrlPnl); }
-            if (lbl == LblRunTool) { ViewMethod.ContracAndAmplifica(LvRunTool); }
-            if (lbl == LblTaskMgr) { ViewMethod.ContracAndAmplifica(LvTaskMgr); }
-            if (lbl == LblCmd) { ViewMethod.ContracAndAmplifica(LvCmd); }
-            if (lbl == LblPS) { ViewMethod.ContracAndAmplifica(LvPS); }
-            if (lbl == LblBListTitleN) ViewMethod.ContracAndAmplifica(PnlBList);
-            if (lbl == LblWListTN) ViewMethod.ContracAndAmplifica(PnlWList);
-        }  
+            if (!(sender is Label lbl)) return;
+            Controller.LblLvDictionary.TryGetValue(lbl.Name, out var n);
+            var c = Controls.Find(n ?? throw new InvalidOperationException(), true);
+            Controller.ContracAndAmplifica(c[0]);
+            /*if (lbl == LblConsole) { Controller.ContracAndAmplifica(LvConsole); }
+               if (lbl == LblRegustriy) { Controller.ContracAndAmplifica(LvRegustry); }
+               if (lbl == LblSys) { Controller.ContracAndAmplifica(LvSys); }
+               if (lbl == LblCtrlPnl) { Controller.ContracAndAmplifica(LvCtrlPnl); }
+               if (lbl == LblRunTool) { Controller.ContracAndAmplifica(LvRunTool); }
+               if (lbl == LblTaskMgr) { Controller.ContracAndAmplifica(LvTaskMgr); }
+               if (lbl == LblCmd) { Controller.ContracAndAmplifica(LvCmd); }
+               if (lbl == LblPS) { Controller.ContracAndAmplifica(LvPS); }
+               if (lbl == LblBListTitleN) Controller.ContracAndAmplifica(PnlBList);
+               if (lbl == LblWListTN) Controller.ContracAndAmplifica(PnlWList);*/
+        }
 
         //
         //页面跳转
@@ -151,47 +158,36 @@ namespace Vexease.Views
             var bListSetForm = new BandWListSetForm();
             bListSetForm.Show();
         }
-
-        private void TlStrBtnWListSet_Click(object sender, EventArgs e)
-        {
-            var wListSetForm = new BandWListSetForm();
-            wListSetForm.Show();
-        }
-
         private void MenuSetIP_Click(object sender, EventArgs e)
         {
-            var setIPForm = new SetIPForm {
+            var setIpForm = new SetIPForm {
                 StartPosition = FormStartPosition.CenterScreen,
                 ShowIcon = true
             };
 
-            setIPForm.Show();
+            setIpForm.Show();
         }
-                
+        private void BtnIm_Click(object sender, EventArgs e)
+        {
+            var importform =new ImportForm();
+            importform.Show();
+        }
         private void MenuFileExport_Click(object sender, EventArgs e)
         {
             var exportForm = new ExportForm();
             exportForm.Show();
         }
-
         private void BtnWListSet_Click(object sender, EventArgs e)
         {
             var wlistset = new WListSetForm();
             wlistset.Show();
         }
-
         private void BtnListSetP_Click(object sender, EventArgs e)
         {
             var listByPath = new ListByPathSetForm();
             listByPath.Show();
         }
 
-        private void TSMIBack_Click(object sender, EventArgs e)
-        {
-            Close();
-            var userForm = new UserForm();
-            userForm.Show();
-        }
         //
         //大标题的双击
         //
@@ -206,75 +202,90 @@ namespace Vexease.Views
         //
         private void BtnYorN_Load(object sender,EventArgs e)
         {
-            BtnYorN btnYorN = sender as BtnYorN;
-            if (btnYorN == BtnBListYorN)
-            {
-                BtnYorNCtrl.CheckYorN(BtnBListYorN, "B_Load");
-                ViewMethod.Contraction(BtnBListYorN, PnlBList, "B_Load"); }
-            if (btnYorN == BtnWListYorN) {
-                BtnYorNCtrl.CheckYorN(BtnWListYorN, "W_Load");
-                ViewMethod.Contraction(BtnWListYorN, PnlWList, "W_Load"); }
-            if (btnYorN == BtnListPathYorN)
-                BtnYorNCtrl.CheckYorN(BtnListPathYorN,"P_Load");
+            if (!(sender is BtnYorN btnYorN)) return;
+            // var s = btnYorN.Name;
+            Controller.YorNLimitDictionary.TryGetValue(btnYorN.Name, out var n);
+           
+            Controller.LoadYorN(btnYorN,n);
+            /*if (btnYorN == BtnBListYorN)
+               {
+               BtnYorNCtrl.CheckYorN(BtnBListYorN, "B_Load");
+               ViewMethod.Contraction(BtnBListYorN, PnlBList, "B_Load"); }
+               if (btnYorN == BtnWListYorN) {
+               BtnYorNCtrl.CheckYorN(BtnWListYorN, "W_Load");
+               ViewMethod.Contraction(BtnWListYorN, PnlWList, "W_Load"); }
+               if (btnYorN == BtnListPathYorN)
+               BtnYorNCtrl.CheckYorN(BtnListPathYorN,"P_Load");*/
         }
-              
+
         private void BtnYorN_MouseUp(object sender,MouseEventArgs e)
         {
-            BtnYorN btnYorN = new BtnYorN();
-            if (btnYorN == BtnWListYorN)
-                ViewMethod.ContracAndAmplifica(PnlWList,BtnWListYorN,"W_Clicked");
-            if (btnYorN == BtnBListYorN)
-                ViewMethod.ContracAndAmplifica(PnlBList, BtnBListYorN,"B_Clicked");
-            if (btnYorN == BtnListPathYorN)
-                BtnYorNCtrl.CheckYorN(BtnListPathYorN, "P_Load");
+            if (!(sender is BtnYorN btnYorN)) return;
+            // var s = btnYorN.Name;
+            Controller.YorNLimitDictionary.TryGetValue(btnYorN.Name, out var n);
+           
+            Controller.ClickYorN(n);
+            /*if (btnYorN == BtnWListYorN)
+               ViewMethod.ContracAndAmplifica(PnlWList,BtnWListYorN,"W_Clicked");
+               if (btnYorN == BtnBListYorN)
+               ViewMethod.ContracAndAmplifica(PnlBList, BtnBListYorN,"B_Clicked");
+               if (btnYorN == BtnListPathYorN)
+               BtnYorNCtrl.CheckYorN(BtnListPathYorN, "P_Load");*/
         }
-       
+
         //
         //状态显示跟随开关改变
         //
         private void BtnYorNStatus_Load(object sender,EventArgs e)
         {
-            BtnYorN btnYorN = sender as BtnYorN;
-            if (btnYorN == BtnRegustriyYorN) ViewMethod.StatusChange(btnYorN, LvRegustry, "Registry_Load");
-            if (btnYorN == BtnConsoleYorN) ViewMethod.StatusChange(btnYorN, LvConsole,"Mmc_Load");
-            if (btnYorN == BtnSysYorN) ViewMethod.StatusChange(BtnSysYorN, LvSys,"Sys_Load");
-            if (btnYorN == BtnCtrlPnlYorN) ViewMethod.StatusChange(BtnCtrlPnlYorN, LvCtrlPnl,"CtrlPnl_Load");
-            if (btnYorN == BtnRunToolYorN) ViewMethod.StatusChange(BtnRunToolYorN, LvRunTool,"RunTool_Load");
-            if (btnYorN == BtnTaskMgrYorN) ViewMethod.StatusChange(BtnTaskMgrYorN, LvTaskMgr,"Taskmgr_Load");
-            if (btnYorN == BtnCmdYorN) ViewMethod.StatusChange(BtnCmdYorN, LvCmd,"Cmd_Load");
-            if (btnYorN == BtnPSYorN) ViewMethod.StatusChange(BtnPSYorN, LvPS,"PwrShell_Load");
-        }
-   
-        private void BtnYorNStatus_MouseUp(object sender,MouseEventArgs e)
-        {
-            BtnYorN btnYorN = sender as BtnYorN;
-            if (btnYorN == BtnRegustriyYorN) ViewMethod.StatusChange(btnYorN, LvRegustry, "Registry_Clicked");
-            if (btnYorN == BtnConsoleYorN) ViewMethod.StatusChange(btnYorN, LvConsole, "Mmc_Clicked");
-            if (btnYorN == BtnSysYorN) ViewMethod.StatusChange(BtnSysYorN, LvSys, "Sys_Clicked");
-            if (btnYorN == BtnCtrlPnlYorN) ViewMethod.StatusChange(BtnCtrlPnlYorN, LvCtrlPnl, "CtrlPnl_Clicked");
-            if (btnYorN == BtnRunToolYorN) ViewMethod.StatusChange(BtnRunToolYorN, LvRunTool, "RunTool_Clicked");
-            if (btnYorN == BtnTaskMgrYorN) ViewMethod.StatusChange(BtnTaskMgrYorN, LvTaskMgr, "Taskmgr_Clicked");
-            if (btnYorN == BtnCmdYorN) ViewMethod.StatusChange(BtnCmdYorN, LvCmd, "Cmd_Clicked");
-            if (btnYorN == BtnPSYorN) ViewMethod.StatusChange(BtnPSYorN, LvPS, "PwrShell_Clicked");
+            if (!(sender is BtnYorN btnYorN)) return;
+            // var s = btnYorN.Name;
+            Controller.YorNLimitDictionary.TryGetValue(btnYorN.Name, out var n);
+            
+            Controller.LoadYorN(btnYorN,n);
+            /* if (btnYorN == BtnRegustriyYorN) ViewMethod.StatusChange(btnYorN, LvRegustry, "Registry_Load");
+             if (btnYorN == BtnConsoleYorN) ViewMethod.StatusChange(btnYorN, LvConsole,"Mmc_Load");
+             if (btnYorN == BtnSysYorN) ViewMethod.StatusChange(BtnSysYorN, LvSys,"Sys_Load");
+             if (btnYorN == BtnCtrlPnlYorN) ViewMethod.StatusChange(BtnCtrlPnlYorN, LvCtrlPnl,"CtrlPnl_Load");
+             if (btnYorN == BtnRunToolYorN) ViewMethod.StatusChange(BtnRunToolYorN, LvRunTool,"RunTool_Load");
+             if (btnYorN == BtnTaskMgrYorN) ViewMethod.StatusChange(BtnTaskMgrYorN, LvTaskMgr,"Taskmgr_Load");
+             if (btnYorN == BtnCmdYorN) ViewMethod.StatusChange(BtnCmdYorN, LvCmd,"Cmd_Load");
+             if (btnYorN == BtnPSYorN) ViewMethod.StatusChange(BtnPSYorN, LvPS,"PwrShell_Load");*/
         }
 
-       
+        private void BtnYorNStatus_MouseUp(object sender,MouseEventArgs e)
+        {
+            if (!(sender is BtnYorN btnYorN)) return;
+            // var s = btnYorN.Name;
+            Controller.YorNLimitDictionary.TryGetValue(btnYorN.Name, out var n);
+            Controller.ClickYorN(n);
+            /* if (btnYorN == BtnRegustriyYorN) ViewMethod.StatusChange(btnYorN, LvRegustry, "Registry_Clicked");
+              if (btnYorN == BtnConsoleYorN) ViewMethod.StatusChange(btnYorN, LvConsole, "Mmc_Clicked");
+              if (btnYorN == BtnSysYorN) ViewMethod.StatusChange(BtnSysYorN, LvSys, "Sys_Clicked");
+              if (btnYorN == BtnCtrlPnlYorN) ViewMethod.StatusChange(BtnCtrlPnlYorN, LvCtrlPnl, "CtrlPnl_Clicked");
+              if (btnYorN == BtnRunToolYorN) ViewMethod.StatusChange(BtnRunToolYorN, LvRunTool, "RunTool_Clicked");
+              if (btnYorN == BtnTaskMgrYorN) ViewMethod.StatusChange(BtnTaskMgrYorN, LvTaskMgr, "Taskmgr_Clicked");
+              if (btnYorN == BtnCmdYorN) ViewMethod.StatusChange(BtnCmdYorN, LvCmd, "Cmd_Clicked");
+              if (btnYorN == BtnPSYorN) ViewMethod.StatusChange(BtnPSYorN, LvPS, "PwrShell_Clicked");*/
+        }
+
+
         //
         //项目成员名跳转github主页
         //
         private void LblCreater1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("explorer.exe", "https://github.com/MFunction96");
+            Process.Start("explorer.exe", "https://github.com/MFunction96");
         }
              
         private void LblCreater2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("explorer.exe", "https://github.com/hlys");
+            Process.Start("explorer.exe", "https://github.com/hlys");
         }
 
         private void LblCreater3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("explorer.exe", "https://github.com/ChrisYoung96");
+            Process.Start("explorer.exe", "https://github.com/ChrisYoung96");
         }
 
        //
@@ -283,53 +294,58 @@ namespace Vexease.Views
         private void BtnColor_MouseDown(object sender, MouseEventArgs e)
         {
             Button button = sender as Button;
-            if (button == BtnConsole) ViewMethod.ColorChange(BtnConsole, "D");
-            if (button == BtnRegustry) ViewMethod.ColorChange(BtnRegustry, "D");
-            if (button == BtnCmd) ViewMethod.ColorChange(BtnCmd, "D");
-            if (button == BtnPS) ViewMethod.ColorChange(BtnPS, "D");
-            if (button == BtnCtrlPnl) ViewMethod.ColorChange(BtnCtrlPnl, "D");
-            if (button == BtnTaskMgr) ViewMethod.ColorChange(BtnTaskMgr, "D");
-            if (button == BtnSys) ViewMethod.ColorChange(BtnSys, "D");
-            if (button == BtnRunTool) ViewMethod.ColorChange(BtnRunTool, "D");
-            if (button == BtnProcCtrl) ViewMethod.ColorChange(BtnProcCtrl, "D");
-            if (button == BtnIm) ViewMethod.ColorChange(BtnIm, "D");
-            if (button == BtnEx) ViewMethod.ColorChange(BtnEx, "D");
+           Controller.ColorChange(button,"D");
+            /*
+              if (button == BtnConsole) ViewMethod.ColorChange(BtnConsole, "D");
+              if (button == BtnRegustry) ViewMethod.ColorChange(BtnRegustry, "D");
+              if (button == BtnCmd) ViewMethod.ColorChange(BtnCmd, "D");
+              if (button == BtnPS) ViewMethod.ColorChange(BtnPS, "D");
+              if (button == BtnCtrlPnl) ViewMethod.ColorChange(BtnCtrlPnl, "D");
+              if (button == BtnTaskMgr) ViewMethod.ColorChange(BtnTaskMgr, "D");
+              if (button == BtnSys) ViewMethod.ColorChange(BtnSys, "D");
+              if (button == BtnRunTool) ViewMethod.ColorChange(BtnRunTool, "D");
+              if (button == BtnProcCtrl) ViewMethod.ColorChange(BtnProcCtrl, "D");
+              if (button == BtnIm) ViewMethod.ColorChange(BtnIm, "D");
+              if (button == BtnEx) ViewMethod.ColorChange(BtnEx, "D");*/
         }
-        
+
         private void LblColor_MouseLeave(object sender, EventArgs e)
         {
 
-            Label lbl = sender as Label;
-            if (lbl == LblOptimization) ViewMethod.ColorChange(LblOptimization, "L");
-            if (lbl == LblStatus) ViewMethod.ColorChange(LblStatus, "L");
+            var lbl = sender as Label;
+            Controller.ColorChange(lbl,"L");
+            /*if (lbl == LblOptimization) ViewMethod.ColorChange(LblOptimization, "L");
+               if (lbl == LblStatus) ViewMethod.ColorChange(LblStatus, "L");*/
         }
 
         private void MenuPwdChange_Click(object sender, EventArgs e)
         {
-            var pwdchangeform = new PwdChangeForm();
+            var pwdchangeform = new PwdChangeForm(this);
             pwdchangeform.Show();
         }
 
         private void BtnColor_MouseLeave(object sender, EventArgs e)
         {            
                 Button button = sender as Button;
-                if (button == BtnConsole) ViewMethod.ColorChange(BtnConsole, "L");
-                if (button == BtnRegustry) ViewMethod.ColorChange(BtnRegustry, "L");
-                if (button == BtnCmd) ViewMethod.ColorChange(BtnCmd, "L");
-                if (button == BtnPS) ViewMethod.ColorChange(BtnPS, "L");
-                if (button == BtnCtrlPnl) ViewMethod.ColorChange(BtnCtrlPnl, "L");
-                if (button == BtnTaskMgr) ViewMethod.ColorChange(BtnTaskMgr, "L");
-                if (button == BtnSys) ViewMethod.ColorChange(BtnSys, "L");
-                if (button == BtnRunTool) ViewMethod.ColorChange(BtnRunTool, "L");
-                if (button == BtnProcCtrl) ViewMethod.ColorChange(BtnProcCtrl, "L");
-            if (button == BtnIm) ViewMethod.ColorChange(BtnIm, "L");
-            if (button == BtnEx) ViewMethod.ColorChange(BtnEx, "L");
+            Controller.ColorChange(button,"L");
+            /*if (button == BtnConsole) ViewMethod.ColorChange(BtnConsole, "L");
+                   if (button == BtnRegustry) ViewMethod.ColorChange(BtnRegustry, "L");
+                   if (button == BtnCmd) ViewMethod.ColorChange(BtnCmd, "L");
+                   if (button == BtnPS) ViewMethod.ColorChange(BtnPS, "L");
+                   if (button == BtnCtrlPnl) ViewMethod.ColorChange(BtnCtrlPnl, "L");
+                   if (button == BtnTaskMgr) ViewMethod.ColorChange(BtnTaskMgr, "L");
+                   if (button == BtnSys) ViewMethod.ColorChange(BtnSys, "L");
+                   if (button == BtnRunTool) ViewMethod.ColorChange(BtnRunTool, "L");
+                   if (button == BtnProcCtrl) ViewMethod.ColorChange(BtnProcCtrl, "L");
+                   if (button == BtnIm) ViewMethod.ColorChange(BtnIm, "L");
+                   if (button == BtnEx) ViewMethod.ColorChange(BtnEx, "L");*/
         }
 
         private void BtnColor_MouseEnter(object sender, EventArgs e)
         {
             Button button = sender as Button;
-            if (button == BtnConsole) ViewMethod.ColorChange(BtnConsole, "E");
+            Controller.ColorChange(button,"E");
+            /*if (button == BtnConsole) ViewMethod.ColorChange(BtnConsole, "E");
             if (button == BtnRegustry) ViewMethod.ColorChange(BtnRegustry, "E");
             if (button == BtnCmd) ViewMethod.ColorChange(BtnCmd, "E");
             if (button == BtnPS) ViewMethod.ColorChange(BtnPS, "E");
@@ -339,26 +355,23 @@ namespace Vexease.Views
             if (button == BtnRunTool) ViewMethod.ColorChange(BtnRunTool, "E");
             if (button == BtnProcCtrl) ViewMethod.ColorChange(BtnProcCtrl, "E");
             if (button == BtnIm) ViewMethod.ColorChange(BtnIm, "E");
-            if (button == BtnEx) ViewMethod.ColorChange(BtnEx, "E");
+            if (button == BtnEx) ViewMethod.ColorChange(BtnEx, "E");*/
         }
 
         private void LblColor_MouseDown(object sender, MouseEventArgs e)
         {
             Label lbl = sender as Label;
-            if (lbl == LblOptimization) ViewMethod.ColorChange(LblOptimization, "D");
-            if (lbl == LblStatus) ViewMethod.ColorChange(LblStatus, "D");
-        }
-
-        private void LblStatus_MouseLeave(object sender, EventArgs e)
-        {
-            LblStatus.BackColor = System.Drawing.Color.DodgerBlue;
+            Controller.ColorChange(lbl,"D");
+            /* if (lbl == LblOptimization) ViewMethod.ColorChange(LblOptimization, "D");
+              if (lbl == LblStatus) ViewMethod.ColorChange(LblStatus, "D");*/
         }
 
         private void LblColor_MouseEnter(object sender, EventArgs e)
         {
             Label lbl = sender as Label;
-            if (lbl == LblOptimization) ViewMethod.ColorChange(LblOptimization, "E");
-            if (lbl == LblStatus) ViewMethod.ColorChange(LblStatus, "E");
+            Controller.ColorChange(lbl,"E");
+            /* if (lbl == LblOptimization) ViewMethod.ColorChange(LblOptimization, "E");
+              if (lbl == LblStatus) ViewMethod.ColorChange(LblStatus, "E");*/
         }
 
         private void PageAbout_Click(object sender, EventArgs e)
@@ -371,7 +384,7 @@ namespace Vexease.Views
 
         }
 
-        
+       
     }
 
 }

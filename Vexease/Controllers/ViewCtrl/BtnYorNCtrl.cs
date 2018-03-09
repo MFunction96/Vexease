@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using Vexease.Views;
 using Vexease.Data;
 namespace Vexease.Controllers.ViewCtrl
@@ -12,19 +8,20 @@ namespace Vexease.Controllers.ViewCtrl
     /// </summary>
     class BtnYorNCtrl
     {
-        ///<summary>
-        ///CheckButton的开关确认
-        /// </summary>
-        /// <param name="s">
-        /// CheckButtin的调用信息
+        /// <summary>
+        /// CheckButton的开关确认
+        ///  </summary>
+        /// <param name="btnYorN">
+        /// 滑动开关
         /// </param>
-        public static void CheckYorN(BtnYorN btnYorN, String s)
+        /// <param name="s">
+        ///  CheckButtin的调用信息
+        ///  </param>
+        public static void CheckYorN(BtnYorN btnYorN, String s) 
         {
             if (s == "P_Load")
             {
-                if (DataContext.LimitTaskPath.CheckStatus())
-                    btnYorN.Checked = true;
-                else btnYorN.Checked = false;
+                btnYorN.Checked = DataContext.LimitTaskPath.CheckStatus();
             }
             if (s == "P_Clicked")
             {
@@ -32,8 +29,7 @@ namespace Vexease.Controllers.ViewCtrl
             }
             if (s == "W_Load")
             {
-                if (DataContext.RestrictTask.CheckStatus()) btnYorN.Checked = true;
-                else btnYorN.Checked = false;
+                btnYorN.Checked = DataContext.RestrictTask.CheckStatus();
             }
             if (s == "W_Clicked")
             {
@@ -41,8 +37,7 @@ namespace Vexease.Controllers.ViewCtrl
             }
             if (s == "B_Load")
             {
-                if (DataContext.DisallowTask.CheckStatus()) btnYorN.Checked = true;
-                else btnYorN.Checked = false;
+                btnYorN.Checked = DataContext.DisallowTask.CheckStatus();
             }
             if (s == "B_Clicked")
             {
@@ -51,8 +46,7 @@ namespace Vexease.Controllers.ViewCtrl
             }
             if (s=="Sys_Load")
             {
-                if (DataContext.SysDriver.CheckStatus()) btnYorN.Checked = false;
-                else btnYorN.Checked = true;
+                btnYorN.Checked = !DataContext.SysDriver.CheckStatus();
             }
             if (s == "Sys_Clicked")
             {
@@ -68,9 +62,7 @@ namespace Vexease.Controllers.ViewCtrl
             }
             if (s == "Registry_Load")
             {
-                if (DataContext.Registry.CheckStatus())
-                    btnYorN.Checked = false;
-                else btnYorN.Checked = true;
+                btnYorN.Checked = !DataContext.Registry.CheckStatus();
             }
             if (s == "Registry_Clicked")
             {
@@ -78,8 +70,7 @@ namespace Vexease.Controllers.ViewCtrl
             }
             if (s == "CtrlPnl_Load")
             {
-                if (DataContext.CtrlPal.CheckStatus()) btnYorN.Checked = false;
-                else btnYorN.Checked = true;
+                btnYorN.Checked = !DataContext.CtrlPal.CheckStatus();
             }
             if (s == "CtrlPnl_Clicked")
             {
@@ -87,8 +78,7 @@ namespace Vexease.Controllers.ViewCtrl
             }
             if (s == "RunTool_Load")
             {
-                if (DataContext.Launcher.CheckStatus()) btnYorN.Checked = false;
-                else btnYorN.Checked = true;
+                btnYorN.Checked = !DataContext.Launcher.CheckStatus();
             }
             if (s == "RunTool_Clicked")
             {
@@ -96,8 +86,7 @@ namespace Vexease.Controllers.ViewCtrl
             }
             if (s == "Cmd_Load")
             {
-                if (DataContext.Cmd.CheckStatus()) btnYorN.Checked = false;
-                else btnYorN.Checked = true;
+                btnYorN.Checked = !DataContext.Cmd.CheckStatus();
             }
             if (s == "Cmd_Clicked")
             {
@@ -105,8 +94,7 @@ namespace Vexease.Controllers.ViewCtrl
             }
             if (s == "Taskmgr_Load")
             {
-                if (DataContext.Taskmgr.CheckStatus()) btnYorN.Checked = false;
-                else btnYorN.Checked = true;
+                btnYorN.Checked = !DataContext.Taskmgr.CheckStatus();
             }
             if (s == "Taskmgr_Clicked")
             {
@@ -114,8 +102,7 @@ namespace Vexease.Controllers.ViewCtrl
             }
             if (s == "PwrShell_Load")
             {
-                if (DataContext.PwrShell.CheckStatus()) btnYorN.Checked = false;
-                else btnYorN.Checked = true;
+                btnYorN.Checked = !DataContext.PwrShell.CheckStatus();
             }
             if (s == "PwrShell_Clicked")
             {

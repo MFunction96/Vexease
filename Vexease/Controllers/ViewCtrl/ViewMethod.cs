@@ -82,29 +82,7 @@ namespace Vexease.Controllers.ViewCtrl
                     BtnCmd.Height = BtnPS.Height = BtnProcCtrl.Height = 0;
             }
         }
-        /// <summary>
-        /// 两列列表宽度的计算
-        /// </summary>
-        public static void Colwidth2(ListView listview)
-        {
-            foreach (ColumnHeader item in listview.Columns)
-            {
-                switch (item.Text)
-                {
-                    case "默认状态":
-                        item.Width = listview.Width / 2 - 5;
-                        break;
-
-                    case "当前状态":
-                        item.Width = listview.Width / 2 - 5;
-                        break;
-
-                    default:
-                        item.Width = -2;
-                        break;
-                }
-            }
-        }
+       
         /// <summary>
         /// 三列列表宽度结算
         /// </summary>
@@ -233,48 +211,6 @@ namespace Vexease.Controllers.ViewCtrl
             }
         }
 
-
-        ///<summary>
-        ///密码输入框设置
-        /// </summary>
-        public static void PwdSet(MaskedTextBox textBox, String status)
-        {
-            if (status == "NewEnter")
-            {
-                textBox.PasswordChar = '*'; if (textBox.Text == "请输入密码！" || textBox.Text == "密码不能为空！")
-                {
-                    textBox.Text = "";
-                    textBox.ForeColor = System.Drawing.Color.FromArgb(255, 0, 0, 0);
-                }
-            }
-            if (status == "ReEnter")
-            {
-                textBox.PasswordChar = '*';
-                if (textBox.Text == "两次输入不一致！" || textBox.Text == "请再次输入密码！")
-                {
-                    textBox.Text = "";
-                    textBox.ForeColor = System.Drawing.Color.FromArgb(255, 0, 0, 0);
-                }
-            }
-            if (status == "ReLeave")
-            {
-                textBox.PasswordChar = new char();
-                if (textBox.Text != textBox.Text)
-                {
-                    textBox.ForeColor = System.Drawing.Color.FromArgb(255, 128, 128, 128);
-                    textBox.Text = "两次输入不一致！";
-                }
-            }
-            if (status == "NewLeave")
-            {
-                textBox.PasswordChar = new char();
-                if (textBox.Text == "")
-                {
-                    textBox.ForeColor = System.Drawing.Color.FromArgb(255, 128, 128, 128);
-                    textBox.Text = "密码不能为空！";
-                }
-            }
-        }
 
     }
    
