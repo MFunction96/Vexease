@@ -14,6 +14,7 @@ namespace Vexease.Views
         private readonly Form _form;
         private LoginFormCtrl Controller { get; }
 
+        /// <inheritdoc />
         /// <summary />
         /// <param name="form"></param>
         public LoginForm(Form form)
@@ -61,7 +62,9 @@ namespace Vexease.Views
             Controller.PwdSet(TxtPwd, "NewLeave");
         }
 
-       
+        private void LblTitle_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

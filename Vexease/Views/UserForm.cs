@@ -52,6 +52,9 @@ namespace Vexease.Views
            
         }
 
-        
+        private void LvUser_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

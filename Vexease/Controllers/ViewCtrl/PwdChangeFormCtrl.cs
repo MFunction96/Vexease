@@ -7,7 +7,7 @@ using Vexease.Properties;
 namespace Vexease.Controllers.ViewCtrl
 {
     /// <summary>
-    /// 
+    /// 修改密码界面控制器
     /// </summary>
     public class PwdChangeFormCtrl
     {

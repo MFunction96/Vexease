@@ -67,7 +67,7 @@
             this.LblTitle.Size = new System.Drawing.Size(188, 83);
             this.LblTitle.TabIndex = 7;
             this.LblTitle.Text = "Vexease";
-        
+            this.LblTitle.Click += new System.EventHandler(this.LblTitle_Click);
             // 
             // BtnCancel
             // 

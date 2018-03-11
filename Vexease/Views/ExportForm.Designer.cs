@@ -539,7 +539,7 @@
             // 
             this.BtnOk.Location = new System.Drawing.Point(333, 500);
             this.BtnOk.Name = "BtnOk";
-            this.BtnOk.Size = new System.Drawing.Size(75, 30);
+            this.BtnOk.Size = new System.Drawing.Size(75, 40);
             this.BtnOk.TabIndex = 3;
             this.BtnOk.TabStop = false;
             this.BtnOk.Text = "确认";
@@ -550,7 +550,7 @@
             // 
             this.BtnCancel.Location = new System.Drawing.Point(573, 500);
             this.BtnCancel.Name = "BtnCancel";
-            this.BtnCancel.Size = new System.Drawing.Size(75, 30);
+            this.BtnCancel.Size = new System.Drawing.Size(75, 40);
             this.BtnCancel.TabIndex = 4;
             this.BtnCancel.TabStop = false;
             this.BtnCancel.Text = "取消";

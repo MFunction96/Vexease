@@ -5,18 +5,45 @@ using static System.Windows.Forms.ControlStyles;
  
  namespace Vexease.Views
  {
+     /// <summary>
+     /// 滑动开关画风
+     /// </summary>
      public enum CheckStyle
      {
+        /// <summary>
+        /// 
+        /// </summary>
         Style1 = 0,
+         /// <summary>
+         /// 
+         /// </summary>
          Style2 = 1,
+         /// <summary>
+         /// 
+         /// </summary>
          Style3 = 2,
+        /// <summary>
+        /// 
+        /// </summary>
         Style4 = 3,
+         /// <summary>
+         /// 
+         /// </summary>
          Style5 = 4,
+         /// <summary>
+         /// 
+         /// </summary>
          Style6 = 5
     };
  
+     /// <inheritdoc />
+     /// <summary>
+     /// </summary>
      public sealed partial class BtnYorN : UserControl
      {
+         /// <inheritdoc />
+         /// <summary>
+         /// </summary>
          public BtnYorN()
          {
              InitializeComponent();
@@ -55,7 +82,8 @@ using static System.Windows.Forms.ControlStyles;
              set { _checkStyle = value; Invalidate(); }
              get => _checkStyle;
          }
- 
+
+         /// <inheritdoc />
          protected override void OnPaint(PaintEventArgs e)
          {
              Bitmap bitMapOn = null;

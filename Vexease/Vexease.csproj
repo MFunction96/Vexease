@@ -103,12 +103,9 @@
     <Compile Include="Controllers\Status\TaskStatus.cs" />
     <Compile Include="Controllers\Task\TaskCtrl.cs" />
     <Compile Include="Controllers\ViewCtrl\AdmFormCtrl.cs" />
-    <Compile Include="Controllers\ViewCtrl\AssociatedDic.cs" />
-    <Compile Include="Controllers\ViewCtrl\BtnYorNCtrl.cs" />
     <Compile Include="Controllers\ViewCtrl\LoginFormCtrl.cs" />
     <Compile Include="Controllers\ViewCtrl\PwdChangeFormCtrl.cs" />
     <Compile Include="Controllers\ViewCtrl\UserFormCtrl.cs" />
-    <Compile Include="Controllers\ViewCtrl\ViewMethod.cs" />
     <Compile Include="Models\Enums\DISM_LOG_LEVEL.cs" />
     <Compile Include="Models\Enums\FACILITY_CODE.cs" />
     <Compile Include="Models\Enums\FILE_CACHE_FLAGS.cs" />

@@ -1,7 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
-using System.Reflection;
+using System.Drawing;
 using System.Windows.Forms;
 using Vexease.Data;
 using Vexease.Properties;
@@ -17,7 +17,7 @@ namespace Vexease.Controllers.ViewCtrl
     public class AdmFormCtrl
     {
         /// <summary>
-        /// 
+        /// 侧边栏Lbl与Lv相对应的字典（包括黑白表）
         /// </summary>
         public Dictionary<string, string> LblLvDictionary = new Dictionary<string, string>
         {
@@ -32,6 +32,9 @@ namespace Vexease.Controllers.ViewCtrl
             {"LblBListTitleN", "PnlBList"},
             {"LblWListTN", "PnlWList"}
         };
+        /// <summary>
+        /// 侧边栏Lbl与Lv相对应的字典（不包括黑白表）
+        /// </summary>
         public Dictionary<string, string> LvDictionary = new Dictionary<string, string>
         {
             {"LblConsole", "LvConsole"},
@@ -45,7 +48,7 @@ namespace Vexease.Controllers.ViewCtrl
            
         };
         /// <summary>
-        /// 
+        /// 滑块与DataContext方法相对应的字典
         /// </summary>
         public Dictionary<string, string> YorNLimitDictionary = new Dictionary<string, string>
         {
@@ -61,11 +64,6 @@ namespace Vexease.Controllers.ViewCtrl
             {"BtnCmdYorN", "Cmd"},
             {"BtnPSYorN", "PwrShell"}
         };
-        /// <summary>
-        /// 
-        /// </summary>
-        public Dictionary<string, string> OpenWith { get => LblLvDictionary; set => LblLvDictionary = value; }
-
         /// <summary>
         /// 计算两列的列表的列宽
         /// </summary>
@@ -123,8 +121,7 @@ namespace Vexease.Controllers.ViewCtrl
         /// </summary>
         public void TabChange(TabControl tabControl, object sender)
         {
-            var s1 = sender as Label;
-            if (s1 != null && (s1.Text == Resources.AdmFormCtrl_LblStatus ||
+            if (sender is Label s1 && (s1.Text == Resources.AdmFormCtrl_LblStatus ||
                                s1.Text == Resources.AdmFormCtrl_LblOptimization))
                 tabControl.SelectedIndex = 0;
             var s2 = sender as Button;
@@ -149,7 +146,7 @@ namespace Vexease.Controllers.ViewCtrl
         }
 
         /// <summary>
-        /// 
+        /// 点击滑块检查状态
         /// </summary>
         /// <param name="s"></param>
         public void ClickYorN(string s)
@@ -212,7 +209,7 @@ namespace Vexease.Controllers.ViewCtrl
         }
 
         /// <summary>
-        /// CheckButton的开关确认
+        /// 滑块开关load检查
         ///  </summary>
         /// <param name="btnYorN">
         /// 滑动开关
@@ -271,23 +268,55 @@ namespace Vexease.Controllers.ViewCtrl
         ///<summary>
         ///左侧标题栏颜色响应
         /// </summary>
-        public  void ColorChange(Button button, String color)
+        public  void ColorChange(Control button, String color)
         {
-            if (color == "E") button.BackColor = System.Drawing.Color.LightSkyBlue;
-            if (color == "L") button.BackColor = System.Drawing.Color.White;
-            if (color == "D") button.BackColor = System.Drawing.Color.DeepSkyBlue;
+            if (color == "E") button.BackColor = Color.LightSkyBlue;
+            if (color == "L") button.BackColor = Color.White;
+            if (color == "D") button.BackColor = Color.DeepSkyBlue;
         }
-        public  void ColorChange(Label lbl, String color)
+        /// <summary>
+        /// 左侧标题栏颜色响应
+        /// </summary>
+        /// <param name="lbl"></param>
+        /// <param name="color"></param>
+        public void ColorChange(Label lbl, String color)
         {
-            if (color == "E") lbl.BackColor = System.Drawing.Color.LightSkyBlue;
-            if (color == "D") lbl.BackColor = System.Drawing.Color.DeepSkyBlue;
-            if (color == "L") lbl.BackColor = System.Drawing.Color.DodgerBlue;
+            lbl.BackColor = Color.DodgerBlue;
         }
 
+        /// <summary>
+        /// 双击大标题
+        /// </summary>
+        /// <param name="btnConsole"></param>
+        /// <param name="btnRegustry"></param>
+        /// <param name="btnPlanningTask"></param>
+        /// <param name="btnCtrlPnl"></param>
+        /// <param name="btnRunTool"></param>
+        /// <param name="btnTaskMgr"></param>
+        /// <param name="btnCmd"></param>
+        /// <param name="btnPs"></param>
+        /// <param name="btnProcCtrl"></param>
+        public void DoubleCliclLbl(Button btnConsole, Button btnRegustry, Button btnPlanningTask, Button btnCtrlPnl, Button btnRunTool, Button btnTaskMgr, Button btnCmd, Button btnPs, Button btnProcCtrl)
+        {
+            if (btnConsole.Height == 0)
+            {
+                btnConsole.Height = btnRegustry.Height =
+                    btnPlanningTask.Height = btnCtrlPnl.Height =
+                        btnRunTool.Height = btnTaskMgr.Height =
+                            btnCmd.Height = btnPs.Height = btnProcCtrl.Height = 30;
+            }
+            else
+            {
+                btnConsole.Height = btnRegustry.Height =
+                    btnPlanningTask.Height = btnCtrlPnl.Height =
+                        btnRunTool.Height = btnTaskMgr.Height =
+                            btnCmd.Height = btnPs.Height = btnProcCtrl.Height = 0;
+            }
+        }
         ///<summary>
         ///关闭提示处理
         /// </summary>
-        public  void CloseTips(Form form)
+        public void CloseTips(Form form)
         {
             var onclosingForm = new OnClosingForm();
             onclosingForm.ShowDialog();
