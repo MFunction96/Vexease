@@ -68,6 +68,7 @@ namespace Vexease.Controllers.List
         /// </returns>
         public (IEnumerable<string>, IEnumerable<string>) Compare(IEnumerable<string> currentList)
         {
+            if (OriginList is null) return (currentList, null);
             var add = currentList.Except(OriginList);
             var del = OriginList.Except(currentList);
             return (add, del);
@@ -88,6 +89,8 @@ namespace Vexease.Controllers.List
                 {
                     RegCtrl.RegDelKey(reg);
                 }
+
+                if (currentList is null) return;
                 foreach (var task in currentList)
                 {
                     var guid = Guid.NewGuid();
@@ -108,6 +111,8 @@ namespace Vexease.Controllers.List
                 {
                     RegCtrl.RegDelKey(reg);
                 }
+
+                if (currentList is null) return;
                 var index = 1;
                 foreach (var task in currentList)
                 {
