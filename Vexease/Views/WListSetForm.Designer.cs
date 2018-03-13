@@ -87,6 +87,7 @@
             this.BtnEditWItem.TabStop = false;
             this.BtnEditWItem.Text = "编辑";
             this.BtnEditWItem.UseVisualStyleBackColor = true;
+            this.BtnEditWItem.Click += new System.EventHandler(this.BtnEditWItem_Click);
             // 
             // BtnDeleteWItem
             // 
@@ -98,6 +99,7 @@
             this.BtnDeleteWItem.TabStop = false;
             this.BtnDeleteWItem.Text = "删除";
             this.BtnDeleteWItem.UseVisualStyleBackColor = true;
+            this.BtnDeleteWItem.Click += new System.EventHandler(this.BtnDeleteWItem_Click);
             // 
             // BtnNewWItem
             // 
@@ -109,6 +111,7 @@
             this.BtnNewWItem.TabStop = false;
             this.BtnNewWItem.Text = "新建";
             this.BtnNewWItem.UseVisualStyleBackColor = true;
+            this.BtnNewWItem.Click += new System.EventHandler(this.BtnNewWItem_Click);
             // 
             // LvWListByName
             // 
@@ -119,7 +122,6 @@
             this.LvWListByName.Dock = System.Windows.Forms.DockStyle.Left;
             this.LvWListByName.FullRowSelect = true;
             this.LvWListByName.GridLines = true;
-            this.LvWListByName.LabelEdit = true;
             this.LvWListByName.LabelWrap = false;
             this.LvWListByName.Location = new System.Drawing.Point(3, 21);
             this.LvWListByName.MultiSelect = false;

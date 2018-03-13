@@ -4,15 +4,16 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using Vexease.Data;
+using Vexease.Models.Enums;
 using Vexease.Properties;
 using Vexease.Views;
-
 
 namespace Vexease.Controllers.ViewCtrl
 {
     /// <summary>
     /// 管理员界面控制器
     /// </summary>
+ 
 
     public class AdmFormCtrl
     {
@@ -44,7 +45,7 @@ namespace Vexease.Controllers.ViewCtrl
             {"LblRunTool", "LvRunTool"},
             {"LblTaskMgr", "LvTaskMgr"},
             {"LblCmd", "LvCmd"},
-            {"LblPS", "LvPS"},
+            {"LblPS", "LvPS"}
            
         };
         /// <summary>
@@ -64,6 +65,8 @@ namespace Vexease.Controllers.ViewCtrl
             {"BtnCmdYorN", "Cmd"},
             {"BtnPSYorN", "PwrShell"}
         };
+
+        
         /// <summary>
         /// 计算两列的列表的列宽
         /// </summary>
@@ -332,5 +335,50 @@ namespace Vexease.Controllers.ViewCtrl
             }
         }
 
+
+        /// <summary>
+        /// 白名单（名称）列表加载
+        /// </summary>
+        /// <param name="listView"></param>
+        public void WListCtrlLoad(ListView listView)
+        {
+            const TASK_TYPE_FLAGS taskType = TASK_TYPE_FLAGS.RESTRICT_TASK_NAME;
+            var wListN = DataContext.GetTaskList(taskType);
+            var i = 0;
+            while (wListN[i] != null)
+            {
+                listView.Items.Add(wListN[i]);
+                i++;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /// <summary>
+        /// 黑名单（名称）列表加载
+        /// </summary>
+        /// <param name="listView"></param>
+        public void BListCtrlLoad(ListView listView)
+        {
+            const TASK_TYPE_FLAGS taskType = TASK_TYPE_FLAGS.DISALLOW_TASK_NAME;
+            var bListN =DataContext.GetTaskList(taskType);
+            var i = 0;
+            while (bListN[i]!=null)
+            {
+                listView.Items.Add(bListN[i]);
+                i++;
+            }
+        }
     }
 }

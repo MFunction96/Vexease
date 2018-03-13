@@ -1,5 +1,8 @@
 ﻿namespace Vexease.Views
 {
+    /// <summary>
+    /// 黑名单（名称）设置界面
+    /// </summary>
     partial class BandWListSetForm
     {
         /// <summary>
@@ -85,6 +88,7 @@
             this.BtnNewBItem.TabStop = false;
             this.BtnNewBItem.Text = "新建";
             this.BtnNewBItem.UseVisualStyleBackColor = true;
+            this.BtnNewBItem.Click += new System.EventHandler(this.BtnNewBItem_Click);
             // 
             // LvBListByName
             // 

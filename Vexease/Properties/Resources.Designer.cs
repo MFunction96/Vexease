@@ -341,6 +341,48 @@ namespace Vexease.Properties {
         }
         
         /// <summary>
+        ///   查找类似 您已作出以下修改：
+        ///已添加：
+        /// 的本地化字符串。
+        /// </summary>
+        internal static string WListSetFormCtrl_SetCompare_01 {
+            get {
+                return ResourceManager.GetString("WListSetFormCtrl_SetCompare_01", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 
+        ///已删除：
+        /// 的本地化字符串。
+        /// </summary>
+        internal static string WListSetFormCtrl_SetCompare_02 {
+            get {
+                return ResourceManager.GetString("WListSetFormCtrl_SetCompare_02", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 
+        ///  确认修改吗？
+        /// 的本地化字符串。
+        /// </summary>
+        internal static string WListSetFormCtrl_SetCompare_03 {
+            get {
+                return ResourceManager.GetString("WListSetFormCtrl_SetCompare_03", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 确认修改 的本地化字符串。
+        /// </summary>
+        internal static string WListSetFormCtrl_SetCompare_确认修改 {
+            get {
+                return ResourceManager.GetString("WListSetFormCtrl_SetCompare_确认修改", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
         internal static System.Drawing.Bitmap 背景 {

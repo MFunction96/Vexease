@@ -211,4 +211,22 @@
   <data name="AdmFormCtrl_BtnProcCtrl" xml:space="preserve">
     <value>进程管控</value>
   </data>
+  <data name="WListSetFormCtrl_SetCompare_01" xml:space="preserve">
+    <value>您已作出以下修改：
+已添加：
+</value>
+  </data>
+  <data name="WListSetFormCtrl_SetCompare_02" xml:space="preserve">
+    <value>
+已删除：
+</value>
+  </data>
+  <data name="WListSetFormCtrl_SetCompare_03" xml:space="preserve">
+    <value>
+  确认修改吗？
+</value>
+  </data>
+  <data name="WListSetFormCtrl_SetCompare_确认修改" xml:space="preserve">
+    <value>确认修改</value>
+  </data>
 </root>

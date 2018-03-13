@@ -15,7 +15,9 @@ namespace Vexease.Views
     public partial class AdmForm : Form
     {
         private readonly Form _form;
+       
         private  AdmFormCtrl Controller { get; }
+
         /// <inheritdoc />
         /// <summary>
         /// 管理员控制界面
@@ -145,7 +147,7 @@ namespace Vexease.Views
         }
         private void BtnWListSet_Click(object sender, EventArgs e)
         {
-            var wlistset = new WListSetForm();
+            var wlistset = new WListSetForm(this);
             wlistset.Show();
         }
         private void BtnListSetP_Click(object sender, EventArgs e)
@@ -243,6 +245,16 @@ namespace Vexease.Views
         {
             var lbLabel = sender as Label;
             Controller.ColorChange(lbLabel, "L");
+        }
+
+        private void LvBListN_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LvBListN_DrawItem(object sender, DrawListViewItemEventArgs e)
+        {
+           
         }
     }
 
