@@ -26,9 +26,7 @@ namespace Vexease.Controllers.Comparer
         /// </returns>
         public int Compare(object x, object y)
         {
-            var regx = x as RegKey;
-            var regy = y as RegKey;
-            if (regx is null || regy is null) throw new NullReferenceException();
+            if (!(x is RegKey regx) || !(y is RegKey regy)) throw new NullReferenceException();
             return int.Parse(regx.LpValueName) < int.Parse(regy.LpValueName) ? 1 : -1;
         }
     }

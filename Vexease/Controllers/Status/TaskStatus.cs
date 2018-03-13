@@ -1,12 +1,8 @@
-﻿using Microsoft.Win32;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
 using Vexease.Controllers.List;
-using Vexease.Controllers.Reg;
 using Vexease.Data;
 using Vexease.Models.Enums;
-using Vexease.Models.Registrys;
 
 namespace Vexease.Controllers.Status
 {
@@ -63,17 +59,8 @@ namespace Vexease.Controllers.Status
         /// </returns>
         public override bool SwapStatus()
         {
-            var list = new LinkedList<string>(DataContext.GetTaskList(TaskType));
-            var buffer = new ListCtrl(list, TaskType);
-            if (State)
-            {
-                var regs = DataContext.GetTaskList(TaskType);
-                var regkey = regs.FirstOrDefault(reg =>
-                    string.Equals(reg, TaskName, StringComparison.CurrentCultureIgnoreCase));
-                if (regkey is null) throw new NullReferenceException(nameof(TaskStatus));
-                list.Remove(regkey);
-            }
-            else list.AddLast(TaskName);
+            var buffer = new ListCtrl(TaskType);
+            var list = State ? buffer.DelItem(TaskName) : buffer.AddItem(TaskName);
             buffer.Apply(list);
             return base.SwapStatus();
         }
