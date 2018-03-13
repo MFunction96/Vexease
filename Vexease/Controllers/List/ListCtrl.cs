@@ -84,10 +84,17 @@ namespace Vexease.Controllers.List
             var regpath = DataContext.GetRegPath(TaskType);
             if ((int)TaskType >> 1 > 0)
             {
-                var regs = RegCtrl.RegEnumKey(regpath);
-                foreach (var reg in regs)
+                try
                 {
-                    RegCtrl.RegDelKey(reg);
+                    var regs = RegCtrl.RegEnumKey(regpath);
+                    foreach (var reg in regs)
+                    {
+                        RegCtrl.RegDelKey(reg);
+                    }
+                }
+                catch (Exception e)
+                {
+                    if (e.GetType() != typeof(NullReferenceException)) throw;
                 }
 
                 if (currentList is null) return;
@@ -106,10 +113,17 @@ namespace Vexease.Controllers.List
             }
             else
             {
-                var regs = RegCtrl.RegEnumValue(regpath);
-                foreach (var reg in regs)
+                try
                 {
-                    RegCtrl.RegDelKey(reg);
+                    var regs = RegCtrl.RegEnumValue(regpath);
+                    foreach (var reg in regs)
+                    {
+                        RegCtrl.RegDelKey(reg);
+                    }
+                }
+                catch (Exception e)
+                {
+                    if (e.GetType() != typeof(NullReferenceException)) throw;
                 }
 
                 if (currentList is null) return;
