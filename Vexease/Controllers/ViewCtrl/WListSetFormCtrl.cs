@@ -40,10 +40,11 @@ namespace Vexease.Controllers.ViewCtrl
         public void WListCtrlLoad(ListView listView)
         {
             var i = 0;
-            while (_wListN != null && i<_wListN.Length)
+            string[] ss = DataContext.GetTaskList(TaskType);
+            while (ss != null && i<ss.Length)
             {
-                if (_wListN[i] != null)
-                    listView.Items.Add(_wListN[i]);
+                if (ss[i] != null)
+                    listView.Items.Add(ss[i]);
                 i++;
             }
         }
@@ -116,13 +117,13 @@ namespace Vexease.Controllers.ViewCtrl
             if (a.Item1 != null)
                 for (var j = 0; j < a.Item1.Count(); j++)
                 {
-                    addstring.Append(a.Item1.ElementAt(j) + "/n");
+                    addstring.Append(a.Item1.ElementAt(j) );
                 }
 
             if (a.Item2 != null)
                 for (var j = 0; j < a.Item2.Count(); j++)
                 {
-                    delstring.Append(a.Item2.ElementAt(j) + "/n");
+                    delstring.Append(a.Item2.ElementAt(j));
                 }
 
             //消息框要携带  标题 信息 两个listview 和确认取消按钮
