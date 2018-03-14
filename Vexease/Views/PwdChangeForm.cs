@@ -1,21 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using Vexease.Controllers.ViewCtrl;
+using Vexease.Properties;
 
 namespace Vexease.Views
 {
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
     public partial class PwdChangeForm : Form
     {
-        public PwdChangeForm()
+        private readonly Form _form;
+        private  PwdChangeFormCtrl Controller { get; }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// </summary>
+        public PwdChangeForm(Form form)
         {
             StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
+            _form = form;
+            Controller = new PwdChangeFormCtrl();
         }
 
         private void PwdChangeForm_Load(object sender, EventArgs e)
@@ -28,29 +35,29 @@ namespace Vexease.Views
             BtnOk.Focus();
             TxtNewPwd.ForeColor = Color.FromArgb(255, 128, 128, 128);
             TxtRe.ForeColor = Color.FromArgb(255, 128, 128, 128);
-            TxtNewPwd.Text = "请输入密码！";
-            TxtRe.Text = "请再次输入密码！";
+            TxtNewPwd.Text = Resources.PwdChangeForm_PwdChangeForm_Input;
+            TxtRe.Text = Resources.PwdChangeForm_PwdChangeForm_InputAgain;
 
         }
 
         private void TxtNewPwd_Enter(object sender, EventArgs e)
         {
-            ViewMethod.PwdSet(TxtNewPwd, "NewEnter");
+            Controller.PwdSet(TxtNewPwd, TxtRe, "NewEnter");
         }
 
         private void TxtRe_Enter(object sender, EventArgs e)
         {
-            ViewMethod.PwdSet(TxtRe, "ReEnter");
+            Controller.PwdSet(TxtNewPwd, TxtRe, "ReEnter");
         }
 
         private void TxtRe_Leave(object sender, EventArgs e)
         {
-            ViewMethod.PwdSet(TxtRe, "ReLeave");
+            Controller.PwdSet(TxtNewPwd, TxtRe, "ReLeave");
         }
 
         private void TxtNewPwd_Leave(object sender, EventArgs e)
         {
-            ViewMethod.PwdSet(TxtNewPwd, "NewLeave");
+            Controller.PwdSet(TxtNewPwd, TxtRe, "NewLeave");
         }
 
         private void BtnLogin_Click(object sender, EventArgs e)

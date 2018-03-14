@@ -38,7 +38,7 @@ namespace Vexease.Controllers.List
         /// </returns>
         public IEnumerable<string> AddItem(string item)
         {
-            var list = new List<string>(OriginList) {item};
+            var list = new List<string>(OriginList) { item };
             list.Sort();
             return list;
         }
@@ -118,6 +118,7 @@ namespace Vexease.Controllers.List
             else
             {
                 try
+
                 {
                     var regs = RegCtrl.RegEnumValue(regpath);
                     foreach (var reg in regs)
@@ -127,6 +128,17 @@ namespace Vexease.Controllers.List
                 }
                 catch (Exception e)
                 {
+
+                {
+                    var regs = RegCtrl.RegEnumValue(regpath);
+                    foreach (var reg in regs)
+                    {
+                        RegCtrl.RegDelKey(reg);
+                    }
+                }
+                catch (Exception e)
+                {
+
                     if (e.GetType() != typeof(NullReferenceException)) throw;
                 }
 

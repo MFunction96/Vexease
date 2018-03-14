@@ -237,6 +237,8 @@ namespace Vexease.Views
             this.LblTitleInInstruction = new System.Windows.Forms.Label();
             this.RTxtBoxBrief = new System.Windows.Forms.RichTextBox();
             this.LblIconInInstruction = new System.Windows.Forms.Label();
+            this.BtnProcRe = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             TSMIREflesh = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuStripAdm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SplAdm)).BeginInit();
@@ -276,6 +278,7 @@ namespace Vexease.Views
             this.PnlBList.SuspendLayout();
             this.PnlBListTN.SuspendLayout();
             this.PageInstruction.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // TSMIREflesh
@@ -408,6 +411,7 @@ namespace Vexease.Views
             this.BtnEx.TabStop = false;
             this.BtnEx.Text = "导出";
             this.BtnEx.UseVisualStyleBackColor = false;
+            this.BtnEx.Click += new System.EventHandler(this.MenuFileExport_Click);
             // 
             // BtnIm
             // 
@@ -422,6 +426,7 @@ namespace Vexease.Views
             this.BtnIm.TabStop = false;
             this.BtnIm.Text = "导入";
             this.BtnIm.UseVisualStyleBackColor = false;
+            this.BtnIm.Click += new System.EventHandler(this.BtnIm_Click);
             this.BtnIm.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnColor_MouseDown);
             this.BtnIm.MouseEnter += new System.EventHandler(this.BtnColor_MouseEnter);
             this.BtnIm.MouseLeave += new System.EventHandler(this.BtnColor_MouseLeave);
@@ -439,9 +444,9 @@ namespace Vexease.Views
             this.LblOptimization.TabIndex = 12;
             this.LblOptimization.Text = "配置管理";
             this.LblOptimization.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.LblOptimization.Click += new System.EventHandler(this.LblOptimization_Click);
-            this.LblOptimization.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LblColor_MouseDown);
-            this.LblOptimization.MouseEnter += new System.EventHandler(this.LblColor_MouseEnter);
+            this.LblOptimization.Click += new System.EventHandler(this.Title_Click);
+            this.LblOptimization.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnColor_MouseDown);
+            this.LblOptimization.MouseEnter += new System.EventHandler(this.BtnColor_MouseEnter);
             this.LblOptimization.MouseLeave += new System.EventHandler(this.LblColor_MouseLeave);
             // 
             // BtnProcCtrl
@@ -457,7 +462,7 @@ namespace Vexease.Views
             this.BtnProcCtrl.TabStop = false;
             this.BtnProcCtrl.Text = "进程管控";
             this.BtnProcCtrl.UseVisualStyleBackColor = false;
-            this.BtnProcCtrl.Click += new System.EventHandler(this.BtnProcCtrl_Click);
+            this.BtnProcCtrl.Click += new System.EventHandler(this.Title_Click);
             this.BtnProcCtrl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnColor_MouseDown);
             this.BtnProcCtrl.MouseEnter += new System.EventHandler(this.BtnColor_MouseEnter);
             this.BtnProcCtrl.MouseLeave += new System.EventHandler(this.BtnColor_MouseLeave);
@@ -475,7 +480,7 @@ namespace Vexease.Views
             this.BtnPS.TabStop = false;
             this.BtnPS.Text = "PowerShell";
             this.BtnPS.UseVisualStyleBackColor = false;
-            this.BtnPS.Click += new System.EventHandler(this.BtnPS_Click);
+            this.BtnPS.Click += new System.EventHandler(this.Title_Click);
             this.BtnPS.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnColor_MouseDown);
             this.BtnPS.MouseEnter += new System.EventHandler(this.BtnColor_MouseEnter);
             this.BtnPS.MouseLeave += new System.EventHandler(this.BtnColor_MouseLeave);
@@ -493,7 +498,7 @@ namespace Vexease.Views
             this.BtnCmd.TabStop = false;
             this.BtnCmd.Text = "命令提示符";
             this.BtnCmd.UseVisualStyleBackColor = false;
-            this.BtnCmd.Click += new System.EventHandler(this.BtnCmd_Click);
+            this.BtnCmd.Click += new System.EventHandler(this.Title_Click);
             this.BtnCmd.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnColor_MouseDown);
             this.BtnCmd.MouseEnter += new System.EventHandler(this.BtnColor_MouseEnter);
             this.BtnCmd.MouseLeave += new System.EventHandler(this.BtnColor_MouseLeave);
@@ -511,7 +516,7 @@ namespace Vexease.Views
             this.BtnTaskMgr.TabStop = false;
             this.BtnTaskMgr.Text = "任务管理器";
             this.BtnTaskMgr.UseVisualStyleBackColor = false;
-            this.BtnTaskMgr.Click += new System.EventHandler(this.BtnTaskMgr_Click);
+            this.BtnTaskMgr.Click += new System.EventHandler(this.Title_Click);
             this.BtnTaskMgr.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnColor_MouseDown);
             this.BtnTaskMgr.MouseEnter += new System.EventHandler(this.BtnColor_MouseEnter);
             this.BtnTaskMgr.MouseLeave += new System.EventHandler(this.BtnColor_MouseLeave);
@@ -529,7 +534,7 @@ namespace Vexease.Views
             this.BtnRunTool.TabStop = false;
             this.BtnRunTool.Text = "运行工具";
             this.BtnRunTool.UseVisualStyleBackColor = false;
-            this.BtnRunTool.Click += new System.EventHandler(this.BtnRunTool_Click);
+            this.BtnRunTool.Click += new System.EventHandler(this.Title_Click);
             this.BtnRunTool.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnColor_MouseDown);
             this.BtnRunTool.MouseEnter += new System.EventHandler(this.BtnColor_MouseEnter);
             this.BtnRunTool.MouseLeave += new System.EventHandler(this.BtnColor_MouseLeave);
@@ -547,7 +552,7 @@ namespace Vexease.Views
             this.BtnCtrlPnl.TabStop = false;
             this.BtnCtrlPnl.Text = "控制面板";
             this.BtnCtrlPnl.UseVisualStyleBackColor = false;
-            this.BtnCtrlPnl.Click += new System.EventHandler(this.BtnCtrlPnl_Click);
+            this.BtnCtrlPnl.Click += new System.EventHandler(this.Title_Click);
             this.BtnCtrlPnl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnColor_MouseDown);
             this.BtnCtrlPnl.MouseEnter += new System.EventHandler(this.BtnColor_MouseEnter);
             this.BtnCtrlPnl.MouseLeave += new System.EventHandler(this.BtnColor_MouseLeave);
@@ -565,7 +570,7 @@ namespace Vexease.Views
             this.BtnRegustry.TabStop = false;
             this.BtnRegustry.Text = "注册表";
             this.BtnRegustry.UseVisualStyleBackColor = false;
-            this.BtnRegustry.Click += new System.EventHandler(this.BtnRegustry_Click);
+            this.BtnRegustry.Click += new System.EventHandler(this.Title_Click);
             this.BtnRegustry.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnColor_MouseDown);
             this.BtnRegustry.MouseEnter += new System.EventHandler(this.BtnColor_MouseEnter);
             this.BtnRegustry.MouseLeave += new System.EventHandler(this.BtnColor_MouseLeave);
@@ -585,7 +590,7 @@ namespace Vexease.Views
             this.BtnConsole.TabStop = false;
             this.BtnConsole.Text = "控制台";
             this.BtnConsole.UseVisualStyleBackColor = false;
-            this.BtnConsole.Click += new System.EventHandler(this.BtnConsole_Click);
+            this.BtnConsole.Click += new System.EventHandler(this.Title_Click);
             this.BtnConsole.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnColor_MouseDown);
             this.BtnConsole.MouseEnter += new System.EventHandler(this.BtnColor_MouseEnter);
             this.BtnConsole.MouseLeave += new System.EventHandler(this.BtnColor_MouseLeave);
@@ -603,7 +608,7 @@ namespace Vexease.Views
             this.BtnSys.TabStop = false;
             this.BtnSys.Text = "系统盘管控";
             this.BtnSys.UseVisualStyleBackColor = false;
-            this.BtnSys.Click += new System.EventHandler(this.BtnPlanningTask_Click);
+            this.BtnSys.Click += new System.EventHandler(this.Title_Click);
             this.BtnSys.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnColor_MouseDown);
             this.BtnSys.MouseEnter += new System.EventHandler(this.BtnColor_MouseEnter);
             this.BtnSys.MouseLeave += new System.EventHandler(this.BtnColor_MouseLeave);
@@ -621,10 +626,10 @@ namespace Vexease.Views
             this.LblStatus.TabIndex = 1;
             this.LblStatus.Text = "系统状态";
             this.LblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.LblStatus.Click += new System.EventHandler(this.LblStatus_Click);
+            this.LblStatus.Click += new System.EventHandler(this.Title_Click);
             this.LblStatus.DoubleClick += new System.EventHandler(this.LblStatus_DoubleClick);
-            this.LblStatus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LblColor_MouseDown);
-            this.LblStatus.MouseEnter += new System.EventHandler(this.LblColor_MouseEnter);
+            this.LblStatus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnColor_MouseDown);
+            this.LblStatus.MouseEnter += new System.EventHandler(this.BtnColor_MouseEnter);
             this.LblStatus.MouseLeave += new System.EventHandler(this.LblColor_MouseLeave);
             // 
             // TabCtrlAdm
@@ -643,7 +648,7 @@ namespace Vexease.Views
             this.TabCtrlAdm.Controls.Add(this.PageInstruction);
             this.TabCtrlAdm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TabCtrlAdm.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
-            this.TabCtrlAdm.ItemSize = new System.Drawing.Size(1, 1);
+            this.TabCtrlAdm.ItemSize = new System.Drawing.Size(10, 10);
             this.TabCtrlAdm.Location = new System.Drawing.Point(0, 0);
             this.TabCtrlAdm.Name = "TabCtrlAdm";
             this.TabCtrlAdm.SelectedIndex = 0;
@@ -663,14 +668,13 @@ namespace Vexease.Views
             this.PageAbout.Controls.Add(this.RTxtBoxAbout);
             this.PageAbout.Controls.Add(this.LblTitleInAbout);
             this.PageAbout.Controls.Add(this.LblIconInAbout);
-            this.PageAbout.Location = new System.Drawing.Point(4, 45);
+            this.PageAbout.Location = new System.Drawing.Point(4, 14);
             this.PageAbout.Name = "PageAbout";
             this.PageAbout.Padding = new System.Windows.Forms.Padding(3);
-            this.PageAbout.Size = new System.Drawing.Size(773, 473);
+            this.PageAbout.Size = new System.Drawing.Size(773, 504);
             this.PageAbout.TabIndex = 2;
             this.PageAbout.Text = "关于";
             this.PageAbout.UseVisualStyleBackColor = true;
-            this.PageAbout.Click += new System.EventHandler(this.PageAbout_Click);
             // 
             // LblCreater3
             // 
@@ -780,11 +784,11 @@ namespace Vexease.Views
             this.PageConsole.Controls.Add(this.PnlConsole);
             this.PageConsole.ImageIndex = 0;
             this.PageConsole.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.PageConsole.Location = new System.Drawing.Point(4, 45);
+            this.PageConsole.Location = new System.Drawing.Point(4, 14);
             this.PageConsole.Name = "PageConsole";
             this.PageConsole.Padding = new System.Windows.Forms.Padding(3);
             this.PageConsole.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.PageConsole.Size = new System.Drawing.Size(773, 473);
+            this.PageConsole.Size = new System.Drawing.Size(773, 504);
             this.PageConsole.TabIndex = 0;
             this.PageConsole.Text = "控制台状态";
             this.PageConsole.UseVisualStyleBackColor = true;
@@ -798,7 +802,7 @@ namespace Vexease.Views
             this.RTxtBoxConsole.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.RTxtBoxConsole.Location = new System.Drawing.Point(3, 143);
             this.RTxtBoxConsole.Name = "RTxtBoxConsole";
-            this.RTxtBoxConsole.Size = new System.Drawing.Size(767, 277);
+            this.RTxtBoxConsole.Size = new System.Drawing.Size(767, 308);
             this.RTxtBoxConsole.TabIndex = 17;
             this.RTxtBoxConsole.Text = "控制台\n\t即微软管理控制台Microsoft Management Console (MMC) 集成了用来管理网络、计算机、服务及其他系统组件的管理工具。是Win" +
     "dows管理控制程序，是显示管理插件的控制面板，例如驱动器管理。\n\t禁用时，则不可以创建、保存或打开管理工具（称为 MMC 控制台）来管理硬件、软件和 Wind" +
@@ -808,7 +812,7 @@ namespace Vexease.Views
             // 
             this.PnlConsoleBtns.Controls.Add(this.BtnConsoleRe);
             this.PnlConsoleBtns.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PnlConsoleBtns.Location = new System.Drawing.Point(3, 420);
+            this.PnlConsoleBtns.Location = new System.Drawing.Point(3, 451);
             this.PnlConsoleBtns.Name = "PnlConsoleBtns";
             this.PnlConsoleBtns.Size = new System.Drawing.Size(767, 50);
             this.PnlConsoleBtns.TabIndex = 16;
@@ -899,9 +903,9 @@ namespace Vexease.Views
             this.PageRegustry.Controls.Add(this.PnlRegustriyBtns);
             this.PageRegustry.Controls.Add(this.LvRegustry);
             this.PageRegustry.Controls.Add(this.PnlREgustriy);
-            this.PageRegustry.Location = new System.Drawing.Point(4, 45);
+            this.PageRegustry.Location = new System.Drawing.Point(4, 14);
             this.PageRegustry.Name = "PageRegustry";
-            this.PageRegustry.Size = new System.Drawing.Size(773, 473);
+            this.PageRegustry.Size = new System.Drawing.Size(773, 504);
             this.PageRegustry.TabIndex = 3;
             this.PageRegustry.Text = "注册表状态";
             this.PageRegustry.UseVisualStyleBackColor = true;
@@ -916,7 +920,7 @@ namespace Vexease.Views
             this.RTxtBoxRegustry.Location = new System.Drawing.Point(0, 140);
             this.RTxtBoxRegustry.Name = "RTxtBoxRegustry";
             this.RTxtBoxRegustry.ReadOnly = true;
-            this.RTxtBoxRegustry.Size = new System.Drawing.Size(773, 283);
+            this.RTxtBoxRegustry.Size = new System.Drawing.Size(773, 314);
             this.RTxtBoxRegustry.TabIndex = 18;
             this.RTxtBoxRegustry.Text = "注册表（Registry，繁体中文版Windows操作系统称之为登录档）\n\t是Microsoft Windows中的一个重要的数据库，其中存放着各种参数，直接控制" +
     "着windows的启动、硬件驱动程序的装载以及一些windows应用程序的运行，从而在整个系统中起着核心作用。\n\t禁用时，则不能通过注册表设置向系统添加或删除程" +
@@ -926,7 +930,7 @@ namespace Vexease.Views
             // 
             this.PnlRegustriyBtns.Controls.Add(this.BtnRegustriyRe);
             this.PnlRegustriyBtns.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PnlRegustriyBtns.Location = new System.Drawing.Point(0, 423);
+            this.PnlRegustriyBtns.Location = new System.Drawing.Point(0, 454);
             this.PnlRegustriyBtns.Name = "PnlRegustriyBtns";
             this.PnlRegustriyBtns.Size = new System.Drawing.Size(773, 50);
             this.PnlRegustriyBtns.TabIndex = 17;
@@ -1018,9 +1022,9 @@ namespace Vexease.Views
             this.PagePlanningTask.Controls.Add(this.PnlPlanningTaskBtns);
             this.PagePlanningTask.Controls.Add(this.LvSys);
             this.PagePlanningTask.Controls.Add(this.PnlPlanningTask);
-            this.PagePlanningTask.Location = new System.Drawing.Point(4, 45);
+            this.PagePlanningTask.Location = new System.Drawing.Point(4, 14);
             this.PagePlanningTask.Name = "PagePlanningTask";
-            this.PagePlanningTask.Size = new System.Drawing.Size(773, 473);
+            this.PagePlanningTask.Size = new System.Drawing.Size(773, 504);
             this.PagePlanningTask.TabIndex = 4;
             this.PagePlanningTask.Text = "计划任务状态";
             this.PagePlanningTask.UseVisualStyleBackColor = true;
@@ -1035,7 +1039,7 @@ namespace Vexease.Views
             this.RTxtBoxPlanningTask.Location = new System.Drawing.Point(0, 140);
             this.RTxtBoxPlanningTask.Name = "RTxtBoxPlanningTask";
             this.RTxtBoxPlanningTask.ReadOnly = true;
-            this.RTxtBoxPlanningTask.Size = new System.Drawing.Size(773, 283);
+            this.RTxtBoxPlanningTask.Size = new System.Drawing.Size(773, 314);
             this.RTxtBoxPlanningTask.TabIndex = 19;
             this.RTxtBoxPlanningTask.Text = "系统盘\n\t即C盘。";
             // 
@@ -1043,7 +1047,7 @@ namespace Vexease.Views
             // 
             this.PnlPlanningTaskBtns.Controls.Add(this.BtnPlanningTaskRe);
             this.PnlPlanningTaskBtns.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PnlPlanningTaskBtns.Location = new System.Drawing.Point(0, 423);
+            this.PnlPlanningTaskBtns.Location = new System.Drawing.Point(0, 454);
             this.PnlPlanningTaskBtns.Name = "PnlPlanningTaskBtns";
             this.PnlPlanningTaskBtns.Size = new System.Drawing.Size(773, 50);
             this.PnlPlanningTaskBtns.TabIndex = 18;
@@ -1081,7 +1085,6 @@ namespace Vexease.Views
             this.LvSys.TabStop = false;
             this.LvSys.UseCompatibleStateImageBehavior = false;
             this.LvSys.View = System.Windows.Forms.View.Details;
-            this.LvSys.SelectedIndexChanged += new System.EventHandler(this.LvPlanningTask_SelectedIndexChanged);
             // 
             // columnHeader4
             // 
@@ -1135,9 +1138,9 @@ namespace Vexease.Views
             this.PageCtrlPnl.Controls.Add(this.PnlCtrlPnlBtns);
             this.PageCtrlPnl.Controls.Add(this.LvCtrlPnl);
             this.PageCtrlPnl.Controls.Add(this.PnlCtrlPnl);
-            this.PageCtrlPnl.Location = new System.Drawing.Point(4, 45);
+            this.PageCtrlPnl.Location = new System.Drawing.Point(4, 14);
             this.PageCtrlPnl.Name = "PageCtrlPnl";
-            this.PageCtrlPnl.Size = new System.Drawing.Size(773, 473);
+            this.PageCtrlPnl.Size = new System.Drawing.Size(773, 504);
             this.PageCtrlPnl.TabIndex = 5;
             this.PageCtrlPnl.Text = "控制面板状态";
             this.PageCtrlPnl.UseVisualStyleBackColor = true;
@@ -1152,7 +1155,7 @@ namespace Vexease.Views
             this.RTxtBoxCtrlPnl.Location = new System.Drawing.Point(0, 140);
             this.RTxtBoxCtrlPnl.Name = "RTxtBoxCtrlPnl";
             this.RTxtBoxCtrlPnl.ReadOnly = true;
-            this.RTxtBoxCtrlPnl.Size = new System.Drawing.Size(773, 283);
+            this.RTxtBoxCtrlPnl.Size = new System.Drawing.Size(773, 314);
             this.RTxtBoxCtrlPnl.TabIndex = 20;
             this.RTxtBoxCtrlPnl.Text = "控制面板\n\t（control panel）是Windows图形用户界面一部分，可通过开始菜单访问。它允许用户查看并操作基本的系统设置，比如添加/删除软件，控制用户" +
     "帐户，更改辅助功能选项。\n\t禁用时，无法打开控制面板，更无法在“添加/删除程序”中添加修改。";
@@ -1161,7 +1164,7 @@ namespace Vexease.Views
             // 
             this.PnlCtrlPnlBtns.Controls.Add(this.BtnCtrlPnlRe);
             this.PnlCtrlPnlBtns.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PnlCtrlPnlBtns.Location = new System.Drawing.Point(0, 423);
+            this.PnlCtrlPnlBtns.Location = new System.Drawing.Point(0, 454);
             this.PnlCtrlPnlBtns.Name = "PnlCtrlPnlBtns";
             this.PnlCtrlPnlBtns.Size = new System.Drawing.Size(773, 50);
             this.PnlCtrlPnlBtns.TabIndex = 19;
@@ -1252,9 +1255,9 @@ namespace Vexease.Views
             this.PageRunTool.Controls.Add(this.PnlRunToolBtns);
             this.PageRunTool.Controls.Add(this.LvRunTool);
             this.PageRunTool.Controls.Add(this.PnlRunTool);
-            this.PageRunTool.Location = new System.Drawing.Point(4, 45);
+            this.PageRunTool.Location = new System.Drawing.Point(4, 14);
             this.PageRunTool.Name = "PageRunTool";
-            this.PageRunTool.Size = new System.Drawing.Size(773, 473);
+            this.PageRunTool.Size = new System.Drawing.Size(773, 504);
             this.PageRunTool.TabIndex = 7;
             this.PageRunTool.Text = "运行工具状态";
             this.PageRunTool.UseVisualStyleBackColor = true;
@@ -1269,7 +1272,7 @@ namespace Vexease.Views
             this.RTxtBoxRunTool.Location = new System.Drawing.Point(0, 140);
             this.RTxtBoxRunTool.Name = "RTxtBoxRunTool";
             this.RTxtBoxRunTool.ReadOnly = true;
-            this.RTxtBoxRunTool.Size = new System.Drawing.Size(773, 283);
+            this.RTxtBoxRunTool.Size = new System.Drawing.Size(773, 314);
             this.RTxtBoxRunTool.TabIndex = 21;
             this.RTxtBoxRunTool.Text = "运行工具\n\t是Windows的必要组成部分，可以简单理解为一个应用程序快速调用的组件。通过“运行”窗口，可以调用Windows中任何应用程序甚至DOS命令。\n\t禁" +
     "用时，无法通过运行工具打开安装或卸载程序。";
@@ -1278,7 +1281,7 @@ namespace Vexease.Views
             // 
             this.PnlRunToolBtns.Controls.Add(this.BtnRunToolRe);
             this.PnlRunToolBtns.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PnlRunToolBtns.Location = new System.Drawing.Point(0, 423);
+            this.PnlRunToolBtns.Location = new System.Drawing.Point(0, 454);
             this.PnlRunToolBtns.Name = "PnlRunToolBtns";
             this.PnlRunToolBtns.Size = new System.Drawing.Size(773, 50);
             this.PnlRunToolBtns.TabIndex = 20;
@@ -1369,9 +1372,9 @@ namespace Vexease.Views
             this.PageTaskMgr.Controls.Add(this.PnlTaskMgrBtns);
             this.PageTaskMgr.Controls.Add(this.LvTaskMgr);
             this.PageTaskMgr.Controls.Add(this.PnlTaskMgr);
-            this.PageTaskMgr.Location = new System.Drawing.Point(4, 45);
+            this.PageTaskMgr.Location = new System.Drawing.Point(4, 14);
             this.PageTaskMgr.Name = "PageTaskMgr";
-            this.PageTaskMgr.Size = new System.Drawing.Size(773, 473);
+            this.PageTaskMgr.Size = new System.Drawing.Size(773, 504);
             this.PageTaskMgr.TabIndex = 6;
             this.PageTaskMgr.Text = "任务管理器状态";
             this.PageTaskMgr.UseVisualStyleBackColor = true;
@@ -1386,7 +1389,7 @@ namespace Vexease.Views
             this.RTxtBoxTaskMgr.Location = new System.Drawing.Point(0, 140);
             this.RTxtBoxTaskMgr.Name = "RTxtBoxTaskMgr";
             this.RTxtBoxTaskMgr.ReadOnly = true;
-            this.RTxtBoxTaskMgr.Size = new System.Drawing.Size(773, 283);
+            this.RTxtBoxTaskMgr.Size = new System.Drawing.Size(773, 314);
             this.RTxtBoxTaskMgr.TabIndex = 22;
             this.RTxtBoxTaskMgr.Text = "任务管理器\n\t提供了有关计算机性能的信息，并显示了计算机上所运行的程序和进程的详细信息；它的用户界面提供了进程、性能、应用历史记录、开机启动项列表、用户、详细信息" +
     "与服务等菜单项。\n\t禁用时，无法打开任务管理器，更无法通过任务管理器关闭指定应用进程。";
@@ -1395,7 +1398,7 @@ namespace Vexease.Views
             // 
             this.PnlTaskMgrBtns.Controls.Add(this.BtnTaskMgrRe);
             this.PnlTaskMgrBtns.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PnlTaskMgrBtns.Location = new System.Drawing.Point(0, 423);
+            this.PnlTaskMgrBtns.Location = new System.Drawing.Point(0, 454);
             this.PnlTaskMgrBtns.Name = "PnlTaskMgrBtns";
             this.PnlTaskMgrBtns.Size = new System.Drawing.Size(773, 50);
             this.PnlTaskMgrBtns.TabIndex = 21;
@@ -1486,9 +1489,9 @@ namespace Vexease.Views
             this.PageCmd.Controls.Add(this.PnlCmdBtns);
             this.PageCmd.Controls.Add(this.LvCmd);
             this.PageCmd.Controls.Add(this.PnlCmd);
-            this.PageCmd.Location = new System.Drawing.Point(4, 45);
+            this.PageCmd.Location = new System.Drawing.Point(4, 14);
             this.PageCmd.Name = "PageCmd";
-            this.PageCmd.Size = new System.Drawing.Size(773, 473);
+            this.PageCmd.Size = new System.Drawing.Size(773, 504);
             this.PageCmd.TabIndex = 8;
             this.PageCmd.Text = "命令指示符状态";
             this.PageCmd.UseVisualStyleBackColor = true;
@@ -1503,7 +1506,7 @@ namespace Vexease.Views
             this.RTxtBoxCMD.Location = new System.Drawing.Point(0, 140);
             this.RTxtBoxCMD.Name = "RTxtBoxCMD";
             this.RTxtBoxCMD.ReadOnly = true;
-            this.RTxtBoxCMD.Size = new System.Drawing.Size(773, 283);
+            this.RTxtBoxCMD.Size = new System.Drawing.Size(773, 314);
             this.RTxtBoxCMD.TabIndex = 23;
             this.RTxtBoxCMD.Text = "命令提示符\n\t是在操作系统中，提示进行命令输入的一种工作提示符。在不同的操作系统环境下，命令提示符各不相同。在windows环境下，命令行程序为cmd.exe，是" +
     "一个32位的命令行程序，微软Windows系统基于Windows上的命令解释程序，类似于微软的DOS操作系统。\n\t禁用时，无法使用命令提示符打开应用程序。";
@@ -1512,7 +1515,7 @@ namespace Vexease.Views
             // 
             this.PnlCmdBtns.Controls.Add(this.BtnCmdRe);
             this.PnlCmdBtns.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PnlCmdBtns.Location = new System.Drawing.Point(0, 423);
+            this.PnlCmdBtns.Location = new System.Drawing.Point(0, 454);
             this.PnlCmdBtns.Name = "PnlCmdBtns";
             this.PnlCmdBtns.Size = new System.Drawing.Size(773, 50);
             this.PnlCmdBtns.TabIndex = 22;
@@ -1603,9 +1606,9 @@ namespace Vexease.Views
             this.PagePS.Controls.Add(this.PnlPsBtns);
             this.PagePS.Controls.Add(this.LvPS);
             this.PagePS.Controls.Add(this.PnlPS);
-            this.PagePS.Location = new System.Drawing.Point(4, 45);
+            this.PagePS.Location = new System.Drawing.Point(4, 14);
             this.PagePS.Name = "PagePS";
-            this.PagePS.Size = new System.Drawing.Size(773, 473);
+            this.PagePS.Size = new System.Drawing.Size(773, 504);
             this.PagePS.TabIndex = 9;
             this.PagePS.Text = "PowerShell状态";
             this.PagePS.UseVisualStyleBackColor = true;
@@ -1620,7 +1623,7 @@ namespace Vexease.Views
             this.RTxtBoxPS.Location = new System.Drawing.Point(0, 140);
             this.RTxtBoxPS.Name = "RTxtBoxPS";
             this.RTxtBoxPS.ReadOnly = true;
-            this.RTxtBoxPS.Size = new System.Drawing.Size(773, 283);
+            this.RTxtBoxPS.Size = new System.Drawing.Size(773, 314);
             this.RTxtBoxPS.TabIndex = 24;
             this.RTxtBoxPS.Text = "PowerShell\n\t是运行在windows机器上实现系统和应用程序管理自动化的命令行脚本环境。\n\t禁用时，无法通过PowerShell中命令行进行计算机更改。" +
     "";
@@ -1629,7 +1632,7 @@ namespace Vexease.Views
             // 
             this.PnlPsBtns.Controls.Add(this.BtnPSRe);
             this.PnlPsBtns.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PnlPsBtns.Location = new System.Drawing.Point(0, 423);
+            this.PnlPsBtns.Location = new System.Drawing.Point(0, 454);
             this.PnlPsBtns.Name = "PnlPsBtns";
             this.PnlPsBtns.Size = new System.Drawing.Size(773, 50);
             this.PnlPsBtns.TabIndex = 23;
@@ -1716,15 +1719,16 @@ namespace Vexease.Views
             // 
             // PageProcCtrl
             // 
+            this.PageProcCtrl.Controls.Add(this.panel1);
             this.PageProcCtrl.Controls.Add(this.RTxtBoxProcCtrl);
             this.PageProcCtrl.Controls.Add(this.PnlListTP);
             this.PageProcCtrl.Controls.Add(this.PnlWList);
             this.PageProcCtrl.Controls.Add(this.PnlWListTN);
             this.PageProcCtrl.Controls.Add(this.PnlBList);
             this.PageProcCtrl.Controls.Add(this.PnlBListTN);
-            this.PageProcCtrl.Location = new System.Drawing.Point(4, 45);
+            this.PageProcCtrl.Location = new System.Drawing.Point(4, 14);
             this.PageProcCtrl.Name = "PageProcCtrl";
-            this.PageProcCtrl.Size = new System.Drawing.Size(773, 473);
+            this.PageProcCtrl.Size = new System.Drawing.Size(773, 504);
             this.PageProcCtrl.TabIndex = 10;
             this.PageProcCtrl.Text = "进程管控";
             this.PageProcCtrl.UseVisualStyleBackColor = true;
@@ -1739,7 +1743,7 @@ namespace Vexease.Views
             this.RTxtBoxProcCtrl.Location = new System.Drawing.Point(0, 287);
             this.RTxtBoxProcCtrl.Name = "RTxtBoxProcCtrl";
             this.RTxtBoxProcCtrl.ReadOnly = true;
-            this.RTxtBoxProcCtrl.Size = new System.Drawing.Size(773, 186);
+            this.RTxtBoxProcCtrl.Size = new System.Drawing.Size(773, 217);
             this.RTxtBoxProcCtrl.TabIndex = 25;
             this.RTxtBoxProcCtrl.Text = "黑名单\n\t不能进行系统访问且无法安装或运行的名单。\n白名单\n\t与“黑名单”相对应。值得信任允许访问或者允许通过验证的名单。\n黑名单（名称）\n\t即通过增删程序名称的" +
     "方式更改黑名单。\n白名单（名称）\n\t即通过增删程序名称的方式更改白名单。\n黑白名单（路径）\n\t即通过增删文件路径（Path）的方式更改黑白名单。";
@@ -1885,6 +1889,8 @@ namespace Vexease.Views
             this.LvBListN.TabIndex = 18;
             this.LvBListN.UseCompatibleStateImageBehavior = false;
             this.LvBListN.View = System.Windows.Forms.View.List;
+            this.LvBListN.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.LvBListN_DrawItem);
+            this.LvBListN.SelectedIndexChanged += new System.EventHandler(this.LvBListN_SelectedIndexChanged);
             // 
             // PnlBListTN
             // 
@@ -1945,10 +1951,10 @@ namespace Vexease.Views
             // 
             this.PageOptimization.AutoScroll = true;
             this.PageOptimization.ImageIndex = 1;
-            this.PageOptimization.Location = new System.Drawing.Point(4, 45);
+            this.PageOptimization.Location = new System.Drawing.Point(4, 14);
             this.PageOptimization.Name = "PageOptimization";
             this.PageOptimization.Padding = new System.Windows.Forms.Padding(3);
-            this.PageOptimization.Size = new System.Drawing.Size(773, 473);
+            this.PageOptimization.Size = new System.Drawing.Size(773, 504);
             this.PageOptimization.TabIndex = 1;
             this.PageOptimization.Text = "系统优化";
             // 
@@ -1958,9 +1964,9 @@ namespace Vexease.Views
             this.PageInstruction.Controls.Add(this.LblTitleInInstruction);
             this.PageInstruction.Controls.Add(this.RTxtBoxBrief);
             this.PageInstruction.Controls.Add(this.LblIconInInstruction);
-            this.PageInstruction.Location = new System.Drawing.Point(4, 45);
+            this.PageInstruction.Location = new System.Drawing.Point(4, 14);
             this.PageInstruction.Name = "PageInstruction";
-            this.PageInstruction.Size = new System.Drawing.Size(773, 473);
+            this.PageInstruction.Size = new System.Drawing.Size(773, 504);
             this.PageInstruction.TabIndex = 11;
             this.PageInstruction.Text = "说明";
             this.PageInstruction.UseVisualStyleBackColor = true;
@@ -2007,6 +2013,28 @@ namespace Vexease.Views
             this.LblIconInInstruction.Name = "LblIconInInstruction";
             this.LblIconInInstruction.Size = new System.Drawing.Size(127, 124);
             this.LblIconInInstruction.TabIndex = 1;
+            // 
+            // BtnProcRe
+            // 
+            this.BtnProcRe.BackColor = System.Drawing.Color.White;
+            this.BtnProcRe.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnProcRe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnProcRe.Location = new System.Drawing.Point(683, 0);
+            this.BtnProcRe.Name = "BtnProcRe";
+            this.BtnProcRe.Size = new System.Drawing.Size(90, 50);
+            this.BtnProcRe.TabIndex = 19;
+            this.BtnProcRe.Text = "刷新";
+            this.BtnProcRe.UseVisualStyleBackColor = false;
+            this.BtnProcRe.Click += new System.EventHandler(this.BtnProcRe_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.BtnProcRe);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 454);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(773, 50);
+            this.panel1.TabIndex = 26;
             // 
             // AdmForm
             // 
@@ -2062,14 +2090,10 @@ namespace Vexease.Views
             this.PnlBListTN.ResumeLayout(false);
             this.PageInstruction.ResumeLayout(false);
             this.PageInstruction.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
-        }
-
-        private void BtnWList_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
         }
 
         #endregion
@@ -2213,5 +2237,7 @@ namespace Vexease.Views
         private Button BtnEx;
         private Button BtnIm;
         private ToolStripMenuItem MenuPwdChange;
+        private Panel panel1;
+        private Button BtnProcRe;
     }
 }

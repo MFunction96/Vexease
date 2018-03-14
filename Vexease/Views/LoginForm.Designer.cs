@@ -55,9 +55,7 @@
             this.TxtPwd.Name = "TxtPwd";
             this.TxtPwd.Size = new System.Drawing.Size(300, 28);
             this.TxtPwd.TabIndex = 10;
-            this.TxtPwd.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.TxtPwd_MaskInputRejected);
             this.TxtPwd.Enter += new System.EventHandler(this.TxtPwd_Enter);
-            this.TxtPwd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtPwd_KeyDown);
             this.TxtPwd.Leave += new System.EventHandler(this.TxtPwd_Leave);
             // 
             // LblTitle
@@ -69,6 +67,7 @@
             this.LblTitle.Size = new System.Drawing.Size(188, 83);
             this.LblTitle.TabIndex = 7;
             this.LblTitle.Text = "Vexease";
+            this.LblTitle.Click += new System.EventHandler(this.LblTitle_Click);
             // 
             // BtnCancel
             // 

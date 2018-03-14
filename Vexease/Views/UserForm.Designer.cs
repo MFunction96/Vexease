@@ -104,6 +104,7 @@
             this.LvUser.TabIndex = 2;
             this.LvUser.UseCompatibleStateImageBehavior = false;
             this.LvUser.View = System.Windows.Forms.View.Details;
+            this.LvUser.SelectedIndexChanged += new System.EventHandler(this.LvUser_SelectedIndexChanged);
             // 
             // ColName
             // 

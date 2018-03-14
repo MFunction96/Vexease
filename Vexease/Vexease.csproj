@@ -74,12 +74,10 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CSkin, Version=16.1.14.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\cskin.16.1.14.3\lib\net40\CSkin.dll</HintPath>
+    <Reference Include="CSkin">
+      <HintPath>Resources\CSkin.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
-    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -99,16 +97,19 @@
     <Compile Include="Controllers\Account\PwdCtrl.cs" />
     <Compile Include="Controllers\Comparer\NameComparer.cs" />
     <Compile Include="Controllers\Comparer\PathComparer.cs" />
-    <Compile Include="Controllers\Config\Configure.cs" />
     <Compile Include="Controllers\Crypt\AESCrypt.cs" />
     <Compile Include="Controllers\Dism\DismCtrl.cs" />
     <Compile Include="Controllers\List\ListCtrl.cs" />
     <Compile Include="Controllers\Status\Status.cs" />
     <Compile Include="Controllers\Status\TaskStatus.cs" />
     <Compile Include="Controllers\Task\TaskCtrl.cs" />
-    <Compile Include="Controllers\ViewCtrl\BtnYorNCtrl.cs" />
-    <Compile Include="Controllers\ViewCtrl\ViewMethod.cs" />
-    <Compile Include="Models\Config\Configuration.cs" />
+    <Compile Include="Controllers\ViewCtrl\AdmFormCtrl.cs" />
+    <Compile Include="Controllers\ViewCtrl\BListSetFormCtrl.cs" />
+    <Compile Include="Controllers\ViewCtrl\LoginFormCtrl.cs" />
+    <Compile Include="Controllers\ViewCtrl\PListSetFormCtrl.cs" />
+    <Compile Include="Controllers\ViewCtrl\PwdChangeFormCtrl.cs" />
+    <Compile Include="Controllers\ViewCtrl\UserFormCtrl.cs" />
+    <Compile Include="Controllers\ViewCtrl\WListSetFormCtrl.cs" />
     <Compile Include="Models\Enums\DISM_LOG_LEVEL.cs" />
     <Compile Include="Models\Enums\FACILITY_CODE.cs" />
     <Compile Include="Models\Enums\FILE_CACHE_FLAGS.cs" />
@@ -173,6 +174,12 @@
     <Compile Include="Views\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ModificationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ModificationForm.Designer.cs">
+      <DependentUpon>ModificationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\OnClosingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -231,6 +238,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ModificationForm.resx">
+      <DependentUpon>ModificationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\OnClosingForm.resx">
       <DependentUpon>OnClosingForm.cs</DependentUpon>

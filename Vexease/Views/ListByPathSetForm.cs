@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Vexease.Views
 {
+    /// <inheritdoc />
     public partial class ListByPathSetForm : Form
     {
+        /// <inheritdoc />
         public ListByPathSetForm()
         {
             //屏幕中间显示

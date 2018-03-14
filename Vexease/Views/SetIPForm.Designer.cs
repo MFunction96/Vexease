@@ -1,6 +1,6 @@
 ﻿namespace Vexease.Views
 {
-    partial class SetIPForm
+    partial class SetIpForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetIPForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetIpForm));
             this.LblIP = new System.Windows.Forms.Label();
             this.LblIPNow = new System.Windows.Forms.Label();
             this.LblIPSet = new System.Windows.Forms.Label();
@@ -119,7 +119,7 @@
             this.Controls.Add(this.LblIPNow);
             this.Controls.Add(this.LblIP);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "SetIPForm";
+            this.Name = "SetIpForm";
             this.Text = "管理终端设置";
             this.Load += new System.EventHandler(this.SetIPForm_Load);
             this.ResumeLayout(false);
