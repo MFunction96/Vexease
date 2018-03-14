@@ -18,8 +18,8 @@ namespace Vexease.Controllers.ViewCtrl
     {
         private ListCtrl Listctrl { get; }
         const TASK_TYPE_FLAGS TaskType = TASK_TYPE_FLAGS.DISALLOW_TASK_NAME;
-        private readonly string[] _bListN = DataContext.GetTaskList(TaskType);
-        private List<string> _newList = new List<string>();
+        private readonly IEnumerable<string> _bListN = DataContext.GetTaskList(TaskType);
+        private readonly List<string> _newList = new List<string>();
         /// <summary>
         /// 是否修改成功的flag
         /// </summary>
@@ -39,12 +39,10 @@ namespace Vexease.Controllers.ViewCtrl
         /// <param name="listView"></param>
         public void WListCtrlLoad(ListView listView)
         {
-            var i = 0;
-            while (_bListN != null && i < _bListN.Length)
+            if (_bListN is null) return;
+            foreach (var item in _bListN)
             {
-                if (_bListN[i] != null)
-                    listView.Items.Add(_bListN[i]);
-                i++;
+                listView.Items.Add(item);
             }
         }
 

@@ -20,7 +20,7 @@ namespace Vexease.Controllers.ViewCtrl
     {
         private ListCtrl Listctrl { get; }
         const TASK_TYPE_FLAGS TaskTypeW = TASK_TYPE_FLAGS.RESTRICT_TASK_NAME;
-        private readonly string[] _wListN = DataContext.GetTaskList(TaskTypeW);
+        private readonly IEnumerable<string> _wListN = DataContext.GetTaskList(TaskTypeW);
         /// <summary>
         /// 侧边栏Lbl与Lv相对应的字典（包括黑白表）
         /// </summary>
@@ -83,13 +83,7 @@ namespace Vexease.Controllers.ViewCtrl
         /// <param name="listView"></param>
         public void WListCtrlLoad(ListView listView)
         {
-            var i = 0;
-            while (_wListN != null && i < _wListN.Length)
-            {
-                if (_wListN[i] != null)
-                    listView.Items.Add(_wListN[i]);
-                i++;
-            }
+            
         }
 
         /// <summary>
@@ -364,35 +358,20 @@ namespace Vexease.Controllers.ViewCtrl
         /// <summary>
         /// 白名单（名称）列表加载
         /// </summary>
-        /// <param name="listView"></param>
-       
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         /// <summary>
         /// 黑名单（名称）列表加载
         /// </summary>
-        /// <param name="listView"></param>
+        /// <param name="listView">
+        /// </param>
         public void BListCtrlLoad(ListView listView)
         {
             const TASK_TYPE_FLAGS taskType = TASK_TYPE_FLAGS.DISALLOW_TASK_NAME;
             var bListN =DataContext.GetTaskList(taskType);
-            var i = 0;
-            while (bListN[i]!=null)
+
+            if (bListN is null) return;
+            foreach (var item in bListN)
             {
-                listView.Items.Add(bListN[i]);
-                i++;
+                listView.Items.Add(item);
             }
         }
     }

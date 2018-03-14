@@ -118,17 +118,6 @@ namespace Vexease.Controllers.List
             else
             {
                 try
-
-                {
-                    var regs = RegCtrl.RegEnumValue(regpath);
-                    foreach (var reg in regs)
-                    {
-                        RegCtrl.RegDelKey(reg);
-                    }
-                }
-                catch (Exception e)
-                {
-
                 {
                     var regs = RegCtrl.RegEnumValue(regpath);
                     foreach (var reg in regs)

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Vexease.Controllers.Crypt;
 using Vexease.Controllers.Reg;
 using Vexease.Controllers.Status;
@@ -92,19 +93,19 @@ namespace Vexease.Data
         /// <summary>
         /// 进程名称白名单。
         /// </summary>
-        private static string[] RestrictTaskNames { get; set; }
+        private static IEnumerable<string> RestrictTaskNames { get; set; }
         /// <summary>
         /// 进程名称黑名单。
         /// </summary>
-        private static string[] DisallowTaskNames { get; set; }
+        private static IEnumerable<string> DisallowTaskNames { get; set; }
         /// <summary>
         /// 进程路径白名单。
         /// </summary>
-        private static string[] RestrictTaskPaths { get; set; }
+        private static IEnumerable<string> RestrictTaskPaths { get; set; }
         /// <summary>
         /// 进程路径黑名单。
         /// </summary>
-        private static string[] DisallowTaskPaths { get; set; }
+        private static IEnumerable<string> DisallowTaskPaths { get; set; }
         /// <summary>
         /// 初始化全局数据。
         /// </summary>
@@ -334,11 +335,11 @@ namespace Vexease.Data
         /// <returns>
         /// 进程信息注册表信息。
         /// </returns>
-        private static string[] InitTask(TASK_TYPE_FLAGS taskType)
+        private static IEnumerable<string> InitTask(TASK_TYPE_FLAGS taskType)
         {
             var path = GetRegPath(taskType);
             string[] regkeys;
-            var list = new ArrayList();
+            var list = new List<string>();
             try
             {
                 if ((int) taskType >> 1 > 0)
@@ -366,7 +367,7 @@ namespace Vexease.Data
             finally
             {
                 list.Sort();
-                regkeys = list.ToArray() as string[];
+                regkeys = list.ToArray();
             }
             return regkeys;
         }
@@ -379,7 +380,7 @@ namespace Vexease.Data
         /// <returns>
         /// 相应类型的进程信息注册表信息。
         /// </returns>
-        public static string[] GetTaskList(TASK_TYPE_FLAGS taskType)
+        public static IEnumerable<string> GetTaskList(TASK_TYPE_FLAGS taskType)
         {
             if (taskType == TASK_TYPE_FLAGS.RESTRICT_TASK_NAME) return RestrictTaskNames;
             if (taskType == TASK_TYPE_FLAGS.DISALLOW_TASK_NAME) return DisallowTaskNames;
