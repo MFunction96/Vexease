@@ -97,7 +97,11 @@ namespace Vexease.Controllers.List
                     if (e.GetType() != typeof(NullReferenceException)) throw;
                 }
 
-                if (currentList is null) return;
+                if (currentList is null)
+                {
+                    DataContext.RefrushData();
+                    return;
+                }
                 foreach (var task in currentList)
                 {
                     var guid = Guid.NewGuid();
@@ -126,7 +130,11 @@ namespace Vexease.Controllers.List
                     if (e.GetType() != typeof(NullReferenceException)) throw;
                 }
 
-                if (currentList is null) return;
+                if (currentList is null)
+                {
+                    DataContext.RefrushData();
+                    return;
+                }
                 var index = 1;
                 foreach (var task in currentList)
                 {
@@ -134,6 +142,7 @@ namespace Vexease.Controllers.List
                     RegCtrl.RegSetValue(tmp);
                 }
             }
+            DataContext.RefrushData();
         }
     }
 }

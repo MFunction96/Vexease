@@ -1,4 +1,6 @@
-﻿namespace Vexease.Controllers.Status
+﻿using Vexease.Data;
+
+namespace Vexease.Controllers.Status
 {
     /// <summary>
     /// 状态类纯虚基类。
@@ -24,6 +26,7 @@
         /// </returns>
         public virtual bool SwapStatus()
         {
+            DataContext.RefrushData();
             return State = !State;
         }
     }
