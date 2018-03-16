@@ -104,12 +104,12 @@
     <Compile Include="Controllers\Status\TaskStatus.cs" />
     <Compile Include="Controllers\Task\TaskCtrl.cs" />
     <Compile Include="Controllers\ViewCtrl\AdmFormCtrl.cs" />
-    <Compile Include="Controllers\ViewCtrl\BListSetFormCtrl.cs" />
+    <Compile Include="Controllers\ViewCtrl\BtnYorNCtrl.cs" />
+    <Compile Include="Controllers\ViewCtrl\ListViewSetByName.cs" />
+    <Compile Include="Controllers\ViewCtrl\ListViewSetByPath.cs" />
     <Compile Include="Controllers\ViewCtrl\LoginFormCtrl.cs" />
-    <Compile Include="Controllers\ViewCtrl\PListSetFormCtrl.cs" />
     <Compile Include="Controllers\ViewCtrl\PwdChangeFormCtrl.cs" />
     <Compile Include="Controllers\ViewCtrl\UserFormCtrl.cs" />
-    <Compile Include="Controllers\ViewCtrl\WListSetFormCtrl.cs" />
     <Compile Include="Models\Enums\DISM_LOG_LEVEL.cs" />
     <Compile Include="Models\Enums\FACILITY_CODE.cs" />
     <Compile Include="Models\Enums\FILE_CACHE_FLAGS.cs" />
@@ -192,6 +192,12 @@
     <Compile Include="Views\PwdChangeForm.Designer.cs">
       <DependentUpon>PwdChangeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\SetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SetForm.Designer.cs">
+      <DependentUpon>SetForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\SetIPForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -247,6 +253,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\PwdChangeForm.resx">
       <DependentUpon>PwdChangeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SetForm.resx">
+      <DependentUpon>SetForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SetIPForm.resx">
       <DependentUpon>SetIPForm.cs</DependentUpon>

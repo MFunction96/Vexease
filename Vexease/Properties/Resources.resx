@@ -213,8 +213,14 @@
   </data>
   <data name="WListSetFormCtrl_SetCompare_01" xml:space="preserve">
     <value>您已作出以下修改：
+
+</value>
+  </data>
+  <data name="WListSetFormCtrl_SetCompare_04" xml:space="preserve">
+    <value>
 已添加：
 </value>
+
   </data>
   <data name="WListSetFormCtrl_SetCompare_02" xml:space="preserve">
     <value>
@@ -228,5 +234,9 @@
   </data>
   <data name="WListSetFormCtrl_SetCompare_确认修改" xml:space="preserve">
     <value>确认修改</value>
+  </data>
+  <data name="ListViewSetByName_SetCompare_LF" xml:space="preserve">
+    <value>
+</value>
   </data>
 </root>

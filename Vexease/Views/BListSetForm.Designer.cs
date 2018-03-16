@@ -66,6 +66,7 @@
             this.BtnEditBitem.TabStop = false;
             this.BtnEditBitem.Text = "编辑";
             this.BtnEditBitem.UseVisualStyleBackColor = true;
+            this.BtnEditBitem.Click += new System.EventHandler(this.BtnEditBitem_Click);
             // 
             // BtnDeleteBItem
             // 
@@ -77,6 +78,7 @@
             this.BtnDeleteBItem.TabStop = false;
             this.BtnDeleteBItem.Text = "删除";
             this.BtnDeleteBItem.UseVisualStyleBackColor = true;
+            this.BtnDeleteBItem.Click += new System.EventHandler(this.BtnDeleteBItem_Click);
             // 
             // BtnNewBItem
             // 

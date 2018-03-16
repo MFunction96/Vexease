@@ -18,14 +18,21 @@ namespace Vexease.Controllers.ViewCtrl
 
     public class AdmFormCtrl
     {
-        private ListCtrl Listctrl { get; }
-        const TASK_TYPE_FLAGS TaskTypeW = TASK_TYPE_FLAGS.RESTRICT_TASK_NAME;
-        private readonly IEnumerable<string> _wListN = DataContext.GetTaskList(TaskTypeW);
+        private  ListViewSetByName ListViewSetW { get; }
+        private ListViewSetByName ListViewSetB { get; }
         /// <summary>
         /// 侧边栏Lbl与Lv相对应的字典（包括黑白表）
         /// </summary>
         public Dictionary<string, string> LblLvDictionary = new Dictionary<string, string>
         {
+            {"BtnConsoleYorN", "LvConsole"},
+            {"BtnRegustriyYorN", "LvRegustry"},
+            {"BtnSysYorN", "LvSys"},
+            {"BtnCtrlPnlYorN", "LvCtrlPnl"},
+            {"BtnRunToolYorN", "LvRunTool"},
+            {"BtnTaskMgrYorN", "LvTaskMgr"},
+            {"BtnCmdYorN", "LvCmd"},
+            {"BtnPSYorN", "LvPS"},
             {"LblConsole", "LvConsole"},
             {"LblRegustriy", "LvRegustry"},
             {"LblSys", "LvSys"},
@@ -35,7 +42,9 @@ namespace Vexease.Controllers.ViewCtrl
             {"LblCmd", "LvCmd"},
             {"LblPS", "LvPS"},
             {"LblBListTitleN", "PnlBList"},
-            {"LblWListTN", "PnlWList"}
+            {"LblWListTN", "PnlWList"},
+            {"BtnBListYorN", "PnlBList"},
+         {"BtnWListYorN", "PnlWList"}
         };
         /// <summary>
         /// 侧边栏Lbl与Lv相对应的字典（不包括黑白表）
@@ -50,7 +59,8 @@ namespace Vexease.Controllers.ViewCtrl
             {"LblTaskMgr", "LvTaskMgr"},
             {"LblCmd", "LvCmd"},
             {"LblPS", "LvPS"}
-           
+
+
         };
         /// <summary>
         /// 滑块与DataContext方法相对应的字典
@@ -69,23 +79,17 @@ namespace Vexease.Controllers.ViewCtrl
             {"BtnCmdYorN", "Cmd"},
             {"BtnPSYorN", "PwrShell"}
         };
-
+       
+       
         /// <summary>
         /// 
         /// </summary>
-        public AdmFormCtrl()
+        public AdmFormCtrl( )
         {
-            Listctrl = new ListCtrl(TaskTypeW);
-        }
-        /// <summary>
-        /// 白名单（名称）列表加载
-        /// </summary>
-        /// <param name="listView"></param>
-        public void WListCtrlLoad(ListView listView)
-        {
+            ListViewSetB = new ListViewSetByName(TASK_TYPE_FLAGS.DISALLOW_TASK_NAME,"进程名称：");
+            ListViewSetW =new ListViewSetByName(TASK_TYPE_FLAGS.RESTRICT_TASK_NAME,"进程名称：");
             
         }
-
         /// <summary>
         /// 计算两列的列表的列宽
         /// </summary>
@@ -111,33 +115,35 @@ namespace Vexease.Controllers.ViewCtrl
                 }
             
         }
-        ///<summary>
-        ///通过点击checkbutton控制名单(listView)收放
-        /// </summary>       
-        public  void ContracAndAmplifica(ListView listView, BtnYorN btnYorN, String yorN)
-        {
-            listView.Height = btnYorN.Checked ? 90 : 0;
-        }
 
         /// <summary>
-        /// 通过点击checkbutton控制名单(Panel)收放
+        /// 状态显示
         /// </summary>
-        /// <param name="panel"></param>
-        /// <param name="btnYorN"></param>
-        /// <param name="yorN"></param>
-        public  void ContracAndAmplifica(Panel panel, BtnYorN btnYorN, String yorN)
+        /// <param name="btnYorN">滑块按钮</param>
+        /// <param name="listView">状态显示的列表</param>
+        /// <param name="yorN">调用的方法名</param>
+        public  void StatusChange(BtnYorN btnYorN, ListView listView, string yorN)
         {
-            panel.Height = btnYorN.Checked ? 90 : 0;
+            listView.Items[1].SubItems[1].Text = btnYorN.Checked == false ? Resources.UserFormCtrl_StatusChange_已禁用 : Resources.UserFormCtrl_StatusChange_启用中;
         }
         /// <summary>
         /// 通过点击标题控制名单（listView）收放
         /// </summary>
         /// <param name="s"></param>
-        public  void ContracAndAmplifica( Control s)
+        public void ContracAndAmplifica( Control s)
         {
             s.Height = s.Height == 0 ? 90 : 0;
         }
-      
+        /// <summary>
+        /// 通过btnYorN控制名单（Panel）收放
+        /// </summary>
+        /// <param name="btnYorN"></param>
+        /// <param name="s"></param>
+        public void ContracAndAmplifica(BtnYorN btnYorN,Panel s,string n)
+        {
+            s.Height = btnYorN.Checked==false ? 0 : 90;
+        }
+
         ///<summary>
         /// Tab转换
         /// </summary>
@@ -168,66 +174,48 @@ namespace Vexease.Controllers.ViewCtrl
         }
 
         /// <summary>
-        /// 点击滑块检查状态
+        /// 点击滑块
         /// </summary>
         /// <param name="s"></param>
-        public void ClickYorN(string s)
+        public void ClickYorN( string s)
         {
 
-            if (s == "LimitTaskPath")
+            switch (s)
             {
-                DataContext.LimitTaskPath.SwapStatus();
+                case "LimitTaskPath":
+                    DataContext.LimitTaskPath.SwapStatus();
+                    break;
+                case "RestrictTask":
+                    DataContext.RestrictTask.SwapStatus();
+                    break;
+                case "DisallowTask":
+                    DataContext.DisallowTask.SwapStatus();
+                    break;
+                case "SysDriver":
+                    DataContext.SysDriver.SwapStatus();
+                    break;
+                case "BtnConsoleYorN":
+                    DataContext.Mmc.SwapStatus();
+                    break;
+                case "Registry":
+                    DataContext.Registry.SwapStatus();
+                    break;
+                case "CtrlPal":
+                    DataContext.CtrlPal.SwapStatus();
+                    break;
+                case "Launcher":
+                    DataContext.Launcher.SwapStatus();
+                    break;
+                case "Cmd":
+                    DataContext.Cmd.SwapStatus();
+                    break;
+                case "Taskmgr":
+                    DataContext.Taskmgr.SwapStatus();
+                    break;
+                case "PwrShell":
+                    DataContext.PwrShell.SwapStatus();
+                    break;
             }
-            
-            if (s == "RestrictTask")
-            {
-                DataContext.RestrictTask.SwapStatus();
-            }
-            if (s == "DisallowTask")
-            {
-                DataContext.DisallowTask.SwapStatus();
-
-            }
-            if (s == "SysDriver")
-            {
-                DataContext.SysDriver.SwapStatus();
-            }
-           
-            if (s == "BtnConsoleYorN")
-            {
-               // btnYorN.Checked = false;
-            }
-            
-            if (s == "Registry")
-            {
-                DataContext.Registry.SwapStatus();
-            }
-            
-            if (s == "CtrlPal")
-            {
-                DataContext.CtrlPal.SwapStatus();
-            }
-           
-            if (s == "Launcher")
-            {
-                DataContext.Launcher.SwapStatus();
-            }
-            
-            if (s == "Cmd")
-            {
-                DataContext.Cmd.SwapStatus();
-            }
-            
-            if (s == "Taskmgr")
-            {
-                DataContext.Taskmgr.SwapStatus();
-            }
-            
-            if (s == "PwrShell")
-            {
-                DataContext.PwrShell.SwapStatus();
-            }
-
         }
 
         /// <summary>
@@ -241,50 +229,41 @@ namespace Vexease.Controllers.ViewCtrl
         ///  </param>
         public void LoadYorN(BtnYorN btnYorN, string s)
         {
-            if (s == "LimitTaskPath")
+            switch (s)
             {
-                btnYorN.Checked = DataContext.LimitTaskPath.CheckStatus();
-            }
-            if (s == "RestrictTask")
-            {
-                btnYorN.Checked = DataContext.RestrictTask.CheckStatus();
-            }
-            if (s == "DisallowTask")
-            {
-                btnYorN.Checked = DataContext.DisallowTask.CheckStatus();
-            }
-            if (s == "SysDriver")
-            {
-                btnYorN.Checked = !DataContext.SysDriver.CheckStatus();
-            }
-            if (s == "BtnConsoleYorN")
-            {
-                btnYorN.Checked = false;
-            }
-            if (s == "Registry")
-            {
-                btnYorN.Checked = !DataContext.Registry.CheckStatus();
-            }
-            if (s == "CtrlPal")
-            {
-                btnYorN.Checked = !DataContext.CtrlPal.CheckStatus();
-            }
-            if (s == "Launcher")
-            {
-                btnYorN.Checked = !DataContext.Launcher.CheckStatus();
-            }
-            if (s == "Cmd")
-            {
-                btnYorN.Checked = !DataContext.Cmd.CheckStatus();
-            }
-            if (s == "Taskmgr")
-            {
-                btnYorN.Checked = !DataContext.Taskmgr.CheckStatus();
-            }
-
-            if (s == "PwrShell")
-            {
-                btnYorN.Checked = !DataContext.PwrShell.CheckStatus();
+                case "LimitTaskPath":
+                    btnYorN.Checked = DataContext.LimitTaskPath.CheckStatus();
+                    break;
+                case "RestrictTask":
+                    btnYorN.Checked = DataContext.RestrictTask.CheckStatus();
+                    break;
+                case "DisallowTask":
+                    btnYorN.Checked = DataContext.DisallowTask.CheckStatus();
+                    break;
+                case "SysDriver":
+                    btnYorN.Checked = !DataContext.SysDriver.CheckStatus();
+                    break;
+                case "BtnConsoleYorN":
+                    btnYorN.Checked = !DataContext.Mmc.CheckStatus();
+                    break;
+                case "Registry":
+                    btnYorN.Checked = !DataContext.Registry.CheckStatus();
+                    break;
+                case "CtrlPal":
+                    btnYorN.Checked = !DataContext.CtrlPal.CheckStatus();
+                    break;
+                case "Launcher":
+                    btnYorN.Checked = !DataContext.Launcher.CheckStatus();
+                    break;
+                case "Cmd":
+                    btnYorN.Checked = !DataContext.Cmd.CheckStatus();
+                    break;
+                case "Taskmgr":
+                    btnYorN.Checked = !DataContext.Taskmgr.CheckStatus();
+                    break;
+                case "PwrShell":
+                    btnYorN.Checked = !DataContext.PwrShell.CheckStatus();
+                    break;
             }
         }
         ///<summary>
@@ -358,6 +337,11 @@ namespace Vexease.Controllers.ViewCtrl
         /// <summary>
         /// 白名单（名称）列表加载
         /// </summary>
+        public void WListCtrlLoad(ListView listView)
+        {
+           ListViewSetW.ListLoad(listView,TASK_TYPE_FLAGS.RESTRICT_TASK_NAME);
+            
+        }
         /// <summary>
         /// 黑名单（名称）列表加载
         /// </summary>
@@ -365,14 +349,7 @@ namespace Vexease.Controllers.ViewCtrl
         /// </param>
         public void BListCtrlLoad(ListView listView)
         {
-            const TASK_TYPE_FLAGS taskType = TASK_TYPE_FLAGS.DISALLOW_TASK_NAME;
-            var bListN =DataContext.GetTaskList(taskType);
-
-            if (bListN is null) return;
-            foreach (var item in bListN)
-            {
-                listView.Items.Add(item);
-            }
+           ListViewSetB.ListLoad(listView,TASK_TYPE_FLAGS.DISALLOW_TASK_NAME);
         }
     }
 }

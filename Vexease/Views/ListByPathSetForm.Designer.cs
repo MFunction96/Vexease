@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("C:\\Windows");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("C:\\Program Files");
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("C:\\Program Files (x86)");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListByPathSetForm));
             this.GBBListSetByPath = new System.Windows.Forms.GroupBox();
             this.BtnEditBItem = new System.Windows.Forms.Button();
@@ -75,6 +72,7 @@
             this.BtnEditBItem.TabStop = false;
             this.BtnEditBItem.Text = "编辑";
             this.BtnEditBItem.UseVisualStyleBackColor = true;
+            this.BtnEditBItem.Click += new System.EventHandler(this.BtnEditBItem_Click);
             // 
             // BtnDeleteBItem
             // 
@@ -86,6 +84,7 @@
             this.BtnDeleteBItem.TabStop = false;
             this.BtnDeleteBItem.Text = "删除";
             this.BtnDeleteBItem.UseVisualStyleBackColor = true;
+            this.BtnDeleteBItem.Click += new System.EventHandler(this.BtnDeleteBItem_Click);
             // 
             // BtnNewBItem
             // 
@@ -97,6 +96,7 @@
             this.BtnNewBItem.TabStop = false;
             this.BtnNewBItem.Text = "新建";
             this.BtnNewBItem.UseVisualStyleBackColor = true;
+            this.BtnNewBItem.Click += new System.EventHandler(this.BtnNewBItem_Click);
             // 
             // LvBListByPath
             // 
@@ -147,6 +147,7 @@
             this.BtnEditWItem.TabStop = false;
             this.BtnEditWItem.Text = "编辑";
             this.BtnEditWItem.UseVisualStyleBackColor = true;
+            this.BtnEditWItem.Click += new System.EventHandler(this.BtnEditWItem_Click);
             // 
             // BtnDeleteWItem
             // 
@@ -158,6 +159,7 @@
             this.BtnDeleteWItem.TabStop = false;
             this.BtnDeleteWItem.Text = "删除";
             this.BtnDeleteWItem.UseVisualStyleBackColor = true;
+            this.BtnDeleteWItem.Click += new System.EventHandler(this.BtnDeleteWItem_Click);
             // 
             // BtnNewWItem
             // 
@@ -169,6 +171,7 @@
             this.BtnNewWItem.TabStop = false;
             this.BtnNewWItem.Text = "新建";
             this.BtnNewWItem.UseVisualStyleBackColor = true;
+            this.BtnNewWItem.Click += new System.EventHandler(this.BtnNewWItem_Click);
             // 
             // LvWListByPath
             // 
@@ -179,10 +182,6 @@
             this.LvWListByPath.Dock = System.Windows.Forms.DockStyle.Top;
             this.LvWListByPath.FullRowSelect = true;
             this.LvWListByPath.GridLines = true;
-            this.LvWListByPath.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3});
             this.LvWListByPath.LabelEdit = true;
             this.LvWListByPath.LabelWrap = false;
             this.LvWListByPath.Location = new System.Drawing.Point(3, 21);

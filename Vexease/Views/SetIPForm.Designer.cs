@@ -74,6 +74,7 @@
             // 
             // BtnTest
             // 
+            this.BtnTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnTest.Location = new System.Drawing.Point(226, 198);
             this.BtnTest.Name = "BtnTest";
             this.BtnTest.Size = new System.Drawing.Size(75, 30);
@@ -97,6 +98,7 @@
             // 
             // BtnCancel
             // 
+            this.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCancel.Location = new System.Drawing.Point(419, 198);
             this.BtnCancel.Name = "BtnCancel";
             this.BtnCancel.Size = new System.Drawing.Size(75, 30);
@@ -106,10 +108,11 @@
             this.BtnCancel.UseVisualStyleBackColor = true;
             this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
-            // SetIPForm
+            // SetIpForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(682, 253);
             this.Controls.Add(this.BtnTest);
             this.Controls.Add(this.BtnCancel);

@@ -67,10 +67,10 @@ namespace Vexease.Controllers.ViewCtrl
                 listView.Items[0].SubItems[2].Text = Resources.UserFormCtrl_StatusChange_已禁用;
             else listView.Items[0].SubItems[2].Text = Resources.UserFormCtrl_StatusChange_启用中;
 
-            /*Mmc
-            if (DataContext.Registry.CheckStatus())
-                listView.Items[1].SubItems[2].Text = "已禁用";
-            else listView.Items[1].SubItems[2].Text = "启用中";*/
+           
+            if (DataContext.Mmc.CheckStatus())
+                listView.Items[1].SubItems[2].Text = Resources.UserFormCtrl_StatusChange_已禁用; 
+            else listView.Items[1].SubItems[2].Text = Resources.UserFormCtrl_StatusChange_启用中;
 
             if (DataContext.Registry.CheckStatus())
                 listView.Items[2].SubItems[2].Text = Resources.UserFormCtrl_StatusChange_已禁用;

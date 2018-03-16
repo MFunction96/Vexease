@@ -240,6 +240,16 @@ namespace Vexease.Properties {
         }
         
         /// <summary>
+        ///   查找类似 
+        /// 的本地化字符串。
+        /// </summary>
+        internal static string ListViewSetByName_SetCompare_LF {
+            get {
+                return ResourceManager.GetString("ListViewSetByName_SetCompare_LF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 请输入密码！ 的本地化字符串。
         /// </summary>
         internal static string LoginForm_LoginForm_Load_ {
@@ -342,7 +352,7 @@ namespace Vexease.Properties {
         
         /// <summary>
         ///   查找类似 您已作出以下修改：
-        ///已添加：
+        ///
         /// 的本地化字符串。
         /// </summary>
         internal static string WListSetFormCtrl_SetCompare_01 {
@@ -370,6 +380,17 @@ namespace Vexease.Properties {
         internal static string WListSetFormCtrl_SetCompare_03 {
             get {
                 return ResourceManager.GetString("WListSetFormCtrl_SetCompare_03", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 
+        ///已添加：
+        /// 的本地化字符串。
+        /// </summary>
+        internal static string WListSetFormCtrl_SetCompare_04 {
+            get {
+                return ResourceManager.GetString("WListSetFormCtrl_SetCompare_04", resourceCulture);
             }
         }
         
