@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Microsoft.VisualBasic;
 using Vexease.Controllers.List;
 using Vexease.Data;
 using Vexease.Models.Enums;
@@ -19,7 +17,7 @@ namespace Vexease.Controllers.ViewCtrl
         /// <inheritdoc />
         public ListViewSetByName(TASK_TYPE_FLAGS taskType,string lbl)
         {
-            _originlist = DataContext.GetTaskList(taskType);
+            DataContext.GetTaskList(taskType);
             Listctrl = new ListCtrl(taskType);
             _lbl = lbl;
         }
@@ -29,10 +27,7 @@ namespace Vexease.Controllers.ViewCtrl
         /// </summary>
         private readonly string _lbl;
         private ListCtrl Listctrl { get; }
-        /// <summary>
-        /// <para>初始列表</para>
-        /// </summary>
-        private readonly IEnumerable<string> _originlist;
+
         /// <summary>
         /// <para>新列表</para>
         /// </summary>
@@ -88,7 +83,7 @@ namespace Vexease.Controllers.ViewCtrl
         {
             if (listView.SelectedItems.Count<1)
             {
-                MessageBox.Show("您未选择任何项。", "错误");
+                MessageBox.Show(Resources.ListViewSetByPath_EditItem_NoSelect, Resources.ListViewSetByName_Warning);
                 return;
             }
             var iNdex = listView.SelectedItems[0].Index;

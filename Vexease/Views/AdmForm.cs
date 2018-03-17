@@ -15,7 +15,7 @@ namespace Vexease.Views
     public partial class AdmForm : Form
     {
         private readonly Form _form;
-
+       
         private AdmFormCtrl Controller { get; }
         /// <inheritdoc />
         /// <summary>
@@ -289,6 +289,7 @@ namespace Vexease.Views
             if (!(sender is BtnYorN btnYorN)) return;
             Controller.YorNLimitDictionary.TryGetValue(btnYorN.Name, out var methodN);
             Controller.ClickYorN(methodN);
+           // Controller.LoadYorN(btnYorN,methodN);
             Controller.LblLvDictionary.TryGetValue(btnYorN.Name, out var listN);
             var c = Controls.Find(listN ?? throw new InvalidOperationException(), true);
             var panelN = (Panel) c[0];
@@ -309,6 +310,22 @@ namespace Vexease.Views
           
         }
 
+        private void BtnReFrash(object sender, EventArgs e)
+        {
+            if(!(sender is Button btn)) return;
+           Controller.Fresh(btn);
+            foreach (var item in Controller.YorNDictionary)
+            {
+                Controller.LblLvDictionary.TryGetValue(item.Key, out var listN);
+                var btnYn = Controls.Find(item.Key, true);
+                var btnYorN = (BtnYorN)btnYn[0];
+                var c = Controls.Find(listN ?? throw new InvalidOperationException(), true);
+                var listV = (ListView) c[0];
+                Controller.LoadYorN(btnYorN,item.Value);
+                Controller.StatusChange(btnYorN,listV,item.Value);
+            }
+
+        }
     }
 
 }

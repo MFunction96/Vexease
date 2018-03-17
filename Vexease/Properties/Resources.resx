@@ -239,4 +239,10 @@
     <value>
 </value>
   </data>
+  <data name="ListViewSetByPath_EditItem_NoSelect" xml:space="preserve">
+    <value>您未选择任何项。</value>
+  </data>
+  <data name="ListViewSetByName_Warning" xml:space="preserve">
+    <value>错误</value>
+  </data>
 </root>

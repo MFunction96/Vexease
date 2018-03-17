@@ -250,6 +250,24 @@ namespace Vexease.Properties {
         }
         
         /// <summary>
+        ///   查找类似 错误 的本地化字符串。
+        /// </summary>
+        internal static string ListViewSetByName_Warning {
+            get {
+                return ResourceManager.GetString("ListViewSetByName_Warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 您未选择任何项。 的本地化字符串。
+        /// </summary>
+        internal static string ListViewSetByPath_EditItem_NoSelect {
+            get {
+                return ResourceManager.GetString("ListViewSetByPath_EditItem_NoSelect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 请输入密码！ 的本地化字符串。
         /// </summary>
         internal static string LoginForm_LoginForm_Load_ {

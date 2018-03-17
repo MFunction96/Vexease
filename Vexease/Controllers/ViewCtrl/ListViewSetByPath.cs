@@ -24,7 +24,6 @@ namespace Vexease.Controllers.ViewCtrl
             ListctrlW =new ListCtrl(TaskTypeW);
             _lbl = lbl;
         }
-
         private const TASK_TYPE_FLAGS TaskTypeB = TASK_TYPE_FLAGS.DISALLOW_TASK_PATH;
         private const TASK_TYPE_FLAGS TaskTypeW = TASK_TYPE_FLAGS.RESTRICT_TASK_PATH;
         /// <summary>
@@ -112,7 +111,7 @@ namespace Vexease.Controllers.ViewCtrl
         {
             if (listView.SelectedItems.Count < 1)
             {
-                MessageBox.Show("您未选择任何项。", "错误");
+                MessageBox.Show(Resources.ListViewSetByPath_EditItem_NoSelect, Resources.ListViewSetByName_Warning);
                 return;
             }
             var iNdex = listView.SelectedItems[0].Index;
@@ -165,7 +164,7 @@ namespace Vexease.Controllers.ViewCtrl
                 foreach (var item in bchange.Item1)
                 {
                     if(index==0)baddstring.Append("已添加黑名单进程路径：\n" + item);
-                    else baddstring.Append(item+"\n");
+                    else baddstring.Append("\n" + item);
                     index++;
                 }
                 index = 0;
@@ -176,7 +175,7 @@ namespace Vexease.Controllers.ViewCtrl
                 foreach (var item in bchange.Item2)
                 {
                     if(index==0) bdelstring.Append("\n已删除黑名单进程路径：\n" + item);
-                    else bdelstring.Append(item+"\n");
+                    else bdelstring.Append("\n" + item);
                     index++;
                 }
                 index = 0;
@@ -188,7 +187,7 @@ namespace Vexease.Controllers.ViewCtrl
                 {
                     if (index==0)
                     waddstring.Append("\n已添加白名单进程路径：\n" + item);
-                    else waddstring.Append(item+"\n");
+                    else waddstring.Append("\n" + item );
                     index++;
                 }
                 index = 0;
@@ -199,7 +198,7 @@ namespace Vexease.Controllers.ViewCtrl
                 foreach (var item in wchange.Item2)
                 {
                     if (index == 0) wdelstring.Append("\n已删除白名单路径：\n" + item);
-                    else wdelstring.Append(item+"\n");
+                    else wdelstring.Append("\n" + item);
                     index++;
                 }
             }

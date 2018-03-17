@@ -79,16 +79,29 @@ namespace Vexease.Controllers.ViewCtrl
             {"BtnCmdYorN", "Cmd"},
             {"BtnPSYorN", "PwrShell"}
         };
-       
-       
+        /// <summary>
+        /// 
+        /// </summary>
+        public Dictionary<string, string> YorNDictionary = new Dictionary<string, string>
+        {
+           
+            {"BtnRegustriyYorN", "Registry"},
+            {"BtnConsoleYorN", "BtnConsoleYorN"},
+            {"BtnSysYorN", "SysDriver"},
+            {"BtnCtrlPnlYorN", "CtrlPal"},
+            {"BtnRunToolYorN", "Launcher"},
+            {"BtnTaskMgrYorN", "Taskmgr"},
+            {"BtnCmdYorN", "Cmd"},
+            {"BtnPSYorN", "PwrShell"}
+        };
+
         /// <summary>
         /// 
         /// </summary>
         public AdmFormCtrl( )
         {
             ListViewSetB = new ListViewSetByName(TASK_TYPE_FLAGS.DISALLOW_TASK_NAME,"进程名称：");
-            ListViewSetW =new ListViewSetByName(TASK_TYPE_FLAGS.RESTRICT_TASK_NAME,"进程名称：");
-            
+            ListViewSetW =new ListViewSetByName(TASK_TYPE_FLAGS.RESTRICT_TASK_NAME,"进程名称：");         
         }
         /// <summary>
         /// 计算两列的列表的列宽
@@ -124,6 +137,7 @@ namespace Vexease.Controllers.ViewCtrl
         /// <param name="yorN">调用的方法名</param>
         public  void StatusChange(BtnYorN btnYorN, ListView listView, string yorN)
         {
+            
             listView.Items[1].SubItems[1].Text = btnYorN.Checked == false ? Resources.UserFormCtrl_StatusChange_已禁用 : Resources.UserFormCtrl_StatusChange_启用中;
         }
         /// <summary>
@@ -350,6 +364,15 @@ namespace Vexease.Controllers.ViewCtrl
         public void BListCtrlLoad(ListView listView)
         {
            ListViewSetB.ListLoad(listView,TASK_TYPE_FLAGS.DISALLOW_TASK_NAME);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="btnYorN"></param>
+        public void Fresh(Button btnYorN)
+        {
+            DataContext.RefrushData();
         }
     }
 }
