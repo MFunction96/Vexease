@@ -73,8 +73,12 @@ namespace Vexease.Views
             e.Cancel = true;
             Application.DoEvents();
             Controller.CloseTips(this);
+            NotifyIcon.Dispose();
             base.OnClosing(e);
         }
+
+        
+        
 
         /// <summary>
         /// Tab转换

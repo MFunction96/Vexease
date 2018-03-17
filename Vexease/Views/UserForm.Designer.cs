@@ -29,6 +29,7 @@
         private void InitializeComponent()
 
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             "系统盘状态",
             "禁用",
@@ -67,6 +68,7 @@
             this.ColName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ColDflt = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ColNow = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.NotifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.SuspendLayout();
             // 
             // BtnSwitchToAdmMode
@@ -120,6 +122,13 @@
             this.ColNow.Text = "当前状态";
             this.ColNow.Width = 141;
             // 
+            // NotifyIcon1
+            // 
+            this.NotifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("NotifyIcon1.Icon")));
+            this.NotifyIcon1.Text = "Vexease";
+            this.NotifyIcon1.Visible = true;
+            this.NotifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.NotifyIcon1_MouseDoubleClick);
+            // 
             // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -144,5 +153,6 @@
         private System.Windows.Forms.ColumnHeader ColName;
         private System.Windows.Forms.ColumnHeader ColDflt;
         private System.Windows.Forms.ColumnHeader ColNow;
+        private System.Windows.Forms.NotifyIcon NotifyIcon1;
     }
 }

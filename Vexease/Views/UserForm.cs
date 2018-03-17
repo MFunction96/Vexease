@@ -31,6 +31,7 @@ namespace Vexease.Views
             Controller.StatusChange(LvUser);
         }
 
+        /// <inheritdoc />
         /// <summary />
         /// <param name="e"></param>
         protected override void OnClosing(CancelEventArgs e)
@@ -40,6 +41,7 @@ namespace Vexease.Views
 
             Application.DoEvents();
             Controller.CloseForm(this);
+            NotifyIcon1.Dispose();
             base.OnClosing(e);
         }
 
@@ -49,12 +51,19 @@ namespace Vexease.Views
             var loginform = new LoginForm(this);            
             loginform.Show();
             Hide();
-           
+            NotifyIcon1.Visible = false;
+
         }
 
         private void LvUser_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void NotifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Show();
+            
         }
     }
 }
