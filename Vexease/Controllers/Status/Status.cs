@@ -26,7 +26,6 @@ namespace Vexease.Controllers.Status
         /// </returns>
         public virtual bool SwapStatus()
         {
-            DataContext.RefrushData();
             return State = !State;
         }
     }
